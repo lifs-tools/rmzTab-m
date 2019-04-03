@@ -1,4 +1,4 @@
 library(testthat)
-library(rmztab)
+library(rmzTabM)
 
-test_check("rmztab")
+test_check("rmzTabM")

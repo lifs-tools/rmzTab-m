@@ -3,6 +3,8 @@
 
 This is the mzTab-M reference implementation and validation API service.
 
+> **_NOTE:_**  This is an *early* development version, please use at your own risk and report issues to help improve it!
+
 ## Related Projects
 
 - [mzTab-M 2.0 Standard Specification](http://github.com/HUPO-PSI/mztab)

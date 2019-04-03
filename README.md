@@ -1,5 +1,5 @@
 # R API client for rmztab
-https://travis-ci.org/lifs-tools/rmzTab-m.svg?branch=master
+[![Build Status](https://travis-ci.org/lifs-tools/rmzTab-m.svg?branch=master)](https://travis-ci.org/lifs-tools/rmzTab-m)
 
 This is the mzTab-M reference implementation and validation API service.
 

@@ -1,7 +1,7 @@
 context("test-read_mztab_json.R")
 
 test_that("reading of mztab json works", {
-  testfile <- system.file("testdata", c("lipidomics-example.mzTab.json"),package="rmztab")
+  testfile <- system.file("testdata", c("lipidomics-example.mzTab.json"),package="rmzTabM")
   mzTabObject <- MzTab$new()
   mzTabObject$fromJSON(testfile)
   #print(mzTabObject$toJSONString())

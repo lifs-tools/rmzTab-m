@@ -13,11 +13,8 @@ test_that("reading and writing of mztab json works", {
   expect_length(mzTabObject$`smallMoleculeSummary`,1)
   expect_length(mzTabObject$`smallMoleculeFeature`,4)
   expect_length(mzTabObject$`smallMoleculeEvidence`,4)
-  json <- jsonlite::toJSON(mzTabObject$toJSON(), digits = 10, auto_unbox = TRUE, null = 'null', na = 'null')
-  #json <- gsub("NA","\"null\"", json)
-  #cat(json)
   tmpfile <- file.path("/","tmp","rmztab-test-write_mztab_json.mzTab")
-  write(json, tmpfile)
+  rmzTabM::writeMzTabJSONToFile(mzTabObject, tmpfile)
   mzTabObject2 <- MzTab$new()
   mzTabObject2$fromJSON(tmpfile)
   expect_false(is.null(mzTabObject2$metadata))
@@ -29,5 +26,65 @@ test_that("reading and writing of mztab json works", {
   expect_length(mzTabObject2$`smallMoleculeSummary`,1)
   expect_length(mzTabObject2$`smallMoleculeFeature`,4)
   expect_length(mzTabObject2$`smallMoleculeEvidence`,4)
-  
+})
+
+#' @field mzTab-version 
+#' @field mzTab-ID 
+#' @field title 
+#' @field description 
+#' @field sample_processing 
+#' @field instrument 
+#' @field software 
+#' @field publication 
+#' @field contact 
+#' @field uri 
+#' @field external_study_uri 
+#' @field quantification_method 
+#' @field study_variable 
+#' @field ms_run 
+#' @field assay 
+#' @field sample 
+#' @field custom 
+#' @field cv 
+#' @field database 
+#' @field derivatization_agent 
+#' @field small_molecule-quantification_unit 
+#' @field small_molecule_feature-quantification_unit 
+#' @field small_molecule-identification_reliability 
+#' @field id_confidence_measure 
+#' @field colunit-small_molecule 
+#' @field colunit-small_molecule_feature 
+#' @field colunit-small_molecule_evidence 
+test_that("conversion of metadata section to table works", {
+  metadata <- Metadata$new()
+  metadata$`mzTab-version` <- "2.0.0-M";
+  metadata$`mzTab-ID` <- "justatestid";
+  metadata$`title` <- "A test title";
+  metadata$`description` <- "A test description";
+  metadata$`sample_processing` <- list();
+  metadata$`instrument` <- list();
+  metadata$`software` <- list();
+  metadata$`publication` <- list();
+  metadata$`contact` <- list();
+  metadata$`uri` <- "";
+  metadata$`external_study_uri` <- "";
+  metadata$`quantification_method` <- Parameter$new();
+  metadata$`study_variable` <- list();
+  metadata$`ms_run` <- list();
+  metadata$`assay` <- list();
+  metadata$`sample` <- list();
+  metadata$`custom` <- list();
+  metadata$`cv` <- list();
+  metadata$`database` <- list();
+  metadata$`derivatization_agent` <- list();
+  metadata$`small_molecule-quantification_unit` <- Parameter$new();
+  metadata$`small_molecule_feature-quantification_unit` <- Parameter$new();
+  metadata$`small_molecule-identification_reliability` <- Parameter$new();
+  metadata$`id_confidence_measure` <- Parameter$new();
+  metadata$`colunit-small_molecule` <- list();
+  metadata$`colunit-small_molecule_feature` <- list();
+  metadata$`colunit-small_molecule_evidence` <- list();
+  utils::write.table(metadataTable, file=filename,
+                     row.names=FALSE, col.names=FALSE,
+                     quote=TRUE, sep="\t", na="\"\"")
 })

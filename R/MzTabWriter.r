@@ -44,6 +44,25 @@ mzFileType <- function(paths) {
 ##            "foo/bar.bar/baz.mzML", "mzData/careful.mzML")
 ## cbind(paths, mzFileType(paths))
 
+as.data.frame <- function(metadata) {
+  stopifnot(R6::is.R6(metadata))
+  print(metadata$classname)
+  metadata.df <- data.frame()
+  metadata.df <- rbind.ragged(metadata.df, mzTabAddComment("Meta data section"))
+  metadata.df <- rbind.ragged(metadata.df, mzTabAddTagValue("MTD",
+                                                c("mzTab-version"=metadata$`mzTab-version`,
+                                                  "mzTab-ID"=metadata$`mzTab-ID`,
+                                                  "title"=metadata$`title`,
+                                                  "description"=metadata$`description`)))
+  mztab <- rbind.ragged(mztab, mzTabAddTagValue("MTD", runs))
+  
+  mztab <- rbind.ragged(mztab, mzTabAddTagValue("MTD", samples))
+  mztab <- rbind.ragged(mztab, mzTabAddTagValue("MTD", sampleDesc))
+  
+  mztab <- rbind.ragged(mztab, mzTabAddTagValue("MTD", assays))
+  mztab <- rbind.ragged(mztab, mzTabAddTagValue("MTD", variableAssays))
+  mztab <- rbind.ragged(mztab, mzTabAddTagValue("MTD", variableDescriptions))
+}
 
 mzTabHeader <- function(mztab, version, mode, type, description, xset) {
   runs <- filepaths(xset)
@@ -151,33 +170,46 @@ mzTabAddSME <- function(mztab, xset) {
 }
 
 #'
-#' Write an mzTab tab separated file from the passed in metadata, smallMoleculeSummary, smallMoleculeFeatures and smallMoleculeEvidence objects.
-#'
+#' Converts the provided mztab object to JSON and writes it to the provided file.
+#' @param mztab the R6 mzTab object to write.
+#' @param file the file path to write to.
 #' @export
-writeMzTab <- function(metadata, smallMoleculeSummary, smallMoleculeFeatures, smallMoleculeEvidence, filename) {
-  if(is.null(metadata)) {
+writeMzTabJSONToFile <- function(mztab, file) {
+  stopifnot(R6::is.R6(mztab));
+  stopifnot("MzTab"!=mztab$classname)
+  stopifnot(!is.null(file))
+  json <- jsonlite::toJSON(mztab$toJSON(), digits = 10, auto_unbox = TRUE, null = 'null', na = 'null')
+  write(json, file)
+}
+
+#'
+#' Write an mzTab tab separated file from the passed in mzTab object.
+#' @param mztab the R6 MzTab object to write.
+#' @export
+writeMzTab <- function(mztab, filename) {
+  if(is.null(mztab$metadata)) {
     stop("Metadata must not be null!");
   }
-  utils::write.table(metadata, file=filename,
+  utils::write.table(mztab$metadata, file=filename,
               row.names=FALSE, col.names=FALSE,
               quote=TRUE, sep="\t", na="\"\"")
-  if(is.null(smallMoleculeSummary)) {
+  if(is.null(mztab$smallMoleculeSummary)) {
     stop("SmallMoleculeSummary must not be null!");
   }
-  utils::write.table(smallMoleculeSummary, file=filename,
+  utils::write.table(mztab$smallMoleculeSummary, file=filename,
               row.names=FALSE, col.names=FALSE,
               quote=TRUE, sep="\t", na="\"\"", append=TRUE)
-  if(is.null(smallMoleculeFeatures)) {
+  if(is.null(mztab$smallMoleculeFeatures)) {
     warning("SmallMoleculeFeatures should not be null!");
   } else {
-    utils::write.table(smallMoleculeFeatures, file=filename,
+    utils::write.table(mztab$smallMoleculeFeatures, file=filename,
                 row.names=FALSE, col.names=FALSE,
                 quote=TRUE, sep="\t", na="\"\"")
   }
-  if(is.null(smallMoleculeEvidence)) {
-    stop("SmallMoleculeEvidence should not be null!");
+  if(is.null(mztab$smallMoleculeEvidence)) {
+    warning("SmallMoleculeEvidence should not be null!");
   } else {
-    utils::write.table(smallMoleculeEvidence, file=filename,
+    utils::write.table(mztab$smallMoleculeEvidence, file=filename,
                 row.names=FALSE, col.names=FALSE,
                 quote=TRUE, sep="\t", na="\"\"")
   }

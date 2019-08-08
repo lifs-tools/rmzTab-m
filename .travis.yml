@@ -5,7 +5,7 @@ r:
   - release
 
 warnings_are_errors: false
-before_deploy: Rscript -e "library('devtools')" -e "devtools::build(binary = TRUE, args = c('--preclean'))" && Rscript -e 'remotes::install_cran("pkgdown")' && Rscript -e 'pkgdown::build_site()'
+before_deploy: Rscript -e "remotes::install.cran('devtools')" && Rscript -e "library('devtools')" -e "devtools::build(binary = TRUE, args = c('--preclean'))" && Rscript -e 'remotes::install_cran("pkgdown")' && Rscript -e 'pkgdown::build_site()'
 deploy:
   provider: script
   script: Rscript -e 'pkgdown::deploy_site_github()'

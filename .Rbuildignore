@@ -4,3 +4,7 @@
 ^CONDUCT\.md$
 ^cran-comments\.md$
 ^data-raw$
+^\.travis\.yml$
+^build-site.sh$
+^build.sh$
+^docs$

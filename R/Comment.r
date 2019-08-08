@@ -18,7 +18,7 @@
 #' mzTab-M specification example(s)
 #' \preformatted{
 #' COM	This is a comment line
-#' 
+#'
 #' }
 #' 
 #'

@@ -1,4 +1,6 @@
 language: r
+cache: 
+  packages: true
 r:
   - release
 

@@ -1,2 +1,6 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
+.travis.yml
+^CONDUCT\.md$
+^cran-comments\.md$
+^data-raw$

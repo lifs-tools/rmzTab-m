@@ -44,9 +44,14 @@ mzFileType <- function(paths) {
 ##            "foo/bar.bar/baz.mzML", "mzData/careful.mzML")
 ## cbind(paths, mzFileType(paths))
 
+#'
+#' Converts the provided Metadata object to a ragged data frame.
+#' @param metadata the R6 Metadata object to write.
+#' @export
 as.data.frame <- function(metadata) {
-  stopifnot(R6::is.R6(metadata))
-  print(metadata$classname)
+  #stopifnot(R6::is.R6(metadata))
+  #print(metadata)
+  #print(metadata$classname)
   metadata.df <- data.frame()
   metadata.df <- rbind.ragged(metadata.df, mzTabAddComment("Meta data section"))
   metadata.df <- rbind.ragged(metadata.df, mzTabAddTagValue("MTD",
@@ -54,14 +59,14 @@ as.data.frame <- function(metadata) {
                                                   "mzTab-ID"=metadata$`mzTab-ID`,
                                                   "title"=metadata$`title`,
                                                   "description"=metadata$`description`)))
-  mztab <- rbind.ragged(mztab, mzTabAddTagValue("MTD", runs))
+  #mztab <- rbind.ragged(mztab, mzTabAddTagValue("MTD", metadata$ms_run))
   
-  mztab <- rbind.ragged(mztab, mzTabAddTagValue("MTD", samples))
-  mztab <- rbind.ragged(mztab, mzTabAddTagValue("MTD", sampleDesc))
+  #mztab <- rbind.ragged(mztab, mzTabAddTagValue("MTD", metadata$sample))
+  #mztab <- rbind.ragged(mztab, mzTabAddTagValue("MTD", sampleDesc))
   
-  mztab <- rbind.ragged(mztab, mzTabAddTagValue("MTD", assays))
-  mztab <- rbind.ragged(mztab, mzTabAddTagValue("MTD", variableAssays))
-  mztab <- rbind.ragged(mztab, mzTabAddTagValue("MTD", variableDescriptions))
+  #mztab <- rbind.ragged(mztab, mzTabAddTagValue("MTD", metadata$assay))
+  #mztab <- rbind.ragged(mztab, mzTabAddTagValue("MTD", variableAssays))
+  #mztab <- rbind.ragged(mztab, mzTabAddTagValue("MTD", variableDescriptions))
 }
 
 mzTabHeader <- function(mztab, version, mode, type, description, xset) {

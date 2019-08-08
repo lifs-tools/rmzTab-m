@@ -435,10 +435,7 @@ Metadata <- R6::R6Class(
       }
       if (!is.null(MetadataObject$`small_molecule-quantification_unit`)) {
         `small_molecule-quantification_unitObject` <- Parameter$new()
-        print(MetadataObject$`small_molecule-quantification_unit`)
-        jsonObj <- jsonlite::toJSON(MetadataObject$`small_molecule-quantification_unit`, auto_unbox = TRUE)
-        #stop(jsonObj)
-        `small_molecule-quantification_unitObject`$fromJSON(jsonObj)
+        `small_molecule-quantification_unitObject`$fromJSON(jsonlite::toJSON(MetadataObject$`small_molecule-quantification_unit`, auto_unbox = TRUE))
         self$`small_molecule-quantification_unit` <- `small_molecule-quantification_unitObject`
       }
       if (!is.null(MetadataObject$`small_molecule_feature-quantification_unit`)) {
@@ -567,11 +564,11 @@ Metadata <- R6::R6Class(
       self$`database` <- lapply(MetadataObject$`database`, function(x) Database$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
       self$`derivatization_agent` <- lapply(MetadataObject$`derivatization_agent`, function(x) Parameter$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
       ParameterObject <- Parameter$new()
-      self$`small_molecule-quantification_unit` <- ParameterObject$fromJSON(jsonlite::toJSON(MetadataObject$small_molecule-quantification_unit, auto_unbox = TRUE))
+      self$`small_molecule-quantification_unit` <- ParameterObject$fromJSON(jsonlite::toJSON(MetadataObject$`small_molecule-quantification_unit`, auto_unbox = TRUE))
       ParameterObject <- Parameter$new()
-      self$`small_molecule_feature-quantification_unit` <- ParameterObject$fromJSON(jsonlite::toJSON(MetadataObject$small_molecule_feature-quantification_unit, auto_unbox = TRUE))
+      self$`small_molecule_feature-quantification_unit` <- ParameterObject$fromJSON(jsonlite::toJSON(MetadataObject$`small_molecule_feature-quantification_unit`, auto_unbox = TRUE))
       ParameterObject <- Parameter$new()
-      self$`small_molecule-identification_reliability` <- ParameterObject$fromJSON(jsonlite::toJSON(MetadataObject$small_molecule-identification_reliability, auto_unbox = TRUE))
+      self$`small_molecule-identification_reliability` <- ParameterObject$fromJSON(jsonlite::toJSON(MetadataObject$`small_molecule-identification_reliability`, auto_unbox = TRUE))
       self$`id_confidence_measure` <- lapply(MetadataObject$`id_confidence_measure`, function(x) Parameter$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
       self$`colunit-small_molecule` <- lapply(MetadataObject$`colunit-small_molecule`, function(x) ColumnParameterMapping$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))
       self$`colunit-small_molecule_feature` <- lapply(MetadataObject$`colunit-small_molecule_feature`, function(x) ColumnParameterMapping$new()$fromJSON(jsonlite::toJSON(x, auto_unbox = TRUE)))

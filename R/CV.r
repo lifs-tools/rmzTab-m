@@ -24,7 +24,6 @@
 #' MTD	cv[1]-full_name	PSI-MS controlled vocabulary
 #' MTD	cv[1]-version	4.1.11
 #' MTD	cv[1]-uri	https://raw.githubusercontent.com/HUPO-PSI/psi-ms-CV/master/psi-ms.obo
-#'
 #' }
 #' 
 #'

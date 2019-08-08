@@ -118,12 +118,14 @@ MzTab <- R6::R6Class(
            "metadata": %s,
            "smallMoleculeSummary": [%s],
            "smallMoleculeFeature": [%s],
-           "smallMoleculeEvidence": [%s]
+           "smallMoleculeEvidence": [%s],
+           "comment": [%s]
         }',
-        self$`metadata`$toJSONString(),
-        lapply(self$`smallMoleculeSummary`, function(x) paste(x$toJSONString(), sep=",")),
-        lapply(self$`smallMoleculeFeature`, function(x) paste(x$toJSONString(), sep=",")),
-        lapply(self$`smallMoleculeEvidence`, function(x) paste(x$toJSONString(), sep=","))
+        self$`metadata`$toJSON(),
+        lapply(self$`smallMoleculeSummary`, function(x) paste(x$toJSON(), sep=",")),
+        lapply(self$`smallMoleculeFeature`, function(x) paste(x$toJSON(), sep=",")),
+        lapply(self$`smallMoleculeEvidence`, function(x) paste(x$toJSON(), sep=",")),
+        lapply(self$`comment`, function(x) paste(x$toJSON(), sep=","))
       )
     },
     fromJSONString = function(MzTabJson) {

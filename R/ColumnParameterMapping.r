@@ -18,7 +18,7 @@
 #' \preformatted{
 #' COM	colunit for optional small molecule summary column with the name 'opt_global_cv_MS:MS:1002954_collisional_cross_sectional_area'
 #' MTD	colunit-small_molecule	opt_global_cv_MS:MS:1002954_collisional_cross_sectional_area=[UO,UO:00003241, square angstrom,]
-#'
+#' 
 #' }
 #' 
 #'

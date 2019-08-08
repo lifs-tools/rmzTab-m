@@ -1,9 +1,9 @@
 Package: rmzTabM
-Title: R Package Client for mzTab-M reference implementation and validation API.
-Version: 1.0.2
+Title: R Package Client for mzTab-M reference implementation and validation API
+Version: 1.0.4
 Authors@R: person("Nils Hoffmann", email = "nils.hoffmann@isas.de", role = c("aut", "cre"))
 Description: This is the mzTab-M reference implementation reader and writer for R.
-Depends: R (>= 3.3.3)
+Depends: R (>= 3.3)
 Encoding: UTF-8
 License: MIT + file LICENSE
 LazyData: true

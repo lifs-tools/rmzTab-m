@@ -4,6 +4,15 @@ test_that("validation via REST API of mztab json works", {
   testfile <- system.file("testdata", c("lipidomics-example.mzTab.json"),package="rmzTabM")
   mzTabObject <- MzTab$new()
   mzTabObject$fromJSON(testfile)
+  # the tests below currently fail, serialization produces empty publications list
+  # expect_equal(1, mzTabObject$`metadata`$`publication`$id)
+  # expect_equal("Publication", mzTabObject$`metadata`$`publication`$elementType)
+  # expect_equal(2, length(mzTabObject$`metadata`$`publication`$publicationItems))
+  # publications <- mzTabObject$`metadata`$`publication`$publicationItems
+  # expect_equal("pubmed", publications[[1]]$type)
+  # expect_equal("29039908", publications[[1]]$accesion)
+  # expect_equal("doi", publications[[2]]$type)
+  # expect_equal("10.1021/acs.analchem.7b03576", publications[[2]]$accesion)
   #expect_false(is.null(mzTabObject$toJSONString()))
   metadataJsonObject <- mzTabObject$`metadata`$toJSON()
   expect_false(is.null(metadataJsonObject))
@@ -16,9 +25,8 @@ test_that("validation via REST API of mztab json works", {
   expect_false(is.null(metadataJsonObject$`title`))
   expect_true("list" == typeof(metadataJsonObject$`title`))
   expect_true(0 == length(metadataJsonObject$`title`))
-  validatePlain <- ValidateApi$new()
-  jsonString <- mzTabObject$toJSONString()
-  response <- validatePlain$ValidateMzTabFile(mzTabObject, 'info', 50, FALSE)
+  validateApi <- ValidateApi$new()
+  response <- validateApi$ValidateMzTabFile(mzTabObject, 'info', 50, FALSE)
   expect_false("API server error" == response$content)
   # the next test currently fails, there is an encoding error for description, which should be null in the json but is {}.
   expect_true("API client error" == response$content)

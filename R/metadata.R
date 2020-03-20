@@ -421,7 +421,7 @@ Metadata <- R6::R6Class(
       }
       if (!is.null(MetadataObject$`small_molecule-quantification_unit`)) {
         `small_molecule-quantification_unitObject` <- Parameter$new()
-        `small_molecule-quantification_unitObject`$fromJSON(jsonlite::toJSON(MetadataObject$`small_molecule-quantification_unitObject`, auto_unbox = TRUE, digits = NA))
+        `small_molecule-quantification_unitObject`$fromJSON(jsonlite::toJSON(MetadataObject$`small_molecule-quantification_unit`, auto_unbox = TRUE, digits = NA))
         self$`small_molecule-quantification_unit` <- `small_molecule-quantification_unitObject`
       }
       if (!is.null(MetadataObject$`small_molecule_feature-quantification_unit`)) {

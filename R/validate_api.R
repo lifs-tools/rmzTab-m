@@ -119,7 +119,10 @@ ValidateApi <- R6::R6Class(
       queryParams['semanticValidation'] <- semantic.validation
 
       if (!missing(`mztabfile`)) {
-        body <- `mztabfile`$toJSONString()
+        body <- gsub("{}", "null", `mztabfile`$toJSONString(), fixed = TRUE)
+        body <- gsub("\\[+","\\[", body)
+        body <- gsub("\\]+", "\\]", body)
+        body <- gsub("\"null\"","null", body, fixed = TRUE)
       } else {
         body <- NULL
       }

@@ -155,6 +155,10 @@ ApiClient  <- R6::R6Class(
               for (row in 1:nrow(obj)) {
                 returnObj[[row]] <- self$deserializeObj(obj[row, , drop = FALSE], innerReturnType, pkgEnv)
               }
+            } else if (exists(innerReturnType, pkgEnv) && !(c(innerReturnType) %in% primitiveTypes)) {
+              innerReturnType <- get(innerReturnType, envir = as.environment(pkgEnv))
+              returnObj <- innerReturnType$new()
+              returnObj$fromJSON(jsonlite::toJSON(obj, digits = NA))
             }
           }
         }

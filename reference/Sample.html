@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Sample Class — Sample • rmzTabM</title>
+<title>Sample — Sample • rmzTabM</title>
 
 
 <!-- jquery -->
@@ -35,8 +35,8 @@
 
 
 
-<meta property="og:title" content="Sample Class — Sample" />
-<meta property="og:description" content="Specification of sample. (empty) name: A name for each sample to serve as a list of the samples that MUST be reported in the following tables. Samples MUST be reported if a statistical design is being captured (i.e. bio or tech replicates). If the type of replicates are not known, samples SHOULD NOT be reported.  species: The respective species of the samples analysed. For more complex cases, such as metagenomics, optional columns and userParams should be used.  tissue: The respective tissue(s) of the sample.  cell_type: The respective cell type(s) of the sample.  disease: The respective disease(s) of the sample.  description: A human readable description of the sample.  custom: Custom parameters describing the sample&amp;amp;#39;s additional properties. Dates MUST be provided in ISO-8601 format." />
+<meta property="og:title" content="Sample — Sample" />
+<meta property="og:description" content="Sample Class" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -69,7 +69,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rmzTabM</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.5</span>
       </span>
     </div>
 
@@ -105,53 +105,40 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Sample Class</h1>
-    <small class="dont-index">Source: <a href='https://github.com/lifs-tools/rmztab-m/blob/master/R/Sample.r'><code>R/Sample.r</code></a></small>
+    <h1>Sample</h1>
+    <small class="dont-index">Source: <a href='https://github.com/lifs-tools/rmztab-m/blob/master/R/sample.R'><code>R/sample.R</code></a></small>
     <div class="hidden name"><code>Sample.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Specification of sample. (empty) name: A name for each sample to serve as a list of the samples that MUST be reported in the following tables. Samples MUST be reported if a statistical design is being captured (i.e. bio or tech replicates). If the type of replicates are not known, samples SHOULD NOT be reported.  species: The respective species of the samples analysed. For more complex cases, such as metagenomics, optional columns and userParams should be used.  tissue: The respective tissue(s) of the sample.  cell_type: The respective cell type(s) of the sample.  disease: The respective disease(s) of the sample.  description: A human readable description of the sample.  custom: Custom parameters describing the sample&amp;#39;s additional properties. Dates MUST be provided in ISO-8601 format.</p>
+    <p>Sample Class</p>
     </div>
 
 
 
+    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
+
+    <p>An <code>R6Class</code> generator object</p>
     <h2 class="hasAnchor" id="public-fields"><a class="anchor" href="#public-fields"></a>Public fields</h2>
 
     <p><div class="r6-fields"></p><dl class='dl-horizontal'>
-<dt><code>id</code></dt><dd><p></p></dd>
+<dt><code>id</code></dt><dd><p>integer</p></dd>
 
-<dt><code>elementType</code></dt><dd><p></p></dd>
+<dt><code>elementType</code></dt><dd><p>character</p></dd>
 
-<dt><code>name</code></dt><dd><p></p></dd>
+<dt><code>name</code></dt><dd><p>character [optional]</p></dd>
 
-<dt><code>custom</code></dt><dd><p></p></dd>
+<dt><code>custom</code></dt><dd><p>list( <a href='Parameter.html'>Parameter</a> ) [optional]</p></dd>
 
-<dt><code>species</code></dt><dd><p></p></dd>
+<dt><code>species</code></dt><dd><p>list( <a href='Parameter.html'>Parameter</a> ) [optional]</p></dd>
 
-<dt><code>tissue</code></dt><dd><p></p></dd>
+<dt><code>tissue</code></dt><dd><p>list( <a href='Parameter.html'>Parameter</a> ) [optional]</p></dd>
 
-<dt><code>cell_type</code></dt><dd><p></p></dd>
+<dt><code>cell_type</code></dt><dd><p>list( <a href='Parameter.html'>Parameter</a> ) [optional]</p></dd>
 
-<dt><code>disease</code></dt><dd><p></p></dd>
+<dt><code>disease</code></dt><dd><p>list( <a href='Parameter.html'>Parameter</a> ) [optional]</p></dd>
 
-<dt><code>description</code></dt><dd><p>mzTab-M specification example(s)
-<pre>
-COM    Experiment where all samples consisted of the same two species
-MTD    sample[1]    individual number 1
-MTD    sample[1]-species[1]    [NCBITaxon, NCBITaxon:9606, Homo sapiens, ]
-MTD    sample[1]-tissue[1]    [BTO, BTO:0000759, liver, ]
-MTD    sample[1]-cell_type[1]    [CL, CL:0000182, hepatocyte, ]
-MTD    sample[1]-disease[1]    [DOID, DOID:684, hepatocellular carcinoma, ]
-MTD    sample[1]-disease[2]    [DOID, DOID:9451, alcoholic fatty liver, ]
-MTD    sample[1]-description    Hepatocellular carcinoma samples.
-MTD    sample[1]-custom[1]    [,,Extraction date, 2011-12-21]
-MTD    sample[1]-custom[2]    [,,Extraction reason, liver biopsy]
-MTD    sample[2]    individual number 2
-MTD    sample[2]-species[1]    [NCBITaxon, NCBITaxon:9606, Homo sapiens, ]
-MTD    sample[2]-tissue[1]    [BTO, BTO:0000759, liver, ]
-MTD    sample[2]-cell_type[1]    [CL, CL:0000182, hepatocyte, ]
-MTD    sample[2]-description    Healthy control samples.</pre></p></dd>
+<dt><code>description</code></dt><dd><p>character [optional]</p></dd>
 
 </dl><p></div></p>
     <h2 class="hasAnchor" id="methods"><a class="anchor" href="#methods"></a>Methods</h2>
@@ -174,13 +161,14 @@ MTD    sample[2]-description    Healthy control samples.</pre></p></dd>
 <p><div class="r"></p><pre>Sample$new(
   id,
   elementType,
-  name,
-  custom,
-  species,
-  tissue,
-  cell_type,
-  disease,
-  description
+  name = NULL,
+  custom = NULL,
+  species = NULL,
+  tissue = NULL,
+  cell_type = NULL,
+  disease = NULL,
+  description = NULL,
+  ...
 )</pre><p></div></p>
 
 <p><hr>
@@ -224,6 +212,7 @@ MTD    sample[2]-description    Healthy control samples.</pre></p></dd>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#format">Format</a></li>
       <li><a href="#public-fields">Public fields</a></li>
       <li><a href="#methods">Methods</a></li>
     </ul>

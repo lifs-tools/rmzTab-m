@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>MsRun Class — MsRun • rmzTabM</title>
+<title>MsRun — MsRun • rmzTabM</title>
 
 
 <!-- jquery -->
@@ -35,8 +35,8 @@
 
 
 
-<meta property="og:title" content="MsRun Class — MsRun" />
-<meta property="og:description" content="Specification of ms_run.  location: Location of the external data file e.g. raw files on which analysis has been performed. If the actual location of the MS run is unknown, a “null” MUST be used as a place holder value, since the [1-n] cardinality is referenced elsewhere. If pre-fractionation has been performed, then [1-n] ms_runs SHOULD be created per assay.  instrument_ref: If different instruments are used in different runs, instrument_ref can be used to link a specific instrument to a specific run.  format: Parameter specifying the data format of the external MS data file. If ms_run[1-n]-format is present, ms_run[1-n]-id_format SHOULD also be present, following the parameters specified in Table 1.  id_format: Parameter specifying the id format used in the external data file. If ms_run[1-n]-id_format is present, ms_run[1-n]-format SHOULD also be present. fragmentation_method: The type(s) of fragmentation used in a given ms run. scan_polarity: The polarity mode of a given run. Usually only one value SHOULD be given here except for the case of mixed polarity runs. hash: Hash value of the corresponding external MS data file defined in ms_run[1-n]-location. If ms_run[1-n]-hash is present, ms_run[1-n]-hash_method SHOULD also be present. hash_method: A parameter specifying the hash methods used to generate the String in ms_run[1-n]-hash. Specifics of the hash method used MAY follow the definitions of the mzML format. If ms_run[1-n]-hash is present, ms_run[1-n]-hash_method SHOULD also be present." />
+<meta property="og:title" content="MsRun — MsRun" />
+<meta property="og:description" content="MsRun Class" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -69,7 +69,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rmzTabM</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.5</span>
       </span>
     </div>
 
@@ -105,53 +105,44 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>MsRun Class</h1>
-    <small class="dont-index">Source: <a href='https://github.com/lifs-tools/rmztab-m/blob/master/R/MsRun.r'><code>R/MsRun.r</code></a></small>
+    <h1>MsRun</h1>
+    <small class="dont-index">Source: <a href='https://github.com/lifs-tools/rmztab-m/blob/master/R/ms_run.R'><code>R/ms_run.R</code></a></small>
     <div class="hidden name"><code>MsRun.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Specification of ms_run.  location: Location of the external data file e.g. raw files on which analysis has been performed. If the actual location of the MS run is unknown, a “null” MUST be used as a place holder value, since the [1-n] cardinality is referenced elsewhere. If pre-fractionation has been performed, then [1-n] ms_runs SHOULD be created per assay.  instrument_ref: If different instruments are used in different runs, instrument_ref can be used to link a specific instrument to a specific run.  format: Parameter specifying the data format of the external MS data file. If ms_run[1-n]-format is present, ms_run[1-n]-id_format SHOULD also be present, following the parameters specified in Table 1.  id_format: Parameter specifying the id format used in the external data file. If ms_run[1-n]-id_format is present, ms_run[1-n]-format SHOULD also be present. fragmentation_method: The type(s) of fragmentation used in a given ms run. scan_polarity: The polarity mode of a given run. Usually only one value SHOULD be given here except for the case of mixed polarity runs. hash: Hash value of the corresponding external MS data file defined in ms_run[1-n]-location. If ms_run[1-n]-hash is present, ms_run[1-n]-hash_method SHOULD also be present. hash_method: A parameter specifying the hash methods used to generate the String in ms_run[1-n]-hash. Specifics of the hash method used MAY follow the definitions of the mzML format. If ms_run[1-n]-hash is present, ms_run[1-n]-hash_method SHOULD also be present.</p>
+    <p>MsRun Class</p>
     </div>
 
 
 
+    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
+
+    <p>An <code>R6Class</code> generator object</p>
     <h2 class="hasAnchor" id="public-fields"><a class="anchor" href="#public-fields"></a>Public fields</h2>
 
     <p><div class="r6-fields"></p><dl class='dl-horizontal'>
-<dt><code>id</code></dt><dd><p></p></dd>
+<dt><code>id</code></dt><dd><p>integer</p></dd>
 
-<dt><code>elementType</code></dt><dd><p></p></dd>
+<dt><code>elementType</code></dt><dd><p>character</p></dd>
 
-<dt><code>name</code></dt><dd><p></p></dd>
+<dt><code>name</code></dt><dd><p>character</p></dd>
 
-<dt><code>location</code></dt><dd><p></p></dd>
+<dt><code>location</code></dt><dd><p>character</p></dd>
 
-<dt><code>instrument_ref</code></dt><dd><p></p></dd>
+<dt><code>instrument_ref</code></dt><dd><p><a href='Instrument.html'>Instrument</a> [optional]</p></dd>
 
-<dt><code>format</code></dt><dd><p></p></dd>
+<dt><code>format</code></dt><dd><p><a href='Parameter.html'>Parameter</a> [optional]</p></dd>
 
-<dt><code>id_format</code></dt><dd><p></p></dd>
+<dt><code>id_format</code></dt><dd><p><a href='Parameter.html'>Parameter</a> [optional]</p></dd>
 
-<dt><code>fragmentation_method</code></dt><dd><p></p></dd>
+<dt><code>fragmentation_method</code></dt><dd><p>list( <a href='Parameter.html'>Parameter</a> ) [optional]</p></dd>
 
-<dt><code>scan_polarity</code></dt><dd><p></p></dd>
+<dt><code>scan_polarity</code></dt><dd><p>list( <a href='Parameter.html'>Parameter</a> ) [optional]</p></dd>
 
-<dt><code>hash</code></dt><dd><p></p></dd>
+<dt><code>hash</code></dt><dd><p>character [optional]</p></dd>
 
-<dt><code>hash_method</code></dt><dd><p>mzTab-M specification example(s)
-<pre>
-COM    location can be a local or remote URI
-MTD    ms_run[1]-location    file:///C:/path/to/my/file.mzML
-MTD    ms_run[1]-instrument_ref    instrument[1]
-MTD    ms_run[1]-format    [MS, MS:1000584, mzML file, ]
-MTD    ms_run[1]-id_format    [MS, MS:1000530, mzML unique identifier, ]
-MTD    ms_run[1]-fragmentation_method[1]    [MS, MS:1000133, CID, ]
-COM    for mixed polarity scan scenarios
-MTD    ms_run[1]-scan_polarity[1]    [MS, MS:1000130, positive scan, ]
-MTD    ms_run[1]-scan_polarity[2]    [MS, MS:1000129, negative scan, ]
-MTD    ms_run[1]-hash_method    [MS, MS:1000569, SHA-1, ]
-MTD    ms_run[1]-hash    de9f2c7fd25e1b3afad3e85a0bd17d9b100db4b3</pre></p></dd>
+<dt><code>hash_method</code></dt><dd><p><a href='Parameter.html'>Parameter</a> [optional]</p></dd>
 
 </dl><p></div></p>
     <h2 class="hasAnchor" id="methods"><a class="anchor" href="#methods"></a>Methods</h2>
@@ -176,13 +167,14 @@ MTD    ms_run[1]-hash    de9f2c7fd25e1b3afad3e85a0bd17d9b100db4b3</pre></p></dd>
   elementType,
   name,
   location,
-  instrument_ref,
-  format,
-  id_format,
-  fragmentation_method,
-  scan_polarity,
-  hash,
-  hash_method
+  instrument_ref = NULL,
+  format = NULL,
+  id_format = NULL,
+  fragmentation_method = NULL,
+  scan_polarity = NULL,
+  hash = NULL,
+  hash_method = NULL,
+  ...
 )</pre><p></div></p>
 
 <p><hr>
@@ -226,6 +218,7 @@ MTD    ms_run[1]-hash    de9f2c7fd25e1b3afad3e85a0bd17d9b100db4b3</pre></p></dd>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#format">Format</a></li>
       <li><a href="#public-fields">Public fields</a></li>
       <li><a href="#methods">Methods</a></li>
     </ul>

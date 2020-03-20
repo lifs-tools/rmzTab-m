@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Parameter Class — Parameter • rmzTabM</title>
+<title>Parameter — Parameter • rmzTabM</title>
 
 
 <!-- jquery -->
@@ -35,8 +35,8 @@
 
 
 
-<meta property="og:title" content="Parameter Class — Parameter" />
-<meta property="og:description" content="mzTab makes use of CV parameters. As mzTab is expected to be used in several experimental environments where parameters might not yet be available for the generated scores etc. all parameters can either report CV parameters or user parameters that only contain a name and a value. Parameters are always reported as [CV label, accession, name, value]. Any field that is not available MUST be left empty." />
+<meta property="og:title" content="Parameter — Parameter" />
+<meta property="og:description" content="Parameter Class" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -69,7 +69,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rmzTabM</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.5</span>
       </span>
     </div>
 
@@ -105,34 +105,34 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Parameter Class</h1>
-    <small class="dont-index">Source: <a href='https://github.com/lifs-tools/rmztab-m/blob/master/R/Parameter.r'><code>R/Parameter.r</code></a></small>
+    <h1>Parameter</h1>
+    <small class="dont-index">Source: <a href='https://github.com/lifs-tools/rmztab-m/blob/master/R/parameter.R'><code>R/parameter.R</code></a></small>
     <div class="hidden name"><code>Parameter.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>mzTab makes use of CV parameters. As mzTab is expected to be used in several experimental environments where parameters might not yet be available for the generated scores etc. all parameters can either report CV parameters or user parameters that only contain a name and a value. Parameters are always reported as [CV label, accession, name, value]. Any field that is not available MUST be left empty.</p>
+    <p>Parameter Class</p>
     </div>
 
 
 
+    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
+
+    <p>An <code>R6Class</code> generator object</p>
     <h2 class="hasAnchor" id="public-fields"><a class="anchor" href="#public-fields"></a>Public fields</h2>
 
     <p><div class="r6-fields"></p><dl class='dl-horizontal'>
-<dt><code>id</code></dt><dd><p></p></dd>
+<dt><code>id</code></dt><dd><p>integer</p></dd>
 
-<dt><code>elementType</code></dt><dd><p></p></dd>
+<dt><code>elementType</code></dt><dd><p>character</p></dd>
 
-<dt><code>cv_label</code></dt><dd><p></p></dd>
+<dt><code>cv_label</code></dt><dd><p>character [optional]</p></dd>
 
-<dt><code>cv_accession</code></dt><dd><p></p></dd>
+<dt><code>cv_accession</code></dt><dd><p>character [optional]</p></dd>
 
-<dt><code>name</code></dt><dd><p></p></dd>
+<dt><code>name</code></dt><dd><p>character</p></dd>
 
-<dt><code>value</code></dt><dd><p>mzTab-M specification example(s)
-<pre>
-[MS, MS:1001477, SpectraST,]
-[,,A user parameter, The value]</pre></p></dd>
+<dt><code>value</code></dt><dd><p>character</p></dd>
 
 </dl><p></div></p>
     <h2 class="hasAnchor" id="methods"><a class="anchor" href="#methods"></a>Methods</h2>
@@ -152,7 +152,15 @@
 <a id="method-new"></a></p><h3>Method <code>new()</code></h3>
 
 <h3>Usage</h3>
-<p><div class="r"></p><pre>Parameter$new(id, elementType, cv_label, cv_accession, name, value)</pre><p></div></p>
+<p><div class="r"></p><pre>Parameter$new(
+  id,
+  elementType,
+  name,
+  value,
+  cv_label = "",
+  cv_accession = "",
+  ...
+)</pre><p></div></p>
 
 <p><hr>
 <a id="method-toJSON"></a></p><h3>Method <code>toJSON()</code></h3>
@@ -195,6 +203,7 @@
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#format">Format</a></li>
       <li><a href="#public-fields">Public fields</a></li>
       <li><a href="#methods">Methods</a></li>
     </ul>

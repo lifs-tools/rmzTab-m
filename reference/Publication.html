@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Publication Class — Publication • rmzTabM</title>
+<title>Publication — Publication • rmzTabM</title>
 
 
 <!-- jquery -->
@@ -35,8 +35,8 @@
 
 
 
-<meta property="og:title" content="Publication Class — Publication" />
-<meta property="og:description" content="A publication associated with this file. Several publications can be given by indicating the number in the square brackets after “publication”. PubMed ids must be prefixed by “pubmed:”, DOIs by “doi:”. Multiple identifiers MUST be separated by “|”." />
+<meta property="og:title" content="Publication — Publication" />
+<meta property="og:description" content="Publication Class" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -69,7 +69,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rmzTabM</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.5</span>
       </span>
     </div>
 
@@ -105,28 +105,28 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Publication Class</h1>
-    <small class="dont-index">Source: <a href='https://github.com/lifs-tools/rmztab-m/blob/master/R/Publication.r'><code>R/Publication.r</code></a></small>
+    <h1>Publication</h1>
+    <small class="dont-index">Source: <a href='https://github.com/lifs-tools/rmztab-m/blob/master/R/publication.R'><code>R/publication.R</code></a></small>
     <div class="hidden name"><code>Publication.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>A publication associated with this file. Several publications can be given by indicating the number in the square brackets after “publication”. PubMed ids must be prefixed by “pubmed:”, DOIs by “doi:”. Multiple identifiers MUST be separated by “|”.</p>
+    <p>Publication Class</p>
     </div>
 
 
 
+    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
+
+    <p>An <code>R6Class</code> generator object</p>
     <h2 class="hasAnchor" id="public-fields"><a class="anchor" href="#public-fields"></a>Public fields</h2>
 
     <p><div class="r6-fields"></p><dl class='dl-horizontal'>
-<dt><code>id</code></dt><dd><p></p></dd>
+<dt><code>id</code></dt><dd><p>integer</p></dd>
 
-<dt><code>elementType</code></dt><dd><p></p></dd>
+<dt><code>elementType</code></dt><dd><p>character</p></dd>
 
-<dt><code>publicationItems</code></dt><dd><p>mzTab-M specification example(s)
-<pre>
-MTD    publication[1]    pubmed:21063943|doi:10.1007/978-1-60761-987-1_6
-MTD    publication[2]    pubmed:20615486|doi:10.1016/j.jprot.2010.06.008</pre></p></dd>
+<dt><code>publicationItems</code></dt><dd><p>list( <a href='PublicationItem.html'>PublicationItem</a> )</p></dd>
 
 </dl><p></div></p>
     <h2 class="hasAnchor" id="methods"><a class="anchor" href="#methods"></a>Methods</h2>
@@ -146,7 +146,7 @@ MTD    publication[2]    pubmed:20615486|doi:10.1016/j.jprot.2010.06.008</pre></
 <a id="method-new"></a></p><h3>Method <code>new()</code></h3>
 
 <h3>Usage</h3>
-<p><div class="r"></p><pre>Publication$new(id, elementType, publicationItems)</pre><p></div></p>
+<p><div class="r"></p><pre>Publication$new(id, elementType, publicationItems, ...)</pre><p></div></p>
 
 <p><hr>
 <a id="method-toJSON"></a></p><h3>Method <code>toJSON()</code></h3>
@@ -189,6 +189,7 @@ MTD    publication[2]    pubmed:20615486|doi:10.1016/j.jprot.2010.06.008</pre></
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#format">Format</a></li>
       <li><a href="#public-fields">Public fields</a></li>
       <li><a href="#methods">Methods</a></li>
     </ul>

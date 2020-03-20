@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>SmallMoleculeSummary — SmallMoleculeSummary • rmzTabM</title>
+<title>StudyVariableAllOf — StudyVariableAllOf • rmzTabM</title>
 
 
 <!-- jquery -->
@@ -35,8 +35,8 @@
 
 
 
-<meta property="og:title" content="SmallMoleculeSummary — SmallMoleculeSummary" />
-<meta property="og:description" content="SmallMoleculeSummary Class" />
+<meta property="og:title" content="StudyVariableAllOf — StudyVariableAllOf" />
+<meta property="og:description" content="StudyVariableAllOf Class" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -105,13 +105,13 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>SmallMoleculeSummary</h1>
-    <small class="dont-index">Source: <a href='https://github.com/lifs-tools/rmztab-m/blob/master/R/small_molecule_summary.R'><code>R/small_molecule_summary.R</code></a></small>
-    <div class="hidden name"><code>SmallMoleculeSummary.Rd</code></div>
+    <h1>StudyVariableAllOf</h1>
+    <small class="dont-index">Source: <a href='https://github.com/lifs-tools/rmztab-m/blob/master/R/study_variable_all_of.R'><code>R/study_variable_all_of.R</code></a></small>
+    <div class="hidden name"><code>StudyVariableAllOf.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>SmallMoleculeSummary Class</p>
+    <p>StudyVariableAllOf Class</p>
     </div>
 
 
@@ -122,45 +122,17 @@
     <h2 class="hasAnchor" id="public-fields"><a class="anchor" href="#public-fields"></a>Public fields</h2>
 
     <p><div class="r6-fields"></p><dl class='dl-horizontal'>
-<dt><code>prefix</code></dt><dd><p>character [optional]</p></dd>
+<dt><code>name</code></dt><dd><p>character</p></dd>
 
-<dt><code>header_prefix</code></dt><dd><p>character [optional]</p></dd>
+<dt><code>assay_refs</code></dt><dd><p>list( <a href='Assay.html'>Assay</a> ) [optional]</p></dd>
 
-<dt><code>sml_id</code></dt><dd><p>integer</p></dd>
+<dt><code>average_function</code></dt><dd><p><a href='Parameter.html'>Parameter</a> [optional]</p></dd>
 
-<dt><code>smf_id_refs</code></dt><dd><p>list( integer ) [optional]</p></dd>
+<dt><code>variation_function</code></dt><dd><p><a href='Parameter.html'>Parameter</a> [optional]</p></dd>
 
-<dt><code>database_identifier</code></dt><dd><p>list( character ) [optional]</p></dd>
+<dt><code>description</code></dt><dd><p>character [optional]</p></dd>
 
-<dt><code>chemical_formula</code></dt><dd><p>list( character ) [optional]</p></dd>
-
-<dt><code>smiles</code></dt><dd><p>list( character ) [optional]</p></dd>
-
-<dt><code>inchi</code></dt><dd><p>list( character ) [optional]</p></dd>
-
-<dt><code>chemical_name</code></dt><dd><p>list( character ) [optional]</p></dd>
-
-<dt><code>uri</code></dt><dd><p>list( character ) [optional]</p></dd>
-
-<dt><code>theoretical_neutral_mass</code></dt><dd><p>list( numeric ) [optional]</p></dd>
-
-<dt><code>adduct_ions</code></dt><dd><p>list( character ) [optional]</p></dd>
-
-<dt><code>reliability</code></dt><dd><p>character [optional]</p></dd>
-
-<dt><code>best_id_confidence_measure</code></dt><dd><p><a href='Parameter.html'>Parameter</a> [optional]</p></dd>
-
-<dt><code>best_id_confidence_value</code></dt><dd><p>numeric [optional]</p></dd>
-
-<dt><code>abundance_assay</code></dt><dd><p>list( numeric ) [optional]</p></dd>
-
-<dt><code>abundance_study_variable</code></dt><dd><p>list( numeric ) [optional]</p></dd>
-
-<dt><code>abundance_variation_study_variable</code></dt><dd><p>list( numeric ) [optional]</p></dd>
-
-<dt><code>opt</code></dt><dd><p>list( <a href='OptColumnMapping.html'>OptColumnMapping</a> ) [optional]</p></dd>
-
-<dt><code>comment</code></dt><dd><p>list( <a href='Comment.html'>Comment</a> ) [optional]</p></dd>
+<dt><code>factors</code></dt><dd><p>list( <a href='Parameter.html'>Parameter</a> ) [optional]</p></dd>
 
 </dl><p></div></p>
     <h2 class="hasAnchor" id="methods"><a class="anchor" href="#methods"></a>Methods</h2>
@@ -169,38 +141,24 @@
 <h3>Public methods</h3>
 
 <ul>
-<li><p><a href='#method-new'><code>SmallMoleculeSummary$new()</code></a></p></li>
-<li><p><a href='#method-toJSON'><code>SmallMoleculeSummary$toJSON()</code></a></p></li>
-<li><p><a href='#method-fromJSON'><code>SmallMoleculeSummary$fromJSON()</code></a></p></li>
-<li><p><a href='#method-toJSONString'><code>SmallMoleculeSummary$toJSONString()</code></a></p></li>
-<li><p><a href='#method-fromJSONString'><code>SmallMoleculeSummary$fromJSONString()</code></a></p></li>
-<li><p><a href='#method-clone'><code>SmallMoleculeSummary$clone()</code></a></p></li>
+<li><p><a href='#method-new'><code>StudyVariableAllOf$new()</code></a></p></li>
+<li><p><a href='#method-toJSON'><code>StudyVariableAllOf$toJSON()</code></a></p></li>
+<li><p><a href='#method-fromJSON'><code>StudyVariableAllOf$fromJSON()</code></a></p></li>
+<li><p><a href='#method-toJSONString'><code>StudyVariableAllOf$toJSONString()</code></a></p></li>
+<li><p><a href='#method-fromJSONString'><code>StudyVariableAllOf$fromJSONString()</code></a></p></li>
+<li><p><a href='#method-clone'><code>StudyVariableAllOf$clone()</code></a></p></li>
 </ul>
 <p><hr>
 <a id="method-new"></a></p><h3>Method <code>new()</code></h3>
 
 <h3>Usage</h3>
-<p><div class="r"></p><pre>SmallMoleculeSummary$new(
-  sml_id,
-  prefix = "SML",
-  header_prefix = "SMH",
-  smf_id_refs = NULL,
-  database_identifier = NULL,
-  chemical_formula = NULL,
-  smiles = NULL,
-  inchi = NULL,
-  chemical_name = NULL,
-  uri = NULL,
-  theoretical_neutral_mass = NULL,
-  adduct_ions = NULL,
-  reliability = NULL,
-  best_id_confidence_measure = NULL,
-  best_id_confidence_value = NULL,
-  abundance_assay = NULL,
-  abundance_study_variable = NULL,
-  abundance_variation_study_variable = NULL,
-  opt = NULL,
-  comment = NULL,
+<p><div class="r"></p><pre>StudyVariableAllOf$new(
+  name,
+  assay_refs = NULL,
+  average_function = NULL,
+  variation_function = NULL,
+  description = NULL,
+  factors = NULL,
   ...
 )</pre><p></div></p>
 
@@ -208,30 +166,30 @@
 <a id="method-toJSON"></a></p><h3>Method <code>toJSON()</code></h3>
 
 <h3>Usage</h3>
-<p><div class="r"></p><pre>SmallMoleculeSummary$toJSON()</pre><p></div></p>
+<p><div class="r"></p><pre>StudyVariableAllOf$toJSON()</pre><p></div></p>
 
 <p><hr>
 <a id="method-fromJSON"></a></p><h3>Method <code>fromJSON()</code></h3>
 
 <h3>Usage</h3>
-<p><div class="r"></p><pre>SmallMoleculeSummary$fromJSON(SmallMoleculeSummaryJson)</pre><p></div></p>
+<p><div class="r"></p><pre>StudyVariableAllOf$fromJSON(StudyVariableAllOfJson)</pre><p></div></p>
 
 <p><hr>
 <a id="method-toJSONString"></a></p><h3>Method <code>toJSONString()</code></h3>
 
 <h3>Usage</h3>
-<p><div class="r"></p><pre>SmallMoleculeSummary$toJSONString()</pre><p></div></p>
+<p><div class="r"></p><pre>StudyVariableAllOf$toJSONString()</pre><p></div></p>
 
 <p><hr>
 <a id="method-fromJSONString"></a></p><h3>Method <code>fromJSONString()</code></h3>
 
 <h3>Usage</h3>
-<p><div class="r"></p><pre>SmallMoleculeSummary$fromJSONString(SmallMoleculeSummaryJson)</pre><p></div></p>
+<p><div class="r"></p><pre>StudyVariableAllOf$fromJSONString(StudyVariableAllOfJson)</pre><p></div></p>
 
 <p><hr>
 <a id="method-clone"></a></p><h3>Method <code>clone()</code></h3>
 <p>The objects of this class are cloneable with this method.</p><h3>Usage</h3>
-<p><div class="r"></p><pre>SmallMoleculeSummary$clone(deep = FALSE)</pre><p></div></p>
+<p><div class="r"></p><pre>StudyVariableAllOf$clone(deep = FALSE)</pre><p></div></p>
 
 <h3>Arguments</h3>
 <p><div class="arguments"></p><dl class='dl-horizontal'>

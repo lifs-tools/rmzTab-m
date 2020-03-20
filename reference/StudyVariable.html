@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>StudyVariable Class — StudyVariable • rmzTabM</title>
+<title>StudyVariable — StudyVariable • rmzTabM</title>
 
 
 <!-- jquery -->
@@ -35,8 +35,8 @@
 
 
 
-<meta property="og:title" content="StudyVariable Class — StudyVariable" />
-<meta property="og:description" content="Specification of study_variable. (empty) name: A name for each study variable (experimental condition or factor), to serve as a list of the study variables that MUST be reported in the following tables. For software that does not capture study variables, a single study variable MUST be reported, linking to all assays. This single study variable MUST have the identifier “undefined“. assay_refs: Bar-separated references to the IDs of assays grouped in the study variable. average_function: The function used to calculate the study variable quantification value and the operation used is not arithmetic mean (default) e.g. “geometric mean”, “median”. The 1-n refers to different study variables. variation_function: The function used to calculate the study variable quantification variation value if it is reported and the operation used is not coefficient of variation (default) e.g. “standard error”. description: A textual description of the study variable. factors: Additional parameters or factors, separated by bars, that are known about study variables allowing the capture of more complex, such as nested designs." />
+<meta property="og:title" content="StudyVariable — StudyVariable" />
+<meta property="og:description" content="StudyVariable Class" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -69,7 +69,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rmzTabM</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.5</span>
       </span>
     </div>
 
@@ -105,43 +105,38 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>StudyVariable Class</h1>
-    <small class="dont-index">Source: <a href='https://github.com/lifs-tools/rmztab-m/blob/master/R/StudyVariable.r'><code>R/StudyVariable.r</code></a></small>
+    <h1>StudyVariable</h1>
+    <small class="dont-index">Source: <a href='https://github.com/lifs-tools/rmztab-m/blob/master/R/study_variable.R'><code>R/study_variable.R</code></a></small>
     <div class="hidden name"><code>StudyVariable.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Specification of study_variable. (empty) name: A name for each study variable (experimental condition or factor), to serve as a list of the study variables that MUST be reported in the following tables. For software that does not capture study variables, a single study variable MUST be reported, linking to all assays. This single study variable MUST have the identifier “undefined“. assay_refs: Bar-separated references to the IDs of assays grouped in the study variable. average_function: The function used to calculate the study variable quantification value and the operation used is not arithmetic mean (default) e.g. “geometric mean”, “median”. The 1-n refers to different study variables. variation_function: The function used to calculate the study variable quantification variation value if it is reported and the operation used is not coefficient of variation (default) e.g. “standard error”. description: A textual description of the study variable. factors: Additional parameters or factors, separated by bars, that are known about study variables allowing the capture of more complex, such as nested designs.</p>
+    <p>StudyVariable Class</p>
     </div>
 
 
 
+    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
+
+    <p>An <code>R6Class</code> generator object</p>
     <h2 class="hasAnchor" id="public-fields"><a class="anchor" href="#public-fields"></a>Public fields</h2>
 
     <p><div class="r6-fields"></p><dl class='dl-horizontal'>
-<dt><code>id</code></dt><dd><p></p></dd>
+<dt><code>id</code></dt><dd><p>integer</p></dd>
 
-<dt><code>elementType</code></dt><dd><p></p></dd>
+<dt><code>elementType</code></dt><dd><p>character</p></dd>
 
-<dt><code>name</code></dt><dd><p></p></dd>
+<dt><code>name</code></dt><dd><p>character</p></dd>
 
-<dt><code>assay_refs</code></dt><dd><p></p></dd>
+<dt><code>assay_refs</code></dt><dd><p>list( <a href='Assay.html'>Assay</a> ) [optional]</p></dd>
 
-<dt><code>average_function</code></dt><dd><p></p></dd>
+<dt><code>average_function</code></dt><dd><p><a href='Parameter.html'>Parameter</a> [optional]</p></dd>
 
-<dt><code>variation_function</code></dt><dd><p></p></dd>
+<dt><code>variation_function</code></dt><dd><p><a href='Parameter.html'>Parameter</a> [optional]</p></dd>
 
-<dt><code>description</code></dt><dd><p></p></dd>
+<dt><code>description</code></dt><dd><p>character [optional]</p></dd>
 
-<dt><code>factors</code></dt><dd><p>mzTab-M specification example(s)
-<pre>
-MTD    study_variable[1]    control
-MTD    study_variable[1]-assay_refs    assay[1]| assay[2]| assay[3]
-MTD    study_variable-average_function    [MS, MS:1002883, median, ]
-MTD    study_variable-variation_function    [MS, MS:1002885, standard error, ]
-MTD    study_variable[1]-description    Group B (spike-in 0.74 fmol/uL)
-MTD    study_variable[1]-factors    [,,time point, 1 minute]|[,,rapamycin dose,0.5mg]
-MTD    study_variable[2]    1 minute 0.5mg rapamycin</pre></p></dd>
+<dt><code>factors</code></dt><dd><p>list( <a href='Parameter.html'>Parameter</a> ) [optional]</p></dd>
 
 </dl><p></div></p>
     <h2 class="hasAnchor" id="methods"><a class="anchor" href="#methods"></a>Methods</h2>
@@ -165,11 +160,12 @@ MTD    study_variable[2]    1 minute 0.5mg rapamycin</pre></p></dd>
   id,
   elementType,
   name,
-  assay_refs,
-  average_function,
-  variation_function,
-  description,
-  factors
+  assay_refs = NULL,
+  average_function = NULL,
+  variation_function = NULL,
+  description = NULL,
+  factors = NULL,
+  ...
 )</pre><p></div></p>
 
 <p><hr>
@@ -213,6 +209,7 @@ MTD    study_variable[2]    1 minute 0.5mg rapamycin</pre></p></dd>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#format">Format</a></li>
       <li><a href="#public-fields">Public fields</a></li>
       <li><a href="#methods">Methods</a></li>
     </ul>

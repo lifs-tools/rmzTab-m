@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>CV Class — CV • rmzTabM</title>
+<title>CV — CV • rmzTabM</title>
 
 
 <!-- jquery -->
@@ -35,8 +35,8 @@
 
 
 
-<meta property="og:title" content="CV Class — CV" />
-<meta property="og:description" content="Specification of controlled vocabularies. label: A string describing the labels of the controlled vocabularies/ontologies used in the mzTab file as a short-hand e.g. \&amp;amp;quot;MS\&amp;amp;quot; for PSI-MS. full_name: A string describing the full names of the controlled vocabularies/ontologies used in the mzTab file. version: A string describing the version of the controlled vocabularies/ontologies used in the mzTab file. uri: A string containing the URIs of the controlled vocabularies/ontologies used in the mzTab file." />
+<meta property="og:title" content="CV — CV" />
+<meta property="og:description" content="CV Class" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -105,52 +105,99 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>CV Class</h1>
-    <small class="dont-index">Source: <a href='https://github.com/lifs-tools/rmztab-m/blob/master/R/CV.r'><code>R/CV.r</code></a></small>
+    <h1>CV</h1>
+    <small class="dont-index">Source: <a href='https://github.com/lifs-tools/rmztab-m/blob/master/R/cv.R'><code>R/cv.R</code></a></small>
     <div class="hidden name"><code>CV.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Specification of controlled vocabularies. label: A string describing the labels of the controlled vocabularies/ontologies used in the mzTab file as a short-hand e.g. \&amp;quot;MS\&amp;quot; for PSI-MS. full_name: A string describing the full names of the controlled vocabularies/ontologies used in the mzTab file. version: A string describing the version of the controlled vocabularies/ontologies used in the mzTab file. uri: A string containing the URIs of the controlled vocabularies/ontologies used in the mzTab file.</p>
+    <p>CV Class</p>
     </div>
 
-    <pre class="usage"><span class='no'>CV</span></pre>
 
 
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>An object of class <code>R6ClassGenerator</code> of length 24.</p>
-    <h2 class="hasAnchor" id="fields"><a class="anchor" href="#fields"></a>Fields</h2>
+    <p>An <code>R6Class</code> generator object</p>
+    <h2 class="hasAnchor" id="public-fields"><a class="anchor" href="#public-fields"></a>Public fields</h2>
+
+    <p><div class="r6-fields"></p><dl class='dl-horizontal'>
+<dt><code>id</code></dt><dd><p>integer</p></dd>
+
+<dt><code>elementType</code></dt><dd><p>character</p></dd>
+
+<dt><code>label</code></dt><dd><p>character</p></dd>
+
+<dt><code>full_name</code></dt><dd><p>character</p></dd>
+
+<dt><code>version</code></dt><dd><p>character</p></dd>
+
+<dt><code>uri</code></dt><dd><p>character</p></dd>
+
+</dl><p></div></p>
+    <h2 class="hasAnchor" id="methods"><a class="anchor" href="#methods"></a>Methods</h2>
 
     
+<h3>Public methods</h3>
 
-<dl class='dl-horizontal'>
-<dt><code>id</code></dt><dd><p></p></dd>
+<ul>
+<li><p><a href='#method-new'><code>CV$new()</code></a></p></li>
+<li><p><a href='#method-toJSON'><code>CV$toJSON()</code></a></p></li>
+<li><p><a href='#method-fromJSON'><code>CV$fromJSON()</code></a></p></li>
+<li><p><a href='#method-toJSONString'><code>CV$toJSONString()</code></a></p></li>
+<li><p><a href='#method-fromJSONString'><code>CV$fromJSONString()</code></a></p></li>
+<li><p><a href='#method-clone'><code>CV$clone()</code></a></p></li>
+</ul>
+<p><hr>
+<a id="method-new"></a></p><h3>Method <code>new()</code></h3>
 
-<dt><code>elementType</code></dt><dd><p></p></dd>
+<h3>Usage</h3>
+<p><div class="r"></p><pre>CV$new(id, elementType, label, full_name, version, uri, ...)</pre><p></div></p>
 
-<dt><code>label</code></dt><dd><p></p></dd>
+<p><hr>
+<a id="method-toJSON"></a></p><h3>Method <code>toJSON()</code></h3>
 
-<dt><code>full_name</code></dt><dd><p></p></dd>
+<h3>Usage</h3>
+<p><div class="r"></p><pre>CV$toJSON()</pre><p></div></p>
 
-<dt><code>version</code></dt><dd><p></p></dd>
+<p><hr>
+<a id="method-fromJSON"></a></p><h3>Method <code>fromJSON()</code></h3>
 
-<dt><code>uri</code></dt><dd><p>mzTab-M specification example(s)
-<pre>
-MTD    cv[1]-label    MS
-MTD    cv[1]-full_name    PSI-MS controlled vocabulary
-MTD    cv[1]-version    4.1.11
-MTD    cv[1]-uri    https://raw.githubusercontent.com/HUPO-PSI/psi-ms-CV/master/psi-ms.obo
-</pre></p></dd>
+<h3>Usage</h3>
+<p><div class="r"></p><pre>CV$fromJSON(CVJson)</pre><p></div></p>
 
-</dl>
+<p><hr>
+<a id="method-toJSONString"></a></p><h3>Method <code>toJSONString()</code></h3>
+
+<h3>Usage</h3>
+<p><div class="r"></p><pre>CV$toJSONString()</pre><p></div></p>
+
+<p><hr>
+<a id="method-fromJSONString"></a></p><h3>Method <code>fromJSONString()</code></h3>
+
+<h3>Usage</h3>
+<p><div class="r"></p><pre>CV$fromJSONString(CVJson)</pre><p></div></p>
+
+<p><hr>
+<a id="method-clone"></a></p><h3>Method <code>clone()</code></h3>
+<p>The objects of this class are cloneable with this method.</p><h3>Usage</h3>
+<p><div class="r"></p><pre>CV$clone(deep = FALSE)</pre><p></div></p>
+
+<h3>Arguments</h3>
+<p><div class="arguments"></p><dl class='dl-horizontal'>
+<dt><code>deep</code></dt><dd><p>Whether to make a deep clone.</p></dd>
+
+</dl><p></div></p>
+
+
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#format">Format</a></li>
-      <li><a href="#fields">Fields</a></li>
+      <li><a href="#public-fields">Public fields</a></li>
+      <li><a href="#methods">Methods</a></li>
     </ul>
 
   </div>

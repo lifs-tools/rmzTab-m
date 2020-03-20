@@ -8,6 +8,8 @@ writeMzTab(mztab, filename)
 }
 \arguments{
 \item{mztab}{the R6 MzTab object to write.}
+
+\item{filename}{the filename to write to.}
 }
 \description{
 Write an mzTab tab separated file from the passed in mzTab object.

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Uri Class — Uri • rmzTabM</title>
+<title>Uri — Uri • rmzTabM</title>
 
 
 <!-- jquery -->
@@ -35,8 +35,8 @@
 
 
 
-<meta property="og:title" content="Uri Class — Uri" />
-<meta property="og:description" content="A URI pointing to the file’s source data (e.g., a MetaboLights records) or an external file with more details about the study design." />
+<meta property="og:title" content="Uri — Uri" />
+<meta property="og:description" content="Uri Class" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -105,44 +105,93 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Uri Class</h1>
-    <small class="dont-index">Source: <a href='https://github.com/lifs-tools/rmztab-m/blob/master/R/Uri.r'><code>R/Uri.r</code></a></small>
+    <h1>Uri</h1>
+    <small class="dont-index">Source: <a href='https://github.com/lifs-tools/rmztab-m/blob/master/R/uri.R'><code>R/uri.R</code></a></small>
     <div class="hidden name"><code>Uri.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>A URI pointing to the file’s source data (e.g., a MetaboLights records) or an external file with more details about the study design.</p>
+    <p>Uri Class</p>
     </div>
 
-    <pre class="usage"><span class='no'>Uri</span></pre>
 
 
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>An object of class <code>R6ClassGenerator</code> of length 24.</p>
-    <h2 class="hasAnchor" id="fields"><a class="anchor" href="#fields"></a>Fields</h2>
+    <p>An <code>R6Class</code> generator object</p>
+    <h2 class="hasAnchor" id="public-fields"><a class="anchor" href="#public-fields"></a>Public fields</h2>
+
+    <p><div class="r6-fields"></p><dl class='dl-horizontal'>
+<dt><code>id</code></dt><dd><p>integer</p></dd>
+
+<dt><code>elementType</code></dt><dd><p>character</p></dd>
+
+<dt><code>value</code></dt><dd><p>character [optional]</p></dd>
+
+</dl><p></div></p>
+    <h2 class="hasAnchor" id="methods"><a class="anchor" href="#methods"></a>Methods</h2>
 
     
+<h3>Public methods</h3>
 
-<dl class='dl-horizontal'>
-<dt><code>id</code></dt><dd><p></p></dd>
+<ul>
+<li><p><a href='#method-new'><code>Uri$new()</code></a></p></li>
+<li><p><a href='#method-toJSON'><code>Uri$toJSON()</code></a></p></li>
+<li><p><a href='#method-fromJSON'><code>Uri$fromJSON()</code></a></p></li>
+<li><p><a href='#method-toJSONString'><code>Uri$toJSONString()</code></a></p></li>
+<li><p><a href='#method-fromJSONString'><code>Uri$fromJSONString()</code></a></p></li>
+<li><p><a href='#method-clone'><code>Uri$clone()</code></a></p></li>
+</ul>
+<p><hr>
+<a id="method-new"></a></p><h3>Method <code>new()</code></h3>
 
-<dt><code>elementType</code></dt><dd><p></p></dd>
+<h3>Usage</h3>
+<p><div class="r"></p><pre>Uri$new(id, elementType, value = NULL, ...)</pre><p></div></p>
 
-<dt><code>value</code></dt><dd><p>mzTab-M specification example(s)
-<pre>
-MTD    uri[1]    https://www.ebi.ac.uk/metabolights/MTBLS517
-…
-MTD    external_study_uri[1]    https://www.ebi.ac.uk/metabolights/MTBLS517/files/i_Investigation.txt</pre></p></dd>
+<p><hr>
+<a id="method-toJSON"></a></p><h3>Method <code>toJSON()</code></h3>
 
-</dl>
+<h3>Usage</h3>
+<p><div class="r"></p><pre>Uri$toJSON()</pre><p></div></p>
+
+<p><hr>
+<a id="method-fromJSON"></a></p><h3>Method <code>fromJSON()</code></h3>
+
+<h3>Usage</h3>
+<p><div class="r"></p><pre>Uri$fromJSON(UriJson)</pre><p></div></p>
+
+<p><hr>
+<a id="method-toJSONString"></a></p><h3>Method <code>toJSONString()</code></h3>
+
+<h3>Usage</h3>
+<p><div class="r"></p><pre>Uri$toJSONString()</pre><p></div></p>
+
+<p><hr>
+<a id="method-fromJSONString"></a></p><h3>Method <code>fromJSONString()</code></h3>
+
+<h3>Usage</h3>
+<p><div class="r"></p><pre>Uri$fromJSONString(UriJson)</pre><p></div></p>
+
+<p><hr>
+<a id="method-clone"></a></p><h3>Method <code>clone()</code></h3>
+<p>The objects of this class are cloneable with this method.</p><h3>Usage</h3>
+<p><div class="r"></p><pre>Uri$clone(deep = FALSE)</pre><p></div></p>
+
+<h3>Arguments</h3>
+<p><div class="arguments"></p><dl class='dl-horizontal'>
+<dt><code>deep</code></dt><dd><p>Whether to make a deep clone.</p></dd>
+
+</dl><p></div></p>
+
+
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#format">Format</a></li>
-      <li><a href="#fields">Fields</a></li>
+      <li><a href="#public-fields">Public fields</a></li>
+      <li><a href="#methods">Methods</a></li>
     </ul>
 
   </div>

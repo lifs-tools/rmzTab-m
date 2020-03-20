@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Instrument Class — Instrument • rmzTabM</title>
+<title>Instrument — Instrument • rmzTabM</title>
 
 
 <!-- jquery -->
@@ -35,8 +35,8 @@
 
 
 
-<meta property="og:title" content="Instrument Class — Instrument" />
-<meta property="og:description" content="The name, source, analyzer and detector of the instruments used in the experiment. Multiple instruments are numbered [1-n]." />
+<meta property="og:title" content="Instrument — Instrument" />
+<meta property="og:description" content="Instrument Class" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -105,57 +105,107 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Instrument Class</h1>
-    <small class="dont-index">Source: <a href='https://github.com/lifs-tools/rmztab-m/blob/master/R/Instrument.r'><code>R/Instrument.r</code></a></small>
+    <h1>Instrument</h1>
+    <small class="dont-index">Source: <a href='https://github.com/lifs-tools/rmztab-m/blob/master/R/instrument.R'><code>R/instrument.R</code></a></small>
     <div class="hidden name"><code>Instrument.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>The name, source, analyzer and detector of the instruments used in the experiment. Multiple instruments are numbered [1-n].</p>
+    <p>Instrument Class</p>
     </div>
 
-    <pre class="usage"><span class='no'>Instrument</span></pre>
 
 
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>An object of class <code>R6ClassGenerator</code> of length 24.</p>
-    <h2 class="hasAnchor" id="fields"><a class="anchor" href="#fields"></a>Fields</h2>
+    <p>An <code>R6Class</code> generator object</p>
+    <h2 class="hasAnchor" id="public-fields"><a class="anchor" href="#public-fields"></a>Public fields</h2>
+
+    <p><div class="r6-fields"></p><dl class='dl-horizontal'>
+<dt><code>id</code></dt><dd><p>integer</p></dd>
+
+<dt><code>elementType</code></dt><dd><p>character</p></dd>
+
+<dt><code>name</code></dt><dd><p><a href='Parameter.html'>Parameter</a> [optional]</p></dd>
+
+<dt><code>source</code></dt><dd><p><a href='Parameter.html'>Parameter</a> [optional]</p></dd>
+
+<dt><code>analyzer</code></dt><dd><p>list( <a href='Parameter.html'>Parameter</a> ) [optional]</p></dd>
+
+<dt><code>detector</code></dt><dd><p><a href='Parameter.html'>Parameter</a> [optional]</p></dd>
+
+</dl><p></div></p>
+    <h2 class="hasAnchor" id="methods"><a class="anchor" href="#methods"></a>Methods</h2>
 
     
+<h3>Public methods</h3>
 
-<dl class='dl-horizontal'>
-<dt><code>id</code></dt><dd><p></p></dd>
+<ul>
+<li><p><a href='#method-new'><code>Instrument$new()</code></a></p></li>
+<li><p><a href='#method-toJSON'><code>Instrument$toJSON()</code></a></p></li>
+<li><p><a href='#method-fromJSON'><code>Instrument$fromJSON()</code></a></p></li>
+<li><p><a href='#method-toJSONString'><code>Instrument$toJSONString()</code></a></p></li>
+<li><p><a href='#method-fromJSONString'><code>Instrument$fromJSONString()</code></a></p></li>
+<li><p><a href='#method-clone'><code>Instrument$clone()</code></a></p></li>
+</ul>
+<p><hr>
+<a id="method-new"></a></p><h3>Method <code>new()</code></h3>
 
-<dt><code>elementType</code></dt><dd><p></p></dd>
+<h3>Usage</h3>
+<p><div class="r"></p><pre>Instrument$new(
+  id,
+  elementType,
+  name = NULL,
+  source = NULL,
+  analyzer = NULL,
+  detector = NULL,
+  ...
+)</pre><p></div></p>
 
-<dt><code>name</code></dt><dd><p></p></dd>
+<p><hr>
+<a id="method-toJSON"></a></p><h3>Method <code>toJSON()</code></h3>
 
-<dt><code>source</code></dt><dd><p></p></dd>
+<h3>Usage</h3>
+<p><div class="r"></p><pre>Instrument$toJSON()</pre><p></div></p>
 
-<dt><code>analyzer</code></dt><dd><p></p></dd>
+<p><hr>
+<a id="method-fromJSON"></a></p><h3>Method <code>fromJSON()</code></h3>
 
-<dt><code>detector</code></dt><dd><p>mzTab-M specification example(s)
-<pre>
-MTD    instrument[1]-name    [MS, MS:1000449, LTQ Orbitrap,]
-MTD    instrument[1]-source    [MS, MS:1000073, ESI,]
-…
-MTD    instrument[2]-source    [MS, MS:1000598, ETD,]
-MTD    instrument[1]-analyzer[1]    [MS, MS:1000291, linear ion trap,]
-…
-MTD    instrument[2]-analyzer[1]    [MS, MS:1000484, orbitrap,]
-MTD    instrument[1]-detector    [MS, MS:1000253, electron multiplier,]
-…
-MTD    instrument[2]-detector    [MS, MS:1000348, focal plane collector,]</pre></p></dd>
+<h3>Usage</h3>
+<p><div class="r"></p><pre>Instrument$fromJSON(InstrumentJson)</pre><p></div></p>
 
-</dl>
+<p><hr>
+<a id="method-toJSONString"></a></p><h3>Method <code>toJSONString()</code></h3>
+
+<h3>Usage</h3>
+<p><div class="r"></p><pre>Instrument$toJSONString()</pre><p></div></p>
+
+<p><hr>
+<a id="method-fromJSONString"></a></p><h3>Method <code>fromJSONString()</code></h3>
+
+<h3>Usage</h3>
+<p><div class="r"></p><pre>Instrument$fromJSONString(InstrumentJson)</pre><p></div></p>
+
+<p><hr>
+<a id="method-clone"></a></p><h3>Method <code>clone()</code></h3>
+<p>The objects of this class are cloneable with this method.</p><h3>Usage</h3>
+<p><div class="r"></p><pre>Instrument$clone(deep = FALSE)</pre><p></div></p>
+
+<h3>Arguments</h3>
+<p><div class="arguments"></p><dl class='dl-horizontal'>
+<dt><code>deep</code></dt><dd><p>Whether to make a deep clone.</p></dd>
+
+</dl><p></div></p>
+
+
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#format">Format</a></li>
-      <li><a href="#fields">Fields</a></li>
+      <li><a href="#public-fields">Public fields</a></li>
+      <li><a href="#methods">Methods</a></li>
     </ul>
 
   </div>

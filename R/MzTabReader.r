@@ -5,7 +5,7 @@
 #' @export
 readMzTab <- function(filename) {
   # read maximum number of columns in file
-  ncol <- max(na.omit(count.fields(file=filename, sep = "\t")))
+  ncol <- max(stats::na.omit(utils::count.fields(file=filename, sep = "\t")))
   print(ncol)
   mztab.table = utils::read.table(file=filename, header=FALSE,
                     row.names=NULL, dec = ".", fill = TRUE,

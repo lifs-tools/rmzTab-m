@@ -14,7 +14,7 @@ rbind.ragged <- function(x, y) {
   y <- as.data.frame(y) 
   colnames(x) <- seq(1:ncol(x))
   colnames(y) <- seq(1:ncol(y))
-  rbind.fill(x,y)
+  plyr::rbind.fill(x,y)
 }
 
 cvTerm <- function(CV, accession, name, value) {
@@ -190,6 +190,7 @@ writeMzTabJSONToFile <- function(mztab, file) {
 #'
 #' Write an mzTab tab separated file from the passed in mzTab object.
 #' @param mztab the R6 MzTab object to write.
+#' @param filename the filename to write to.
 #' @export
 writeMzTab <- function(mztab, filename) {
   if(is.null(mztab$metadata)) {

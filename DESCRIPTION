@@ -1,14 +1,14 @@
 Package: rmzTabM
 Title: R Package Client for mzTab-M reference implementation and validation API
-Version: 1.0.4
+Version: 1.0.5
 Authors@R: person("Nils Hoffmann", email = "nils.hoffmann@isas.de", role = c("aut", "cre"))
 Description: This is the mzTab-M reference implementation reader and writer for R.
-Depends: R (>= 3.3)
+Depends: R (>= 3.5)
 Encoding: UTF-8
 License: MIT + file LICENSE
 LazyData: true
 URL: https://github.com/lifs-tools/rmztab-m
 BugReports: https://github.com/lifs-tools/rmztab-m/issues
 Suggests: testthat, pkgdown
-Imports: jsonlite, httr, R6
+Imports: jsonlite, httr, R6, caTools
 RoxygenNote: 6.1.1

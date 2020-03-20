@@ -28,8 +28,8 @@
         "id" : null,
         "elementType" : "element_type",
         "cv_label" : "MS",
-        "cv_accession" : "MS:1002581",
-        "name" : "QTRAP 6500",
+        "cv_accession" : "MS:1001911",
+        "name" : "Q Exactive",
         "value" : null
       },
       "source" : {
@@ -38,7 +38,7 @@
         "elementType" : "element_type",
         "cv_label" : "MS",
         "cv_accession" : "MS:1000073",
-        "name" : "Electrospray Ionization",
+        "name" : "electrospray ionization",
         "value" : null
       },
       "analyzer" : [ {
@@ -46,11 +46,27 @@
         "id" : null,
         "elementType" : "element_type",
         "cv_label" : "MS",
-        "cv_accession" : "MS:1000082",
-        "name" : "quadrupole ion trap",
+        "cv_accession" : "MS:1000081",
+        "name" : "quadrupole",
+        "value" : null
+      }, {
+        "elementType" : "Parameter",
+        "id" : null,
+        "elementType" : "element_type",
+        "cv_label" : "MS",
+        "cv_accession" : "MS:1000484",
+        "name" : "orbitrap",
         "value" : null
       } ],
-      "detector" : null
+      "detector" : {
+        "elementType" : "Parameter",
+        "id" : null,
+        "elementType" : "element_type",
+        "cv_label" : "MS",
+        "cv_accession" : "MS:1000624",
+        "name" : "inductive detector",
+        "value" : null
+      }
     } ],
     "software" : [ {
       "elementType" : "Software",
@@ -61,9 +77,9 @@
         "id" : null,
         "elementType" : "element_type",
         "cv_label" : "MS",
-        "cv_accession" : "MS:1000551",
-        "name" : "Analyst",
-        "value" : "1.6.2"
+        "cv_accession" : "MS:1000532",
+        "name" : "Xcalibur",
+        "value" : "2.8-280502/2.8.1.2806"
       },
       "setting" : [ "ScheduledSRMWindow: 2 min", "CycleTime: 2 s" ]
     }, {
@@ -149,8 +165,8 @@
               "id" : null,
               "elementType" : "element_type",
               "cv_label" : "MS",
-              "cv_accession" : "MS:1002581",
-              "name" : "QTRAP 6500",
+              "cv_accession" : "MS:1001911",
+              "name" : "Q Exactive",
               "value" : null
             },
             "source" : {
@@ -159,7 +175,7 @@
               "elementType" : "element_type",
               "cv_label" : "MS",
               "cv_accession" : "MS:1000073",
-              "name" : "Electrospray Ionization",
+              "name" : "electrospray ionization",
               "value" : null
             },
             "analyzer" : [ {
@@ -167,11 +183,27 @@
               "id" : null,
               "elementType" : "element_type",
               "cv_label" : "MS",
-              "cv_accession" : "MS:1000082",
-              "name" : "quadrupole ion trap",
+              "cv_accession" : "MS:1000081",
+              "name" : "quadrupole",
+              "value" : null
+            }, {
+              "elementType" : "Parameter",
+              "id" : null,
+              "elementType" : "element_type",
+              "cv_label" : "MS",
+              "cv_accession" : "MS:1000484",
+              "name" : "orbitrap",
               "value" : null
             } ],
-            "detector" : null
+            "detector" : {
+              "elementType" : "Parameter",
+              "id" : null,
+              "elementType" : "element_type",
+              "cv_label" : "MS",
+              "cv_accession" : "MS:1000624",
+              "name" : "inductive detector",
+              "value" : null
+            }
           },
           "format" : {
             "elementType" : "Parameter",
@@ -241,8 +273,8 @@
           "id" : null,
           "elementType" : "element_type",
           "cv_label" : "MS",
-          "cv_accession" : "MS:1002581",
-          "name" : "QTRAP 6500",
+          "cv_accession" : "MS:1001911",
+          "name" : "Q Exactive",
           "value" : null
         },
         "source" : {
@@ -251,7 +283,7 @@
           "elementType" : "element_type",
           "cv_label" : "MS",
           "cv_accession" : "MS:1000073",
-          "name" : "Electrospray Ionization",
+          "name" : "electrospray ionization",
           "value" : null
         },
         "analyzer" : [ {
@@ -259,11 +291,27 @@
           "id" : null,
           "elementType" : "element_type",
           "cv_label" : "MS",
-          "cv_accession" : "MS:1000082",
-          "name" : "quadrupole ion trap",
+          "cv_accession" : "MS:1000081",
+          "name" : "quadrupole",
+          "value" : null
+        }, {
+          "elementType" : "Parameter",
+          "id" : null,
+          "elementType" : "element_type",
+          "cv_label" : "MS",
+          "cv_accession" : "MS:1000484",
+          "name" : "orbitrap",
           "value" : null
         } ],
-        "detector" : null
+        "detector" : {
+          "elementType" : "Parameter",
+          "id" : null,
+          "elementType" : "element_type",
+          "cv_label" : "MS",
+          "cv_accession" : "MS:1000624",
+          "name" : "inductive detector",
+          "value" : null
+        }
       },
       "format" : {
         "elementType" : "Parameter",
@@ -330,8 +378,8 @@
             "id" : null,
             "elementType" : "element_type",
             "cv_label" : "MS",
-            "cv_accession" : "MS:1002581",
-            "name" : "QTRAP 6500",
+            "cv_accession" : "MS:1001911",
+            "name" : "Q Exactive",
             "value" : null
           },
           "source" : {
@@ -340,7 +388,7 @@
             "elementType" : "element_type",
             "cv_label" : "MS",
             "cv_accession" : "MS:1000073",
-            "name" : "Electrospray Ionization",
+            "name" : "electrospray ionization",
             "value" : null
           },
           "analyzer" : [ {
@@ -348,11 +396,27 @@
             "id" : null,
             "elementType" : "element_type",
             "cv_label" : "MS",
-            "cv_accession" : "MS:1000082",
-            "name" : "quadrupole ion trap",
+            "cv_accession" : "MS:1000081",
+            "name" : "quadrupole",
+            "value" : null
+          }, {
+            "elementType" : "Parameter",
+            "id" : null,
+            "elementType" : "element_type",
+            "cv_label" : "MS",
+            "cv_accession" : "MS:1000484",
+            "name" : "orbitrap",
             "value" : null
           } ],
-          "detector" : null
+          "detector" : {
+            "elementType" : "Parameter",
+            "id" : null,
+            "elementType" : "element_type",
+            "cv_label" : "MS",
+            "cv_accession" : "MS:1000624",
+            "name" : "inductive detector",
+            "value" : null
+          }
         },
         "format" : {
           "elementType" : "Parameter",
@@ -680,8 +744,8 @@
             "id" : null,
             "elementType" : "element_type",
             "cv_label" : "MS",
-            "cv_accession" : "MS:1002581",
-            "name" : "QTRAP 6500",
+            "cv_accession" : "MS:1001911",
+            "name" : "Q Exactive",
             "value" : null
           },
           "source" : {
@@ -690,7 +754,7 @@
             "elementType" : "element_type",
             "cv_label" : "MS",
             "cv_accession" : "MS:1000073",
-            "name" : "Electrospray Ionization",
+            "name" : "electrospray ionization",
             "value" : null
           },
           "analyzer" : [ {
@@ -698,11 +762,27 @@
             "id" : null,
             "elementType" : "element_type",
             "cv_label" : "MS",
-            "cv_accession" : "MS:1000082",
-            "name" : "quadrupole ion trap",
+            "cv_accession" : "MS:1000081",
+            "name" : "quadrupole",
+            "value" : null
+          }, {
+            "elementType" : "Parameter",
+            "id" : null,
+            "elementType" : "element_type",
+            "cv_label" : "MS",
+            "cv_accession" : "MS:1000484",
+            "name" : "orbitrap",
             "value" : null
           } ],
-          "detector" : null
+          "detector" : {
+            "elementType" : "Parameter",
+            "id" : null,
+            "elementType" : "element_type",
+            "cv_label" : "MS",
+            "cv_accession" : "MS:1000624",
+            "name" : "inductive detector",
+            "value" : null
+          }
         },
         "format" : {
           "elementType" : "Parameter",
@@ -735,7 +815,7 @@
         "hash" : null,
         "hash_method" : null
       },
-      "reference" : "index=731"
+      "reference" : "controllerType=0 controllerNumber=1 scan=731"
     } ],
     "identification_method" : {
       "elementType" : "Parameter",
@@ -799,8 +879,8 @@
             "id" : null,
             "elementType" : "element_type",
             "cv_label" : "MS",
-            "cv_accession" : "MS:1002581",
-            "name" : "QTRAP 6500",
+            "cv_accession" : "MS:1001911",
+            "name" : "Q Exactive",
             "value" : null
           },
           "source" : {
@@ -809,7 +889,7 @@
             "elementType" : "element_type",
             "cv_label" : "MS",
             "cv_accession" : "MS:1000073",
-            "name" : "Electrospray Ionization",
+            "name" : "electrospray ionization",
             "value" : null
           },
           "analyzer" : [ {
@@ -817,11 +897,27 @@
             "id" : null,
             "elementType" : "element_type",
             "cv_label" : "MS",
-            "cv_accession" : "MS:1000082",
-            "name" : "quadrupole ion trap",
+            "cv_accession" : "MS:1000081",
+            "name" : "quadrupole",
+            "value" : null
+          }, {
+            "elementType" : "Parameter",
+            "id" : null,
+            "elementType" : "element_type",
+            "cv_label" : "MS",
+            "cv_accession" : "MS:1000484",
+            "name" : "orbitrap",
             "value" : null
           } ],
-          "detector" : null
+          "detector" : {
+            "elementType" : "Parameter",
+            "id" : null,
+            "elementType" : "element_type",
+            "cv_label" : "MS",
+            "cv_accession" : "MS:1000624",
+            "name" : "inductive detector",
+            "value" : null
+          }
         },
         "format" : {
           "elementType" : "Parameter",
@@ -854,7 +950,7 @@
         "hash" : null,
         "hash_method" : null
       },
-      "reference" : "index=732"
+      "reference" : "controllerType=0 controllerNumber=1 scan=732"
     } ],
     "identification_method" : {
       "elementType" : "Parameter",
@@ -918,8 +1014,8 @@
             "id" : null,
             "elementType" : "element_type",
             "cv_label" : "MS",
-            "cv_accession" : "MS:1002581",
-            "name" : "QTRAP 6500",
+            "cv_accession" : "MS:1001911",
+            "name" : "Q Exactive",
             "value" : null
           },
           "source" : {
@@ -928,7 +1024,7 @@
             "elementType" : "element_type",
             "cv_label" : "MS",
             "cv_accession" : "MS:1000073",
-            "name" : "Electrospray Ionization",
+            "name" : "electrospray ionization",
             "value" : null
           },
           "analyzer" : [ {
@@ -936,11 +1032,27 @@
             "id" : null,
             "elementType" : "element_type",
             "cv_label" : "MS",
-            "cv_accession" : "MS:1000082",
-            "name" : "quadrupole ion trap",
+            "cv_accession" : "MS:1000081",
+            "name" : "quadrupole",
+            "value" : null
+          }, {
+            "elementType" : "Parameter",
+            "id" : null,
+            "elementType" : "element_type",
+            "cv_label" : "MS",
+            "cv_accession" : "MS:1000484",
+            "name" : "orbitrap",
             "value" : null
           } ],
-          "detector" : null
+          "detector" : {
+            "elementType" : "Parameter",
+            "id" : null,
+            "elementType" : "element_type",
+            "cv_label" : "MS",
+            "cv_accession" : "MS:1000624",
+            "name" : "inductive detector",
+            "value" : null
+          }
         },
         "format" : {
           "elementType" : "Parameter",
@@ -973,7 +1085,7 @@
         "hash" : null,
         "hash_method" : null
       },
-      "reference" : "index=732"
+      "reference" : "controllerType=0 controllerNumber=1 scan=732"
     } ],
     "identification_method" : {
       "elementType" : "Parameter",
@@ -1037,8 +1149,8 @@
             "id" : null,
             "elementType" : "element_type",
             "cv_label" : "MS",
-            "cv_accession" : "MS:1002581",
-            "name" : "QTRAP 6500",
+            "cv_accession" : "MS:1001911",
+            "name" : "Q Exactive",
             "value" : null
           },
           "source" : {
@@ -1047,7 +1159,7 @@
             "elementType" : "element_type",
             "cv_label" : "MS",
             "cv_accession" : "MS:1000073",
-            "name" : "Electrospray Ionization",
+            "name" : "electrospray ionization",
             "value" : null
           },
           "analyzer" : [ {
@@ -1055,11 +1167,27 @@
             "id" : null,
             "elementType" : "element_type",
             "cv_label" : "MS",
-            "cv_accession" : "MS:1000082",
-            "name" : "quadrupole ion trap",
+            "cv_accession" : "MS:1000081",
+            "name" : "quadrupole",
+            "value" : null
+          }, {
+            "elementType" : "Parameter",
+            "id" : null,
+            "elementType" : "element_type",
+            "cv_label" : "MS",
+            "cv_accession" : "MS:1000484",
+            "name" : "orbitrap",
             "value" : null
           } ],
-          "detector" : null
+          "detector" : {
+            "elementType" : "Parameter",
+            "id" : null,
+            "elementType" : "element_type",
+            "cv_label" : "MS",
+            "cv_accession" : "MS:1000624",
+            "name" : "inductive detector",
+            "value" : null
+          }
         },
         "format" : {
           "elementType" : "Parameter",
@@ -1092,7 +1220,7 @@
         "hash" : null,
         "hash_method" : null
       },
-      "reference" : "index=732"
+      "reference" : "controllerType=0 controllerNumber=1 scan=732"
     } ],
     "identification_method" : {
       "elementType" : "Parameter",
@@ -1132,38 +1260,38 @@
   }, {
     "prefix" : "COM",
     "msg" : "MTD",
-    "line_number" : 58
+    "line_number" : 60
   }, {
     "prefix" : "COM",
     "msg" : "\"MzTab 2.0.0-M \"\"proposed\"\" specification\"",
-    "line_number" : 63
-  }, {
-    "prefix" : "COM",
-    "msg" : "Summary rows.",
-    "line_number" : 64
-  }, {
-    "prefix" : "COM",
-    "msg" : "Evidences (e.g. multiple modifications, adducts incl. charge variants are summarized).",
     "line_number" : 65
   }, {
     "prefix" : "COM",
-    "msg" : "For most use cases this summary lines may be sufficient.",
+    "msg" : "Summary rows.",
     "line_number" : 66
   }, {
     "prefix" : "COM",
-    "msg" : "Negative and positive scan polarities are currently not explicitly included, this is still under debate in the mzTAB community.",
+    "msg" : "Evidences (e.g. multiple modifications, adducts incl. charge variants are summarized).",
     "line_number" : 67
   }, {
     "prefix" : "COM",
+    "msg" : "For most use cases this summary lines may be sufficient.",
+    "line_number" : 68
+  }, {
+    "prefix" : "COM",
+    "msg" : "Negative and positive scan polarities are currently not explicitly included, this is still under debate in the mzTAB community.",
+    "line_number" : 69
+  }, {
+    "prefix" : "COM",
     "msg" : "MS feature rows , used to report m/z and individual abundance information for quantification",
-    "line_number" : 71
+    "line_number" : 73
   }, {
     "prefix" : "COM",
     "msg" : "Evidence rows for parent / fragment ions.",
-    "line_number" : 78
+    "line_number" : 80
   }, {
     "prefix" : "COM",
     "msg" : "Primary use case: report single hits from spectral library or accurate mass searches without quantification. -> Qualification",
-    "line_number" : 79
+    "line_number" : 81
   } ]
 }

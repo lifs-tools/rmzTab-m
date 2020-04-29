@@ -10,9 +10,7 @@
 #' @title Uri
 #' @description Uri Class
 #' @format An \code{R6Class} generator object
-#' @field id  integer 
-#'
-#' @field elementType  character 
+#' @field id  integer [optional]
 #'
 #' @field value  character [optional]
 #'
@@ -24,17 +22,12 @@ Uri <- R6::R6Class(
   'Uri',
   public = list(
     `id` = NULL,
-    `elementType` = NULL,
     `value` = NULL,
-    initialize = function(`id`, `elementType`, `value`=NULL, ...){
+    initialize = function(`id`=NULL, `value`=NULL, ...){
       local.optional.var <- list(...)
-      if (!missing(`id`)) {
+      if (!is.null(`id`)) {
         stopifnot(is.numeric(`id`), length(`id`) == 1)
         self$`id` <- `id`
-      }
-      if (!missing(`elementType`)) {
-        stopifnot(is.character(`elementType`), length(`elementType`) == 1)
-        self$`elementType` <- `elementType`
       }
       if (!is.null(`value`)) {
         stopifnot(is.character(`value`), length(`value`) == 1)
@@ -45,15 +38,11 @@ Uri <- R6::R6Class(
       UriObject <- list()
       if (!is.null(self$`id`)) {
         UriObject[['id']] <-
-          self$`id`
-      }
-      if (!is.null(self$`elementType`)) {
-        UriObject[['elementType']] <-
-          self$`elementType`
+           jsonlite::unbox(self$`id`)
       }
       if (!is.null(self$`value`)) {
         UriObject[['value']] <-
-          self$`value`
+           jsonlite::unbox(self$`value`)
       }
 
       UriObject
@@ -62,9 +51,6 @@ Uri <- R6::R6Class(
       UriObject <- jsonlite::fromJSON(UriJson)
       if (!is.null(UriObject$`id`)) {
         self$`id` <- UriObject$`id`
-      }
-      if (!is.null(UriObject$`elementType`)) {
-        self$`elementType` <- UriObject$`elementType`
       }
       if (!is.null(UriObject$`value`)) {
         self$`value` <- UriObject$`value`
@@ -77,21 +63,14 @@ Uri <- R6::R6Class(
         '"id":
           %d
                 ',
-        self$`id`
-        )},
-        if (!is.null(self$`elementType`)) {
-        sprintf(
-        '"elementType":
-          "%s"
-                ',
-        self$`elementType`
+         jsonlite::unbox(self$`id`)
         )},
         if (!is.null(self$`value`)) {
         sprintf(
         '"value":
           "%s"
                 ',
-        self$`value`
+         jsonlite::unbox(self$`value`)
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -100,7 +79,6 @@ Uri <- R6::R6Class(
     fromJSONString = function(UriJson) {
       UriObject <- jsonlite::fromJSON(UriJson)
       self$`id` <- UriObject$`id`
-      self$`elementType` <- UriObject$`elementType`
       self$`value` <- UriObject$`value`
       self
     }

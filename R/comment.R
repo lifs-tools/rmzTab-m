@@ -34,7 +34,7 @@ Comment <- R6::R6Class(
       }
       if (!missing(`msg`)) {
         stopifnot(is.character(`msg`), length(`msg`) == 1)
-        self$`msg` <- `msg`
+        self$`msg` <- unbox(`msg`)
       }
       if (!is.null(`line_number`)) {
         stopifnot(is.numeric(`line_number`), length(`line_number`) == 1)
@@ -45,15 +45,15 @@ Comment <- R6::R6Class(
       CommentObject <- list()
       if (!is.null(self$`prefix`)) {
         CommentObject[['prefix']] <-
-          self$`prefix`
+          jsonlite::unbox(self$`prefix`)
       }
       if (!is.null(self$`msg`)) {
         CommentObject[['msg']] <-
-          self$`msg`
+          jsonlite::unbox(self$`msg`)
       }
       if (!is.null(self$`line_number`)) {
         CommentObject[['line_number']] <-
-          self$`line_number`
+          jsonlite::unbox(self$`line_number`)
       }
 
       CommentObject
@@ -64,7 +64,7 @@ Comment <- R6::R6Class(
         self$`prefix` <- CommentObject$`prefix`
       }
       if (!is.null(CommentObject$`msg`)) {
-        self$`msg` <- CommentObject$`msg`
+        self$`msg` <- jsonlite::unbox(CommentObject$`msg`)
       }
       if (!is.null(CommentObject$`line_number`)) {
         self$`line_number` <- CommentObject$`line_number`
@@ -77,21 +77,21 @@ Comment <- R6::R6Class(
         '"prefix":
           "%s"
                 ',
-        self$`prefix`
+        jsonlite::unbox(self$`prefix`)
         )},
         if (!is.null(self$`msg`)) {
         sprintf(
         '"msg":
           "%s"
                 ',
-        self$`msg`
+        jsonlite::unbox(self$`msg`)
         )},
         if (!is.null(self$`line_number`)) {
         sprintf(
         '"line_number":
           %d
                 ',
-        self$`line_number`
+        jsonlite::unbox(self$`line_number`)
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")

@@ -10,9 +10,7 @@
 #' @title Database
 #' @description Database Class
 #' @format An \code{R6Class} generator object
-#' @field id  integer 
-#'
-#' @field elementType  character 
+#' @field id  integer [optional]
 #'
 #' @field param  \link{Parameter} 
 #'
@@ -30,21 +28,12 @@ Database <- R6::R6Class(
   'Database',
   public = list(
     `id` = NULL,
-    `elementType` = NULL,
     `param` = NULL,
     `prefix` = NULL,
     `version` = NULL,
     `uri` = NULL,
-    initialize = function(`id`, `elementType`, `param`, `prefix`, `version`, `uri`, ...){
+    initialize = function(`param`, `prefix`, `version`, `uri`, `id`=NULL, ...){
       local.optional.var <- list(...)
-      if (!missing(`id`)) {
-        stopifnot(is.numeric(`id`), length(`id`) == 1)
-        self$`id` <- `id`
-      }
-      if (!missing(`elementType`)) {
-        stopifnot(is.character(`elementType`), length(`elementType`) == 1)
-        self$`elementType` <- `elementType`
-      }
       if (!missing(`param`)) {
         stopifnot(R6::is.R6(`param`))
         self$`param` <- `param`
@@ -61,16 +50,16 @@ Database <- R6::R6Class(
         stopifnot(is.character(`uri`), length(`uri`) == 1)
         self$`uri` <- `uri`
       }
+      if (!is.null(`id`)) {
+        stopifnot(is.numeric(`id`), length(`id`) == 1)
+        self$`id` <- `id`
+      }
     },
     toJSON = function() {
       DatabaseObject <- list()
       if (!is.null(self$`id`)) {
         DatabaseObject[['id']] <-
-          self$`id`
-      }
-      if (!is.null(self$`elementType`)) {
-        DatabaseObject[['elementType']] <-
-          self$`elementType`
+          jsonlite::unbox(self$`id`)
       }
       if (!is.null(self$`param`)) {
         DatabaseObject[['param']] <-
@@ -78,15 +67,15 @@ Database <- R6::R6Class(
       }
       if (!is.null(self$`prefix`)) {
         DatabaseObject[['prefix']] <-
-          self$`prefix`
+          jsonlite::unbox(self$`prefix`)
       }
       if (!is.null(self$`version`)) {
         DatabaseObject[['version']] <-
-          self$`version`
+          jsonlite::unbox(self$`version`)
       }
       if (!is.null(self$`uri`)) {
         DatabaseObject[['uri']] <-
-          self$`uri`
+          jsonlite::unbox(self$`uri`)
       }
 
       DatabaseObject
@@ -96,12 +85,9 @@ Database <- R6::R6Class(
       if (!is.null(DatabaseObject$`id`)) {
         self$`id` <- DatabaseObject$`id`
       }
-      if (!is.null(DatabaseObject$`elementType`)) {
-        self$`elementType` <- DatabaseObject$`elementType`
-      }
       if (!is.null(DatabaseObject$`param`)) {
         paramObject <- Parameter$new()
-        paramObject$fromJSON(jsonlite::toJSON(DatabaseObject$param, auto_unbox = TRUE, digits = NA))
+        paramObject$fromJSON(jsonlite::toJSON(DatabaseObject$param, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
         self$`param` <- paramObject
       }
       if (!is.null(DatabaseObject$`prefix`)) {
@@ -121,42 +107,35 @@ Database <- R6::R6Class(
         '"id":
           %d
                 ',
-        self$`id`
-        )},
-        if (!is.null(self$`elementType`)) {
-        sprintf(
-        '"elementType":
-          "%s"
-                ',
-        self$`elementType`
+        jsonlite::unbox(self$`id`)
         )},
         if (!is.null(self$`param`)) {
         sprintf(
         '"param":
         %s
         ',
-        jsonlite::toJSON(self$`param`$toJSON(), auto_unbox=TRUE, digits = NA)
+        jsonlite::toJSON(self$`param`$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)
         )},
         if (!is.null(self$`prefix`)) {
         sprintf(
         '"prefix":
           "%s"
                 ',
-        self$`prefix`
+        jsonlite::unbox(self$`prefix`)
         )},
         if (!is.null(self$`version`)) {
         sprintf(
         '"version":
           "%s"
                 ',
-        self$`version`
+        jsonlite::unbox(self$`version`)
         )},
         if (!is.null(self$`uri`)) {
         sprintf(
         '"uri":
           "%s"
                 ',
-        self$`uri`
+        jsonlite::unbox(self$`uri`)
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -165,8 +144,7 @@ Database <- R6::R6Class(
     fromJSONString = function(DatabaseJson) {
       DatabaseObject <- jsonlite::fromJSON(DatabaseJson)
       self$`id` <- DatabaseObject$`id`
-      self$`elementType` <- DatabaseObject$`elementType`
-      self$`param` <- Parameter$new()$fromJSON(jsonlite::toJSON(DatabaseObject$param, auto_unbox = TRUE, digits = NA))
+      self$`param` <- Parameter$new()$fromJSON(jsonlite::toJSON(DatabaseObject$param, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
       self$`prefix` <- DatabaseObject$`prefix`
       self$`version` <- DatabaseObject$`version`
       self$`uri` <- DatabaseObject$`uri`

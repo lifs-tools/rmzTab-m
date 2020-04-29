@@ -178,15 +178,15 @@ SmallMoleculeSummary <- R6::R6Class(
       SmallMoleculeSummaryObject <- list()
       if (!is.null(self$`prefix`)) {
         SmallMoleculeSummaryObject[['prefix']] <-
-          self$`prefix`
+          jsonlite::unbox(self$`prefix`)
       }
       if (!is.null(self$`header_prefix`)) {
         SmallMoleculeSummaryObject[['header_prefix']] <-
-          self$`header_prefix`
+          jsonlite::unbox(self$`header_prefix`)
       }
       if (!is.null(self$`sml_id`)) {
         SmallMoleculeSummaryObject[['sml_id']] <-
-          self$`sml_id`
+          jsonlite::unbox(self$`sml_id`)
       }
       if (!is.null(self$`smf_id_refs`)) {
         SmallMoleculeSummaryObject[['smf_id_refs']] <-
@@ -226,7 +226,7 @@ SmallMoleculeSummary <- R6::R6Class(
       }
       if (!is.null(self$`reliability`)) {
         SmallMoleculeSummaryObject[['reliability']] <-
-          self$`reliability`
+          jsonlite::unbox(self$`reliability`)
       }
       if (!is.null(self$`best_id_confidence_measure`)) {
         SmallMoleculeSummaryObject[['best_id_confidence_measure']] <-
@@ -234,7 +234,7 @@ SmallMoleculeSummary <- R6::R6Class(
       }
       if (!is.null(self$`best_id_confidence_value`)) {
         SmallMoleculeSummaryObject[['best_id_confidence_value']] <-
-          self$`best_id_confidence_value`
+          jsonlite::unbox(self$`best_id_confidence_value`)
       }
       if (!is.null(self$`abundance_assay`)) {
         SmallMoleculeSummaryObject[['abundance_assay']] <-
@@ -302,7 +302,7 @@ SmallMoleculeSummary <- R6::R6Class(
       }
       if (!is.null(SmallMoleculeSummaryObject$`best_id_confidence_measure`)) {
         best_id_confidence_measureObject <- Parameter$new()
-        best_id_confidence_measureObject$fromJSON(jsonlite::toJSON(SmallMoleculeSummaryObject$best_id_confidence_measure, auto_unbox = TRUE, digits = NA))
+        best_id_confidence_measureObject$fromJSON(jsonlite::toJSON(SmallMoleculeSummaryObject$best_id_confidence_measure, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
         self$`best_id_confidence_measure` <- best_id_confidence_measureObject
       }
       if (!is.null(SmallMoleculeSummaryObject$`best_id_confidence_value`)) {
@@ -331,21 +331,21 @@ SmallMoleculeSummary <- R6::R6Class(
         '"prefix":
           "%s"
                 ',
-        self$`prefix`
+        jsonlite::unbox(self$`prefix`)
         )},
         if (!is.null(self$`header_prefix`)) {
         sprintf(
         '"header_prefix":
           "%s"
                 ',
-        self$`header_prefix`
+        jsonlite::unbox(self$`header_prefix`)
         )},
         if (!is.null(self$`sml_id`)) {
         sprintf(
         '"sml_id":
           %d
                 ',
-        self$`sml_id`
+        jsonlite::unbox(self$`sml_id`)
         )},
         if (!is.null(self$`smf_id_refs`)) {
         sprintf(
@@ -415,21 +415,21 @@ SmallMoleculeSummary <- R6::R6Class(
         '"reliability":
           "%s"
                 ',
-        self$`reliability`
+        jsonlite::unbox(self$`reliability`)
         )},
         if (!is.null(self$`best_id_confidence_measure`)) {
         sprintf(
         '"best_id_confidence_measure":
         %s
         ',
-        jsonlite::toJSON(self$`best_id_confidence_measure`$toJSON(), auto_unbox=TRUE, digits = NA)
+        jsonlite::toJSON(self$`best_id_confidence_measure`$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)
         )},
         if (!is.null(self$`best_id_confidence_value`)) {
         sprintf(
         '"best_id_confidence_value":
-          %d
+          %s
                 ',
-        self$`best_id_confidence_value`
+        jsonlite::unbox(self$`best_id_confidence_value`)
         )},
         if (!is.null(self$`abundance_assay`)) {
         sprintf(
@@ -457,14 +457,14 @@ SmallMoleculeSummary <- R6::R6Class(
         '"opt":
         [%s]
 ',
-        paste(sapply(self$`opt`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(sapply(self$`opt`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)), collapse=",")
         )},
         if (!is.null(self$`comment`)) {
         sprintf(
         '"comment":
         [%s]
 ',
-        paste(sapply(self$`comment`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(sapply(self$`comment`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)), collapse=",")
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -485,7 +485,7 @@ SmallMoleculeSummary <- R6::R6Class(
       self$`theoretical_neutral_mass` <- ApiClient$new()$deserializeObj(SmallMoleculeSummaryObject$`theoretical_neutral_mass`, "array[numeric]", loadNamespace("rmzTabM"))
       self$`adduct_ions` <- ApiClient$new()$deserializeObj(SmallMoleculeSummaryObject$`adduct_ions`, "array[character]", loadNamespace("rmzTabM"))
       self$`reliability` <- SmallMoleculeSummaryObject$`reliability`
-      self$`best_id_confidence_measure` <- Parameter$new()$fromJSON(jsonlite::toJSON(SmallMoleculeSummaryObject$best_id_confidence_measure, auto_unbox = TRUE, digits = NA))
+      self$`best_id_confidence_measure` <- Parameter$new()$fromJSON(jsonlite::toJSON(SmallMoleculeSummaryObject$best_id_confidence_measure, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
       self$`best_id_confidence_value` <- SmallMoleculeSummaryObject$`best_id_confidence_value`
       self$`abundance_assay` <- ApiClient$new()$deserializeObj(SmallMoleculeSummaryObject$`abundance_assay`, "array[numeric]", loadNamespace("rmzTabM"))
       self$`abundance_study_variable` <- ApiClient$new()$deserializeObj(SmallMoleculeSummaryObject$`abundance_study_variable`, "array[numeric]", loadNamespace("rmzTabM"))

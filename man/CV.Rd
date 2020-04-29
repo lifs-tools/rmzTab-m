@@ -4,16 +4,16 @@
 \name{CV}
 \alias{CV}
 \title{CV}
-\format{An \code{R6Class} generator object}
+\format{
+An \code{R6Class} generator object
+}
 \description{
 CV Class
 }
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{id}}{integer}
-
-\item{\code{elementType}}{character}
+\item{\code{id}}{integer [optional]}
 
 \item{\code{label}}{character}
 
@@ -38,14 +38,16 @@ CV Class
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-new"></a>}}
+\if{latex}{\out{\hypertarget{method-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{CV$new(id, elementType, label, full_name, version, uri, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{CV$new(label, full_name, version, uri, id = NULL, ...)}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CV$toJSON()}\if{html}{\out{</div>}}
@@ -54,6 +56,7 @@ CV Class
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CV$fromJSON(CVJson)}\if{html}{\out{</div>}}
@@ -62,6 +65,7 @@ CV Class
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CV$toJSONString()}\if{html}{\out{</div>}}
@@ -70,6 +74,7 @@ CV Class
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CV$fromJSONString(CVJson)}\if{html}{\out{</div>}}
@@ -78,6 +83,7 @@ CV Class
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

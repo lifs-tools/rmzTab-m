@@ -4,7 +4,9 @@
 \name{ValidationMessage}
 \alias{ValidationMessage}
 \title{ValidationMessage}
-\format{An \code{R6Class} generator object}
+\format{
+An \code{R6Class} generator object
+}
 \description{
 ValidationMessage Class
 }
@@ -36,6 +38,7 @@ ValidationMessage Class
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-new"></a>}}
+\if{latex}{\out{\hypertarget{method-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ValidationMessage$new(
@@ -51,6 +54,7 @@ ValidationMessage Class
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ValidationMessage$toJSON()}\if{html}{\out{</div>}}
@@ -59,6 +63,7 @@ ValidationMessage Class
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ValidationMessage$fromJSON(ValidationMessageJson)}\if{html}{\out{</div>}}
@@ -67,6 +72,7 @@ ValidationMessage Class
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ValidationMessage$toJSONString()}\if{html}{\out{</div>}}
@@ -75,6 +81,7 @@ ValidationMessage Class
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ValidationMessage$fromJSONString(ValidationMessageJson)}\if{html}{\out{</div>}}
@@ -83,6 +90,7 @@ ValidationMessage Class
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

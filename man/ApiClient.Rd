@@ -4,7 +4,9 @@
 \name{ApiClient}
 \alias{ApiClient}
 \title{ApiClient}
-\format{An \code{R6Class} generator object}
+\format{
+An \code{R6Class} generator object
+}
 \description{
 ApiClient Class
 }
@@ -48,6 +50,7 @@ Do not edit the class manually.
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-new"></a>}}
+\if{latex}{\out{\hypertarget{method-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ApiClient$new(
@@ -65,6 +68,7 @@ Do not edit the class manually.
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-CallApi"></a>}}
+\if{latex}{\out{\hypertarget{method-CallApi}{}}}
 \subsection{Method \code{CallApi()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ApiClient$CallApi(url, method, queryParams, headerParams, body, ...)}\if{html}{\out{</div>}}
@@ -73,6 +77,7 @@ Do not edit the class manually.
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-deserialize"></a>}}
+\if{latex}{\out{\hypertarget{method-deserialize}{}}}
 \subsection{Method \code{deserialize()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ApiClient$deserialize(resp, returnType, pkgEnv)}\if{html}{\out{</div>}}
@@ -81,6 +86,7 @@ Do not edit the class manually.
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-deserializeObj"></a>}}
+\if{latex}{\out{\hypertarget{method-deserializeObj}{}}}
 \subsection{Method \code{deserializeObj()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ApiClient$deserializeObj(obj, returnType, pkgEnv)}\if{html}{\out{</div>}}
@@ -89,6 +95,7 @@ Do not edit the class manually.
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

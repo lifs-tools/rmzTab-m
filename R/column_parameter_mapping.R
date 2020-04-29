@@ -54,7 +54,7 @@ ColumnParameterMapping <- R6::R6Class(
       }
       if (!is.null(ColumnParameterMappingObject$`param`)) {
         paramObject <- Parameter$new()
-        paramObject$fromJSON(jsonlite::toJSON(ColumnParameterMappingObject$param, auto_unbox = TRUE, digits = NA))
+        paramObject$fromJSON(jsonlite::toJSON(ColumnParameterMappingObject$param, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
         self$`param` <- paramObject
       }
     },
@@ -72,7 +72,7 @@ ColumnParameterMapping <- R6::R6Class(
         '"param":
         %s
         ',
-        jsonlite::toJSON(self$`param`$toJSON(), auto_unbox=TRUE, digits = NA)
+        jsonlite::toJSON(self$`param`$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -81,7 +81,7 @@ ColumnParameterMapping <- R6::R6Class(
     fromJSONString = function(ColumnParameterMappingJson) {
       ColumnParameterMappingObject <- jsonlite::fromJSON(ColumnParameterMappingJson)
       self$`column_name` <- ColumnParameterMappingObject$`column_name`
-      self$`param` <- Parameter$new()$fromJSON(jsonlite::toJSON(ColumnParameterMappingObject$param, auto_unbox = TRUE, digits = NA))
+      self$`param` <- Parameter$new()$fromJSON(jsonlite::toJSON(ColumnParameterMappingObject$param, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
       self
     }
   )

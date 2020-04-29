@@ -12,13 +12,6 @@ test_that("id", {
   #expect_equal(model.instance$`id`, "EXPECTED_RESULT")
 })
 
-test_that("elementType", {
-  # tests for the property `elementType` (character)
-
-  # uncomment below to test the property 
-  #expect_equal(model.instance$`elementType`, "EXPECTED_RESULT")
-})
-
 test_that("value", {
   # tests for the property `value` (character)
   # The URI pointing to the external resource.

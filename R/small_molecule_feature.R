@@ -133,15 +133,15 @@ SmallMoleculeFeature <- R6::R6Class(
       SmallMoleculeFeatureObject <- list()
       if (!is.null(self$`prefix`)) {
         SmallMoleculeFeatureObject[['prefix']] <-
-          self$`prefix`
+          jsonlite::unbox(self$`prefix`)
       }
       if (!is.null(self$`header_prefix`)) {
         SmallMoleculeFeatureObject[['header_prefix']] <-
-          self$`header_prefix`
+          jsonlite::unbox(self$`header_prefix`)
       }
       if (!is.null(self$`smf_id`)) {
         SmallMoleculeFeatureObject[['smf_id']] <-
-          self$`smf_id`
+          jsonlite::unbox(self$`smf_id`)
       }
       if (!is.null(self$`sme_id_refs`)) {
         SmallMoleculeFeatureObject[['sme_id_refs']] <-
@@ -149,11 +149,11 @@ SmallMoleculeFeature <- R6::R6Class(
       }
       if (!is.null(self$`sme_id_ref_ambiguity_code`)) {
         SmallMoleculeFeatureObject[['sme_id_ref_ambiguity_code']] <-
-          self$`sme_id_ref_ambiguity_code`
+          jsonlite::unbox(self$`sme_id_ref_ambiguity_code`)
       }
       if (!is.null(self$`adduct_ion`)) {
         SmallMoleculeFeatureObject[['adduct_ion']] <-
-          self$`adduct_ion`
+          jsonlite::unbox(self$`adduct_ion`)
       }
       if (!is.null(self$`isotopomer`)) {
         SmallMoleculeFeatureObject[['isotopomer']] <-
@@ -161,23 +161,23 @@ SmallMoleculeFeature <- R6::R6Class(
       }
       if (!is.null(self$`exp_mass_to_charge`)) {
         SmallMoleculeFeatureObject[['exp_mass_to_charge']] <-
-          self$`exp_mass_to_charge`
+          jsonlite::unbox(self$`exp_mass_to_charge`)
       }
       if (!is.null(self$`charge`)) {
         SmallMoleculeFeatureObject[['charge']] <-
-          self$`charge`
+          jsonlite::unbox(self$`charge`)
       }
       if (!is.null(self$`retention_time_in_seconds`)) {
         SmallMoleculeFeatureObject[['retention_time_in_seconds']] <-
-          self$`retention_time_in_seconds`
+          jsonlite::unbox(self$`retention_time_in_seconds`)
       }
       if (!is.null(self$`retention_time_in_seconds_start`)) {
         SmallMoleculeFeatureObject[['retention_time_in_seconds_start']] <-
-          self$`retention_time_in_seconds_start`
+          jsonlite::unbox(self$`retention_time_in_seconds_start`)
       }
       if (!is.null(self$`retention_time_in_seconds_end`)) {
         SmallMoleculeFeatureObject[['retention_time_in_seconds_end']] <-
-          self$`retention_time_in_seconds_end`
+          jsonlite::unbox(self$`retention_time_in_seconds_end`)
       }
       if (!is.null(self$`abundance_assay`)) {
         SmallMoleculeFeatureObject[['abundance_assay']] <-
@@ -216,7 +216,7 @@ SmallMoleculeFeature <- R6::R6Class(
       }
       if (!is.null(SmallMoleculeFeatureObject$`isotopomer`)) {
         isotopomerObject <- Parameter$new()
-        isotopomerObject$fromJSON(jsonlite::toJSON(SmallMoleculeFeatureObject$isotopomer, auto_unbox = TRUE, digits = NA))
+        isotopomerObject$fromJSON(jsonlite::toJSON(SmallMoleculeFeatureObject$isotopomer, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
         self$`isotopomer` <- isotopomerObject
       }
       if (!is.null(SmallMoleculeFeatureObject$`exp_mass_to_charge`)) {
@@ -251,26 +251,26 @@ SmallMoleculeFeature <- R6::R6Class(
         '"prefix":
           "%s"
                 ',
-        self$`prefix`
+        jsonlite::unbox(self$`prefix`)
         )},
         if (!is.null(self$`header_prefix`)) {
         sprintf(
         '"header_prefix":
           "%s"
                 ',
-        self$`header_prefix`
+        jsonlite::unbox(self$`header_prefix`)
         )},
         if (!is.null(self$`smf_id`)) {
         sprintf(
         '"smf_id":
           %d
                 ',
-        self$`smf_id`
+        jsonlite::unbox(self$`smf_id`)
         )},
         if (!is.null(self$`sme_id_refs`)) {
         sprintf(
         '"sme_id_refs":
-           [%s]
+           %s
         ',
         paste(unlist(lapply(self$`sme_id_refs`, function(x) paste0('"', x, '"'))), collapse=",")
         )},
@@ -279,56 +279,56 @@ SmallMoleculeFeature <- R6::R6Class(
         '"sme_id_ref_ambiguity_code":
           %d
                 ',
-        self$`sme_id_ref_ambiguity_code`
+        jsonlite::unbox(self$`sme_id_ref_ambiguity_code`)
         )},
         if (!is.null(self$`adduct_ion`)) {
         sprintf(
         '"adduct_ion":
           "%s"
                 ',
-        self$`adduct_ion`
+        jsonlite::unbox(self$`adduct_ion`)
         )},
         if (!is.null(self$`isotopomer`)) {
         sprintf(
         '"isotopomer":
         %s
         ',
-        jsonlite::toJSON(self$`isotopomer`$toJSON(), auto_unbox=TRUE, digits = NA)
+        jsonlite::toJSON(self$`isotopomer`$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)
         )},
         if (!is.null(self$`exp_mass_to_charge`)) {
         sprintf(
         '"exp_mass_to_charge":
-          %d
+          %f
                 ',
-        self$`exp_mass_to_charge`
+        jsonlite::unbox(self$`exp_mass_to_charge`)
         )},
         if (!is.null(self$`charge`)) {
         sprintf(
         '"charge":
           %d
                 ',
-        self$`charge`
+        jsonlite::unbox(self$`charge`)
         )},
         if (!is.null(self$`retention_time_in_seconds`)) {
         sprintf(
         '"retention_time_in_seconds":
-          %d
+          %f
                 ',
-        self$`retention_time_in_seconds`
+        jsonlite::unbox(self$`retention_time_in_seconds`)
         )},
         if (!is.null(self$`retention_time_in_seconds_start`)) {
         sprintf(
         '"retention_time_in_seconds_start":
-          %d
+          %f
                 ',
-        self$`retention_time_in_seconds_start`
+        jsonlite::unbox(self$`retention_time_in_seconds_start`)
         )},
         if (!is.null(self$`retention_time_in_seconds_end`)) {
         sprintf(
         '"retention_time_in_seconds_end":
-          %d
+          %f
                 ',
-        self$`retention_time_in_seconds_end`
+        jsonlite::unbox(self$`retention_time_in_seconds_end`)
         )},
         if (!is.null(self$`abundance_assay`)) {
         sprintf(
@@ -342,14 +342,14 @@ SmallMoleculeFeature <- R6::R6Class(
         '"opt":
         [%s]
 ',
-        paste(sapply(self$`opt`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(sapply(self$`opt`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)), collapse=",")
         )},
         if (!is.null(self$`comment`)) {
         sprintf(
         '"comment":
         [%s]
 ',
-        paste(sapply(self$`comment`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(sapply(self$`comment`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)), collapse=",")
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -363,7 +363,7 @@ SmallMoleculeFeature <- R6::R6Class(
       self$`sme_id_refs` <- ApiClient$new()$deserializeObj(SmallMoleculeFeatureObject$`sme_id_refs`, "array[integer]", loadNamespace("rmzTabM"))
       self$`sme_id_ref_ambiguity_code` <- SmallMoleculeFeatureObject$`sme_id_ref_ambiguity_code`
       self$`adduct_ion` <- SmallMoleculeFeatureObject$`adduct_ion`
-      self$`isotopomer` <- Parameter$new()$fromJSON(jsonlite::toJSON(SmallMoleculeFeatureObject$isotopomer, auto_unbox = TRUE, digits = NA))
+      self$`isotopomer` <- Parameter$new()$fromJSON(jsonlite::toJSON(SmallMoleculeFeatureObject$isotopomer, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
       self$`exp_mass_to_charge` <- SmallMoleculeFeatureObject$`exp_mass_to_charge`
       self$`charge` <- SmallMoleculeFeatureObject$`charge`
       self$`retention_time_in_seconds` <- SmallMoleculeFeatureObject$`retention_time_in_seconds`

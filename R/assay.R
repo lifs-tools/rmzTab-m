@@ -10,9 +10,7 @@
 #' @title Assay
 #' @description Assay Class
 #' @format An \code{R6Class} generator object
-#' @field id  integer 
-#'
-#' @field elementType  character 
+#' @field id  integer [optional]
 #'
 #' @field name  character 
 #'
@@ -32,22 +30,13 @@ Assay <- R6::R6Class(
   'Assay',
   public = list(
     `id` = NULL,
-    `elementType` = NULL,
     `name` = NULL,
     `custom` = NULL,
     `external_uri` = NULL,
     `sample_ref` = NULL,
     `ms_run_ref` = NULL,
-    initialize = function(`id`, `elementType`, `name`, `ms_run_ref`, `custom`=NULL, `external_uri`=NULL, `sample_ref`=NULL, ...){
+    initialize = function(`name`, `ms_run_ref`, `id`=NULL, `custom`=NULL, `external_uri`=NULL, `sample_ref`=NULL, ...){
       local.optional.var <- list(...)
-      if (!missing(`id`)) {
-        stopifnot(is.numeric(`id`), length(`id`) == 1)
-        self$`id` <- `id`
-      }
-      if (!missing(`elementType`)) {
-        stopifnot(is.character(`elementType`), length(`elementType`) == 1)
-        self$`elementType` <- `elementType`
-      }
       if (!missing(`name`)) {
         stopifnot(is.character(`name`), length(`name`) == 1)
         self$`name` <- `name`
@@ -56,6 +45,10 @@ Assay <- R6::R6Class(
         stopifnot(is.vector(`ms_run_ref`), length(`ms_run_ref`) != 0)
         sapply(`ms_run_ref`, function(x) stopifnot(R6::is.R6(x)))
         self$`ms_run_ref` <- `ms_run_ref`
+      }
+      if (!is.null(`id`)) {
+        stopifnot(is.numeric(`id`), length(`id`) == 1)
+        self$`id` <- `id`
       }
       if (!is.null(`custom`)) {
         stopifnot(is.vector(`custom`), length(`custom`) != 0)
@@ -75,15 +68,11 @@ Assay <- R6::R6Class(
       AssayObject <- list()
       if (!is.null(self$`id`)) {
         AssayObject[['id']] <-
-          self$`id`
-      }
-      if (!is.null(self$`elementType`)) {
-        AssayObject[['elementType']] <-
-          self$`elementType`
+          jsonlite::unbox(self$`id`)
       }
       if (!is.null(self$`name`)) {
         AssayObject[['name']] <-
-          self$`name`
+          jsonlite::unbox(self$`name`)
       }
       if (!is.null(self$`custom`)) {
         AssayObject[['custom']] <-
@@ -108,9 +97,6 @@ Assay <- R6::R6Class(
       AssayObject <- jsonlite::fromJSON(AssayJson)
       if (!is.null(AssayObject$`id`)) {
         self$`id` <- AssayObject$`id`
-      }
-      if (!is.null(AssayObject$`elementType`)) {
-        self$`elementType` <- AssayObject$`elementType`
       }
       if (!is.null(AssayObject$`name`)) {
         self$`name` <- AssayObject$`name`
@@ -137,28 +123,21 @@ Assay <- R6::R6Class(
         '"id":
           %d
                 ',
-        self$`id`
-        )},
-        if (!is.null(self$`elementType`)) {
-        sprintf(
-        '"elementType":
-          "%s"
-                ',
-        self$`elementType`
+        jsonlite::unbox(self$`id`)
         )},
         if (!is.null(self$`name`)) {
         sprintf(
         '"name":
           "%s"
                 ',
-        self$`name`
+        jsonlite::unbox(self$`name`)
         )},
         if (!is.null(self$`custom`)) {
         sprintf(
         '"custom":
-        [%s]
+        %s
 ',
-        paste(sapply(self$`custom`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(sapply(self$`custom`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)), collapse=",")
         )},
         if (!is.null(self$`external_uri`)) {
         sprintf(
@@ -172,14 +151,14 @@ Assay <- R6::R6Class(
         '"sample_ref":
         %s
         ',
-        jsonlite::toJSON(self$`sample_ref`$toJSON(), auto_unbox=TRUE, digits = NA)
+        jsonlite::toJSON(self$`sample_ref`$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)
         )},
         if (!is.null(self$`ms_run_ref`)) {
         sprintf(
         '"ms_run_ref":
-        [%s]
+        %s
 ',
-        paste(sapply(self$`ms_run_ref`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(sapply(self$`ms_run_ref`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)), collapse=",")
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -188,11 +167,10 @@ Assay <- R6::R6Class(
     fromJSONString = function(AssayJson) {
       AssayObject <- jsonlite::fromJSON(AssayJson)
       self$`id` <- AssayObject$`id`
-      self$`elementType` <- AssayObject$`elementType`
       self$`name` <- AssayObject$`name`
       self$`custom` <- ApiClient$new()$deserializeObj(AssayObject$`custom`, "array[Parameter]", loadNamespace("rmzTabM"))
       self$`external_uri` <- AssayObject$`external_uri`
-      self$`sample_ref` <- Sample$new()$fromJSON(jsonlite::toJSON(AssayObject$sample_ref, auto_unbox = TRUE, digits = NA))
+      self$`sample_ref` <- Sample$new()$fromJSON(jsonlite::toJSON(AssayObject$sample_ref, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
       self$`ms_run_ref` <- ApiClient$new()$deserializeObj(AssayObject$`ms_run_ref`, "array[MsRun]", loadNamespace("rmzTabM"))
       self
     }

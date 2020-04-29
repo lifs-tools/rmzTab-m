@@ -10,9 +10,7 @@
 #' @title Sample
 #' @description Sample Class
 #' @format An \code{R6Class} generator object
-#' @field id  integer 
-#'
-#' @field elementType  character 
+#' @field id  integer [optional]
 #'
 #' @field name  character [optional]
 #'
@@ -36,7 +34,6 @@ Sample <- R6::R6Class(
   'Sample',
   public = list(
     `id` = NULL,
-    `elementType` = NULL,
     `name` = NULL,
     `custom` = NULL,
     `species` = NULL,
@@ -44,15 +41,11 @@ Sample <- R6::R6Class(
     `cell_type` = NULL,
     `disease` = NULL,
     `description` = NULL,
-    initialize = function(`id`, `elementType`, `name`=NULL, `custom`=NULL, `species`=NULL, `tissue`=NULL, `cell_type`=NULL, `disease`=NULL, `description`=NULL, ...){
+    initialize = function(`id`=NULL, `name`=NULL, `custom`=NULL, `species`=NULL, `tissue`=NULL, `cell_type`=NULL, `disease`=NULL, `description`=NULL, ...){
       local.optional.var <- list(...)
-      if (!missing(`id`)) {
+      if (!is.null(`id`)) {
         stopifnot(is.numeric(`id`), length(`id`) == 1)
         self$`id` <- `id`
-      }
-      if (!missing(`elementType`)) {
-        stopifnot(is.character(`elementType`), length(`elementType`) == 1)
-        self$`elementType` <- `elementType`
       }
       if (!is.null(`name`)) {
         stopifnot(is.character(`name`), length(`name`) == 1)
@@ -94,10 +87,6 @@ Sample <- R6::R6Class(
         SampleObject[['id']] <-
           self$`id`
       }
-      if (!is.null(self$`elementType`)) {
-        SampleObject[['elementType']] <-
-          self$`elementType`
-      }
       if (!is.null(self$`name`)) {
         SampleObject[['name']] <-
           self$`name`
@@ -134,9 +123,6 @@ Sample <- R6::R6Class(
       if (!is.null(SampleObject$`id`)) {
         self$`id` <- SampleObject$`id`
       }
-      if (!is.null(SampleObject$`elementType`)) {
-        self$`elementType` <- SampleObject$`elementType`
-      }
       if (!is.null(SampleObject$`name`)) {
         self$`name` <- SampleObject$`name`
       }
@@ -168,13 +154,6 @@ Sample <- R6::R6Class(
                 ',
         self$`id`
         )},
-        if (!is.null(self$`elementType`)) {
-        sprintf(
-        '"elementType":
-          "%s"
-                ',
-        self$`elementType`
-        )},
         if (!is.null(self$`name`)) {
         sprintf(
         '"name":
@@ -185,37 +164,37 @@ Sample <- R6::R6Class(
         if (!is.null(self$`custom`)) {
         sprintf(
         '"custom":
-        [%s]
+        %s
 ',
-        paste(sapply(self$`custom`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(sapply(self$`custom`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)), collapse=",")
         )},
         if (!is.null(self$`species`)) {
         sprintf(
         '"species":
-        [%s]
+        %s
 ',
-        paste(sapply(self$`species`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(sapply(self$`species`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)), collapse=",")
         )},
         if (!is.null(self$`tissue`)) {
         sprintf(
         '"tissue":
-        [%s]
+        %s
 ',
-        paste(sapply(self$`tissue`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(sapply(self$`tissue`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)), collapse=",")
         )},
         if (!is.null(self$`cell_type`)) {
         sprintf(
         '"cell_type":
-        [%s]
+        %s
 ',
-        paste(sapply(self$`cell_type`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(sapply(self$`cell_type`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)), collapse=",")
         )},
         if (!is.null(self$`disease`)) {
         sprintf(
         '"disease":
-        [%s]
+        %s
 ',
-        paste(sapply(self$`disease`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(sapply(self$`disease`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)), collapse=",")
         )},
         if (!is.null(self$`description`)) {
         sprintf(
@@ -231,7 +210,6 @@ Sample <- R6::R6Class(
     fromJSONString = function(SampleJson) {
       SampleObject <- jsonlite::fromJSON(SampleJson)
       self$`id` <- SampleObject$`id`
-      self$`elementType` <- SampleObject$`elementType`
       self$`name` <- SampleObject$`name`
       self$`custom` <- ApiClient$new()$deserializeObj(SampleObject$`custom`, "array[Parameter]", loadNamespace("rmzTabM"))
       self$`species` <- ApiClient$new()$deserializeObj(SampleObject$`species`, "array[Parameter]", loadNamespace("rmzTabM"))

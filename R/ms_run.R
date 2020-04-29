@@ -12,8 +12,6 @@
 #' @format An \code{R6Class} generator object
 #' @field id  integer 
 #'
-#' @field elementType  character 
-#'
 #' @field name  character 
 #'
 #' @field location  character 
@@ -40,7 +38,6 @@ MsRun <- R6::R6Class(
   'MsRun',
   public = list(
     `id` = NULL,
-    `elementType` = NULL,
     `name` = NULL,
     `location` = NULL,
     `instrument_ref` = NULL,
@@ -50,15 +47,11 @@ MsRun <- R6::R6Class(
     `scan_polarity` = NULL,
     `hash` = NULL,
     `hash_method` = NULL,
-    initialize = function(`id`, `elementType`, `name`, `location`, `instrument_ref`=NULL, `format`=NULL, `id_format`=NULL, `fragmentation_method`=NULL, `scan_polarity`=NULL, `hash`=NULL, `hash_method`=NULL, ...){
+    initialize = function(`id`, `name`, `location`, `instrument_ref`=NULL, `format`=NULL, `id_format`=NULL, `fragmentation_method`=NULL, `scan_polarity`=NULL, `hash`=NULL, `hash_method`=NULL, ...){
       local.optional.var <- list(...)
       if (!missing(`id`)) {
         stopifnot(is.numeric(`id`), length(`id`) == 1)
         self$`id` <- `id`
-      }
-      if (!missing(`elementType`)) {
-        stopifnot(is.character(`elementType`), length(`elementType`) == 1)
-        self$`elementType` <- `elementType`
       }
       if (!missing(`name`)) {
         stopifnot(is.character(`name`), length(`name`) == 1)
@@ -105,10 +98,6 @@ MsRun <- R6::R6Class(
         MsRunObject[['id']] <-
           self$`id`
       }
-      if (!is.null(self$`elementType`)) {
-        MsRunObject[['elementType']] <-
-          self$`elementType`
-      }
       if (!is.null(self$`name`)) {
         MsRunObject[['name']] <-
           self$`name`
@@ -153,9 +142,6 @@ MsRun <- R6::R6Class(
       if (!is.null(MsRunObject$`id`)) {
         self$`id` <- MsRunObject$`id`
       }
-      if (!is.null(MsRunObject$`elementType`)) {
-        self$`elementType` <- MsRunObject$`elementType`
-      }
       if (!is.null(MsRunObject$`name`)) {
         self$`name` <- MsRunObject$`name`
       }
@@ -164,17 +150,17 @@ MsRun <- R6::R6Class(
       }
       if (!is.null(MsRunObject$`instrument_ref`)) {
         instrument_refObject <- Instrument$new()
-        instrument_refObject$fromJSON(jsonlite::toJSON(MsRunObject$instrument_ref, auto_unbox = TRUE, digits = NA))
+        instrument_refObject$fromJSON(jsonlite::toJSON(MsRunObject$instrument_ref, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
         self$`instrument_ref` <- instrument_refObject
       }
       if (!is.null(MsRunObject$`format`)) {
         formatObject <- Parameter$new()
-        formatObject$fromJSON(jsonlite::toJSON(MsRunObject$format, auto_unbox = TRUE, digits = NA))
+        formatObject$fromJSON(jsonlite::toJSON(MsRunObject$format, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
         self$`format` <- formatObject
       }
       if (!is.null(MsRunObject$`id_format`)) {
         id_formatObject <- Parameter$new()
-        id_formatObject$fromJSON(jsonlite::toJSON(MsRunObject$id_format, auto_unbox = TRUE, digits = NA))
+        id_formatObject$fromJSON(jsonlite::toJSON(MsRunObject$id_format, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
         self$`id_format` <- id_formatObject
       }
       if (!is.null(MsRunObject$`fragmentation_method`)) {
@@ -188,7 +174,7 @@ MsRun <- R6::R6Class(
       }
       if (!is.null(MsRunObject$`hash_method`)) {
         hash_methodObject <- Parameter$new()
-        hash_methodObject$fromJSON(jsonlite::toJSON(MsRunObject$hash_method, auto_unbox = TRUE, digits = NA))
+        hash_methodObject$fromJSON(jsonlite::toJSON(MsRunObject$hash_method, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
         self$`hash_method` <- hash_methodObject
       }
     },
@@ -200,13 +186,6 @@ MsRun <- R6::R6Class(
           %d
                 ',
         self$`id`
-        )},
-        if (!is.null(self$`elementType`)) {
-        sprintf(
-        '"elementType":
-          "%s"
-                ',
-        self$`elementType`
         )},
         if (!is.null(self$`name`)) {
         sprintf(
@@ -227,35 +206,35 @@ MsRun <- R6::R6Class(
         '"instrument_ref":
         %s
         ',
-        jsonlite::toJSON(self$`instrument_ref`$toJSON(), auto_unbox=TRUE, digits = NA)
+        jsonlite::toJSON(self$`instrument_ref`$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)
         )},
         if (!is.null(self$`format`)) {
         sprintf(
         '"format":
         %s
         ',
-        jsonlite::toJSON(self$`format`$toJSON(), auto_unbox=TRUE, digits = NA)
+        jsonlite::toJSON(self$`format`$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)
         )},
         if (!is.null(self$`id_format`)) {
         sprintf(
         '"id_format":
         %s
         ',
-        jsonlite::toJSON(self$`id_format`$toJSON(), auto_unbox=TRUE, digits = NA)
+        jsonlite::toJSON(self$`id_format`$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)
         )},
         if (!is.null(self$`fragmentation_method`)) {
         sprintf(
         '"fragmentation_method":
-        [%s]
+        %s
 ',
-        paste(sapply(self$`fragmentation_method`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(sapply(self$`fragmentation_method`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)), collapse=",")
         )},
         if (!is.null(self$`scan_polarity`)) {
         sprintf(
         '"scan_polarity":
-        [%s]
+        %s
 ',
-        paste(sapply(self$`scan_polarity`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(sapply(self$`scan_polarity`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)), collapse=",")
         )},
         if (!is.null(self$`hash`)) {
         sprintf(
@@ -269,7 +248,7 @@ MsRun <- R6::R6Class(
         '"hash_method":
         %s
         ',
-        jsonlite::toJSON(self$`hash_method`$toJSON(), auto_unbox=TRUE, digits = NA)
+        jsonlite::toJSON(self$`hash_method`$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -278,16 +257,15 @@ MsRun <- R6::R6Class(
     fromJSONString = function(MsRunJson) {
       MsRunObject <- jsonlite::fromJSON(MsRunJson)
       self$`id` <- MsRunObject$`id`
-      self$`elementType` <- MsRunObject$`elementType`
       self$`name` <- MsRunObject$`name`
       self$`location` <- MsRunObject$`location`
-      self$`instrument_ref` <- Instrument$new()$fromJSON(jsonlite::toJSON(MsRunObject$instrument_ref, auto_unbox = TRUE, digits = NA))
-      self$`format` <- Parameter$new()$fromJSON(jsonlite::toJSON(MsRunObject$format, auto_unbox = TRUE, digits = NA))
-      self$`id_format` <- Parameter$new()$fromJSON(jsonlite::toJSON(MsRunObject$id_format, auto_unbox = TRUE, digits = NA))
+      self$`instrument_ref` <- Instrument$new()$fromJSON(jsonlite::toJSON(MsRunObject$instrument_ref, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
+      self$`format` <- Parameter$new()$fromJSON(jsonlite::toJSON(MsRunObject$format, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
+      self$`id_format` <- Parameter$new()$fromJSON(jsonlite::toJSON(MsRunObject$id_format, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
       self$`fragmentation_method` <- ApiClient$new()$deserializeObj(MsRunObject$`fragmentation_method`, "array[Parameter]", loadNamespace("rmzTabM"))
       self$`scan_polarity` <- ApiClient$new()$deserializeObj(MsRunObject$`scan_polarity`, "array[Parameter]", loadNamespace("rmzTabM"))
       self$`hash` <- MsRunObject$`hash`
-      self$`hash_method` <- Parameter$new()$fromJSON(jsonlite::toJSON(MsRunObject$hash_method, auto_unbox = TRUE, digits = NA))
+      self$`hash_method` <- Parameter$new()$fromJSON(jsonlite::toJSON(MsRunObject$hash_method, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
       self
     }
   )

@@ -4,9 +4,11 @@
 \name{ValidatePlainApi}
 \alias{ValidatePlainApi}
 \title{ValidatePlain operations}
-\format{An \code{R6Class} generator object}
+\format{
+An \code{R6Class} generator object
+}
 \description{
-openapi.ValidatePlain
+rmzTabM.ValidatePlain
 }
 \section{Methods}{
 
@@ -59,7 +61,7 @@ Validates an mzTab file in plain text representation / tab-separated format and 
 \dontrun{
 ####################  ValidatePlainMzTabFile  ####################
 
-library(openapi)
+library(rmzTabM)
 var.mztabfile <- 'mztabfile_example' # character | mzTab file that should be validated.
 var.level <- 'info' # character | The level of errors that should be reported, one of ERROR, WARN, INFO.
 var.max.errors <- 100 # integer | The maximum number of errors to return.
@@ -90,6 +92,7 @@ result <- api.instance$ValidatePlainMzTabFile(var.mztabfile, level=var.level, ma
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-new"></a>}}
+\if{latex}{\out{\hypertarget{method-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ValidatePlainApi$new(apiClient)}\if{html}{\out{</div>}}
@@ -98,6 +101,7 @@ result <- api.instance$ValidatePlainMzTabFile(var.mztabfile, level=var.level, ma
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ValidatePlainMzTabFile"></a>}}
+\if{latex}{\out{\hypertarget{method-ValidatePlainMzTabFile}{}}}
 \subsection{Method \code{ValidatePlainMzTabFile()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ValidatePlainApi$ValidatePlainMzTabFile(
@@ -112,6 +116,7 @@ result <- api.instance$ValidatePlainMzTabFile(var.mztabfile, level=var.level, ma
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ValidatePlainMzTabFileWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-ValidatePlainMzTabFileWithHttpInfo}{}}}
 \subsection{Method \code{ValidatePlainMzTabFileWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ValidatePlainApi$ValidatePlainMzTabFileWithHttpInfo(
@@ -126,6 +131,7 @@ result <- api.instance$ValidatePlainMzTabFile(var.mztabfile, level=var.level, ma
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

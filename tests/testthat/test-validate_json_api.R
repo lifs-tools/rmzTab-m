@@ -22,16 +22,17 @@ test_that("validation via REST API of mztab json works", {
   expect_equal("ISAS-2018-1234", metadataJsonObject$`mzTab-ID`)
   expect_false(is.null(metadataJsonObject$`description`))
   #metadataJsonObject$`title`
-  expect_false(is.null(metadataJsonObject$`title`))
-  expect_true("list" == typeof(metadataJsonObject$`title`))
+  expect_true(is.null(metadataJsonObject$`title`))
   expect_true(0 == length(metadataJsonObject$`title`))
   validateApi <- ValidateApi$new()
+  browser()
   response <- validateApi$ValidateMzTabFile(mzTabObject, 'info', 50, FALSE)
   expect_false("API server error" == response$content)
+  #browser()
   # the next test currently fails, there is an encoding error for description, which should be null in the json but is {}.
-  expect_true("API client error" == response$content)
+  expect_false("API client error" == response$content)
   
-  # expect_false(is.null(mzTabObject$metadata))
+  expect_false(is.null(mzTabObject$metadata))
   # expect_false(is.null(mzTabObject$smallMoleculeSummary))
   # expect_false(is.null(mzTabObject$smallMoleculeFeature))
   # expect_false(is.null(mzTabObject$smallMoleculeEvidence))

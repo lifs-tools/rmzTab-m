@@ -88,7 +88,7 @@ MzTab <- R6::R6Class(
       MzTabObject <- jsonlite::fromJSON(MzTabJson)
       if (!is.null(MzTabObject$`metadata`)) {
         metadataObject <- Metadata$new()
-        metadataObject$fromJSON(jsonlite::toJSON(MzTabObject$metadata, auto_unbox = TRUE, digits = NA))
+        metadataObject$fromJSON(jsonlite::toJSON(MzTabObject$metadata, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
         self$`metadata` <- metadataObject
       }
       if (!is.null(MzTabObject$`smallMoleculeSummary`)) {
@@ -111,35 +111,35 @@ MzTab <- R6::R6Class(
         '"metadata":
         %s
         ',
-        jsonlite::toJSON(self$`metadata`$toJSON(), auto_unbox=TRUE, digits = NA)
+        jsonlite::toJSON(self$`metadata`$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)
         )},
         if (!is.null(self$`smallMoleculeSummary`)) {
         sprintf(
         '"smallMoleculeSummary":
         [%s]
 ',
-        paste(sapply(self$`smallMoleculeSummary`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(sapply(self$`smallMoleculeSummary`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)), collapse=",")
         )},
         if (!is.null(self$`smallMoleculeFeature`)) {
         sprintf(
         '"smallMoleculeFeature":
         [%s]
 ',
-        paste(sapply(self$`smallMoleculeFeature`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(sapply(self$`smallMoleculeFeature`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)), collapse=",")
         )},
         if (!is.null(self$`smallMoleculeEvidence`)) {
         sprintf(
         '"smallMoleculeEvidence":
         [%s]
 ',
-        paste(sapply(self$`smallMoleculeEvidence`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(sapply(self$`smallMoleculeEvidence`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)), collapse=",")
         )},
         if (!is.null(self$`comment`)) {
         sprintf(
         '"comment":
         [%s]
 ',
-        paste(sapply(self$`comment`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(sapply(self$`comment`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)), collapse=",")
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -147,7 +147,7 @@ MzTab <- R6::R6Class(
     },
     fromJSONString = function(MzTabJson) {
       MzTabObject <- jsonlite::fromJSON(MzTabJson)
-      self$`metadata` <- Metadata$new()$fromJSON(jsonlite::toJSON(MzTabObject$metadata, auto_unbox = TRUE, digits = NA))
+      self$`metadata` <- Metadata$new()$fromJSON(jsonlite::toJSON(MzTabObject$metadata, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
       self$`smallMoleculeSummary` <- ApiClient$new()$deserializeObj(MzTabObject$`smallMoleculeSummary`, "array[SmallMoleculeSummary]", loadNamespace("rmzTabM"))
       self$`smallMoleculeFeature` <- ApiClient$new()$deserializeObj(MzTabObject$`smallMoleculeFeature`, "array[SmallMoleculeFeature]", loadNamespace("rmzTabM"))
       self$`smallMoleculeEvidence` <- ApiClient$new()$deserializeObj(MzTabObject$`smallMoleculeEvidence`, "array[SmallMoleculeEvidence]", loadNamespace("rmzTabM"))

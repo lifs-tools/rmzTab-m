@@ -5,18 +5,24 @@ context("Test Software")
 
 model.instance <- Software$new()
 
+test_that("software_deserialization_works", {
+  ref  <- "[{\"id\":1,\"parameter\":{\"cv_label\":\"MS\",\"cv_accession\":\"MS:1000532\",\"name\":\"Xcalibur\",\"value\":\"2.8-280502/2.8.1.2806\"},\"setting\":[\"ScheduledSRMWindow: 2 min\",\"CycleTime: 2 s\"]},{\"id\":2,\"parameter\":{\"cv_label\":\"MS\",\"cv_accession\":\"MS:1000922\",\"name\":\"Skyline\",\"value\":\"3.5.0.9319\"},\"setting\":[\"MSMSmassrange: (50.0, 1800.0)\"]}]"
+  software <- jsonlite::fromJSON(ref)#ApiClient$new()$deserializeObj(ref, "array[Software]", loadNamespace("rmzTabM"))
+  softwareObjects <- ApiClient$new()$deserializeObj(software, "array[Software]", loadNamespace("rmzTabM"))
+  #software <- model.instance$fromJSONString(ref)
+  expect_false(is.null(software))
+  expect_false(is.null(softwareObjects))
+  expect_equal(length(softwareObjects), 2)
+  expect_equal(softwareObjects[[1]]$id, 1)
+  expect_equal(length(softwareObjects[[1]]$setting), 1)
+  expect_equal(softwareObjects[[1]]$toJSONString(), "{\"id\":\n          1\n                ,\"parameter\":\n        {\"cv_label\":\"MS\",\"cv_accession\":\"MS:1000532\",\"name\":\"Xcalibur\",\"value\":\"2.8-280502/2.8.1.2806\"}\n        ,\"setting\":\n           [\"ScheduledSRMWindow: 2 min\",\"CycleTime: 2 s\"]\n        }")
+})
+
 test_that("id", {
   # tests for the property `id` (integer)
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`id`, "EXPECTED_RESULT")
-})
-
-test_that("elementType", {
-  # tests for the property `elementType` (character)
-
-  # uncomment below to test the property 
-  #expect_equal(model.instance$`elementType`, "EXPECTED_RESULT")
 })
 
 test_that("parameter", {

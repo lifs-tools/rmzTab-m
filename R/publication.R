@@ -10,9 +10,7 @@
 #' @title Publication
 #' @description Publication Class
 #' @format An \code{R6Class} generator object
-#' @field id  integer 
-#'
-#' @field elementType  character 
+#' @field id  integer [optional]
 #'
 #' @field publicationItems  list( \link{PublicationItem} ) 
 #'
@@ -24,22 +22,17 @@ Publication <- R6::R6Class(
   'Publication',
   public = list(
     `id` = NULL,
-    `elementType` = NULL,
     `publicationItems` = NULL,
-    initialize = function(`id`, `elementType`, `publicationItems`, ...){
+    initialize = function(`publicationItems`, `id`=NULL, ...){
       local.optional.var <- list(...)
-      if (!missing(`id`)) {
-        stopifnot(is.numeric(`id`), length(`id`) == 1)
-        self$`id` <- `id`
-      }
-      if (!missing(`elementType`)) {
-        stopifnot(is.character(`elementType`), length(`elementType`) == 1)
-        self$`elementType` <- `elementType`
-      }
       if (!missing(`publicationItems`)) {
         stopifnot(is.vector(`publicationItems`), length(`publicationItems`) != 0)
         sapply(`publicationItems`, function(x) stopifnot(R6::is.R6(x)))
         self$`publicationItems` <- `publicationItems`
+      }
+      if (!is.null(`id`)) {
+        stopifnot(is.numeric(`id`), length(`id`) == 1)
+        self$`id` <- `id`
       }
     },
     toJSON = function() {
@@ -47,10 +40,6 @@ Publication <- R6::R6Class(
       if (!is.null(self$`id`)) {
         PublicationObject[['id']] <-
           self$`id`
-      }
-      if (!is.null(self$`elementType`)) {
-        PublicationObject[['elementType']] <-
-          self$`elementType`
       }
       if (!is.null(self$`publicationItems`)) {
         PublicationObject[['publicationItems']] <-
@@ -63,9 +52,6 @@ Publication <- R6::R6Class(
       PublicationObject <- jsonlite::fromJSON(PublicationJson)
       if (!is.null(PublicationObject$`id`)) {
         self$`id` <- PublicationObject$`id`
-      }
-      if (!is.null(PublicationObject$`elementType`)) {
-        self$`elementType` <- PublicationObject$`elementType`
       }
       if (!is.null(PublicationObject$`publicationItems`)) {
         self$`publicationItems` <- ApiClient$new()$deserializeObj(PublicationObject$`publicationItems`, "array[PublicationItem]", loadNamespace("rmzTabM"))
@@ -80,19 +66,12 @@ Publication <- R6::R6Class(
                 ',
         self$`id`
         )},
-        if (!is.null(self$`elementType`)) {
-        sprintf(
-        '"elementType":
-          "%s"
-                ',
-        self$`elementType`
-        )},
         if (!is.null(self$`publicationItems`)) {
         sprintf(
         '"publicationItems":
-        [%s]
+        %s
 ',
-        paste(sapply(self$`publicationItems`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(sapply(self$`publicationItems`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)), collapse=",")
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -101,7 +80,6 @@ Publication <- R6::R6Class(
     fromJSONString = function(PublicationJson) {
       PublicationObject <- jsonlite::fromJSON(PublicationJson)
       self$`id` <- PublicationObject$`id`
-      self$`elementType` <- PublicationObject$`elementType`
       self$`publicationItems` <- ApiClient$new()$deserializeObj(PublicationObject$`publicationItems`, "array[PublicationItem]", loadNamespace("rmzTabM"))
       self
     }

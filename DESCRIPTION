@@ -10,5 +10,5 @@ LazyData: true
 URL: https://github.com/lifs-tools/rmztab-m
 BugReports: https://github.com/lifs-tools/rmztab-m/issues
 Suggests: testthat, pkgdown
-Imports: jsonlite, httr, R6, caTools, plyr
-RoxygenNote: 7.0.1
+Imports: jsonlite, httr, R6, caTools
+RoxygenNote: 7.1.0

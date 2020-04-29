@@ -8,7 +8,7 @@
 
 #' @docType class
 #' @title Validate operations
-#' @description openapi.Validate
+#' @description rmzTabM.Validate
 #' @format An \code{R6Class} generator object
 #' @field apiClient Handles the client-server communication.
 #'
@@ -62,7 +62,7 @@
 #' \dontrun{
 #' ####################  ValidateMzTabFile  ####################
 #'
-#' library(openapi)
+#' library(rmzTabM)
 #' var.mztabfile <- MzTab$new() # MzTab | mzTab file that should be validated.
 #' var.level <- 'info' # character | The level of errors that should be reported, one of ERROR, WARN, INFO.
 #' var.max.errors <- 100 # integer | The maximum number of errors to return.
@@ -119,10 +119,7 @@ ValidateApi <- R6::R6Class(
       queryParams['semanticValidation'] <- semantic.validation
 
       if (!missing(`mztabfile`)) {
-        body <- gsub("{}", "null", `mztabfile`$toJSONString(), fixed = TRUE)
-        body <- gsub("\\[+","\\[", body)
-        body <- gsub("\\]+", "\\]", body)
-        body <- gsub("\"null\"","null", body, fixed = TRUE)
+        body <- `mztabfile`$toJSONString()
       } else {
         body <- NULL
       }

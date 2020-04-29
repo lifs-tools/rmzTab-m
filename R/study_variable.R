@@ -12,8 +12,6 @@
 #' @format An \code{R6Class} generator object
 #' @field id  integer 
 #'
-#' @field elementType  character 
-#'
 #' @field name  character 
 #'
 #' @field assay_refs  list( \link{Assay} ) [optional]
@@ -34,22 +32,17 @@ StudyVariable <- R6::R6Class(
   'StudyVariable',
   public = list(
     `id` = NULL,
-    `elementType` = NULL,
     `name` = NULL,
     `assay_refs` = NULL,
     `average_function` = NULL,
     `variation_function` = NULL,
     `description` = NULL,
     `factors` = NULL,
-    initialize = function(`id`, `elementType`, `name`, `assay_refs`=NULL, `average_function`=NULL, `variation_function`=NULL, `description`=NULL, `factors`=NULL, ...){
+    initialize = function(`id`, `name`, `assay_refs`=NULL, `average_function`=NULL, `variation_function`=NULL, `description`=NULL, `factors`=NULL, ...){
       local.optional.var <- list(...)
       if (!missing(`id`)) {
         stopifnot(is.numeric(`id`), length(`id`) == 1)
         self$`id` <- `id`
-      }
-      if (!missing(`elementType`)) {
-        stopifnot(is.character(`elementType`), length(`elementType`) == 1)
-        self$`elementType` <- `elementType`
       }
       if (!missing(`name`)) {
         stopifnot(is.character(`name`), length(`name`) == 1)
@@ -82,15 +75,11 @@ StudyVariable <- R6::R6Class(
       StudyVariableObject <- list()
       if (!is.null(self$`id`)) {
         StudyVariableObject[['id']] <-
-          self$`id`
-      }
-      if (!is.null(self$`elementType`)) {
-        StudyVariableObject[['elementType']] <-
-          self$`elementType`
+          jsonlite::unbox(self$`id`)
       }
       if (!is.null(self$`name`)) {
         StudyVariableObject[['name']] <-
-          self$`name`
+          jsonlite::unbox(self$`name`)
       }
       if (!is.null(self$`assay_refs`)) {
         StudyVariableObject[['assay_refs']] <-
@@ -106,7 +95,7 @@ StudyVariable <- R6::R6Class(
       }
       if (!is.null(self$`description`)) {
         StudyVariableObject[['description']] <-
-          self$`description`
+          jsonlite::unbox(self$`description`)
       }
       if (!is.null(self$`factors`)) {
         StudyVariableObject[['factors']] <-
@@ -120,9 +109,6 @@ StudyVariable <- R6::R6Class(
       if (!is.null(StudyVariableObject$`id`)) {
         self$`id` <- StudyVariableObject$`id`
       }
-      if (!is.null(StudyVariableObject$`elementType`)) {
-        self$`elementType` <- StudyVariableObject$`elementType`
-      }
       if (!is.null(StudyVariableObject$`name`)) {
         self$`name` <- StudyVariableObject$`name`
       }
@@ -131,12 +117,12 @@ StudyVariable <- R6::R6Class(
       }
       if (!is.null(StudyVariableObject$`average_function`)) {
         average_functionObject <- Parameter$new()
-        average_functionObject$fromJSON(jsonlite::toJSON(StudyVariableObject$average_function, auto_unbox = TRUE, digits = NA))
+        average_functionObject$fromJSON(jsonlite::toJSON(StudyVariableObject$average_function, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
         self$`average_function` <- average_functionObject
       }
       if (!is.null(StudyVariableObject$`variation_function`)) {
         variation_functionObject <- Parameter$new()
-        variation_functionObject$fromJSON(jsonlite::toJSON(StudyVariableObject$variation_function, auto_unbox = TRUE, digits = NA))
+        variation_functionObject$fromJSON(jsonlite::toJSON(StudyVariableObject$variation_function, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
         self$`variation_function` <- variation_functionObject
       }
       if (!is.null(StudyVariableObject$`description`)) {
@@ -153,56 +139,49 @@ StudyVariable <- R6::R6Class(
         '"id":
           %d
                 ',
-        self$`id`
-        )},
-        if (!is.null(self$`elementType`)) {
-        sprintf(
-        '"elementType":
-          "%s"
-                ',
-        self$`elementType`
+        jsonlite::unbox(self$`id`)
         )},
         if (!is.null(self$`name`)) {
         sprintf(
         '"name":
           "%s"
                 ',
-        self$`name`
+        jsonlite::unbox(self$`name`)
         )},
         if (!is.null(self$`assay_refs`)) {
         sprintf(
         '"assay_refs":
-        [%s]
+        %s
 ',
-        paste(sapply(self$`assay_refs`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(sapply(self$`assay_refs`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)), collapse=",")
         )},
         if (!is.null(self$`average_function`)) {
         sprintf(
         '"average_function":
         %s
         ',
-        jsonlite::toJSON(self$`average_function`$toJSON(), auto_unbox=TRUE, digits = NA)
+        jsonlite::toJSON(self$`average_function`$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)
         )},
         if (!is.null(self$`variation_function`)) {
         sprintf(
         '"variation_function":
         %s
         ',
-        jsonlite::toJSON(self$`variation_function`$toJSON(), auto_unbox=TRUE, digits = NA)
+        jsonlite::toJSON(self$`variation_function`$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)
         )},
         if (!is.null(self$`description`)) {
         sprintf(
         '"description":
           "%s"
                 ',
-        self$`description`
+        jsonlite::unbox(self$`description`)
         )},
         if (!is.null(self$`factors`)) {
         sprintf(
         '"factors":
-        [%s]
+        %s
 ',
-        paste(sapply(self$`factors`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(sapply(self$`factors`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)), collapse=",")
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -211,11 +190,10 @@ StudyVariable <- R6::R6Class(
     fromJSONString = function(StudyVariableJson) {
       StudyVariableObject <- jsonlite::fromJSON(StudyVariableJson)
       self$`id` <- StudyVariableObject$`id`
-      self$`elementType` <- StudyVariableObject$`elementType`
       self$`name` <- StudyVariableObject$`name`
       self$`assay_refs` <- ApiClient$new()$deserializeObj(StudyVariableObject$`assay_refs`, "array[Assay]", loadNamespace("rmzTabM"))
-      self$`average_function` <- Parameter$new()$fromJSON(jsonlite::toJSON(StudyVariableObject$average_function, auto_unbox = TRUE, digits = NA))
-      self$`variation_function` <- Parameter$new()$fromJSON(jsonlite::toJSON(StudyVariableObject$variation_function, auto_unbox = TRUE, digits = NA))
+      self$`average_function` <- Parameter$new()$fromJSON(jsonlite::toJSON(StudyVariableObject$average_function, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
+      self$`variation_function` <- Parameter$new()$fromJSON(jsonlite::toJSON(StudyVariableObject$variation_function, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
       self$`description` <- StudyVariableObject$`description`
       self$`factors` <- ApiClient$new()$deserializeObj(StudyVariableObject$`factors`, "array[Parameter]", loadNamespace("rmzTabM"))
       self

@@ -239,23 +239,23 @@ Metadata <- R6::R6Class(
       MetadataObject <- list()
       if (!is.null(self$`prefix`)) {
         MetadataObject[['prefix']] <-
-          self$`prefix`
+          jsonlite::unbox(self$`prefix`)
       }
       if (!is.null(self$`mzTab-version`)) {
         MetadataObject[['mzTab-version']] <-
-          self$`mzTab-version`
+          jsonlite::unbox(self$`mzTab-version`)
       }
       if (!is.null(self$`mzTab-ID`)) {
         MetadataObject[['mzTab-ID']] <-
-          self$`mzTab-ID`
+          jsonlite::unbox(self$`mzTab-ID`)
       }
       if (!is.null(self$`title`)) {
         MetadataObject[['title']] <-
-          self$`title`
+          jsonlite::unbox(self$`title`)
       }
       if (!is.null(self$`description`)) {
         MetadataObject[['description']] <-
-          self$`description`
+          jsonlite::unbox(self$`description`)
       }
       if (!is.null(self$`sample_processing`)) {
         MetadataObject[['sample_processing']] <-
@@ -267,7 +267,7 @@ Metadata <- R6::R6Class(
       }
       if (!is.null(self$`software`)) {
         MetadataObject[['software']] <-
-          lapply(self$`software`, function(x) x$toJSON())
+           lapply(self$`software`, function(x) x$toJSON())
       }
       if (!is.null(self$`publication`)) {
         MetadataObject[['publication']] <-
@@ -391,8 +391,8 @@ Metadata <- R6::R6Class(
         self$`external_study_uri` <- ApiClient$new()$deserializeObj(MetadataObject$`external_study_uri`, "array[Uri]", loadNamespace("rmzTabM"))
       }
       if (!is.null(MetadataObject$`quantification_method`)) {
-        quantification_methodObject <- Parameter$new()
-        quantification_methodObject$fromJSON(jsonlite::toJSON(MetadataObject$quantification_method, auto_unbox = TRUE, digits = NA))
+        `quantification_methodObject` <- Parameter$new()
+        `quantification_methodObject`$fromJSON(jsonlite::toJSON(MetadataObject$`quantification_method`, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
         self$`quantification_method` <- quantification_methodObject
       }
       if (!is.null(MetadataObject$`study_variable`)) {
@@ -421,17 +421,17 @@ Metadata <- R6::R6Class(
       }
       if (!is.null(MetadataObject$`small_molecule-quantification_unit`)) {
         `small_molecule-quantification_unitObject` <- Parameter$new()
-        `small_molecule-quantification_unitObject`$fromJSON(jsonlite::toJSON(MetadataObject$`small_molecule-quantification_unit`, auto_unbox = TRUE, digits = NA))
+        `small_molecule-quantification_unitObject`$fromJSON(jsonlite::toJSON(MetadataObject$`small_molecule-quantification_unit`, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
         self$`small_molecule-quantification_unit` <- `small_molecule-quantification_unitObject`
       }
       if (!is.null(MetadataObject$`small_molecule_feature-quantification_unit`)) {
         `small_molecule_feature-quantification_unitObject` <- Parameter$new()
-        `small_molecule_feature-quantification_unitObject`$fromJSON(jsonlite::toJSON(MetadataObject$`small_molecule_feature-quantification_unit`, auto_unbox = TRUE, digits = NA))
+        `small_molecule_feature-quantification_unitObject`$fromJSON(jsonlite::toJSON(MetadataObject$`small_molecule_feature-quantification_unit`, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
         self$`small_molecule_feature-quantification_unit` <- `small_molecule_feature-quantification_unitObject`
       }
       if (!is.null(MetadataObject$`small_molecule-identification_reliability`)) {
         `small_molecule-identification_reliabilityObject` <- Parameter$new()
-        `small_molecule-identification_reliabilityObject`$fromJSON(jsonlite::toJSON(MetadataObject$`small_molecule-identification_reliability`, auto_unbox = TRUE, digits = NA))
+        `small_molecule-identification_reliabilityObject`$fromJSON(jsonlite::toJSON(MetadataObject$`small_molecule-identification_reliability`, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
         self$`small_molecule-identification_reliability` <- `small_molecule-identification_reliabilityObject`
       }
       if (!is.null(MetadataObject$`id_confidence_measure`)) {
@@ -454,196 +454,196 @@ Metadata <- R6::R6Class(
         '"prefix":
           "%s"
                 ',
-        self$`prefix`
+        jsonlite::unbox(self$`prefix`)
         )},
         if (!is.null(self$`mzTab-version`)) {
         sprintf(
         '"mzTab-version":
           "%s"
                 ',
-        self$`mzTab-version`
+        jsonlite::unbox(self$`mzTab-version`)
         )},
         if (!is.null(self$`mzTab-ID`)) {
         sprintf(
         '"mzTab-ID":
           "%s"
                 ',
-        self$`mzTab-ID`
+        jsonlite::unbox(self$`mzTab-ID`)
         )},
         if (!is.null(self$`title`)) {
         sprintf(
         '"title":
           "%s"
                 ',
-        self$`title`
+        jsonlite::unbox(self$`title`)
         )},
         if (!is.null(self$`description`)) {
         sprintf(
         '"description":
           "%s"
                 ',
-        self$`description`
+        jsonlite::unbox(self$`description`)
         )},
         if (!is.null(self$`sample_processing`)) {
         sprintf(
         '"sample_processing":
         [%s]
 ',
-        paste(sapply(self$`sample_processing`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(sapply(self$`sample_processing`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)), collapse=",")
         )},
         if (!is.null(self$`instrument`)) {
         sprintf(
         '"instrument":
         [%s]
 ',
-        paste(sapply(self$`instrument`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(sapply(self$`instrument`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)), collapse=",")
         )},
         if (!is.null(self$`software`)) {
         sprintf(
         '"software":
         [%s]
 ',
-        paste(sapply(self$`software`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(sapply(self$`software`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)), collapse=",")
         )},
         if (!is.null(self$`publication`)) {
         sprintf(
         '"publication":
         [%s]
 ',
-        paste(sapply(self$`publication`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(sapply(self$`publication`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)), collapse=",")
         )},
         if (!is.null(self$`contact`)) {
         sprintf(
         '"contact":
         [%s]
 ',
-        paste(sapply(self$`contact`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(sapply(self$`contact`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)), collapse=",")
         )},
         if (!is.null(self$`uri`)) {
         sprintf(
         '"uri":
         [%s]
 ',
-        paste(sapply(self$`uri`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(sapply(self$`uri`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)), collapse=",")
         )},
         if (!is.null(self$`external_study_uri`)) {
         sprintf(
         '"external_study_uri":
         [%s]
 ',
-        paste(sapply(self$`external_study_uri`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(sapply(self$`external_study_uri`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)), collapse=",")
         )},
         if (!is.null(self$`quantification_method`)) {
         sprintf(
         '"quantification_method":
         %s
         ',
-        jsonlite::toJSON(self$`quantification_method`$toJSON(), auto_unbox=TRUE, digits = NA)
+        jsonlite::toJSON(self$`quantification_method`$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)
         )},
         if (!is.null(self$`study_variable`)) {
         sprintf(
         '"study_variable":
-        [%s]
+         [%s]
 ',
-        paste(sapply(self$`study_variable`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(sapply(self$`study_variable`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)), collapse=",")
         )},
         if (!is.null(self$`ms_run`)) {
         sprintf(
         '"ms_run":
         [%s]
 ',
-        paste(sapply(self$`ms_run`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(sapply(self$`ms_run`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)), collapse=",")
         )},
         if (!is.null(self$`assay`)) {
         sprintf(
         '"assay":
         [%s]
 ',
-        paste(sapply(self$`assay`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(sapply(self$`assay`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)), collapse=",")
         )},
         if (!is.null(self$`sample`)) {
         sprintf(
         '"sample":
         [%s]
 ',
-        paste(sapply(self$`sample`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(sapply(self$`sample`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)), collapse=",")
         )},
         if (!is.null(self$`custom`)) {
         sprintf(
         '"custom":
         [%s]
 ',
-        paste(sapply(self$`custom`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(sapply(self$`custom`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)), collapse=",")
         )},
         if (!is.null(self$`cv`)) {
         sprintf(
         '"cv":
         [%s]
 ',
-        paste(sapply(self$`cv`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(sapply(self$`cv`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)), collapse=",")
         )},
         if (!is.null(self$`database`)) {
         sprintf(
         '"database":
         [%s]
 ',
-        paste(sapply(self$`database`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(sapply(self$`database`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)), collapse=",")
         )},
         if (!is.null(self$`derivatization_agent`)) {
         sprintf(
         '"derivatization_agent":
         [%s]
 ',
-        paste(sapply(self$`derivatization_agent`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(sapply(self$`derivatization_agent`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)), collapse=",")
         )},
         if (!is.null(self$`small_molecule-quantification_unit`)) {
         sprintf(
         '"small_molecule-quantification_unit":
         %s
         ',
-        jsonlite::toJSON(self$`small_molecule-quantification_unit`$toJSON(), auto_unbox=TRUE, digits = NA)
+        jsonlite::toJSON(self$`small_molecule-quantification_unit`$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)
         )},
         if (!is.null(self$`small_molecule_feature-quantification_unit`)) {
         sprintf(
         '"small_molecule_feature-quantification_unit":
         %s
         ',
-        jsonlite::toJSON(self$`small_molecule_feature-quantification_unit`$toJSON(), auto_unbox=TRUE, digits = NA)
+        jsonlite::toJSON(self$`small_molecule_feature-quantification_unit`$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)
         )},
         if (!is.null(self$`small_molecule-identification_reliability`)) {
         sprintf(
         '"small_molecule-identification_reliability":
         %s
         ',
-        jsonlite::toJSON(self$`small_molecule-identification_reliability`$toJSON(), auto_unbox=TRUE, digits = NA)
+        jsonlite::toJSON(self$`small_molecule-identification_reliability`$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)
         )},
         if (!is.null(self$`id_confidence_measure`)) {
         sprintf(
         '"id_confidence_measure":
-        [%s]
+        %s
 ',
-        paste(sapply(self$`id_confidence_measure`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(sapply(self$`id_confidence_measure`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)), collapse=",")
         )},
         if (!is.null(self$`colunit-small_molecule`)) {
         sprintf(
         '"colunit-small_molecule":
-        [%s]
+        %s
 ',
-        paste(sapply(self$`colunit-small_molecule`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(sapply(self$`colunit-small_molecule`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)), collapse=",")
         )},
         if (!is.null(self$`colunit-small_molecule_feature`)) {
         sprintf(
         '"colunit-small_molecule_feature":
-        [%s]
+        %s
 ',
-        paste(sapply(self$`colunit-small_molecule_feature`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(sapply(self$`colunit-small_molecule_feature`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)), collapse=",")
         )},
         if (!is.null(self$`colunit-small_molecule_evidence`)) {
         sprintf(
         '"colunit-small_molecule_evidence":
-        [%s]
+        %s
 ',
-        paste(sapply(self$`colunit-small_molecule_evidence`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(sapply(self$`colunit-small_molecule_evidence`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)), collapse=",")
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -663,7 +663,7 @@ Metadata <- R6::R6Class(
       self$`contact` <- ApiClient$new()$deserializeObj(MetadataObject$`contact`, "array[Contact]", loadNamespace("rmzTabM"))
       self$`uri` <- ApiClient$new()$deserializeObj(MetadataObject$`uri`, "array[Uri]", loadNamespace("rmzTabM"))
       self$`external_study_uri` <- ApiClient$new()$deserializeObj(MetadataObject$`external_study_uri`, "array[Uri]", loadNamespace("rmzTabM"))
-      self$`quantification_method` <- Parameter$new()$fromJSON(jsonlite::toJSON(MetadataObject$quantification_method, auto_unbox = TRUE, digits = NA))
+      self$`quantification_method` <- Parameter$new()$fromJSON(jsonlite::toJSON(MetadataObject$quantification_method, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
       self$`study_variable` <- ApiClient$new()$deserializeObj(MetadataObject$`study_variable`, "array[StudyVariable]", loadNamespace("rmzTabM"))
       self$`ms_run` <- ApiClient$new()$deserializeObj(MetadataObject$`ms_run`, "array[MsRun]", loadNamespace("rmzTabM"))
       self$`assay` <- ApiClient$new()$deserializeObj(MetadataObject$`assay`, "array[Assay]", loadNamespace("rmzTabM"))
@@ -672,9 +672,9 @@ Metadata <- R6::R6Class(
       self$`cv` <- ApiClient$new()$deserializeObj(MetadataObject$`cv`, "array[CV]", loadNamespace("rmzTabM"))
       self$`database` <- ApiClient$new()$deserializeObj(MetadataObject$`database`, "array[Database]", loadNamespace("rmzTabM"))
       self$`derivatization_agent` <- ApiClient$new()$deserializeObj(MetadataObject$`derivatization_agent`, "array[Parameter]", loadNamespace("rmzTabM"))
-      self$`small_molecule-quantification_unit` <- Parameter$new()$fromJSON(jsonlite::toJSON(MetadataObject$small_molecule-quantification_unit, auto_unbox = TRUE, digits = NA))
-      self$`small_molecule_feature-quantification_unit` <- Parameter$new()$fromJSON(jsonlite::toJSON(MetadataObject$small_molecule_feature-quantification_unit, auto_unbox = TRUE, digits = NA))
-      self$`small_molecule-identification_reliability` <- Parameter$new()$fromJSON(jsonlite::toJSON(MetadataObject$small_molecule-identification_reliability, auto_unbox = TRUE, digits = NA))
+      self$`small_molecule-quantification_unit` <- Parameter$new()$fromJSON(jsonlite::toJSON(MetadataObject$small_molecule-quantification_unit, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
+      self$`small_molecule_feature-quantification_unit` <- Parameter$new()$fromJSON(jsonlite::toJSON(MetadataObject$small_molecule_feature-quantification_unit, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
+      self$`small_molecule-identification_reliability` <- Parameter$new()$fromJSON(jsonlite::toJSON(MetadataObject$small_molecule-identification_reliability, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
       self$`id_confidence_measure` <- ApiClient$new()$deserializeObj(MetadataObject$`id_confidence_measure`, "array[Parameter]", loadNamespace("rmzTabM"))
       self$`colunit-small_molecule` <- ApiClient$new()$deserializeObj(MetadataObject$`colunit-small_molecule`, "array[ColumnParameterMapping]", loadNamespace("rmzTabM"))
       self$`colunit-small_molecule_feature` <- ApiClient$new()$deserializeObj(MetadataObject$`colunit-small_molecule_feature`, "array[ColumnParameterMapping]", loadNamespace("rmzTabM"))

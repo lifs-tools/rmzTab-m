@@ -10,9 +10,7 @@
 #' @title Software
 #' @description Software Class
 #' @format An \code{R6Class} generator object
-#' @field id  integer 
-#'
-#' @field elementType  character 
+#' @field id  integer [optional]
 #'
 #' @field parameter  \link{Parameter} [optional]
 #'
@@ -26,18 +24,13 @@ Software <- R6::R6Class(
   'Software',
   public = list(
     `id` = NULL,
-    `elementType` = NULL,
     `parameter` = NULL,
     `setting` = NULL,
-    initialize = function(`id`, `elementType`, `parameter`=NULL, `setting`=NULL, ...){
+    initialize = function(`id`=NULL, `parameter`=NULL, `setting`=NULL, ...){
       local.optional.var <- list(...)
-      if (!missing(`id`)) {
+      if (!is.null(`id`)) {
         stopifnot(is.numeric(`id`), length(`id`) == 1)
         self$`id` <- `id`
-      }
-      if (!missing(`elementType`)) {
-        stopifnot(is.character(`elementType`), length(`elementType`) == 1)
-        self$`elementType` <- `elementType`
       }
       if (!is.null(`parameter`)) {
         stopifnot(R6::is.R6(`parameter`))
@@ -53,11 +46,7 @@ Software <- R6::R6Class(
       SoftwareObject <- list()
       if (!is.null(self$`id`)) {
         SoftwareObject[['id']] <-
-          self$`id`
-      }
-      if (!is.null(self$`elementType`)) {
-        SoftwareObject[['elementType']] <-
-          self$`elementType`
+          jsonlite::unbox(self$`id`)
       }
       if (!is.null(self$`parameter`)) {
         SoftwareObject[['parameter']] <-
@@ -65,7 +54,7 @@ Software <- R6::R6Class(
       }
       if (!is.null(self$`setting`)) {
         SoftwareObject[['setting']] <-
-          self$`setting`
+          unlist(self$`setting`)
       }
 
       SoftwareObject
@@ -75,12 +64,9 @@ Software <- R6::R6Class(
       if (!is.null(SoftwareObject$`id`)) {
         self$`id` <- SoftwareObject$`id`
       }
-      if (!is.null(SoftwareObject$`elementType`)) {
-        self$`elementType` <- SoftwareObject$`elementType`
-      }
       if (!is.null(SoftwareObject$`parameter`)) {
         parameterObject <- Parameter$new()
-        parameterObject$fromJSON(jsonlite::toJSON(SoftwareObject$parameter, auto_unbox = TRUE, digits = NA))
+        parameterObject$fromJSON(jsonlite::toJSON(SoftwareObject$parameter, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
         self$`parameter` <- parameterObject
       }
       if (!is.null(SoftwareObject$`setting`)) {
@@ -94,28 +80,21 @@ Software <- R6::R6Class(
         '"id":
           %d
                 ',
-        self$`id`
-        )},
-        if (!is.null(self$`elementType`)) {
-        sprintf(
-        '"elementType":
-          "%s"
-                ',
-        self$`elementType`
+        jsonlite::unbox(self$`id`)
         )},
         if (!is.null(self$`parameter`)) {
         sprintf(
         '"parameter":
         %s
         ',
-        jsonlite::toJSON(self$`parameter`$toJSON(), auto_unbox=TRUE, digits = NA)
+        jsonlite::toJSON(self$`parameter`$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)
         )},
         if (!is.null(self$`setting`)) {
         sprintf(
         '"setting":
-           [%s]
+           %s
         ',
-        paste(unlist(lapply(self$`setting`, function(x) paste0('"', x, '"'))), collapse=",")
+        jsonlite::toJSON(unlist(self$`setting`), auto_unbox = FALSE, null = "null", na = "null", digits = NA)
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -124,8 +103,7 @@ Software <- R6::R6Class(
     fromJSONString = function(SoftwareJson) {
       SoftwareObject <- jsonlite::fromJSON(SoftwareJson)
       self$`id` <- SoftwareObject$`id`
-      self$`elementType` <- SoftwareObject$`elementType`
-      self$`parameter` <- Parameter$new()$fromJSON(jsonlite::toJSON(SoftwareObject$parameter, auto_unbox = TRUE, digits = NA))
+      self$`parameter` <- Parameter$new()$fromJSON(jsonlite::toJSON(SoftwareObject$parameter, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
       self$`setting` <- ApiClient$new()$deserializeObj(SoftwareObject$`setting`, "array[character]", loadNamespace("rmzTabM"))
       self
     }

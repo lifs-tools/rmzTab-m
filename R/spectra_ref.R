@@ -51,7 +51,7 @@ SpectraRef <- R6::R6Class(
       SpectraRefObject <- jsonlite::fromJSON(SpectraRefJson)
       if (!is.null(SpectraRefObject$`ms_run`)) {
         ms_runObject <- MsRun$new()
-        ms_runObject$fromJSON(jsonlite::toJSON(SpectraRefObject$ms_run, auto_unbox = TRUE, digits = NA))
+        ms_runObject$fromJSON(jsonlite::toJSON(SpectraRefObject$ms_run, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
         self$`ms_run` <- ms_runObject
       }
       if (!is.null(SpectraRefObject$`reference`)) {
@@ -65,7 +65,7 @@ SpectraRef <- R6::R6Class(
         '"ms_run":
         %s
         ',
-        jsonlite::toJSON(self$`ms_run`$toJSON(), auto_unbox=TRUE, digits = NA)
+        jsonlite::toJSON(self$`ms_run`$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)
         )},
         if (!is.null(self$`reference`)) {
         sprintf(
@@ -80,7 +80,7 @@ SpectraRef <- R6::R6Class(
     },
     fromJSONString = function(SpectraRefJson) {
       SpectraRefObject <- jsonlite::fromJSON(SpectraRefJson)
-      self$`ms_run` <- MsRun$new()$fromJSON(jsonlite::toJSON(SpectraRefObject$ms_run, auto_unbox = TRUE, digits = NA))
+      self$`ms_run` <- MsRun$new()$fromJSON(jsonlite::toJSON(SpectraRefObject$ms_run, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
       self$`reference` <- SpectraRefObject$`reference`
       self
     }

@@ -10,9 +10,7 @@
 #' @title CV
 #' @description CV Class
 #' @format An \code{R6Class} generator object
-#' @field id  integer 
-#'
-#' @field elementType  character 
+#' @field id  integer [optional]
 #'
 #' @field label  character 
 #'
@@ -30,21 +28,12 @@ CV <- R6::R6Class(
   'CV',
   public = list(
     `id` = NULL,
-    `elementType` = NULL,
     `label` = NULL,
     `full_name` = NULL,
     `version` = NULL,
     `uri` = NULL,
-    initialize = function(`id`, `elementType`, `label`, `full_name`, `version`, `uri`, ...){
+    initialize = function(`label`, `full_name`, `version`, `uri`, `id`=NULL, ...){
       local.optional.var <- list(...)
-      if (!missing(`id`)) {
-        stopifnot(is.numeric(`id`), length(`id`) == 1)
-        self$`id` <- `id`
-      }
-      if (!missing(`elementType`)) {
-        stopifnot(is.character(`elementType`), length(`elementType`) == 1)
-        self$`elementType` <- `elementType`
-      }
       if (!missing(`label`)) {
         stopifnot(is.character(`label`), length(`label`) == 1)
         self$`label` <- `label`
@@ -61,32 +50,32 @@ CV <- R6::R6Class(
         stopifnot(is.character(`uri`), length(`uri`) == 1)
         self$`uri` <- `uri`
       }
+      if (!is.null(`id`)) {
+        stopifnot(is.numeric(`id`), length(`id`) == 1)
+        self$`id` <- `id`
+      }
     },
     toJSON = function() {
       CVObject <- list()
       if (!is.null(self$`id`)) {
         CVObject[['id']] <-
-          self$`id`
-      }
-      if (!is.null(self$`elementType`)) {
-        CVObject[['elementType']] <-
-          self$`elementType`
+          jsonlite::unbox(self$`id`)
       }
       if (!is.null(self$`label`)) {
         CVObject[['label']] <-
-          self$`label`
+          jsonlite::unbox(self$`label`)
       }
       if (!is.null(self$`full_name`)) {
         CVObject[['full_name']] <-
-          self$`full_name`
+          jsonlite::unbox(self$`full_name`)
       }
       if (!is.null(self$`version`)) {
         CVObject[['version']] <-
-          self$`version`
+          jsonlite::unbox(self$`version`)
       }
       if (!is.null(self$`uri`)) {
         CVObject[['uri']] <-
-          self$`uri`
+          jsonlite::unbox(self$`uri`)
       }
 
       CVObject
@@ -95,9 +84,6 @@ CV <- R6::R6Class(
       CVObject <- jsonlite::fromJSON(CVJson)
       if (!is.null(CVObject$`id`)) {
         self$`id` <- CVObject$`id`
-      }
-      if (!is.null(CVObject$`elementType`)) {
-        self$`elementType` <- CVObject$`elementType`
       }
       if (!is.null(CVObject$`label`)) {
         self$`label` <- CVObject$`label`
@@ -119,42 +105,35 @@ CV <- R6::R6Class(
         '"id":
           %d
                 ',
-        self$`id`
-        )},
-        if (!is.null(self$`elementType`)) {
-        sprintf(
-        '"elementType":
-          "%s"
-                ',
-        self$`elementType`
+        jsonlite::unbox(self$`id`)
         )},
         if (!is.null(self$`label`)) {
         sprintf(
         '"label":
           "%s"
                 ',
-        self$`label`
+        jsonlite::unbox(self$`label`)
         )},
         if (!is.null(self$`full_name`)) {
         sprintf(
         '"full_name":
           "%s"
                 ',
-        self$`full_name`
+        jsonlite::unbox(self$`full_name`)
         )},
         if (!is.null(self$`version`)) {
         sprintf(
         '"version":
           "%s"
                 ',
-        self$`version`
+        jsonlite::unbox(self$`version`)
         )},
         if (!is.null(self$`uri`)) {
         sprintf(
         '"uri":
           "%s"
                 ',
-        self$`uri`
+        jsonlite::unbox(self$`uri`)
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -163,7 +142,6 @@ CV <- R6::R6Class(
     fromJSONString = function(CVJson) {
       CVObject <- jsonlite::fromJSON(CVJson)
       self$`id` <- CVObject$`id`
-      self$`elementType` <- CVObject$`elementType`
       self$`label` <- CVObject$`label`
       self$`full_name` <- CVObject$`full_name`
       self$`version` <- CVObject$`version`

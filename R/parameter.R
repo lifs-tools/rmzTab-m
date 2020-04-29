@@ -10,9 +10,7 @@
 #' @title Parameter
 #' @description Parameter Class
 #' @format An \code{R6Class} generator object
-#' @field id  integer 
-#'
-#' @field elementType  character 
+#' @field id  integer [optional]
 #'
 #' @field cv_label  character [optional]
 #'
@@ -30,21 +28,12 @@ Parameter <- R6::R6Class(
   'Parameter',
   public = list(
     `id` = NULL,
-    `elementType` = NULL,
     `cv_label` = NULL,
     `cv_accession` = NULL,
     `name` = NULL,
     `value` = NULL,
-    initialize = function(`id`, `elementType`, `name`, `value`, `cv_label`='', `cv_accession`='', ...){
+    initialize = function(`name`, `value`, `id`=NULL, `cv_label`='', `cv_accession`='', ...){
       local.optional.var <- list(...)
-      if (!missing(`id`)) {
-        stopifnot(is.numeric(`id`), length(`id`) == 1)
-        self$`id` <- `id`
-      }
-      if (!missing(`elementType`)) {
-        stopifnot(is.character(`elementType`), length(`elementType`) == 1)
-        self$`elementType` <- `elementType`
-      }
       if (!missing(`name`)) {
         stopifnot(is.character(`name`), length(`name`) == 1)
         self$`name` <- `name`
@@ -52,6 +41,10 @@ Parameter <- R6::R6Class(
       if (!missing(`value`)) {
         stopifnot(is.character(`value`), length(`value`) == 1)
         self$`value` <- `value`
+      }
+      if (!is.null(`id`)) {
+        stopifnot(is.numeric(`id`), length(`id`) == 1)
+        self$`id` <- `id`
       }
       if (!is.null(`cv_label`)) {
         stopifnot(is.character(`cv_label`), length(`cv_label`) == 1)
@@ -66,27 +59,23 @@ Parameter <- R6::R6Class(
       ParameterObject <- list()
       if (!is.null(self$`id`)) {
         ParameterObject[['id']] <-
-          self$`id`
-      }
-      if (!is.null(self$`elementType`)) {
-        ParameterObject[['elementType']] <-
-          self$`elementType`
+          jsonlite::unbox(self$`id`)
       }
       if (!is.null(self$`cv_label`)) {
         ParameterObject[['cv_label']] <-
-          self$`cv_label`
+          jsonlite::unbox(self$`cv_label`)
       }
       if (!is.null(self$`cv_accession`)) {
         ParameterObject[['cv_accession']] <-
-          self$`cv_accession`
+          jsonlite::unbox(self$`cv_accession`)
       }
       if (!is.null(self$`name`)) {
         ParameterObject[['name']] <-
-          self$`name`
+          jsonlite::unbox(self$`name`)
       }
       if (!is.null(self$`value`)) {
         ParameterObject[['value']] <-
-          self$`value`
+          jsonlite::unbox(self$`value`)
       }
 
       ParameterObject
@@ -95,9 +84,6 @@ Parameter <- R6::R6Class(
       ParameterObject <- jsonlite::fromJSON(ParameterJson)
       if (!is.null(ParameterObject$`id`)) {
         self$`id` <- ParameterObject$`id`
-      }
-      if (!is.null(ParameterObject$`elementType`)) {
-        self$`elementType` <- ParameterObject$`elementType`
       }
       if (!is.null(ParameterObject$`cv_label`)) {
         self$`cv_label` <- ParameterObject$`cv_label`
@@ -119,42 +105,35 @@ Parameter <- R6::R6Class(
         '"id":
           %d
                 ',
-        self$`id`
-        )},
-        if (!is.null(self$`elementType`)) {
-        sprintf(
-        '"elementType":
-          "%s"
-                ',
-        self$`elementType`
+        jsonlite::unbox(self$`id`)
         )},
         if (!is.null(self$`cv_label`)) {
         sprintf(
         '"cv_label":
           "%s"
                 ',
-        self$`cv_label`
+        jsonlite::unbox(self$`cv_label`)
         )},
         if (!is.null(self$`cv_accession`)) {
         sprintf(
         '"cv_accession":
           "%s"
                 ',
-        self$`cv_accession`
+        jsonlite::unbox(self$`cv_accession`)
         )},
         if (!is.null(self$`name`)) {
         sprintf(
         '"name":
           "%s"
                 ',
-        self$`name`
+        jsonlite::unbox(self$`name`)
         )},
         if (!is.null(self$`value`)) {
         sprintf(
         '"value":
           "%s"
                 ',
-        self$`value`
+        jsonlite::unbox(self$`value`)
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -163,7 +142,6 @@ Parameter <- R6::R6Class(
     fromJSONString = function(ParameterJson) {
       ParameterObject <- jsonlite::fromJSON(ParameterJson)
       self$`id` <- ParameterObject$`id`
-      self$`elementType` <- ParameterObject$`elementType`
       self$`cv_label` <- ParameterObject$`cv_label`
       self$`cv_accession` <- ParameterObject$`cv_accession`
       self$`name` <- ParameterObject$`name`

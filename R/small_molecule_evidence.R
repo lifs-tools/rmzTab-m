@@ -182,43 +182,43 @@ SmallMoleculeEvidence <- R6::R6Class(
       SmallMoleculeEvidenceObject <- list()
       if (!is.null(self$`prefix`)) {
         SmallMoleculeEvidenceObject[['prefix']] <-
-          self$`prefix`
+          jsonlite::unbox(self$`prefix`)
       }
       if (!is.null(self$`header_prefix`)) {
         SmallMoleculeEvidenceObject[['header_prefix']] <-
-          self$`header_prefix`
+          jsonlite::unbox(self$`header_prefix`)
       }
       if (!is.null(self$`sme_id`)) {
         SmallMoleculeEvidenceObject[['sme_id']] <-
-          self$`sme_id`
+          jsonlite::unbox(self$`sme_id`)
       }
       if (!is.null(self$`evidence_input_id`)) {
         SmallMoleculeEvidenceObject[['evidence_input_id']] <-
-          self$`evidence_input_id`
+          jsonlite::unbox(self$`evidence_input_id`)
       }
       if (!is.null(self$`database_identifier`)) {
         SmallMoleculeEvidenceObject[['database_identifier']] <-
-          self$`database_identifier`
+          jsonlite::unbox(self$`database_identifier`)
       }
       if (!is.null(self$`chemical_formula`)) {
         SmallMoleculeEvidenceObject[['chemical_formula']] <-
-          self$`chemical_formula`
+          jsonlite::unbox(self$`chemical_formula`)
       }
       if (!is.null(self$`smiles`)) {
         SmallMoleculeEvidenceObject[['smiles']] <-
-          self$`smiles`
+          jsonlite::unbox(self$`smiles`)
       }
       if (!is.null(self$`inchi`)) {
         SmallMoleculeEvidenceObject[['inchi']] <-
-          self$`inchi`
+          jsonlite::unbox(self$`inchi`)
       }
       if (!is.null(self$`chemical_name`)) {
         SmallMoleculeEvidenceObject[['chemical_name']] <-
-          self$`chemical_name`
+          jsonlite::unbox(self$`chemical_name`)
       }
       if (!is.null(self$`uri`)) {
         SmallMoleculeEvidenceObject[['uri']] <-
-          self$`uri`
+          jsonlite::unbox(self$`uri`)
       }
       if (!is.null(self$`derivatized_form`)) {
         SmallMoleculeEvidenceObject[['derivatized_form']] <-
@@ -226,19 +226,19 @@ SmallMoleculeEvidence <- R6::R6Class(
       }
       if (!is.null(self$`adduct_ion`)) {
         SmallMoleculeEvidenceObject[['adduct_ion']] <-
-          self$`adduct_ion`
+          jsonlite::unbox(self$`adduct_ion`)
       }
       if (!is.null(self$`exp_mass_to_charge`)) {
         SmallMoleculeEvidenceObject[['exp_mass_to_charge']] <-
-          self$`exp_mass_to_charge`
+          jsonlite::unbox(self$`exp_mass_to_charge`)
       }
       if (!is.null(self$`charge`)) {
         SmallMoleculeEvidenceObject[['charge']] <-
-          self$`charge`
+          jsonlite::unbox(self$`charge`)
       }
       if (!is.null(self$`theoretical_mass_to_charge`)) {
         SmallMoleculeEvidenceObject[['theoretical_mass_to_charge']] <-
-          self$`theoretical_mass_to_charge`
+         jsonlite::unbox(self$`theoretical_mass_to_charge`)
       }
       if (!is.null(self$`spectra_ref`)) {
         SmallMoleculeEvidenceObject[['spectra_ref']] <-
@@ -258,7 +258,7 @@ SmallMoleculeEvidence <- R6::R6Class(
       }
       if (!is.null(self$`rank`)) {
         SmallMoleculeEvidenceObject[['rank']] <-
-          self$`rank`
+          jsonlite::unbox(self$`rank`)
       }
       if (!is.null(self$`opt`)) {
         SmallMoleculeEvidenceObject[['opt']] <-
@@ -305,7 +305,7 @@ SmallMoleculeEvidence <- R6::R6Class(
       }
       if (!is.null(SmallMoleculeEvidenceObject$`derivatized_form`)) {
         derivatized_formObject <- Parameter$new()
-        derivatized_formObject$fromJSON(jsonlite::toJSON(SmallMoleculeEvidenceObject$derivatized_form, auto_unbox = TRUE, digits = NA))
+        derivatized_formObject$fromJSON(jsonlite::toJSON(SmallMoleculeEvidenceObject$derivatized_form, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
         self$`derivatized_form` <- derivatized_formObject
       }
       if (!is.null(SmallMoleculeEvidenceObject$`adduct_ion`)) {
@@ -325,12 +325,12 @@ SmallMoleculeEvidence <- R6::R6Class(
       }
       if (!is.null(SmallMoleculeEvidenceObject$`identification_method`)) {
         identification_methodObject <- Parameter$new()
-        identification_methodObject$fromJSON(jsonlite::toJSON(SmallMoleculeEvidenceObject$identification_method, auto_unbox = TRUE, digits = NA))
+        identification_methodObject$fromJSON(jsonlite::toJSON(SmallMoleculeEvidenceObject$identification_method, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
         self$`identification_method` <- identification_methodObject
       }
       if (!is.null(SmallMoleculeEvidenceObject$`ms_level`)) {
         ms_levelObject <- Parameter$new()
-        ms_levelObject$fromJSON(jsonlite::toJSON(SmallMoleculeEvidenceObject$ms_level, auto_unbox = TRUE, digits = NA))
+        ms_levelObject$fromJSON(jsonlite::toJSON(SmallMoleculeEvidenceObject$ms_level, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
         self$`ms_level` <- ms_levelObject
       }
       if (!is.null(SmallMoleculeEvidenceObject$`id_confidence_measure`)) {
@@ -423,7 +423,7 @@ SmallMoleculeEvidence <- R6::R6Class(
         '"derivatized_form":
         %s
         ',
-        jsonlite::toJSON(self$`derivatized_form`$toJSON(), auto_unbox=TRUE, digits = NA)
+        jsonlite::toJSON(self$`derivatized_form`$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)
         )},
         if (!is.null(self$`adduct_ion`)) {
         sprintf(
@@ -435,7 +435,7 @@ SmallMoleculeEvidence <- R6::R6Class(
         if (!is.null(self$`exp_mass_to_charge`)) {
         sprintf(
         '"exp_mass_to_charge":
-          %d
+          %f
                 ',
         self$`exp_mass_to_charge`
         )},
@@ -449,7 +449,7 @@ SmallMoleculeEvidence <- R6::R6Class(
         if (!is.null(self$`theoretical_mass_to_charge`)) {
         sprintf(
         '"theoretical_mass_to_charge":
-          %d
+          %f
                 ',
         self$`theoretical_mass_to_charge`
         )},
@@ -458,21 +458,21 @@ SmallMoleculeEvidence <- R6::R6Class(
         '"spectra_ref":
         [%s]
 ',
-        paste(sapply(self$`spectra_ref`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(sapply(self$`spectra_ref`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)), collapse=",")
         )},
         if (!is.null(self$`identification_method`)) {
         sprintf(
         '"identification_method":
         %s
         ',
-        jsonlite::toJSON(self$`identification_method`$toJSON(), auto_unbox=TRUE, digits = NA)
+        jsonlite::toJSON(self$`identification_method`$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)
         )},
         if (!is.null(self$`ms_level`)) {
         sprintf(
         '"ms_level":
         %s
         ',
-        jsonlite::toJSON(self$`ms_level`$toJSON(), auto_unbox=TRUE, digits = NA)
+        jsonlite::toJSON(self$`ms_level`$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)
         )},
         if (!is.null(self$`id_confidence_measure`)) {
         sprintf(
@@ -493,14 +493,14 @@ SmallMoleculeEvidence <- R6::R6Class(
         '"opt":
         [%s]
 ',
-        paste(sapply(self$`opt`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(sapply(self$`opt`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)), collapse=",")
         )},
         if (!is.null(self$`comment`)) {
         sprintf(
         '"comment":
         [%s]
 ',
-        paste(sapply(self$`comment`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(sapply(self$`comment`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)), collapse=",")
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -518,14 +518,14 @@ SmallMoleculeEvidence <- R6::R6Class(
       self$`inchi` <- SmallMoleculeEvidenceObject$`inchi`
       self$`chemical_name` <- SmallMoleculeEvidenceObject$`chemical_name`
       self$`uri` <- SmallMoleculeEvidenceObject$`uri`
-      self$`derivatized_form` <- Parameter$new()$fromJSON(jsonlite::toJSON(SmallMoleculeEvidenceObject$derivatized_form, auto_unbox = TRUE, digits = NA))
+      self$`derivatized_form` <- Parameter$new()$fromJSON(jsonlite::toJSON(SmallMoleculeEvidenceObject$derivatized_form, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
       self$`adduct_ion` <- SmallMoleculeEvidenceObject$`adduct_ion`
       self$`exp_mass_to_charge` <- SmallMoleculeEvidenceObject$`exp_mass_to_charge`
       self$`charge` <- SmallMoleculeEvidenceObject$`charge`
       self$`theoretical_mass_to_charge` <- SmallMoleculeEvidenceObject$`theoretical_mass_to_charge`
       self$`spectra_ref` <- ApiClient$new()$deserializeObj(SmallMoleculeEvidenceObject$`spectra_ref`, "array[SpectraRef]", loadNamespace("rmzTabM"))
-      self$`identification_method` <- Parameter$new()$fromJSON(jsonlite::toJSON(SmallMoleculeEvidenceObject$identification_method, auto_unbox = TRUE, digits = NA))
-      self$`ms_level` <- Parameter$new()$fromJSON(jsonlite::toJSON(SmallMoleculeEvidenceObject$ms_level, auto_unbox = TRUE, digits = NA))
+      self$`identification_method` <- Parameter$new()$fromJSON(jsonlite::toJSON(SmallMoleculeEvidenceObject$identification_method, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
+      self$`ms_level` <- Parameter$new()$fromJSON(jsonlite::toJSON(SmallMoleculeEvidenceObject$ms_level, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
       self$`id_confidence_measure` <- ApiClient$new()$deserializeObj(SmallMoleculeEvidenceObject$`id_confidence_measure`, "array[numeric]", loadNamespace("rmzTabM"))
       self$`rank` <- SmallMoleculeEvidenceObject$`rank`
       self$`opt` <- ApiClient$new()$deserializeObj(SmallMoleculeEvidenceObject$`opt`, "array[OptColumnMapping]", loadNamespace("rmzTabM"))

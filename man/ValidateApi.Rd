@@ -4,9 +4,11 @@
 \name{ValidateApi}
 \alias{ValidateApi}
 \title{Validate operations}
-\format{An \code{R6Class} generator object}
+\format{
+An \code{R6Class} generator object
+}
 \description{
-openapi.Validate
+rmzTabM.Validate
 }
 \section{Methods}{
 
@@ -59,7 +61,7 @@ Validates an mzTab file in XML or JSON representation and reports syntactic, str
 \dontrun{
 ####################  ValidateMzTabFile  ####################
 
-library(openapi)
+library(rmzTabM)
 var.mztabfile <- MzTab$new() # MzTab | mzTab file that should be validated.
 var.level <- 'info' # character | The level of errors that should be reported, one of ERROR, WARN, INFO.
 var.max.errors <- 100 # integer | The maximum number of errors to return.
@@ -90,6 +92,7 @@ result <- api.instance$ValidateMzTabFile(var.mztabfile, level=var.level, max.err
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-new"></a>}}
+\if{latex}{\out{\hypertarget{method-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ValidateApi$new(apiClient)}\if{html}{\out{</div>}}
@@ -98,6 +101,7 @@ result <- api.instance$ValidateMzTabFile(var.mztabfile, level=var.level, max.err
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ValidateMzTabFile"></a>}}
+\if{latex}{\out{\hypertarget{method-ValidateMzTabFile}{}}}
 \subsection{Method \code{ValidateMzTabFile()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ValidateApi$ValidateMzTabFile(
@@ -112,6 +116,7 @@ result <- api.instance$ValidateMzTabFile(var.mztabfile, level=var.level, max.err
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ValidateMzTabFileWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-ValidateMzTabFileWithHttpInfo}{}}}
 \subsection{Method \code{ValidateMzTabFileWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ValidateApi$ValidateMzTabFileWithHttpInfo(
@@ -126,6 +131,7 @@ result <- api.instance$ValidateMzTabFile(var.mztabfile, level=var.level, max.err
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

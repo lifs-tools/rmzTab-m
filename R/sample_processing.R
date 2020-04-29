@@ -10,9 +10,7 @@
 #' @title SampleProcessing
 #' @description SampleProcessing Class
 #' @format An \code{R6Class} generator object
-#' @field id  integer 
-#'
-#' @field elementType  character 
+#' @field id  integer [optional]
 #'
 #' @field sampleProcessing  list( \link{Parameter} ) [optional]
 #'
@@ -24,17 +22,12 @@ SampleProcessing <- R6::R6Class(
   'SampleProcessing',
   public = list(
     `id` = NULL,
-    `elementType` = NULL,
     `sampleProcessing` = NULL,
-    initialize = function(`id`, `elementType`, `sampleProcessing`=NULL, ...){
+    initialize = function(`id`=NULL, `sampleProcessing`=NULL, ...){
       local.optional.var <- list(...)
-      if (!missing(`id`)) {
+      if (!is.null(`id`)) {
         stopifnot(is.numeric(`id`), length(`id`) == 1)
         self$`id` <- `id`
-      }
-      if (!missing(`elementType`)) {
-        stopifnot(is.character(`elementType`), length(`elementType`) == 1)
-        self$`elementType` <- `elementType`
       }
       if (!is.null(`sampleProcessing`)) {
         stopifnot(is.vector(`sampleProcessing`), length(`sampleProcessing`) != 0)
@@ -46,11 +39,7 @@ SampleProcessing <- R6::R6Class(
       SampleProcessingObject <- list()
       if (!is.null(self$`id`)) {
         SampleProcessingObject[['id']] <-
-          self$`id`
-      }
-      if (!is.null(self$`elementType`)) {
-        SampleProcessingObject[['elementType']] <-
-          self$`elementType`
+          jsonlite::unbox(self$`id`)
       }
       if (!is.null(self$`sampleProcessing`)) {
         SampleProcessingObject[['sampleProcessing']] <-
@@ -64,9 +53,6 @@ SampleProcessing <- R6::R6Class(
       if (!is.null(SampleProcessingObject$`id`)) {
         self$`id` <- SampleProcessingObject$`id`
       }
-      if (!is.null(SampleProcessingObject$`elementType`)) {
-        self$`elementType` <- SampleProcessingObject$`elementType`
-      }
       if (!is.null(SampleProcessingObject$`sampleProcessing`)) {
         self$`sampleProcessing` <- ApiClient$new()$deserializeObj(SampleProcessingObject$`sampleProcessing`, "array[Parameter]", loadNamespace("rmzTabM"))
       }
@@ -78,21 +64,14 @@ SampleProcessing <- R6::R6Class(
         '"id":
           %d
                 ',
-        self$`id`
-        )},
-        if (!is.null(self$`elementType`)) {
-        sprintf(
-        '"elementType":
-          "%s"
-                ',
-        self$`elementType`
+        jsonlite::unbox(self$`id`)
         )},
         if (!is.null(self$`sampleProcessing`)) {
         sprintf(
         '"sampleProcessing":
-        [%s]
+        %s
 ',
-        paste(sapply(self$`sampleProcessing`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        paste(sapply(self$`sampleProcessing`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)), collapse=",")
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -101,7 +80,6 @@ SampleProcessing <- R6::R6Class(
     fromJSONString = function(SampleProcessingJson) {
       SampleProcessingObject <- jsonlite::fromJSON(SampleProcessingJson)
       self$`id` <- SampleProcessingObject$`id`
-      self$`elementType` <- SampleProcessingObject$`elementType`
       self$`sampleProcessing` <- ApiClient$new()$deserializeObj(SampleProcessingObject$`sampleProcessing`, "array[Parameter]", loadNamespace("rmzTabM"))
       self
     }

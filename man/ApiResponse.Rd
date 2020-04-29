@@ -4,7 +4,9 @@
 \name{ApiResponse}
 \alias{ApiResponse}
 \title{ApiResponse}
-\format{An \code{R6Class} generator object}
+\format{
+An \code{R6Class} generator object
+}
 \description{
 ApiResponse Class
 }
@@ -26,6 +28,7 @@ ApiResponse Class
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-new"></a>}}
+\if{latex}{\out{\hypertarget{method-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ApiResponse$new(content, response)}\if{html}{\out{</div>}}
@@ -34,6 +37,7 @@ ApiResponse Class
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

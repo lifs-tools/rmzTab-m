@@ -12,13 +12,6 @@ test_that("id", {
   #expect_equal(model.instance$`id`, "EXPECTED_RESULT")
 })
 
-test_that("elementType", {
-  # tests for the property `elementType` (character)
-
-  # uncomment below to test the property 
-  #expect_equal(model.instance$`elementType`, "EXPECTED_RESULT")
-})
-
 test_that("name", {
   # tests for the property `name` (character)
   # The sample&#39;s name.

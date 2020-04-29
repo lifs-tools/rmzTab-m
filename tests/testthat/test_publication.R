@@ -12,13 +12,6 @@ test_that("id", {
   #expect_equal(model.instance$`id`, "EXPECTED_RESULT")
 })
 
-test_that("elementType", {
-  # tests for the property `elementType` (character)
-
-  # uncomment below to test the property 
-  #expect_equal(model.instance$`elementType`, "EXPECTED_RESULT")
-})
-
 test_that("publicationItems", {
   # tests for the property `publicationItems` (array[PublicationItem])
   # The publication item ids referenced by this publication.

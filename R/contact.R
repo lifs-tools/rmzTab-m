@@ -10,9 +10,7 @@
 #' @title Contact
 #' @description Contact Class
 #' @format An \code{R6Class} generator object
-#' @field id  integer 
-#'
-#' @field elementType  character 
+#' @field id  integer [optional]
 #'
 #' @field name  character [optional]
 #'
@@ -28,19 +26,14 @@ Contact <- R6::R6Class(
   'Contact',
   public = list(
     `id` = NULL,
-    `elementType` = NULL,
     `name` = NULL,
     `affiliation` = NULL,
     `email` = NULL,
-    initialize = function(`id`, `elementType`, `name`=NULL, `affiliation`=NULL, `email`=NULL, ...){
+    initialize = function(`id`=NULL, `name`=NULL, `affiliation`=NULL, `email`=NULL, ...){
       local.optional.var <- list(...)
-      if (!missing(`id`)) {
+      if (!is.null(`id`)) {
         stopifnot(is.numeric(`id`), length(`id`) == 1)
         self$`id` <- `id`
-      }
-      if (!missing(`elementType`)) {
-        stopifnot(is.character(`elementType`), length(`elementType`) == 1)
-        self$`elementType` <- `elementType`
       }
       if (!is.null(`name`)) {
         stopifnot(is.character(`name`), length(`name`) == 1)
@@ -60,10 +53,6 @@ Contact <- R6::R6Class(
       if (!is.null(self$`id`)) {
         ContactObject[['id']] <-
           self$`id`
-      }
-      if (!is.null(self$`elementType`)) {
-        ContactObject[['elementType']] <-
-          self$`elementType`
       }
       if (!is.null(self$`name`)) {
         ContactObject[['name']] <-
@@ -85,9 +74,6 @@ Contact <- R6::R6Class(
       if (!is.null(ContactObject$`id`)) {
         self$`id` <- ContactObject$`id`
       }
-      if (!is.null(ContactObject$`elementType`)) {
-        self$`elementType` <- ContactObject$`elementType`
-      }
       if (!is.null(ContactObject$`name`)) {
         self$`name` <- ContactObject$`name`
       }
@@ -106,13 +92,6 @@ Contact <- R6::R6Class(
           %d
                 ',
         self$`id`
-        )},
-        if (!is.null(self$`elementType`)) {
-        sprintf(
-        '"elementType":
-          "%s"
-                ',
-        self$`elementType`
         )},
         if (!is.null(self$`name`)) {
         sprintf(
@@ -142,7 +121,6 @@ Contact <- R6::R6Class(
     fromJSONString = function(ContactJson) {
       ContactObject <- jsonlite::fromJSON(ContactJson)
       self$`id` <- ContactObject$`id`
-      self$`elementType` <- ContactObject$`elementType`
       self$`name` <- ContactObject$`name`
       self$`affiliation` <- ContactObject$`affiliation`
       self$`email` <- ContactObject$`email`

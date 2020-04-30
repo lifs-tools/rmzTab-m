@@ -5,39 +5,77 @@ context("Test Instrument")
 
 model.instance <- Instrument$new()
 
-test_that("id", {
-  # tests for the property `id` (integer)
+ref.json <- '{
+      "id" : 1,
+      "name" : {
+        "id" : null,
+        "cv_label" : "MS",
+        "cv_accession" : "MS:1001911",
+        "name" : "Q Exactive",
+        "value" : null
+      },
+      "source" : {
+        "id" : null,
+        "cv_label" : "MS",
+        "cv_accession" : "MS:1000073",
+        "name" : "electrospray ionization",
+        "value" : null
+      },
+      "analyzer" : [ {
+        "id" : null,
+        "cv_label" : "MS",
+        "cv_accession" : "MS:1000081",
+        "name" : "quadrupole",
+        "value" : null
+      }, {
+        "id" : null,
+        "cv_label" : "MS",
+        "cv_accession" : "MS:1000484",
+        "name" : "orbitrap",
+        "value" : null
+      } ],
+      "detector" : {
+        "id" : null,
+        "cv_label" : "MS",
+        "cv_accession" : "MS:1000624",
+        "name" : "inductive detector",
+        "value" : null
+      }
+    }'
 
-  # uncomment below to test the property 
-  #expect_equal(model.instance$`id`, "EXPECTED_RESULT")
-})
-
-test_that("name", {
-  # tests for the property `name` (Parameter)
-
-  # uncomment below to test the property 
-  #expect_equal(model.instance$`name`, "EXPECTED_RESULT")
-})
-
-test_that("source", {
-  # tests for the property `source` (Parameter)
-
-  # uncomment below to test the property 
-  #expect_equal(model.instance$`source`, "EXPECTED_RESULT")
-})
-
-test_that("analyzer", {
-  # tests for the property `analyzer` (array[Parameter])
-  # The instrument&#39;s mass analyzer, as defined by the parameter.
-
-  # uncomment below to test the property 
-  #expect_equal(model.instance$`analyzer`, "EXPECTED_RESULT")
-})
-
-test_that("detector", {
-  # tests for the property `detector` (Parameter)
-
-  # uncomment below to test the property 
-  #expect_equal(model.instance$`detector`, "EXPECTED_RESULT")
+test_that("instrument", {
+  
+  model.instance <- model.instance$fromJSONString(ref.json)
+  expect_equal(model.instance$`id`, 1)
+  expect_null(model.instance$`name`$`id`)
+  expect_equal(model.instance$`name`$`cv_label`, "MS")
+  expect_equal(model.instance$`name`$`cv_accession`, "MS:1001911")
+  expect_equal(model.instance$`name`$`name`, "Q Exactive")
+  expect_null(model.instance$`name`$`value`)
+  expect_null(model.instance$`source`$`id`)
+  expect_equal(model.instance$`source`$`cv_label`, "MS")
+  expect_equal(model.instance$`source`$`cv_accession`, "MS:1000073")
+  expect_equal(model.instance$`source`$`name`, "electrospray ionization")
+  expect_null(model.instance$`source`$`value`)
+  expect_equal(length(model.instance$`analyzer`), 2)
+  expect_null(model.instance$`analyzer`[[1]]$`id`)
+  expect_equal(model.instance$`analyzer`[[1]]$`cv_label`, "MS")
+  expect_equal(model.instance$`analyzer`[[1]]$`cv_accession`, "MS:1000081")
+  expect_equal(model.instance$`analyzer`[[1]]$`name`, "quadrupole")
+  expect_null(model.instance$`analyzer`[[1]]$`value`)
+  expect_null(model.instance$`analyzer`[[2]]$`id`)
+  expect_equal(model.instance$`analyzer`[[2]]$`cv_label`, "MS")
+  expect_equal(model.instance$`analyzer`[[2]]$`cv_accession`, "MS:1000484")
+  expect_equal(model.instance$`analyzer`[[2]]$`name`, "orbitrap")
+  expect_null(model.instance$`analyzer`[[2]]$`value`)
+  
+  expect_equal(model.instance$`detector`$`cv_label`, "MS")
+  expect_equal(model.instance$`detector`$`cv_accession`, "MS:1000624")
+  expect_equal(model.instance$`detector`$`name`, "inductive detector")
+  expect_null(model.instance$`detector`$`value`)
+  
+  restored.model.instance <- Instrument$new()
+  restored.model.instance$fromJSONString(model.instance$toJSONString())
+  expect_equal(model.instance, restored.model.instance)
 })
 

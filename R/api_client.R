@@ -129,7 +129,7 @@ ApiClient  <- R6::R6Class(
     deserializeObj = function(obj, returnType, pkgEnv) {
       returnObj <- NULL
       primitiveTypes <- c("character", "numeric", "integer", "logical", "complex")
-      
+      #browser()
       # To handle the "map" type 
       if (startsWith(returnType, "map(")) {
         innerReturnType <- regmatches(returnType, regexec(pattern = "map\\((.*)\\)", returnType))[[1]][2]
@@ -141,14 +141,13 @@ ApiClient  <- R6::R6Class(
 
       # To handle the "array" type
       else if (startsWith(returnType, "array[")) {
-        innerReturnType <- regmatches(returnType, regexec(pattern = "array\\[(.*)\\]", returnType))[[1]][2]
-        # if(innerReturnType=="Instrument") {
+        # if(returnType=="array[Parameter]") {
         #   browser()
         # }
+        innerReturnType <- regmatches(returnType, regexec(pattern = "array\\[(.*)\\]", returnType))[[1]][2]
         if (c(innerReturnType) %in% primitiveTypes) {
           returnObj <- vector("list", length = length(obj))
           if (length(obj) > 0) {
-            #browser()
             for (row in 1:length(obj)) {
               returnObj[[row]] <- unlist(self$deserializeObj(obj[row], innerReturnType, pkgEnv))
             }
@@ -165,6 +164,20 @@ ApiClient  <- R6::R6Class(
                 returnObj <- innerReturnType$new()
                 returnObj$fromJSON(jsonlite::toJSON(obj, auto_unbox  = FALSE, digits = NA))
             }
+          } else if(!is.null(length(obj))) { #nested lists of objects
+            if (length(obj) > 0 && is.null(nrow(obj[[1]]))) {
+              returnObj <- vector("list", length = length(obj))
+              for (row in 1:length(obj)) {
+                if (typeof(obj[[row]]) %in% primitiveTypes) {
+                  returnObj[[row]] <- obj
+                }
+              }
+            # } else if (exists(innerReturnType, pkgEnv) && !(c(innerReturnType) %in% primitiveTypes)) {
+            #   returnObj <- self$deserializeObj(obj, innerReturnType, pkgEnv)
+              # innerReturnType <- get(innerReturnType, envir = as.environment(pkgEnv))
+              # returnObj <- innerReturnType$new()
+              # returnObj$fromJSON(jsonlite::toJSON(obj, auto_unbox  = FALSE, digits = NA))
+            }
           }
         }
       }
@@ -173,6 +186,7 @@ ApiClient  <- R6::R6Class(
       else if (exists(returnType, pkgEnv) && !(c(returnType) %in% primitiveTypes)) {
         returnType <- get(returnType, envir = as.environment(pkgEnv))
         returnObj <- returnType$new()
+        #browser()
         returnObj$fromJSON(jsonlite::toJSON(obj, auto_unbox  = FALSE, digits = NA))
       } 
 

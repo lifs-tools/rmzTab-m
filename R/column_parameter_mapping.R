@@ -38,7 +38,7 @@ ColumnParameterMapping <- R6::R6Class(
       ColumnParameterMappingObject <- list()
       if (!is.null(self$`column_name`)) {
         ColumnParameterMappingObject[['column_name']] <-
-          self$`column_name`
+          jsonlite::unbox(self$`column_name`)
       }
       if (!is.null(self$`param`)) {
         ColumnParameterMappingObject[['param']] <-
@@ -65,7 +65,7 @@ ColumnParameterMapping <- R6::R6Class(
         '"column_name":
           "%s"
                 ',
-        self$`column_name`
+        jsonlite::unbox(self$`column_name`)
         )},
         if (!is.null(self$`param`)) {
         sprintf(
@@ -81,7 +81,7 @@ ColumnParameterMapping <- R6::R6Class(
     fromJSONString = function(ColumnParameterMappingJson) {
       ColumnParameterMappingObject <- jsonlite::fromJSON(ColumnParameterMappingJson)
       self$`column_name` <- ColumnParameterMappingObject$`column_name`
-      self$`param` <- Parameter$new()$fromJSON(jsonlite::toJSON(ColumnParameterMappingObject$param, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
+      self$`param` <- Parameter$new()$fromJSONString(jsonlite::toJSON(ColumnParameterMappingObject$param, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
       self
     }
   )

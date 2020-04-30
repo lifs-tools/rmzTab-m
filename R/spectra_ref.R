@@ -26,7 +26,7 @@ SpectraRef <- R6::R6Class(
     initialize = function(`ms_run`, `reference`, ...){
       local.optional.var <- list(...)
       if (!missing(`ms_run`)) {
-        stopifnot(R6::is.R6(`ms_run`))
+        stopifnot(is.numeric(`ms_run`), length(`ms_run`) == 1)
         self$`ms_run` <- `ms_run`
       }
       if (!missing(`reference`)) {
@@ -38,11 +38,11 @@ SpectraRef <- R6::R6Class(
       SpectraRefObject <- list()
       if (!is.null(self$`ms_run`)) {
         SpectraRefObject[['ms_run']] <-
-          self$`ms_run`$toJSON()
+          jsonlite::unbox(self$`ms_run`)
       }
       if (!is.null(self$`reference`)) {
         SpectraRefObject[['reference']] <-
-          self$`reference`
+          jsonlite::unbox(self$`reference`)
       }
 
       SpectraRefObject
@@ -50,9 +50,7 @@ SpectraRef <- R6::R6Class(
     fromJSON = function(SpectraRefJson) {
       SpectraRefObject <- jsonlite::fromJSON(SpectraRefJson)
       if (!is.null(SpectraRefObject$`ms_run`)) {
-        ms_runObject <- MsRun$new()
-        ms_runObject$fromJSON(jsonlite::toJSON(SpectraRefObject$ms_run, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
-        self$`ms_run` <- ms_runObject
+        self$`ms_run` <- SpectraRefObject$`ms_run`
       }
       if (!is.null(SpectraRefObject$`reference`)) {
         self$`reference` <- SpectraRefObject$`reference`
@@ -63,16 +61,16 @@ SpectraRef <- R6::R6Class(
         if (!is.null(self$`ms_run`)) {
         sprintf(
         '"ms_run":
-        %s
+        %d
         ',
-        jsonlite::toJSON(self$`ms_run`$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)
+        jsonlite::unbox(self$`ms_run`)
         )},
         if (!is.null(self$`reference`)) {
         sprintf(
         '"reference":
           "%s"
                 ',
-        self$`reference`
+        jsonlite::unbox(self$`reference`)
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -80,7 +78,7 @@ SpectraRef <- R6::R6Class(
     },
     fromJSONString = function(SpectraRefJson) {
       SpectraRefObject <- jsonlite::fromJSON(SpectraRefJson)
-      self$`ms_run` <- MsRun$new()$fromJSON(jsonlite::toJSON(SpectraRefObject$ms_run, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
+      self$`ms_run` <- MsRun$new()$fromJSONString(jsonlite::toJSON(SpectraRefObject$ms_run, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
       self$`reference` <- SpectraRefObject$`reference`
       self
     }

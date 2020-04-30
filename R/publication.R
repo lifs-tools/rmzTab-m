@@ -39,7 +39,7 @@ Publication <- R6::R6Class(
       PublicationObject <- list()
       if (!is.null(self$`id`)) {
         PublicationObject[['id']] <-
-          self$`id`
+          jsonlite::unbox(self$`id`)
       }
       if (!is.null(self$`publicationItems`)) {
         PublicationObject[['publicationItems']] <-
@@ -64,7 +64,7 @@ Publication <- R6::R6Class(
         '"id":
           %d
                 ',
-        self$`id`
+        jsonlite::unbox(self$`id`)
         )},
         if (!is.null(self$`publicationItems`)) {
         sprintf(

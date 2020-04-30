@@ -38,11 +38,11 @@ Error <- R6::R6Class(
       ErrorObject <- list()
       if (!is.null(self$`code`)) {
         ErrorObject[['code']] <-
-          self$`code`
+          jsonlite::unbox(self$`code`)
       }
       if (!is.null(self$`message`)) {
         ErrorObject[['message']] <-
-          self$`message`
+          jsonlite::unbox(self$`message`)
       }
 
       ErrorObject
@@ -63,14 +63,14 @@ Error <- R6::R6Class(
         '"code":
           %d
                 ',
-        self$`code`
+        jsonlite::unbox(self$`code`)
         )},
         if (!is.null(self$`message`)) {
         sprintf(
         '"message":
           "%s"
                 ',
-        self$`message`
+        jsonlite::unbox(self$`message`)
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")

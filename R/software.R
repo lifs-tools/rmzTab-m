@@ -103,7 +103,7 @@ Software <- R6::R6Class(
     fromJSONString = function(SoftwareJson) {
       SoftwareObject <- jsonlite::fromJSON(SoftwareJson)
       self$`id` <- SoftwareObject$`id`
-      self$`parameter` <- Parameter$new()$fromJSON(jsonlite::toJSON(SoftwareObject$parameter, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
+      self$`parameter` <- Parameter$new()$fromJSONString(jsonlite::toJSON(SoftwareObject$parameter, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
       self$`setting` <- ApiClient$new()$deserializeObj(SoftwareObject$`setting`, "array[character]", loadNamespace("rmzTabM"))
       self
     }

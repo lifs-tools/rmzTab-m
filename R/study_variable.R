@@ -50,7 +50,7 @@ StudyVariable <- R6::R6Class(
       }
       if (!is.null(`assay_refs`)) {
         stopifnot(is.vector(`assay_refs`), length(`assay_refs`) != 0)
-        sapply(`assay_refs`, function(x) stopifnot(R6::is.R6(x)))
+        sapply(`assay_refs`, function(x) stopifnot(is.character(x)))
         self$`assay_refs` <- `assay_refs`
       }
       if (!is.null(`average_function`)) {
@@ -83,7 +83,7 @@ StudyVariable <- R6::R6Class(
       }
       if (!is.null(self$`assay_refs`)) {
         StudyVariableObject[['assay_refs']] <-
-          lapply(self$`assay_refs`, function(x) x$toJSON())
+          self$`assay_refs`
       }
       if (!is.null(self$`average_function`)) {
         StudyVariableObject[['average_function']] <-
@@ -113,7 +113,7 @@ StudyVariable <- R6::R6Class(
         self$`name` <- StudyVariableObject$`name`
       }
       if (!is.null(StudyVariableObject$`assay_refs`)) {
-        self$`assay_refs` <- ApiClient$new()$deserializeObj(StudyVariableObject$`assay_refs`, "array[Assay]", loadNamespace("rmzTabM"))
+        self$`assay_refs` <- ApiClient$new()$deserializeObj(StudyVariableObject$`assay_refs`, "array[integer]", loadNamespace("rmzTabM"))
       }
       if (!is.null(StudyVariableObject$`average_function`)) {
         average_functionObject <- Parameter$new()
@@ -151,9 +151,9 @@ StudyVariable <- R6::R6Class(
         if (!is.null(self$`assay_refs`)) {
         sprintf(
         '"assay_refs":
-        %s
+        [%s]
 ',
-        paste(sapply(self$`assay_refs`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)), collapse=",")
+        paste(unlist(lapply(self$`assay_refs`, function(x) paste0(x))), collapse=",")
         )},
         if (!is.null(self$`average_function`)) {
         sprintf(
@@ -191,9 +191,9 @@ StudyVariable <- R6::R6Class(
       StudyVariableObject <- jsonlite::fromJSON(StudyVariableJson)
       self$`id` <- StudyVariableObject$`id`
       self$`name` <- StudyVariableObject$`name`
-      self$`assay_refs` <- ApiClient$new()$deserializeObj(StudyVariableObject$`assay_refs`, "array[Assay]", loadNamespace("rmzTabM"))
-      self$`average_function` <- Parameter$new()$fromJSON(jsonlite::toJSON(StudyVariableObject$average_function, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
-      self$`variation_function` <- Parameter$new()$fromJSON(jsonlite::toJSON(StudyVariableObject$variation_function, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
+      self$`assay_refs` <- StudyVariableObject$`assay_refs`
+      self$`average_function` <- Parameter$new()$fromJSONString(jsonlite::toJSON(StudyVariableObject$average_function, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
+      self$`variation_function` <- Parameter$new()$fromJSONString(jsonlite::toJSON(StudyVariableObject$variation_function, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
       self$`description` <- StudyVariableObject$`description`
       self$`factors` <- ApiClient$new()$deserializeObj(StudyVariableObject$`factors`, "array[Parameter]", loadNamespace("rmzTabM"))
       self

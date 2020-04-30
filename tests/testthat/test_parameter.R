@@ -5,38 +5,25 @@ context("Test Parameter")
 
 model.instance <- Parameter$new()
 
-test_that("id", {
-  # tests for the property `id` (integer)
+ref.json <- '{
+        "id" : null,
+        "cv_label" : "MSIO",
+        "cv_accession" : "MSIO:0000148",
+        "name" : "high performance liquid chromatography",
+        "value" : null
+      }'
 
-  # uncomment below to test the property 
-  #expect_equal(model.instance$`id`, "EXPECTED_RESULT")
-})
-
-test_that("cv_label", {
-  # tests for the property `cv_label` (character)
-
-  # uncomment below to test the property 
-  #expect_equal(model.instance$`cv_label`, "EXPECTED_RESULT")
-})
-
-test_that("cv_accession", {
-  # tests for the property `cv_accession` (character)
-
-  # uncomment below to test the property 
-  #expect_equal(model.instance$`cv_accession`, "EXPECTED_RESULT")
-})
-
-test_that("name", {
-  # tests for the property `name` (character)
-
-  # uncomment below to test the property 
-  #expect_equal(model.instance$`name`, "EXPECTED_RESULT")
-})
-
-test_that("value", {
-  # tests for the property `value` (character)
-
-  # uncomment below to test the property 
-  #expect_equal(model.instance$`value`, "EXPECTED_RESULT")
+test_that("parameter", {
+  
+  model.instance <- model.instance$fromJSONString(ref.json)
+  expect_equal(model.instance$`id`, NULL)
+  expect_equal(model.instance$`cv_label`, "MSIO")
+  expect_equal(model.instance$`cv_accession`, "MSIO:0000148")
+  expect_equal(model.instance$`name`, "high performance liquid chromatography")
+  expect_equal(model.instance$`value`, NULL)
+  
+  restored.model.instance <- Parameter$new()
+  restored.model.instance$fromJSONString(model.instance$toJSONString())
+  expect_equal(model.instance, restored.model.instance)
 })
 

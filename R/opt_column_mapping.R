@@ -45,7 +45,7 @@ OptColumnMapping <- R6::R6Class(
       OptColumnMappingObject <- list()
       if (!is.null(self$`identifier`)) {
         OptColumnMappingObject[['identifier']] <-
-          self$`identifier`
+          jsonlite::unbox(self$`identifier`)
       }
       if (!is.null(self$`param`)) {
         OptColumnMappingObject[['param']] <-
@@ -53,7 +53,7 @@ OptColumnMapping <- R6::R6Class(
       }
       if (!is.null(self$`value`)) {
         OptColumnMappingObject[['value']] <-
-          self$`value`
+          jsonlite::unbox(self$`value`)
       }
 
       OptColumnMappingObject
@@ -79,7 +79,7 @@ OptColumnMapping <- R6::R6Class(
         '"identifier":
           "%s"
                 ',
-        self$`identifier`
+        jsonlite::unbox(self$`identifier`)
         )},
         if (!is.null(self$`param`)) {
         sprintf(
@@ -93,7 +93,7 @@ OptColumnMapping <- R6::R6Class(
         '"value":
           "%s"
                 ',
-        self$`value`
+        jsonlite::unbox(self$`value`)
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -102,7 +102,7 @@ OptColumnMapping <- R6::R6Class(
     fromJSONString = function(OptColumnMappingJson) {
       OptColumnMappingObject <- jsonlite::fromJSON(OptColumnMappingJson)
       self$`identifier` <- OptColumnMappingObject$`identifier`
-      self$`param` <- Parameter$new()$fromJSON(jsonlite::toJSON(OptColumnMappingObject$param, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
+      self$`param` <- Parameter$new()$fromJSONString(jsonlite::toJSON(OptColumnMappingObject$param, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
       self$`value` <- OptColumnMappingObject$`value`
       self
     }

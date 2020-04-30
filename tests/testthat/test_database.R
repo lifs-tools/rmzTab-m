@@ -5,41 +5,31 @@ context("Test Database")
 
 model.instance <- Database$new()
 
-test_that("id", {
-  # tests for the property `id` (integer)
+ref.json <- '{
+      "id" : 1,
+      "param" : {
+        "id" : null,
+        "cv_label" : "",
+        "cv_accession" : "",
+        "name" : "Pubchem",
+        "value" : null
+      },
+      "prefix" : "PUBCHEM-CPD",
+      "version" : "02.12.2017",
+      "uri" : "https://www.ncbi.nlm.nih.gov/pccompound"
+    }'
 
-  # uncomment below to test the property 
-  #expect_equal(model.instance$`id`, "EXPECTED_RESULT")
-})
-
-test_that("param", {
-  # tests for the property `param` (Parameter)
-
-  # uncomment below to test the property 
-  #expect_equal(model.instance$`param`, "EXPECTED_RESULT")
-})
-
-test_that("prefix", {
-  # tests for the property `prefix` (character)
-  # The database prefix.
-
-  # uncomment below to test the property 
-  #expect_equal(model.instance$`prefix`, "EXPECTED_RESULT")
-})
-
-test_that("version", {
-  # tests for the property `version` (character)
-  # The database version.
-
-  # uncomment below to test the property 
-  #expect_equal(model.instance$`version`, "EXPECTED_RESULT")
-})
-
-test_that("uri", {
-  # tests for the property `uri` (character)
-  # The URI to the online database.
-
-  # uncomment below to test the property 
-  #expect_equal(model.instance$`uri`, "EXPECTED_RESULT")
-})
-
+test_that("instrument", {
+  
+  model.instance <- model.instance$fromJSONString(ref.json)
+  expect_equal(model.instance$`id`, 1)
+  expect_null(model.instance$`param`$`id`)
+  expect_equal(model.instance$`param`$`cv_label`, '')
+  expect_equal(model.instance$`param`$`cv_accession`, '')
+  expect_equal(model.instance$`param`$`name`, 'Pubchem')
+  expect_null(model.instance$`param`$`value`)
+  expect_equal(model.instance$`prefix`, "PUBCHEM-CPD")
+  expect_equal(model.instance$`version`, "02.12.2017")
+  expect_equal(model.instance$`uri`, "https://www.ncbi.nlm.nih.gov/pccompound")
+  }
+)

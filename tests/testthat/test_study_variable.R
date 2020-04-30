@@ -5,56 +5,45 @@ context("Test StudyVariable")
 
 model.instance <- StudyVariable$new()
 
-test_that("id", {
-  # tests for the property `id` (integer)
+ref.json <- '{
+      "id" : 1,
+      "name" : "Sphingolipid SRM Quantitation",
+      "assay_refs" : [ 1 ],
+      "average_function" : {
+        "id" : null,
+        "cv_label" : "MS",
+        "cv_accession" : "MS:1002883",
+        "name" : "median",
+        "value" : null
+      },
+      "variation_function" : {
+        "id" : null,
+        "cv_label" : "MS",
+        "cv_accession" : "MS:1002885",
+        "name" : "standard error",
+        "value" : null
+      },
+      "description" : "sphingolipid srm quantitation",
+      "factors" : null
+    }'
 
-  # uncomment below to test the property 
-  #expect_equal(model.instance$`id`, "EXPECTED_RESULT")
-})
-
-test_that("name", {
-  # tests for the property `name` (character)
-  # The study variable name.
-
-  # uncomment below to test the property 
-  #expect_equal(model.instance$`name`, "EXPECTED_RESULT")
-})
-
-test_that("assay_refs", {
-  # tests for the property `assay_refs` (array[Assay])
-  # The assays referenced by this study variable.
-
-  # uncomment below to test the property 
-  #expect_equal(model.instance$`assay_refs`, "EXPECTED_RESULT")
-})
-
-test_that("average_function", {
-  # tests for the property `average_function` (Parameter)
-
-  # uncomment below to test the property 
-  #expect_equal(model.instance$`average_function`, "EXPECTED_RESULT")
-})
-
-test_that("variation_function", {
-  # tests for the property `variation_function` (Parameter)
-
-  # uncomment below to test the property 
-  #expect_equal(model.instance$`variation_function`, "EXPECTED_RESULT")
-})
-
-test_that("description", {
-  # tests for the property `description` (character)
-  # A free-form description of this study variable.
-
-  # uncomment below to test the property 
-  #expect_equal(model.instance$`description`, "EXPECTED_RESULT")
-})
-
-test_that("factors", {
-  # tests for the property `factors` (array[Parameter])
-  # Parameters indicating which factors were used for the assays referenced by this study variable, and at which levels.
-
-  # uncomment below to test the property 
-  #expect_equal(model.instance$`factors`, "EXPECTED_RESULT")
+test_that("studyVariable", {
+  model.instance <- model.instance$fromJSONString(ref.json)
+  expect_equal(model.instance$`id`, 1)
+  expect_equal(model.instance$`name`, "Sphingolipid SRM Quantitation")
+  expect_equal(length(model.instance$`assay_refs`), 1)
+  expect_equal(model.instance$`assay_refs`[[1]], 1)
+  expect_null(model.instance$`average_function`$id)
+  expect_equal(model.instance$`average_function`$cv_label, "MS")
+  expect_equal(model.instance$`average_function`$cv_accession, "MS:1002883")
+  expect_equal(model.instance$`average_function`$name, "median")
+  expect_null(model.instance$`average_function`$value)
+  expect_null(model.instance$`variation_function`$id)
+  expect_equal(model.instance$`variation_function`$cv_label, "MS")
+  expect_equal(model.instance$`variation_function`$cv_accession, "MS:1002885")
+  expect_equal(model.instance$`variation_function`$name, "standard error")
+  expect_null(model.instance$`variation_function`$value)
+  expect_equal(model.instance$`description`, "sphingolipid srm quantitation")
+  expect_null(model.instance$`factors`)
 })
 

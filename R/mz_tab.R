@@ -147,7 +147,7 @@ MzTab <- R6::R6Class(
     },
     fromJSONString = function(MzTabJson) {
       MzTabObject <- jsonlite::fromJSON(MzTabJson)
-      self$`metadata` <- Metadata$new()$fromJSON(jsonlite::toJSON(MzTabObject$metadata, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
+      self$`metadata` <- Metadata$new()$fromJSONString(jsonlite::toJSON(MzTabObject$metadata, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
       self$`smallMoleculeSummary` <- ApiClient$new()$deserializeObj(MzTabObject$`smallMoleculeSummary`, "array[SmallMoleculeSummary]", loadNamespace("rmzTabM"))
       self$`smallMoleculeFeature` <- ApiClient$new()$deserializeObj(MzTabObject$`smallMoleculeFeature`, "array[SmallMoleculeFeature]", loadNamespace("rmzTabM"))
       self$`smallMoleculeEvidence` <- ApiClient$new()$deserializeObj(MzTabObject$`smallMoleculeEvidence`, "array[SmallMoleculeEvidence]", loadNamespace("rmzTabM"))

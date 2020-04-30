@@ -5,18 +5,30 @@ context("Test SampleProcessing")
 
 model.instance <- SampleProcessing$new()
 
-test_that("id", {
-  # tests for the property `id` (integer)
-
-  # uncomment below to test the property 
-  #expect_equal(model.instance$`id`, "EXPECTED_RESULT")
-})
+ref.json <- '{
+      "id" : 1,
+      "sampleProcessing" : [ {
+        "id" : null,
+        "cv_label" : "MSIO",
+        "cv_accession" : "MSIO:0000148",
+        "name" : "high performance liquid chromatography",
+        "value" : null
+      } ]
+    }'
 
 test_that("sampleProcessing", {
-  # tests for the property `sampleProcessing` (array[Parameter])
-  # Parameters specifiying sample processing that was applied within one step.
-
-  # uncomment below to test the property 
-  #expect_equal(model.instance$`sampleProcessing`, "EXPECTED_RESULT")
+  
+  model.instance <- model.instance$fromJSONString(ref.json)
+  expect_equal(model.instance$`id`, 1)
+  expect_equal(length(model.instance$`sampleProcessing`), 1)
+  expect_null(model.instance$`sampleProcessing`[[1]]$`id`)
+  expect_equal(model.instance$`sampleProcessing`[[1]]$`cv_label`, "MSIO")
+  expect_equal(model.instance$`sampleProcessing`[[1]]$`cv_accession`, "MSIO:0000148")
+  expect_equal(model.instance$`sampleProcessing`[[1]]$`name`, "high performance liquid chromatography")
+  expect_equal(model.instance$`sampleProcessing`[[1]]$`value`, NULL)
+  
+  restored.model.instance <- SampleProcessing$new()
+  restored.model.instance$fromJSONString(model.instance$toJSONString())
+  expect_equal(model.instance, restored.model.instance)
 })
 

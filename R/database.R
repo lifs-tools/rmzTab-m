@@ -144,7 +144,7 @@ Database <- R6::R6Class(
     fromJSONString = function(DatabaseJson) {
       DatabaseObject <- jsonlite::fromJSON(DatabaseJson)
       self$`id` <- DatabaseObject$`id`
-      self$`param` <- Parameter$new()$fromJSON(jsonlite::toJSON(DatabaseObject$param, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
+      self$`param` <- Parameter$new()$fromJSONString(jsonlite::toJSON(DatabaseObject$param, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
       self$`prefix` <- DatabaseObject$`prefix`
       self$`version` <- DatabaseObject$`version`
       self$`uri` <- DatabaseObject$`uri`

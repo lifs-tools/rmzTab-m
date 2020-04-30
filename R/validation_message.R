@@ -59,23 +59,23 @@ ValidationMessage <- R6::R6Class(
       ValidationMessageObject <- list()
       if (!is.null(self$`code`)) {
         ValidationMessageObject[['code']] <-
-          self$`code`
+          jsonlite::unbox(self$`code`)
       }
       if (!is.null(self$`category`)) {
         ValidationMessageObject[['category']] <-
-          self$`category`
+          jsonlite::unbox(self$`category`)
       }
       if (!is.null(self$`message_type`)) {
         ValidationMessageObject[['message_type']] <-
-          self$`message_type`
+          jsonlite::unbox(self$`message_type`)
       }
       if (!is.null(self$`message`)) {
         ValidationMessageObject[['message']] <-
-          self$`message`
+          jsonlite::unbox(self$`message`)
       }
       if (!is.null(self$`line_number`)) {
         ValidationMessageObject[['line_number']] <-
-          self$`line_number`
+          jsonlite::unbox(self$`line_number`)
       }
 
       ValidationMessageObject
@@ -105,35 +105,35 @@ ValidationMessage <- R6::R6Class(
         '"code":
           "%s"
                 ',
-        self$`code`
+        jsonlite::unbox(self$`code`)
         )},
         if (!is.null(self$`category`)) {
         sprintf(
         '"category":
           "%s"
                 ',
-        self$`category`
+        jsonlite::unbox(self$`category`)
         )},
         if (!is.null(self$`message_type`)) {
         sprintf(
         '"message_type":
           "%s"
                 ',
-        self$`message_type`
+        jsonlite::unbox(self$`message_type`)
         )},
         if (!is.null(self$`message`)) {
         sprintf(
         '"message":
           "%s"
                 ',
-        self$`message`
+        jsonlite::unbox(self$`message`)
         )},
         if (!is.null(self$`line_number`)) {
         sprintf(
         '"line_number":
           %d
                 ',
-        self$`line_number`
+        jsonlite::unbox(self$`line_number`)
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")

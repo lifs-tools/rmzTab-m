@@ -5,15 +5,21 @@
     "mzTab-ID" : "ISAS-2018-1234",
     "title" : null,
     "description" : "Minimal proposed sample file for identification and quantification of lipids",
-    "sample_processing" : [ {
+    "contact" : null,
+    "publication" : [ {
       "id" : 1,
-      "sampleProcessing" : [ {
-        "id" : null,
-        "cv_label" : "MSIO",
-        "cv_accession" : "MSIO:0000148",
-        "name" : "high performance liquid chromatography",
-        "value" : null
+      "publicationItems" : [ {
+        "type" : "pubmed",
+        "accession" : "29039908"
+      }, {
+        "type" : "doi",
+        "accession" : "10.1021/acs.analchem.7b03576"
       } ]
+    } ],
+    "uri" : null,
+    "external_study_uri" : [ {
+      "id" : 1,
+      "value" : "file:///C:/data/prm.sky.zip"
     } ],
     "instrument" : [ {
       "id" : 1,
@@ -52,6 +58,33 @@
         "value" : null
       }
     } ],
+    "quantification_method" : {
+      "id" : null,
+      "cv_label" : "MS",
+      "cv_accession" : "MS:1001838",
+      "name" : "SRM quantitation analysis",
+      "value" : null
+    },
+    "sample" : [ {
+      "id" : 1,
+      "name" : "QEx-1273-prm-sp1",
+      "custom" : null,
+      "species" : null,
+      "tissue" : null,
+      "cell_type" : null,
+      "disease" : null,
+      "description" : "Sphingolipids with concentration reported as picomolar per mg of protein, abundances are reported after calibration correction."
+    } ],
+    "sample_processing" : [ {
+      "id" : 1,
+      "sampleProcessing" : [ {
+        "id" : null,
+        "cv_label" : "MSIO",
+        "cv_accession" : "MSIO:0000148",
+        "name" : "high performance liquid chromatography",
+        "value" : null
+      } ]
+    } ],
     "software" : [ {
       "id" : 1,
       "parameter" : {
@@ -73,78 +106,49 @@
       },
       "setting" : [ "MSMSmassrange: (50.0, 1800.0)" ]
     } ],
-    "publication" : [ {
+    "derivatization_agent" : null,
+    "ms_run" : [ {
       "id" : 1,
-      "publicationItems" : [ {
-        "type" : "pubmed",
-        "accession" : "29039908"
-      }, {
-        "type" : "doi",
-        "accession" : "10.1021/acs.analchem.7b03576"
-      } ]
+      "name" : null,
+      "location" : "file:///C:/data/QEx-1273-prm-sp1.mzML",
+      "instrument_ref" : 1,
+      "format" : {
+        "id" : null,
+        "cv_label" : "MS",
+        "cv_accession" : "MS:1000584",
+        "name" : "mzML file",
+        "value" : null
+      },
+      "id_format" : {
+        "id" : null,
+        "cv_label" : "MS",
+        "cv_accession" : "MS:1000768",
+        "name" : "Thermo nativeID format",
+        "value" : null
+      },
+      "fragmentation_method" : null,
+      "scan_polarity" : [ {
+        "id" : null,
+        "cv_label" : "MS",
+        "cv_accession" : "MS:1000130",
+        "name" : "positive scan",
+        "value" : null
+      } ],
+      "hash" : null,
+      "hash_method" : null
     } ],
-    "contact" : null,
-    "uri" : null,
-    "external_study_uri" : [ {
+    "assay" : [ {
       "id" : 1,
-      "value" : "file:///C:/data/prm.sky.zip"
+      "name" : "Description of assay 1",
+      "custom" : null,
+      "external_uri" : null,
+      "sample_ref" : 1,
+      "ms_run_ref" : [ 1 ]
     } ],
-    "quantification_method" : {
-      "id" : null,
-      "cv_label" : "MS",
-      "cv_accession" : "MS:1001838",
-      "name" : "SRM quantitation analysis",
-      "value" : null
-    },
     "study_variable" : [ {
       "id" : 1,
       "name" : "Sphingolipid SRM Quantitation",
-      "assay_refs" : [ {
-        "id" : 1,
-        "name" : "Description of assay 1",
-        "custom" : null,
-        "external_uri" : null,
-        "sample_ref" : {
-          "id" : 1,
-          "name" : "QEx-1273-prm-sp1",
-          "custom" : null,
-          "species" : null,
-          "tissue" : null,
-          "cell_type" : null,
-          "disease" : null,
-          "description" : "Sphingolipids with concentration reported as picomolar per mg of protein, abundances are reported after calibration correction."
-        },
-        "ms_run_ref" : [ {
-          "id" : 1,
-          "name" : null,
-          "location" : "file:///C:/data/QEx-1273-prm-sp1.mzML",
-          "instrument_ref" : 1,
-          "format" : {
-            "id" : null,
-            "cv_label" : "MS",
-            "cv_accession" : "MS:1000584",
-            "name" : "mzML file",
-            "value" : null
-          },
-          "id_format" : {
-            "id" : null,
-            "cv_label" : "MS",
-            "cv_accession" : "MS:1000768",
-            "name" : "Thermo nativeID format",
-            "value" : null
-          },
-          "fragmentation_method" : null,
-          "scan_polarity" : [ {
-            "id" : null,
-            "cv_label" : "MS",
-            "cv_accession" : "MS:1000130",
-            "name" : "positive scan",
-            "value" : null
-          } ],
-          "hash" : null,
-          "hash_method" : null
-        } ]
-      } ],
+      "assay_refs" : [ 1 ],
       "average_function" : {
         "id" : null,
         "cv_label" : "MS",
@@ -162,9 +166,6 @@
       "description" : "sphingolipid srm quantitation",
       "factors" : null
     } ],
-    "ms_run" : [ 1 ],
-    "assay" : [ 1 ],
-    "sample" : [ 1 ],
     "custom" : null,
     "cv" : [ {
       "id" : 1,
@@ -185,6 +186,27 @@
       "version" : "2017-09-25",
       "uri" : "http://purl.obolibrary.org/obo/uo.owl"
     } ],
+    "small_molecule-quantification_unit" : {
+      "id" : null,
+      "cv_label" : "UO",
+      "cv_accession" : "UO:0000072",
+      "name" : "picomolal",
+      "value" : null
+    },
+    "small_molecule_feature-quantification_unit" : {
+      "id" : null,
+      "cv_label" : "UO",
+      "cv_accession" : "UO:0000072",
+      "name" : "picomolal",
+      "value" : null
+    },
+    "small_molecule-identification_reliability" : {
+      "id" : null,
+      "cv_label" : "MS",
+      "cv_accession" : "MS:1002896",
+      "name" : "compound identification confidence level",
+      "value" : null
+    },
     "database" : [ {
       "id" : 1,
       "param" : {
@@ -222,28 +244,6 @@
       "version" : "2018-07",
       "uri" : "https://lifs.isas.de/lipidcreator"
     } ],
-    "derivatization_agent" : null,
-    "small_molecule-quantification_unit" : {
-      "id" : null,
-      "cv_label" : "UO",
-      "cv_accession" : "UO:0000072",
-      "name" : "picomolal",
-      "value" : null
-    },
-    "small_molecule_feature-quantification_unit" : {
-      "id" : null,
-      "cv_label" : "UO",
-      "cv_accession" : "UO:0000072",
-      "name" : "picomolal",
-      "value" : null
-    },
-    "small_molecule-identification_reliability" : {
-      "id" : null,
-      "cv_label" : "MS",
-      "cv_accession" : "MS:1002896",
-      "name" : "compound identification confidence level",
-      "value" : null
-    },
     "id_confidence_measure" : [ {
       "id" : 1,
       "cv_label" : "MS",
@@ -580,7 +580,7 @@
     "line_number" : 60
   }, {
     "prefix" : "COM",
-    "msg" : "MzTab 2.0.0-M proposed specification",
+    "msg" : "\"MzTab 2.0.0-M \"\"proposed\"\" specification\"",
     "line_number" : 65
   }, {
     "prefix" : "COM",

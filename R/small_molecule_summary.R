@@ -352,7 +352,7 @@ SmallMoleculeSummary <- R6::R6Class(
         '"smf_id_refs":
            [%s]
         ',
-        paste(unlist(lapply(self$`smf_id_refs`, function(x) paste0('"', x, '"'))), collapse=",")
+        paste(unlist(lapply(self$`smf_id_refs`, function(x) paste0(x))), collapse=",")
         )},
         if (!is.null(self$`database_identifier`)) {
         sprintf(
@@ -485,7 +485,7 @@ SmallMoleculeSummary <- R6::R6Class(
       self$`theoretical_neutral_mass` <- ApiClient$new()$deserializeObj(SmallMoleculeSummaryObject$`theoretical_neutral_mass`, "array[numeric]", loadNamespace("rmzTabM"))
       self$`adduct_ions` <- ApiClient$new()$deserializeObj(SmallMoleculeSummaryObject$`adduct_ions`, "array[character]", loadNamespace("rmzTabM"))
       self$`reliability` <- SmallMoleculeSummaryObject$`reliability`
-      self$`best_id_confidence_measure` <- Parameter$new()$fromJSON(jsonlite::toJSON(SmallMoleculeSummaryObject$best_id_confidence_measure, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
+      self$`best_id_confidence_measure` <- Parameter$new()$fromJSONString(jsonlite::toJSON(SmallMoleculeSummaryObject$best_id_confidence_measure, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
       self$`best_id_confidence_value` <- SmallMoleculeSummaryObject$`best_id_confidence_value`
       self$`abundance_assay` <- ApiClient$new()$deserializeObj(SmallMoleculeSummaryObject$`abundance_assay`, "array[numeric]", loadNamespace("rmzTabM"))
       self$`abundance_study_variable` <- ApiClient$new()$deserializeObj(SmallMoleculeSummaryObject$`abundance_study_variable`, "array[numeric]", loadNamespace("rmzTabM"))

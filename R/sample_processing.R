@@ -69,7 +69,7 @@ SampleProcessing <- R6::R6Class(
         if (!is.null(self$`sampleProcessing`)) {
         sprintf(
         '"sampleProcessing":
-        %s
+        [%s]
 ',
         paste(sapply(self$`sampleProcessing`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)), collapse=",")
         )}

@@ -272,7 +272,7 @@ SmallMoleculeFeature <- R6::R6Class(
         '"sme_id_refs":
            %s
         ',
-        paste(unlist(lapply(self$`sme_id_refs`, function(x) paste0('"', x, '"'))), collapse=",")
+        paste(unlist(lapply(self$`sme_id_refs`, function(x) paste0(x))), collapse=",")
         )},
         if (!is.null(self$`sme_id_ref_ambiguity_code`)) {
         sprintf(
@@ -363,7 +363,7 @@ SmallMoleculeFeature <- R6::R6Class(
       self$`sme_id_refs` <- ApiClient$new()$deserializeObj(SmallMoleculeFeatureObject$`sme_id_refs`, "array[integer]", loadNamespace("rmzTabM"))
       self$`sme_id_ref_ambiguity_code` <- SmallMoleculeFeatureObject$`sme_id_ref_ambiguity_code`
       self$`adduct_ion` <- SmallMoleculeFeatureObject$`adduct_ion`
-      self$`isotopomer` <- Parameter$new()$fromJSON(jsonlite::toJSON(SmallMoleculeFeatureObject$isotopomer, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
+      self$`isotopomer` <- Parameter$new()$fromJSONString(jsonlite::toJSON(SmallMoleculeFeatureObject$isotopomer, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
       self$`exp_mass_to_charge` <- SmallMoleculeFeatureObject$`exp_mass_to_charge`
       self$`charge` <- SmallMoleculeFeatureObject$`charge`
       self$`retention_time_in_seconds` <- SmallMoleculeFeatureObject$`retention_time_in_seconds`

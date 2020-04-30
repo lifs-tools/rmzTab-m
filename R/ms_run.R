@@ -62,7 +62,8 @@ MsRun <- R6::R6Class(
         self$`location` <- `location`
       }
       if (!is.null(`instrument_ref`)) {
-        stopifnot(R6::is.R6(`instrument_ref`))
+        stopifnot(is.vector(`instrument_ref`), length(`instrument_ref`) != 0)
+        sapply(`instrument_ref`, function(x) stopifnot(is.character(x)))
         self$`instrument_ref` <- `instrument_ref`
       }
       if (!is.null(`format`)) {
@@ -96,19 +97,19 @@ MsRun <- R6::R6Class(
       MsRunObject <- list()
       if (!is.null(self$`id`)) {
         MsRunObject[['id']] <-
-          self$`id`
+          jsonlite::unbox(self$`id`)
       }
       if (!is.null(self$`name`)) {
         MsRunObject[['name']] <-
-          self$`name`
+          jsonlite::unbox(self$`name`)
       }
       if (!is.null(self$`location`)) {
         MsRunObject[['location']] <-
-          self$`location`
+          jsonlite::unbox(self$`location`)
       }
       if (!is.null(self$`instrument_ref`)) {
         MsRunObject[['instrument_ref']] <-
-          self$`instrument_ref`$toJSON()
+          self$`instrument_ref`
       }
       if (!is.null(self$`format`)) {
         MsRunObject[['format']] <-
@@ -128,7 +129,7 @@ MsRun <- R6::R6Class(
       }
       if (!is.null(self$`hash`)) {
         MsRunObject[['hash']] <-
-          self$`hash`
+          jsonlite::unbox(self$`hash`)
       }
       if (!is.null(self$`hash_method`)) {
         MsRunObject[['hash_method']] <-
@@ -149,9 +150,7 @@ MsRun <- R6::R6Class(
         self$`location` <- MsRunObject$`location`
       }
       if (!is.null(MsRunObject$`instrument_ref`)) {
-        instrument_refObject <- Instrument$new()
-        instrument_refObject$fromJSON(jsonlite::toJSON(MsRunObject$instrument_ref, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
-        self$`instrument_ref` <- instrument_refObject
+        self$`instrument_ref` <- ApiClient$new()$deserializeObj(MsRunObject$`instrument_ref`, "array[integer]", loadNamespace("rmzTabM"))
       }
       if (!is.null(MsRunObject$`format`)) {
         formatObject <- Parameter$new()
@@ -185,28 +184,28 @@ MsRun <- R6::R6Class(
         '"id":
           %d
                 ',
-        self$`id`
+        jsonlite::unbox(self$`id`)
         )},
         if (!is.null(self$`name`)) {
         sprintf(
         '"name":
           "%s"
                 ',
-        self$`name`
+        jsonlite::unbox(self$`name`)
         )},
         if (!is.null(self$`location`)) {
         sprintf(
         '"location":
           "%s"
                 ',
-        self$`location`
+        jsonlite::unbox(self$`location`)
         )},
         if (!is.null(self$`instrument_ref`)) {
         sprintf(
         '"instrument_ref":
-        %s
+        [%s]
         ',
-        jsonlite::toJSON(self$`instrument_ref`$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)
+        paste(unlist(lapply(self$`ms_run_ref`, function(x) paste0(x))), collapse=",")
         )},
         if (!is.null(self$`format`)) {
         sprintf(
@@ -241,7 +240,7 @@ MsRun <- R6::R6Class(
         '"hash":
           "%s"
                 ',
-        self$`hash`
+        jsonlite::unbox(self$`hash`)
         )},
         if (!is.null(self$`hash_method`)) {
         sprintf(
@@ -259,13 +258,13 @@ MsRun <- R6::R6Class(
       self$`id` <- MsRunObject$`id`
       self$`name` <- MsRunObject$`name`
       self$`location` <- MsRunObject$`location`
-      self$`instrument_ref` <- Instrument$new()$fromJSON(jsonlite::toJSON(MsRunObject$instrument_ref, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
-      self$`format` <- Parameter$new()$fromJSON(jsonlite::toJSON(MsRunObject$format, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
-      self$`id_format` <- Parameter$new()$fromJSON(jsonlite::toJSON(MsRunObject$id_format, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
+      self$`instrument_ref` <- Instrument$new()$fromJSONString(jsonlite::toJSON(MsRunObject$instrument_ref, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
+      self$`format` <- Parameter$new()$fromJSONString(jsonlite::toJSON(MsRunObject$format, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
+      self$`id_format` <- Parameter$new()$fromJSONString(jsonlite::toJSON(MsRunObject$id_format, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
       self$`fragmentation_method` <- ApiClient$new()$deserializeObj(MsRunObject$`fragmentation_method`, "array[Parameter]", loadNamespace("rmzTabM"))
       self$`scan_polarity` <- ApiClient$new()$deserializeObj(MsRunObject$`scan_polarity`, "array[Parameter]", loadNamespace("rmzTabM"))
       self$`hash` <- MsRunObject$`hash`
-      self$`hash_method` <- Parameter$new()$fromJSON(jsonlite::toJSON(MsRunObject$hash_method, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
+      self$`hash_method` <- Parameter$new()$fromJSONString(jsonlite::toJSON(MsRunObject$hash_method, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
       self
     }
   )

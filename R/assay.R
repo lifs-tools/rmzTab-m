@@ -43,7 +43,7 @@ Assay <- R6::R6Class(
       }
       if (!missing(`ms_run_ref`)) {
         stopifnot(is.vector(`ms_run_ref`), length(`ms_run_ref`) != 0)
-        sapply(`ms_run_ref`, function(x) stopifnot(R6::is.R6(x)))
+        sapply(`ms_run_ref`, function(x) stopifnot(is.character(x)))
         self$`ms_run_ref` <- `ms_run_ref`
       }
       if (!is.null(`id`)) {
@@ -60,7 +60,7 @@ Assay <- R6::R6Class(
         self$`external_uri` <- `external_uri`
       }
       if (!is.null(`sample_ref`)) {
-        stopifnot(R6::is.R6(`sample_ref`))
+        stopifnot(is.numeric(`sample_ref`), length(`sample_ref`) == 1)
         self$`sample_ref` <- `sample_ref`
       }
     },
@@ -68,27 +68,27 @@ Assay <- R6::R6Class(
       AssayObject <- list()
       if (!is.null(self$`id`)) {
         AssayObject[['id']] <-
-          jsonlite::unbox(self$`id`)
+          rmzTabM::safe_unbox(self$`id`)
       }
       if (!is.null(self$`name`)) {
         AssayObject[['name']] <-
-          jsonlite::unbox(self$`name`)
+          rmzTabM::safe_unbox(self$`name`)
       }
       if (!is.null(self$`custom`)) {
         AssayObject[['custom']] <-
-          lapply(self$`custom`, function(x) x$toJSON())
+          rmzTabM::safe_unbox(lapply(self$`custom`, function(x) x$toJSON()))
       }
       if (!is.null(self$`external_uri`)) {
         AssayObject[['external_uri']] <-
-          self$`external_uri`
+          rmzTabM::safe_unbox(self$`external_uri`)
       }
       if (!is.null(self$`sample_ref`)) {
         AssayObject[['sample_ref']] <-
-          self$`sample_ref`$toJSON()
+          rmzTabM::safe_unbox(self$`sample_ref`)
       }
       if (!is.null(self$`ms_run_ref`)) {
         AssayObject[['ms_run_ref']] <-
-          lapply(self$`ms_run_ref`, function(x) x$toJSON())
+          rmzTabM::safe_unbox(self$`ms_run_ref`)
       }
 
       AssayObject
@@ -108,12 +108,10 @@ Assay <- R6::R6Class(
         self$`external_uri` <- AssayObject$`external_uri`
       }
       if (!is.null(AssayObject$`sample_ref`)) {
-        sample_refObject <- Sample$new()
-        sample_refObject$fromJSON(jsonlite::toJSON(AssayObject$sample_ref, auto_unbox = TRUE, digits = NA))
-        self$`sample_ref` <- sample_refObject
+        self$`sample_ref` <- AssayObject$`sample_ref`
       }
       if (!is.null(AssayObject$`ms_run_ref`)) {
-        self$`ms_run_ref` <- ApiClient$new()$deserializeObj(AssayObject$`ms_run_ref`, "array[MsRun]", loadNamespace("rmzTabM"))
+        self$`ms_run_ref` <- ApiClient$new()$deserializeObj(AssayObject$`ms_run_ref`, "array[integer]", loadNamespace("rmzTabM"))
       }
     },
     toJSONString = function() {
@@ -123,14 +121,14 @@ Assay <- R6::R6Class(
         '"id":
           %d
                 ',
-        jsonlite::unbox(self$`id`)
+        rmzTabM::safe_unbox(self$`id`)
         )},
         if (!is.null(self$`name`)) {
         sprintf(
         '"name":
           "%s"
                 ',
-        jsonlite::unbox(self$`name`)
+        rmzTabM::safe_unbox(self$`name`)
         )},
         if (!is.null(self$`custom`)) {
         sprintf(
@@ -151,14 +149,14 @@ Assay <- R6::R6Class(
         '"sample_ref":
         %s
         ',
-        jsonlite::toJSON(self$`sample_ref`$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)
+        rmzTabM::safe_unbox(jsonlite::toJSON(self$`sample_ref`$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA))
         )},
         if (!is.null(self$`ms_run_ref`)) {
         sprintf(
         '"ms_run_ref":
         %s
 ',
-        paste(sapply(self$`ms_run_ref`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)), collapse=",")
+        paste(unlist(lapply(self$`ms_run_ref`, function(x) paste0(x))), collapse=",")
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -170,8 +168,8 @@ Assay <- R6::R6Class(
       self$`name` <- AssayObject$`name`
       self$`custom` <- ApiClient$new()$deserializeObj(AssayObject$`custom`, "array[Parameter]", loadNamespace("rmzTabM"))
       self$`external_uri` <- AssayObject$`external_uri`
-      self$`sample_ref` <- Sample$new()$fromJSON(jsonlite::toJSON(AssayObject$sample_ref, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
-      self$`ms_run_ref` <- ApiClient$new()$deserializeObj(AssayObject$`ms_run_ref`, "array[MsRun]", loadNamespace("rmzTabM"))
+      self$`sample_ref` <- AssayObject$`sample_ref`
+      self$`ms_run_ref` <- AssayObject$`ms_run_ref`
       self
     }
   )

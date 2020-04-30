@@ -52,19 +52,19 @@ Contact <- R6::R6Class(
       ContactObject <- list()
       if (!is.null(self$`id`)) {
         ContactObject[['id']] <-
-          self$`id`
+          jsonlite::unbox(self$`id`)
       }
       if (!is.null(self$`name`)) {
         ContactObject[['name']] <-
-          self$`name`
+          jsonlite::unbox(self$`name`)
       }
       if (!is.null(self$`affiliation`)) {
         ContactObject[['affiliation']] <-
-          self$`affiliation`
+          jsonlite::unbox(self$`affiliation`)
       }
       if (!is.null(self$`email`)) {
         ContactObject[['email']] <-
-          self$`email`
+          jsonlite::unbox(self$`email`)
       }
 
       ContactObject
@@ -91,28 +91,28 @@ Contact <- R6::R6Class(
         '"id":
           %d
                 ',
-        self$`id`
+        jsonlite::unbox(self$`id`)
         )},
         if (!is.null(self$`name`)) {
         sprintf(
         '"name":
           "%s"
                 ',
-        self$`name`
+        jsonlite::unbox(self$`name`)
         )},
         if (!is.null(self$`affiliation`)) {
         sprintf(
         '"affiliation":
           "%s"
                 ',
-        self$`affiliation`
+        jsonlite::unbox(self$`affiliation`)
         )},
         if (!is.null(self$`email`)) {
         sprintf(
         '"email":
           "%s"
                 ',
-        self$`email`
+        jsonlite::unbox(self$`email`)
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")

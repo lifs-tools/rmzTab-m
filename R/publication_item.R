@@ -38,11 +38,11 @@ PublicationItem <- R6::R6Class(
       PublicationItemObject <- list()
       if (!is.null(self$`type`)) {
         PublicationItemObject[['type']] <-
-          self$`type`
+          jsonlite::unbox(self$`type`)
       }
       if (!is.null(self$`accession`)) {
         PublicationItemObject[['accession']] <-
-          self$`accession`
+          jsonlite::unbox(self$`accession`)
       }
 
       PublicationItemObject
@@ -63,14 +63,14 @@ PublicationItem <- R6::R6Class(
         '"type":
           "%s"
                 ',
-        self$`type`
+        jsonlite::unbox(self$`type`)
         )},
         if (!is.null(self$`accession`)) {
         sprintf(
         '"accession":
           "%s"
                 ',
-        self$`accession`
+        jsonlite::unbox(self$`accession`)
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")

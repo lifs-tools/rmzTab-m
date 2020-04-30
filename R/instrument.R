@@ -60,7 +60,7 @@ Instrument <- R6::R6Class(
       InstrumentObject <- list()
       if (!is.null(self$`id`)) {
         InstrumentObject[['id']] <-
-          self$`id`
+          jsonlite::unbox(self$`id`)
       }
       if (!is.null(self$`name`)) {
         InstrumentObject[['name']] <-
@@ -88,12 +88,12 @@ Instrument <- R6::R6Class(
       }
       if (!is.null(InstrumentObject$`name`)) {
         nameObject <- Parameter$new()
-        nameObject$fromJSON(jsonlite::toJSON(InstrumentObject$name, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
+        nameObject$fromJSON(jsonlite::toJSON(InstrumentObject$name, auto_unbox = FALSE, null = "null", na = "null", digits = NA))
         self$`name` <- nameObject
       }
       if (!is.null(InstrumentObject$`source`)) {
         sourceObject <- Parameter$new()
-        sourceObject$fromJSON(jsonlite::toJSON(InstrumentObject$source, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
+        sourceObject$fromJSON(jsonlite::toJSON(InstrumentObject$source, auto_unbox = FALSE, null = "null", na = "null", digits = NA))
         self$`source` <- sourceObject
       }
       if (!is.null(InstrumentObject$`analyzer`)) {
@@ -101,7 +101,7 @@ Instrument <- R6::R6Class(
       }
       if (!is.null(InstrumentObject$`detector`)) {
         detectorObject <- Parameter$new()
-        detectorObject$fromJSON(jsonlite::toJSON(InstrumentObject$detector, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
+        detectorObject$fromJSON(jsonlite::toJSON(InstrumentObject$detector, auto_unbox = FALSE, null = "null", na = "null", digits = NA))
         self$`detector` <- detectorObject
       }
     },
@@ -112,7 +112,7 @@ Instrument <- R6::R6Class(
         '"id":
           %d
                 ',
-        self$`id`
+        jsonlite::unbox(self$`id`)
         )},
         if (!is.null(self$`name`)) {
         sprintf(
@@ -131,7 +131,7 @@ Instrument <- R6::R6Class(
         if (!is.null(self$`analyzer`)) {
         sprintf(
         '"analyzer":
-        %s
+        [%s]
 ',
         paste(sapply(self$`analyzer`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA)), collapse=",")
         )},
@@ -149,10 +149,10 @@ Instrument <- R6::R6Class(
     fromJSONString = function(InstrumentJson) {
       InstrumentObject <- jsonlite::fromJSON(InstrumentJson)
       self$`id` <- InstrumentObject$`id`
-      self$`name` <- Parameter$new()$fromJSON(jsonlite::toJSON(InstrumentObject$name, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
-      self$`source` <- Parameter$new()$fromJSON(jsonlite::toJSON(InstrumentObject$source, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
+      self$`name` <- Parameter$new()$fromJSONString(jsonlite::toJSON(InstrumentObject$name, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
+      self$`source` <- Parameter$new()$fromJSONString(jsonlite::toJSON(InstrumentObject$source, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
       self$`analyzer` <- ApiClient$new()$deserializeObj(InstrumentObject$`analyzer`, "array[Parameter]", loadNamespace("rmzTabM"))
-      self$`detector` <- Parameter$new()$fromJSON(jsonlite::toJSON(InstrumentObject$detector, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
+      self$`detector` <- Parameter$new()$fromJSONString(jsonlite::toJSON(InstrumentObject$detector, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
       self
     }
   )

@@ -5,49 +5,25 @@ context("Test Assay")
 
 model.instance <- Assay$new()
 
-test_that("id", {
-  # tests for the property `id` (integer)
+ref.json <- '{
+      "id" : 1,
+      "name" : "Description of assay 1",
+      "custom" : null,
+      "external_uri" : null,
+      "sample_ref" : 1,
+      "ms_run_ref" : [ 1 ]
+    }'
 
-  # uncomment below to test the property 
-  #expect_equal(model.instance$`id`, "EXPECTED_RESULT")
-})
-
-test_that("name", {
-  # tests for the property `name` (character)
-  # The assay name.
-
-  # uncomment below to test the property 
-  #expect_equal(model.instance$`name`, "EXPECTED_RESULT")
-})
-
-test_that("custom", {
-  # tests for the property `custom` (array[Parameter])
-  # Additional user or cv parameters.
-
-  # uncomment below to test the property 
-  #expect_equal(model.instance$`custom`, "EXPECTED_RESULT")
-})
-
-test_that("external_uri", {
-  # tests for the property `external_uri` (character)
-  # An external URI to further information about this assay.
-
-  # uncomment below to test the property 
-  #expect_equal(model.instance$`external_uri`, "EXPECTED_RESULT")
-})
-
-test_that("sample_ref", {
-  # tests for the property `sample_ref` (Sample)
-
-  # uncomment below to test the property 
-  #expect_equal(model.instance$`sample_ref`, "EXPECTED_RESULT")
-})
-
-test_that("ms_run_ref", {
-  # tests for the property `ms_run_ref` (array[MsRun])
-  # The ms run(s) referenced by this assay.
-
-  # uncomment below to test the property 
-  #expect_equal(model.instance$`ms_run_ref`, "EXPECTED_RESULT")
+test_that("assay", {
+  model.instance <- model.instance$fromJSONString(ref.json)
+  expect_equal(model.instance$`id`, 1)
+  expect_equal(model.instance$`name`, "Description of assay 1")
+  expect_null(model.instance$`custom`)
+  expect_null(model.instance$`external_uri`)
+  expect_equal(model.instance$`sample_ref`, 1)
+  expect_equal(length(model.instance$`ms_run_ref`), 1)
+  expect_equal(model.instance$`ms_run_ref`[[1]], 1)
+  
+  model.instance$toJSONString()
 })
 

@@ -1,4 +1,4 @@
 library(testthat)
-library(openapi)
+library(rmzTabM)
 
-test_check("openapi")
+test_check("rmzTabM")

@@ -183,7 +183,7 @@ writeMzTabJSONToFile <- function(mztab, file) {
   stopifnot(R6::is.R6(mztab));
   stopifnot("MzTab"!=mztab$classname)
   stopifnot(!is.null(file))
-  json <- jsonlite::toJSON(mztab$toJSON(), digits = 10, auto_unbox = TRUE, null = 'null', na = 'null')
+  json <- jsonlite::toJSON(mztab$toJSON(), digits = 10, auto_unbox = FALSE, null = 'null', na = 'null')
   write(json, file)
 }
 

@@ -182,43 +182,43 @@ SmallMoleculeEvidence <- R6::R6Class(
       SmallMoleculeEvidenceObject <- list()
       if (!is.null(self$`prefix`)) {
         SmallMoleculeEvidenceObject[['prefix']] <-
-          jsonlite::unbox(self$`prefix`)
+          rmzTabM::safe_unbox(self$`prefix`)
       }
       if (!is.null(self$`header_prefix`)) {
         SmallMoleculeEvidenceObject[['header_prefix']] <-
-          jsonlite::unbox(self$`header_prefix`)
+          rmzTabM::safe_unbox(self$`header_prefix`)
       }
       if (!is.null(self$`sme_id`)) {
         SmallMoleculeEvidenceObject[['sme_id']] <-
-          jsonlite::unbox(self$`sme_id`)
+          rmzTabM::safe_unbox(self$`sme_id`)
       }
       if (!is.null(self$`evidence_input_id`)) {
         SmallMoleculeEvidenceObject[['evidence_input_id']] <-
-          jsonlite::unbox(self$`evidence_input_id`)
+          rmzTabM::safe_unbox(self$`evidence_input_id`)
       }
       if (!is.null(self$`database_identifier`)) {
         SmallMoleculeEvidenceObject[['database_identifier']] <-
-          jsonlite::unbox(self$`database_identifier`)
+          rmzTabM::safe_unbox(self$`database_identifier`)
       }
       if (!is.null(self$`chemical_formula`)) {
         SmallMoleculeEvidenceObject[['chemical_formula']] <-
-          jsonlite::unbox(self$`chemical_formula`)
+          rmzTabM::safe_unbox(self$`chemical_formula`)
       }
       if (!is.null(self$`smiles`)) {
         SmallMoleculeEvidenceObject[['smiles']] <-
-          jsonlite::unbox(self$`smiles`)
+          rmzTabM::safe_unbox(self$`smiles`)
       }
       if (!is.null(self$`inchi`)) {
         SmallMoleculeEvidenceObject[['inchi']] <-
-          jsonlite::unbox(self$`inchi`)
+          rmzTabM::safe_unbox(self$`inchi`)
       }
       if (!is.null(self$`chemical_name`)) {
         SmallMoleculeEvidenceObject[['chemical_name']] <-
-          jsonlite::unbox(self$`chemical_name`)
+          rmzTabM::safe_unbox(self$`chemical_name`)
       }
       if (!is.null(self$`uri`)) {
         SmallMoleculeEvidenceObject[['uri']] <-
-          jsonlite::unbox(self$`uri`)
+          rmzTabM::safe_unbox(self$`uri`)
       }
       if (!is.null(self$`derivatized_form`)) {
         SmallMoleculeEvidenceObject[['derivatized_form']] <-
@@ -226,19 +226,19 @@ SmallMoleculeEvidence <- R6::R6Class(
       }
       if (!is.null(self$`adduct_ion`)) {
         SmallMoleculeEvidenceObject[['adduct_ion']] <-
-          jsonlite::unbox(self$`adduct_ion`)
+          rmzTabM::safe_unbox(self$`adduct_ion`)
       }
       if (!is.null(self$`exp_mass_to_charge`)) {
         SmallMoleculeEvidenceObject[['exp_mass_to_charge']] <-
-          jsonlite::unbox(self$`exp_mass_to_charge`)
+          rmzTabM::safe_unbox(self$`exp_mass_to_charge`)
       }
       if (!is.null(self$`charge`)) {
         SmallMoleculeEvidenceObject[['charge']] <-
-          jsonlite::unbox(self$`charge`)
+          rmzTabM::safe_unbox(self$`charge`)
       }
       if (!is.null(self$`theoretical_mass_to_charge`)) {
         SmallMoleculeEvidenceObject[['theoretical_mass_to_charge']] <-
-         jsonlite::unbox(self$`theoretical_mass_to_charge`)
+         rmzTabM::safe_unbox(self$`theoretical_mass_to_charge`)
       }
       if (!is.null(self$`spectra_ref`)) {
         SmallMoleculeEvidenceObject[['spectra_ref']] <-
@@ -254,11 +254,11 @@ SmallMoleculeEvidence <- R6::R6Class(
       }
       if (!is.null(self$`id_confidence_measure`)) {
         SmallMoleculeEvidenceObject[['id_confidence_measure']] <-
-          self$`id_confidence_measure`
+          rmzTabM::safe_unbox(self$`id_confidence_measure`)
       }
       if (!is.null(self$`rank`)) {
         SmallMoleculeEvidenceObject[['rank']] <-
-          jsonlite::unbox(self$`rank`)
+          rmzTabM::safe_unbox(self$`rank`)
       }
       if (!is.null(self$`opt`)) {
         SmallMoleculeEvidenceObject[['opt']] <-
@@ -353,70 +353,70 @@ SmallMoleculeEvidence <- R6::R6Class(
         '"prefix":
           "%s"
                 ',
-        jsonlite::unbox(self$`prefix`)
+        rmzTabM::safe_unbox(self$`prefix`)
         )},
         if (!is.null(self$`header_prefix`)) {
         sprintf(
         '"header_prefix":
           "%s"
                 ',
-        jsonlite::unbox(self$`header_prefix`)
+        rmzTabM::safe_unbox(self$`header_prefix`)
         )},
         if (!is.null(self$`sme_id`)) {
         sprintf(
         '"sme_id":
           %d
                 ',
-        jsonlite::unbox(self$`sme_id`)
+        rmzTabM::safe_unbox(self$`sme_id`)
         )},
         if (!is.null(self$`evidence_input_id`)) {
         sprintf(
         '"evidence_input_id":
           "%s"
                 ',
-        jsonlite::unbox(self$`evidence_input_id`)
+        rmzTabM::safe_unbox(self$`evidence_input_id`)
         )},
         if (!is.null(self$`database_identifier`)) {
         sprintf(
         '"database_identifier":
           "%s"
                 ',
-        jsonlite::unbox(self$`database_identifier`)
+        rmzTabM::safe_unbox(self$`database_identifier`)
         )},
         if (!is.null(self$`chemical_formula`)) {
         sprintf(
         '"chemical_formula":
           "%s"
                 ',
-        jsonlite::unbox(self$`chemical_formula`)
+        rmzTabM::safe_unbox(self$`chemical_formula`)
         )},
         if (!is.null(self$`smiles`)) {
         sprintf(
         '"smiles":
           "%s"
                 ',
-        jsonlite::unbox(self$`smiles`)
+        rmzTabM::safe_unbox(self$`smiles`)
         )},
         if (!is.null(self$`inchi`)) {
         sprintf(
         '"inchi":
           "%s"
                 ',
-        jsonlite::unbox(self$`inchi`)
+        rmzTabM::safe_unbox(self$`inchi`)
         )},
         if (!is.null(self$`chemical_name`)) {
         sprintf(
         '"chemical_name":
           "%s"
                 ',
-        jsonlite::unbox(self$`chemical_name`)
+        rmzTabM::safe_unbox(self$`chemical_name`)
         )},
         if (!is.null(self$`uri`)) {
         sprintf(
         '"uri":
           "%s"
                 ',
-        jsonlite::unbox(self$`uri`)
+        rmzTabM::safe_unbox(self$`uri`)
         )},
         if (!is.null(self$`derivatized_form`)) {
         sprintf(
@@ -430,28 +430,28 @@ SmallMoleculeEvidence <- R6::R6Class(
         '"adduct_ion":
           "%s"
                 ',
-        jsonlite::unbox(self$`adduct_ion`)
+        rmzTabM::safe_unbox(self$`adduct_ion`)
         )},
         if (!is.null(self$`exp_mass_to_charge`)) {
         sprintf(
         '"exp_mass_to_charge":
           %f
                 ',
-        jsonlite::unbox(self$`exp_mass_to_charge`)
+        rmzTabM::safe_unbox(self$`exp_mass_to_charge`)
         )},
         if (!is.null(self$`charge`)) {
         sprintf(
         '"charge":
           %d
                 ',
-        jsonlite::unbox(self$`charge`)
+        rmzTabM::safe_unbox(self$`charge`)
         )},
         if (!is.null(self$`theoretical_mass_to_charge`)) {
         sprintf(
         '"theoretical_mass_to_charge":
           %f
                 ',
-        jsonlite::unbox(self$`theoretical_mass_to_charge`)
+        rmzTabM::safe_unbox(self$`theoretical_mass_to_charge`)
         )},
         if (!is.null(self$`spectra_ref`)) {
         sprintf(
@@ -486,7 +486,7 @@ SmallMoleculeEvidence <- R6::R6Class(
         '"rank":
           %d
                 ',
-        jsonlite::unbox(self$`rank`)
+        rmzTabM::safe_unbox(self$`rank`)
         )},
         if (!is.null(self$`opt`)) {
         sprintf(

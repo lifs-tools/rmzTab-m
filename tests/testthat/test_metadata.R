@@ -69,7 +69,44 @@ test_that("software", {
   #expect_equal(model.instance$`software`, "EXPECTED_RESULT")
 })
 
+# test_that("publication_array", {
+#   model.instance <- Metadata$new()
+#   ref.json <- '[{
+#       "id" : 1,
+#       "publicationItems" : [ {
+#         "type" : "pubmed",
+#         "accession" : "29039908"
+#       }, {
+#         "type" : "doi",
+#         "accession" : "10.1021/acs.analchem.7b03576"
+#       } ]
+#     }]'
+#   browser()
+#   model.instance <- model.instance$fromJSONString(ref.json)
+#   publicationsList <- ApiClient$new()$deserializeObj(MetadataObject$`publication`, "array[Publication]", loadNamespace("rmzTabM"))
+# })
+
 test_that("publication", {
+  model.instance <- Metadata$new()
+  ref.json <- '{ "publication": [{
+      "id" : 1,
+      "publicationItems" : [ {
+        "type" : "pubmed",
+        "accession" : "29039908"
+      }, {
+        "type" : "doi",
+        "accession" : "10.1021/acs.analchem.7b03576"
+      } ]
+    }] }'
+  
+  model.instance <- model.instance$fromJSONString(ref.json)
+  #browser()
+  expect_equal(model.instance$publication[[1]]$`id`, 1)
+  expect_equal(length(model.instance$publication[[1]]$`publicationItems`), 2)
+  expect_equal(model.instance$publication[[1]]$`publicationItems`[[1]]$`type`, "pubmed")
+  expect_equal(model.instance$publication[[1]]$`publicationItems`[[1]]$`accession`, "29039908")
+  expect_equal(model.instance$publication[[1]]$`publicationItems`[[2]]$`type`, "doi")
+  expect_equal(model.instance$publication[[1]]$`publicationItems`[[2]]$`accession`, "10.1021/acs.analchem.7b03576")
   # tests for the property `publication` (array[Publication])
   # A publication associated with this file. Several publications can be given by indicating the number in the square brackets after “publication”. PubMed ids must be prefixed by “pubmed:”, DOIs by “doi:”. Multiple identifiers MUST be separated by “|”.
 

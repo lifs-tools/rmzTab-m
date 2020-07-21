@@ -85,11 +85,11 @@ Sample <- R6::R6Class(
       SampleObject <- list()
       if (!is.null(self$`id`)) {
         SampleObject[['id']] <-
-          jsonlite::unbox(self$`id`)
+          rmzTabM::safe_unbox(self$`id`)
       }
       if (!is.null(self$`name`)) {
         SampleObject[['name']] <-
-          jsonlite::unbox(self$`name`)
+          rmzTabM::safe_unbox(self$`name`)
       }
       if (!is.null(self$`custom`)) {
         SampleObject[['custom']] <-
@@ -113,7 +113,7 @@ Sample <- R6::R6Class(
       }
       if (!is.null(self$`description`)) {
         SampleObject[['description']] <-
-          jsonlite::unbox(self$`description`)
+          rmzTabM::safe_unbox(self$`description`)
       }
 
       SampleObject
@@ -152,14 +152,14 @@ Sample <- R6::R6Class(
         '"id":
           %d
                 ',
-        jsonlite::unbox(self$`id`)
+        rmzTabM::safe_unbox(self$`id`)
         )},
         if (!is.null(self$`name`)) {
         sprintf(
         '"name":
           "%s"
                 ',
-        jsonlite::unbox(self$`name`)
+        rmzTabM::safe_unbox(self$`name`)
         )},
         if (!is.null(self$`custom`)) {
         sprintf(
@@ -201,7 +201,7 @@ Sample <- R6::R6Class(
         '"description":
           "%s"
                 ',
-        jsonlite::unbox(self$`description`)
+        rmzTabM::safe_unbox(self$`description`)
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")

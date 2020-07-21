@@ -59,23 +59,23 @@ ValidationMessage <- R6::R6Class(
       ValidationMessageObject <- list()
       if (!is.null(self$`code`)) {
         ValidationMessageObject[['code']] <-
-          jsonlite::unbox(self$`code`)
+          rmzTabM::safe_unbox(self$`code`)
       }
       if (!is.null(self$`category`)) {
         ValidationMessageObject[['category']] <-
-          jsonlite::unbox(self$`category`)
+          rmzTabM::safe_unbox(self$`category`)
       }
       if (!is.null(self$`message_type`)) {
         ValidationMessageObject[['message_type']] <-
-          jsonlite::unbox(self$`message_type`)
+          rmzTabM::safe_unbox(self$`message_type`)
       }
       if (!is.null(self$`message`)) {
         ValidationMessageObject[['message']] <-
-          jsonlite::unbox(self$`message`)
+          rmzTabM::safe_unbox(self$`message`)
       }
       if (!is.null(self$`line_number`)) {
         ValidationMessageObject[['line_number']] <-
-          jsonlite::unbox(self$`line_number`)
+          rmzTabM::safe_unbox(self$`line_number`)
       }
 
       ValidationMessageObject
@@ -105,35 +105,35 @@ ValidationMessage <- R6::R6Class(
         '"code":
           "%s"
                 ',
-        jsonlite::unbox(self$`code`)
+        rmzTabM::safe_unbox(self$`code`)
         )},
         if (!is.null(self$`category`)) {
         sprintf(
         '"category":
           "%s"
                 ',
-        jsonlite::unbox(self$`category`)
+        rmzTabM::safe_unbox(self$`category`)
         )},
         if (!is.null(self$`message_type`)) {
         sprintf(
         '"message_type":
           "%s"
                 ',
-        jsonlite::unbox(self$`message_type`)
+        rmzTabM::safe_unbox(self$`message_type`)
         )},
         if (!is.null(self$`message`)) {
         sprintf(
         '"message":
           "%s"
                 ',
-        jsonlite::unbox(self$`message`)
+        rmzTabM::safe_unbox(self$`message`)
         )},
         if (!is.null(self$`line_number`)) {
         sprintf(
         '"line_number":
           %d
                 ',
-        jsonlite::unbox(self$`line_number`)
+        rmzTabM::safe_unbox(self$`line_number`)
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")

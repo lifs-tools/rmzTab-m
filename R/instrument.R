@@ -60,7 +60,7 @@ Instrument <- R6::R6Class(
       InstrumentObject <- list()
       if (!is.null(self$`id`)) {
         InstrumentObject[['id']] <-
-          jsonlite::unbox(self$`id`)
+          rmzTabM::safe_unbox(self$`id`)
       }
       if (!is.null(self$`name`)) {
         InstrumentObject[['name']] <-
@@ -112,7 +112,7 @@ Instrument <- R6::R6Class(
         '"id":
           %d
                 ',
-        jsonlite::unbox(self$`id`)
+        rmzTabM::safe_unbox(self$`id`)
         )},
         if (!is.null(self$`name`)) {
         sprintf(

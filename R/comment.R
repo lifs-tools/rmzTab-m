@@ -45,15 +45,15 @@ Comment <- R6::R6Class(
       CommentObject <- list()
       if (!is.null(self$`prefix`)) {
         CommentObject[['prefix']] <-
-          jsonlite::unbox(self$`prefix`)
+          rmzTabM::safe_unbox(self$`prefix`)
       }
       if (!is.null(self$`msg`)) {
         CommentObject[['msg']] <-
-          jsonlite::unbox(self$`msg`)
+          rmzTabM::safe_unbox(self$`msg`)
       }
       if (!is.null(self$`line_number`)) {
         CommentObject[['line_number']] <-
-          jsonlite::unbox(self$`line_number`)
+          rmzTabM::safe_unbox(self$`line_number`)
       }
 
       CommentObject
@@ -64,7 +64,7 @@ Comment <- R6::R6Class(
         self$`prefix` <- CommentObject$`prefix`
       }
       if (!is.null(CommentObject$`msg`)) {
-        self$`msg` <- jsonlite::unbox(CommentObject$`msg`)
+        self$`msg` <- rmzTabM::safe_unbox(CommentObject$`msg`)
       }
       if (!is.null(CommentObject$`line_number`)) {
         self$`line_number` <- CommentObject$`line_number`
@@ -77,21 +77,21 @@ Comment <- R6::R6Class(
         '"prefix":
           "%s"
                 ',
-        jsonlite::unbox(self$`prefix`)
+        rmzTabM::safe_unbox(self$`prefix`)
         )},
         if (!is.null(self$`msg`)) {
         sprintf(
         '"msg":
           "%s"
                 ',
-        jsonlite::unbox(self$`msg`)
+        rmzTabM::safe_unbox(self$`msg`)
         )},
         if (!is.null(self$`line_number`)) {
         sprintf(
         '"line_number":
           %d
                 ',
-        jsonlite::unbox(self$`line_number`)
+        rmzTabM::safe_unbox(self$`line_number`)
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")

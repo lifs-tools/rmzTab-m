@@ -75,15 +75,15 @@ StudyVariable <- R6::R6Class(
       StudyVariableObject <- list()
       if (!is.null(self$`id`)) {
         StudyVariableObject[['id']] <-
-          jsonlite::unbox(self$`id`)
+          rmzTabM::safe_unbox(self$`id`)
       }
       if (!is.null(self$`name`)) {
         StudyVariableObject[['name']] <-
-          jsonlite::unbox(self$`name`)
+          rmzTabM::safe_unbox(self$`name`)
       }
       if (!is.null(self$`assay_refs`)) {
         StudyVariableObject[['assay_refs']] <-
-          self$`assay_refs`
+          rmzTabM::safe_unbox(self$`assay_refs`)
       }
       if (!is.null(self$`average_function`)) {
         StudyVariableObject[['average_function']] <-
@@ -95,7 +95,7 @@ StudyVariable <- R6::R6Class(
       }
       if (!is.null(self$`description`)) {
         StudyVariableObject[['description']] <-
-          jsonlite::unbox(self$`description`)
+          rmzTabM::safe_unbox(self$`description`)
       }
       if (!is.null(self$`factors`)) {
         StudyVariableObject[['factors']] <-
@@ -139,14 +139,14 @@ StudyVariable <- R6::R6Class(
         '"id":
           %d
                 ',
-        jsonlite::unbox(self$`id`)
+        rmzTabM::safe_unbox(self$`id`)
         )},
         if (!is.null(self$`name`)) {
         sprintf(
         '"name":
           "%s"
                 ',
-        jsonlite::unbox(self$`name`)
+        rmzTabM::safe_unbox(self$`name`)
         )},
         if (!is.null(self$`assay_refs`)) {
         sprintf(
@@ -174,7 +174,7 @@ StudyVariable <- R6::R6Class(
         '"description":
           "%s"
                 ',
-        jsonlite::unbox(self$`description`)
+        rmzTabM::safe_unbox(self$`description`)
         )},
         if (!is.null(self$`factors`)) {
         sprintf(

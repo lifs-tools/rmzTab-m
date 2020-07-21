@@ -97,19 +97,19 @@ MsRun <- R6::R6Class(
       MsRunObject <- list()
       if (!is.null(self$`id`)) {
         MsRunObject[['id']] <-
-          jsonlite::unbox(self$`id`)
+          rmzTabM::safe_unbox(self$`id`)
       }
       if (!is.null(self$`name`)) {
         MsRunObject[['name']] <-
-          jsonlite::unbox(self$`name`)
+          rmzTabM::safe_unbox(self$`name`)
       }
       if (!is.null(self$`location`)) {
         MsRunObject[['location']] <-
-          jsonlite::unbox(self$`location`)
+          rmzTabM::safe_unbox(self$`location`)
       }
       if (!is.null(self$`instrument_ref`)) {
         MsRunObject[['instrument_ref']] <-
-          self$`instrument_ref`
+          rmzTabM::safe_unbox(self$`instrument_ref`)
       }
       if (!is.null(self$`format`)) {
         MsRunObject[['format']] <-
@@ -129,7 +129,7 @@ MsRun <- R6::R6Class(
       }
       if (!is.null(self$`hash`)) {
         MsRunObject[['hash']] <-
-          jsonlite::unbox(self$`hash`)
+          rmzTabM::safe_unbox(self$`hash`)
       }
       if (!is.null(self$`hash_method`)) {
         MsRunObject[['hash_method']] <-
@@ -150,7 +150,7 @@ MsRun <- R6::R6Class(
         self$`location` <- MsRunObject$`location`
       }
       if (!is.null(MsRunObject$`instrument_ref`)) {
-        self$`instrument_ref` <- ApiClient$new()$deserializeObj(MsRunObject$`instrument_ref`, "array[integer]", loadNamespace("rmzTabM"))
+        self$`instrument_ref` <- MsRunObject$`instrument_ref`#ApiClient$new()$deserializeObj(MsRunObject$`instrument_ref`, "array[integer]", loadNamespace("rmzTabM"))
       }
       if (!is.null(MsRunObject$`format`)) {
         formatObject <- Parameter$new()
@@ -184,26 +184,26 @@ MsRun <- R6::R6Class(
         '"id":
           %d
                 ',
-        jsonlite::unbox(self$`id`)
+        rmzTabM::safe_unbox(self$`id`)
         )},
         if (!is.null(self$`name`)) {
         sprintf(
         '"name":
           "%s"
                 ',
-        jsonlite::unbox(self$`name`)
+        rmzTabM::safe_unbox(self$`name`)
         )},
         if (!is.null(self$`location`)) {
         sprintf(
         '"location":
           "%s"
                 ',
-        jsonlite::unbox(self$`location`)
+        rmzTabM::safe_unbox(self$`location`)
         )},
         if (!is.null(self$`instrument_ref`)) {
         sprintf(
         '"instrument_ref":
-        [%s]
+        %s
         ',
         paste(unlist(lapply(self$`ms_run_ref`, function(x) paste0(x))), collapse=",")
         )},
@@ -240,7 +240,7 @@ MsRun <- R6::R6Class(
         '"hash":
           "%s"
                 ',
-        jsonlite::unbox(self$`hash`)
+        rmzTabM::safe_unbox(self$`hash`)
         )},
         if (!is.null(self$`hash_method`)) {
         sprintf(

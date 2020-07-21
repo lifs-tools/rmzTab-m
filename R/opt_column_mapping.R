@@ -45,7 +45,7 @@ OptColumnMapping <- R6::R6Class(
       OptColumnMappingObject <- list()
       if (!is.null(self$`identifier`)) {
         OptColumnMappingObject[['identifier']] <-
-          jsonlite::unbox(self$`identifier`)
+          rmzTabM::safe_unbox(self$`identifier`)
       }
       if (!is.null(self$`param`)) {
         OptColumnMappingObject[['param']] <-
@@ -53,7 +53,7 @@ OptColumnMapping <- R6::R6Class(
       }
       if (!is.null(self$`value`)) {
         OptColumnMappingObject[['value']] <-
-          jsonlite::unbox(self$`value`)
+          rmzTabM::safe_unbox(self$`value`)
       }
 
       OptColumnMappingObject
@@ -79,7 +79,7 @@ OptColumnMapping <- R6::R6Class(
         '"identifier":
           "%s"
                 ',
-        jsonlite::unbox(self$`identifier`)
+        rmzTabM::safe_unbox(self$`identifier`)
         )},
         if (!is.null(self$`param`)) {
         sprintf(
@@ -93,7 +93,7 @@ OptColumnMapping <- R6::R6Class(
         '"value":
           "%s"
                 ',
-        jsonlite::unbox(self$`value`)
+        rmzTabM::safe_unbox(self$`value`)
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")

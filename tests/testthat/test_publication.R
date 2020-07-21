@@ -5,18 +5,25 @@ context("Test Publication")
 
 model.instance <- Publication$new()
 
-test_that("id", {
-  # tests for the property `id` (integer)
+ref.json <- '{
+      "id" : 1,
+      "publicationItems" : [ {
+        "type" : "pubmed",
+        "accession" : "29039908"
+      }, {
+        "type" : "doi",
+        "accession" : "10.1021/acs.analchem.7b03576"
+      } ]
+    }'
 
-  # uncomment below to test the property 
-  #expect_equal(model.instance$`id`, "EXPECTED_RESULT")
-})
-
-test_that("publicationItems", {
-  # tests for the property `publicationItems` (array[PublicationItem])
-  # The publication item ids referenced by this publication.
-
-  # uncomment below to test the property 
-  #expect_equal(model.instance$`publicationItems`, "EXPECTED_RESULT")
-})
-
+test_that("publication", {
+  
+  model.instance <- model.instance$fromJSONString(ref.json)
+  expect_equal(model.instance$`id`, 1)
+  expect_equal(length(model.instance$`publicationItems`), 2)
+  expect_equal(model.instance$`publicationItems`[[1]]$`type`, "pubmed")
+  expect_equal(model.instance$`publicationItems`[[1]]$`accession`, "29039908")
+  expect_equal(model.instance$`publicationItems`[[2]]$`type`, "doi")
+  expect_equal(model.instance$`publicationItems`[[2]]$`accession`, "10.1021/acs.analchem.7b03576")
+}
+)

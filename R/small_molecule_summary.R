@@ -178,55 +178,55 @@ SmallMoleculeSummary <- R6::R6Class(
       SmallMoleculeSummaryObject <- list()
       if (!is.null(self$`prefix`)) {
         SmallMoleculeSummaryObject[['prefix']] <-
-          jsonlite::unbox(self$`prefix`)
+          rmzTabM::safe_unbox(self$`prefix`)
       }
       if (!is.null(self$`header_prefix`)) {
         SmallMoleculeSummaryObject[['header_prefix']] <-
-          jsonlite::unbox(self$`header_prefix`)
+          rmzTabM::safe_unbox(self$`header_prefix`)
       }
       if (!is.null(self$`sml_id`)) {
         SmallMoleculeSummaryObject[['sml_id']] <-
-          jsonlite::unbox(self$`sml_id`)
+          rmzTabM::safe_unbox(self$`sml_id`)
       }
       if (!is.null(self$`smf_id_refs`)) {
         SmallMoleculeSummaryObject[['smf_id_refs']] <-
-          self$`smf_id_refs`
+          rmzTabM::safe_unbox(self$`smf_id_refs`)
       }
       if (!is.null(self$`database_identifier`)) {
         SmallMoleculeSummaryObject[['database_identifier']] <-
-          self$`database_identifier`
+          rmzTabM::safe_unbox(self$`database_identifier`)
       }
       if (!is.null(self$`chemical_formula`)) {
         SmallMoleculeSummaryObject[['chemical_formula']] <-
-          self$`chemical_formula`
+          rmzTabM::safe_unbox(self$`chemical_formula`)
       }
       if (!is.null(self$`smiles`)) {
         SmallMoleculeSummaryObject[['smiles']] <-
-          self$`smiles`
+          rmzTabM::safe_unbox(self$`smiles`)
       }
       if (!is.null(self$`inchi`)) {
         SmallMoleculeSummaryObject[['inchi']] <-
-          self$`inchi`
+          rmzTabM::safe_unbox(self$`inchi`)
       }
       if (!is.null(self$`chemical_name`)) {
         SmallMoleculeSummaryObject[['chemical_name']] <-
-          self$`chemical_name`
+          rmzTabM::safe_unbox(self$`chemical_name`)
       }
       if (!is.null(self$`uri`)) {
         SmallMoleculeSummaryObject[['uri']] <-
-          self$`uri`
+          rmzTabM::safe_unbox(self$`uri`)
       }
       if (!is.null(self$`theoretical_neutral_mass`)) {
         SmallMoleculeSummaryObject[['theoretical_neutral_mass']] <-
-          self$`theoretical_neutral_mass`
+          rmzTabM::safe_unbox(self$`theoretical_neutral_mass`)
       }
       if (!is.null(self$`adduct_ions`)) {
         SmallMoleculeSummaryObject[['adduct_ions']] <-
-          self$`adduct_ions`
+          rmzTabM::safe_unbox(self$`adduct_ions`)
       }
       if (!is.null(self$`reliability`)) {
         SmallMoleculeSummaryObject[['reliability']] <-
-          jsonlite::unbox(self$`reliability`)
+          rmzTabM::safe_unbox(self$`reliability`)
       }
       if (!is.null(self$`best_id_confidence_measure`)) {
         SmallMoleculeSummaryObject[['best_id_confidence_measure']] <-
@@ -234,19 +234,19 @@ SmallMoleculeSummary <- R6::R6Class(
       }
       if (!is.null(self$`best_id_confidence_value`)) {
         SmallMoleculeSummaryObject[['best_id_confidence_value']] <-
-          jsonlite::unbox(self$`best_id_confidence_value`)
+          rmzTabM::safe_unbox(self$`best_id_confidence_value`)
       }
       if (!is.null(self$`abundance_assay`)) {
         SmallMoleculeSummaryObject[['abundance_assay']] <-
-          self$`abundance_assay`
+          rmzTabM::safe_unbox(self$`abundance_assay`)
       }
       if (!is.null(self$`abundance_study_variable`)) {
         SmallMoleculeSummaryObject[['abundance_study_variable']] <-
-          self$`abundance_study_variable`
+          rmzTabM::safe_unbox(self$`abundance_study_variable`)
       }
       if (!is.null(self$`abundance_variation_study_variable`)) {
         SmallMoleculeSummaryObject[['abundance_variation_study_variable']] <-
-          self$`abundance_variation_study_variable`
+          rmzTabM::safe_unbox(self$`abundance_variation_study_variable`)
       }
       if (!is.null(self$`opt`)) {
         SmallMoleculeSummaryObject[['opt']] <-
@@ -331,21 +331,21 @@ SmallMoleculeSummary <- R6::R6Class(
         '"prefix":
           "%s"
                 ',
-        jsonlite::unbox(self$`prefix`)
+        rmzTabM::safe_unbox(self$`prefix`)
         )},
         if (!is.null(self$`header_prefix`)) {
         sprintf(
         '"header_prefix":
           "%s"
                 ',
-        jsonlite::unbox(self$`header_prefix`)
+        rmzTabM::safe_unbox(self$`header_prefix`)
         )},
         if (!is.null(self$`sml_id`)) {
         sprintf(
         '"sml_id":
           %d
                 ',
-        jsonlite::unbox(self$`sml_id`)
+        rmzTabM::safe_unbox(self$`sml_id`)
         )},
         if (!is.null(self$`smf_id_refs`)) {
         sprintf(
@@ -415,7 +415,7 @@ SmallMoleculeSummary <- R6::R6Class(
         '"reliability":
           "%s"
                 ',
-        jsonlite::unbox(self$`reliability`)
+        rmzTabM::safe_unbox(self$`reliability`)
         )},
         if (!is.null(self$`best_id_confidence_measure`)) {
         sprintf(
@@ -429,7 +429,7 @@ SmallMoleculeSummary <- R6::R6Class(
         '"best_id_confidence_value":
           %s
                 ',
-        jsonlite::unbox(self$`best_id_confidence_value`)
+        rmzTabM::safe_unbox(self$`best_id_confidence_value`)
         )},
         if (!is.null(self$`abundance_assay`)) {
         sprintf(

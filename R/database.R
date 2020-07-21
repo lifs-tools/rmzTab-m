@@ -59,7 +59,7 @@ Database <- R6::R6Class(
       DatabaseObject <- list()
       if (!is.null(self$`id`)) {
         DatabaseObject[['id']] <-
-          jsonlite::unbox(self$`id`)
+          rmzTabM::safe_unbox(self$`id`)
       }
       if (!is.null(self$`param`)) {
         DatabaseObject[['param']] <-
@@ -67,15 +67,15 @@ Database <- R6::R6Class(
       }
       if (!is.null(self$`prefix`)) {
         DatabaseObject[['prefix']] <-
-          jsonlite::unbox(self$`prefix`)
+          rmzTabM::safe_unbox(self$`prefix`)
       }
       if (!is.null(self$`version`)) {
         DatabaseObject[['version']] <-
-          jsonlite::unbox(self$`version`)
+          rmzTabM::safe_unbox(self$`version`)
       }
       if (!is.null(self$`uri`)) {
         DatabaseObject[['uri']] <-
-          jsonlite::unbox(self$`uri`)
+          rmzTabM::safe_unbox(self$`uri`)
       }
 
       DatabaseObject
@@ -107,7 +107,7 @@ Database <- R6::R6Class(
         '"id":
           %d
                 ',
-        jsonlite::unbox(self$`id`)
+        rmzTabM::safe_unbox(self$`id`)
         )},
         if (!is.null(self$`param`)) {
         sprintf(
@@ -121,21 +121,21 @@ Database <- R6::R6Class(
         '"prefix":
           "%s"
                 ',
-        jsonlite::unbox(self$`prefix`)
+        rmzTabM::safe_unbox(self$`prefix`)
         )},
         if (!is.null(self$`version`)) {
         sprintf(
         '"version":
           "%s"
                 ',
-        jsonlite::unbox(self$`version`)
+        rmzTabM::safe_unbox(self$`version`)
         )},
         if (!is.null(self$`uri`)) {
         sprintf(
         '"uri":
           "%s"
                 ',
-        jsonlite::unbox(self$`uri`)
+        rmzTabM::safe_unbox(self$`uri`)
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")

@@ -59,23 +59,23 @@ CV <- R6::R6Class(
       CVObject <- list()
       if (!is.null(self$`id`)) {
         CVObject[['id']] <-
-          jsonlite::unbox(self$`id`)
+          rmzTabM::safe_unbox(self$`id`)
       }
       if (!is.null(self$`label`)) {
         CVObject[['label']] <-
-          jsonlite::unbox(self$`label`)
+          rmzTabM::safe_unbox(self$`label`)
       }
       if (!is.null(self$`full_name`)) {
         CVObject[['full_name']] <-
-          jsonlite::unbox(self$`full_name`)
+          rmzTabM::safe_unbox(self$`full_name`)
       }
       if (!is.null(self$`version`)) {
         CVObject[['version']] <-
-          jsonlite::unbox(self$`version`)
+          rmzTabM::safe_unbox(self$`version`)
       }
       if (!is.null(self$`uri`)) {
         CVObject[['uri']] <-
-          jsonlite::unbox(self$`uri`)
+          rmzTabM::safe_unbox(self$`uri`)
       }
 
       CVObject
@@ -105,35 +105,35 @@ CV <- R6::R6Class(
         '"id":
           %d
                 ',
-        jsonlite::unbox(self$`id`)
+        rmzTabM::safe_unbox(self$`id`)
         )},
         if (!is.null(self$`label`)) {
         sprintf(
         '"label":
           "%s"
                 ',
-        jsonlite::unbox(self$`label`)
+        rmzTabM::safe_unbox(self$`label`)
         )},
         if (!is.null(self$`full_name`)) {
         sprintf(
         '"full_name":
           "%s"
                 ',
-        jsonlite::unbox(self$`full_name`)
+        rmzTabM::safe_unbox(self$`full_name`)
         )},
         if (!is.null(self$`version`)) {
         sprintf(
         '"version":
           "%s"
                 ',
-        jsonlite::unbox(self$`version`)
+        rmzTabM::safe_unbox(self$`version`)
         )},
         if (!is.null(self$`uri`)) {
         sprintf(
         '"uri":
           "%s"
                 ',
-        jsonlite::unbox(self$`uri`)
+        rmzTabM::safe_unbox(self$`uri`)
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")

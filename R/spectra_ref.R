@@ -38,11 +38,11 @@ SpectraRef <- R6::R6Class(
       SpectraRefObject <- list()
       if (!is.null(self$`ms_run`)) {
         SpectraRefObject[['ms_run']] <-
-          jsonlite::unbox(self$`ms_run`)
+          rmzTabM::safe_unbox(self$`ms_run`)
       }
       if (!is.null(self$`reference`)) {
         SpectraRefObject[['reference']] <-
-          jsonlite::unbox(self$`reference`)
+          rmzTabM::safe_unbox(self$`reference`)
       }
 
       SpectraRefObject
@@ -63,14 +63,14 @@ SpectraRef <- R6::R6Class(
         '"ms_run":
         %d
         ',
-        jsonlite::unbox(self$`ms_run`)
+        rmzTabM::safe_unbox(self$`ms_run`)
         )},
         if (!is.null(self$`reference`)) {
         sprintf(
         '"reference":
           "%s"
                 ',
-        jsonlite::unbox(self$`reference`)
+        rmzTabM::safe_unbox(self$`reference`)
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")

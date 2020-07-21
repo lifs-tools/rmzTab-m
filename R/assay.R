@@ -149,7 +149,7 @@ Assay <- R6::R6Class(
         '"sample_ref":
         %s
         ',
-        rmzTabM::safe_unbox(jsonlite::toJSON(self$`sample_ref`$toJSON(), auto_unbox=FALSE, null = "null", na = "null", digits = NA))
+        paste(unlist(lapply(self$`sample_ref`, function(x) paste0(x))), collapse=",")
         )},
         if (!is.null(self$`ms_run_ref`)) {
         sprintf(

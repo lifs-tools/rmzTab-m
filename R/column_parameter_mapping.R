@@ -38,7 +38,7 @@ ColumnParameterMapping <- R6::R6Class(
       ColumnParameterMappingObject <- list()
       if (!is.null(self$`column_name`)) {
         ColumnParameterMappingObject[['column_name']] <-
-          jsonlite::unbox(self$`column_name`)
+          rmzTabM::safe_unbox(self$`column_name`)
       }
       if (!is.null(self$`param`)) {
         ColumnParameterMappingObject[['param']] <-
@@ -65,7 +65,7 @@ ColumnParameterMapping <- R6::R6Class(
         '"column_name":
           "%s"
                 ',
-        jsonlite::unbox(self$`column_name`)
+        rmzTabM::safe_unbox(self$`column_name`)
         )},
         if (!is.null(self$`param`)) {
         sprintf(

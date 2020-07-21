@@ -37,8 +37,7 @@ ApiClient  <- R6::R6Class(
   'ApiClient',
   public = list(
     # base path of all requests
-    basePath = "http://localhost:8083/mztabvalidator/rest/v2",
-    #basePath = "https://apps.lifs.isas.de/mztabvalidator/rest/v2",
+    basePath = "https://apps.lifs.isas.de/mztabvalidator/rest/v2",
     # user agent in the HTTP request
     userAgent = "OpenAPI-Generator/1.0.0/r",
     # default headers in the HTTP request
@@ -129,7 +128,6 @@ ApiClient  <- R6::R6Class(
     deserializeObj = function(obj, returnType, pkgEnv) {
       returnObj <- NULL
       primitiveTypes <- c("character", "numeric", "integer", "logical", "complex")
-      #browser()
       # To handle the "map" type 
       if (startsWith(returnType, "map(")) {
         innerReturnType <- regmatches(returnType, regexec(pattern = "map\\((.*)\\)", returnType))[[1]][2]
@@ -141,9 +139,6 @@ ApiClient  <- R6::R6Class(
 
       # To handle the "array" type
       else if (startsWith(returnType, "array[")) {
-        # if(returnType=="array[Parameter]") {
-        #   browser()
-        # }
         innerReturnType <- regmatches(returnType, regexec(pattern = "array\\[(.*)\\]", returnType))[[1]][2]
         if (c(innerReturnType) %in% primitiveTypes) {
           returnObj <- vector("list", length = length(obj))
@@ -152,8 +147,8 @@ ApiClient  <- R6::R6Class(
               returnObj[[row]] <- unlist(self$deserializeObj(obj[row], innerReturnType, pkgEnv))
             }
           }
-        } else {
-          if (!is.null(nrow(obj))){
+        } else { # handle nested arrays
+          if (!is.null(nrow(obj))){ # data frame with multiple rows
             returnObj <- vector("list", length = nrow(obj))
             if (nrow(obj) > 0) {
               for (row in 1:nrow(obj)) {
@@ -164,19 +159,32 @@ ApiClient  <- R6::R6Class(
                 returnObj <- innerReturnType$new()
                 returnObj$fromJSON(jsonlite::toJSON(obj, auto_unbox  = FALSE, digits = NA))
             }
-          } else if(!is.null(length(obj))) { #nested lists of objects
-            if (length(obj) > 0 && is.null(nrow(obj[[1]]))) {
-              returnObj <- vector("list", length = length(obj))
-              for (row in 1:length(obj)) {
-                if (typeof(obj[[row]]) %in% primitiveTypes) {
-                  returnObj[[row]] <- obj
+          } else if(!is.null(length(obj))) { # handle lists
+            if (length(obj) > 0) {
+              if(is.null(nrow(obj[[1]]))) { # handle list of primitives
+                returnObj <- vector("list", length = length(obj))
+                for (row in 1:length(obj)) {
+                  if (typeof(obj[[row]]) %in% primitiveTypes) {
+                    returnObj[[row]] <- obj
+                  }
+                }
+              } else {
+                if (exists(innerReturnType, pkgEnv) && !(c(innerReturnType) %in% primitiveTypes)) { # handle list of model objects
+                  returnObj <- vector("list", length = length(obj))
+                  idx <- 1
+                  for (row in 1:length(obj)) {
+                    if (is.data.frame(obj[[row]])) { # resolve model objects in nested data frame
+                      for (dfrow in 1:nrow(obj[[row]])) {
+                        returnObj[[idx]] <- self$deserializeObj(obj[[row]][dfrow, ], innerReturnType, pkgEnv)  
+                        idx <- idx + 1
+                      }
+                    } else {
+                      returnObj[[idx]] <- self$deserializeObj(obj[[row]], innerReturnType, pkgEnv)
+                      idx <- idx + 1
+                    }
+                  }
                 }
               }
-            # } else if (exists(innerReturnType, pkgEnv) && !(c(innerReturnType) %in% primitiveTypes)) {
-            #   returnObj <- self$deserializeObj(obj, innerReturnType, pkgEnv)
-              # innerReturnType <- get(innerReturnType, envir = as.environment(pkgEnv))
-              # returnObj <- innerReturnType$new()
-              # returnObj$fromJSON(jsonlite::toJSON(obj, auto_unbox  = FALSE, digits = NA))
             }
           }
         }
@@ -186,7 +194,6 @@ ApiClient  <- R6::R6Class(
       else if (exists(returnType, pkgEnv) && !(c(returnType) %in% primitiveTypes)) {
         returnType <- get(returnType, envir = as.environment(pkgEnv))
         returnObj <- returnType$new()
-        #browser()
         returnObj$fromJSON(jsonlite::toJSON(obj, auto_unbox  = FALSE, digits = NA))
       } 
 

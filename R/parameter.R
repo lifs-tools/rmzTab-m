@@ -59,23 +59,23 @@ Parameter <- R6::R6Class(
       ParameterObject <- list()
       if (!is.null(self$`id`)) {
         ParameterObject[['id']] <-
-          jsonlite::unbox(self$`id`)
+          rmzTabM::safe_unbox(self$`id`)
       }
       if (!is.null(self$`cv_label`)) {
         ParameterObject[['cv_label']] <-
-          jsonlite::unbox(self$`cv_label`)
+          rmzTabM::safe_unbox(self$`cv_label`)
       }
       if (!is.null(self$`cv_accession`)) {
         ParameterObject[['cv_accession']] <-
-          jsonlite::unbox(self$`cv_accession`)
+          rmzTabM::safe_unbox(self$`cv_accession`)
       }
       if (!is.null(self$`name`)) {
         ParameterObject[['name']] <-
-          jsonlite::unbox(self$`name`)
+          rmzTabM::safe_unbox(self$`name`)
       }
       if (!is.null(self$`value`)) {
         ParameterObject[['value']] <-
-          jsonlite::unbox(self$`value`)
+          rmzTabM::safe_unbox(self$`value`)
       }
 
       ParameterObject
@@ -105,35 +105,35 @@ Parameter <- R6::R6Class(
         '"id":
           %d
                 ',
-        jsonlite::unbox(self$`id`)
+        rmzTabM::safe_unbox(self$`id`)
         )},
         if (!is.null(self$`cv_label`)) {
         sprintf(
         '"cv_label":
           "%s"
                 ',
-        jsonlite::unbox(self$`cv_label`)
+        rmzTabM::safe_unbox(self$`cv_label`)
         )},
         if (!is.null(self$`cv_accession`)) {
         sprintf(
         '"cv_accession":
           "%s"
                 ',
-        jsonlite::unbox(self$`cv_accession`)
+        rmzTabM::safe_unbox(self$`cv_accession`)
         )},
         if (!is.null(self$`name`)) {
         sprintf(
         '"name":
           "%s"
                 ',
-        jsonlite::unbox(self$`name`)
+        rmzTabM::safe_unbox(self$`name`)
         )},
         if (!is.null(self$`value`)) {
         sprintf(
         '"value":
           "%s"
                 ',
-        jsonlite::unbox(self$`value`)
+        rmzTabM::safe_unbox(self$`value`)
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")

@@ -93,7 +93,7 @@ ValidatePlainApi <- R6::R6Class(
       apiResponse <- self$ValidatePlainMzTabFileWithHttpInfo(mztabfile, level, max.errors, semantic.validation, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        apiResponse$content
+        apiResponse
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {

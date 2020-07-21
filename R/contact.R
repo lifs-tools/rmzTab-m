@@ -52,19 +52,19 @@ Contact <- R6::R6Class(
       ContactObject <- list()
       if (!is.null(self$`id`)) {
         ContactObject[['id']] <-
-          jsonlite::unbox(self$`id`)
+          rmzTabM::safe_unbox(self$`id`)
       }
       if (!is.null(self$`name`)) {
         ContactObject[['name']] <-
-          jsonlite::unbox(self$`name`)
+          rmzTabM::safe_unbox(self$`name`)
       }
       if (!is.null(self$`affiliation`)) {
         ContactObject[['affiliation']] <-
-          jsonlite::unbox(self$`affiliation`)
+          rmzTabM::safe_unbox(self$`affiliation`)
       }
       if (!is.null(self$`email`)) {
         ContactObject[['email']] <-
-          jsonlite::unbox(self$`email`)
+          rmzTabM::safe_unbox(self$`email`)
       }
 
       ContactObject
@@ -91,28 +91,28 @@ Contact <- R6::R6Class(
         '"id":
           %d
                 ',
-        jsonlite::unbox(self$`id`)
+        rmzTabM::safe_unbox(self$`id`)
         )},
         if (!is.null(self$`name`)) {
         sprintf(
         '"name":
           "%s"
                 ',
-        jsonlite::unbox(self$`name`)
+        rmzTabM::safe_unbox(self$`name`)
         )},
         if (!is.null(self$`affiliation`)) {
         sprintf(
         '"affiliation":
           "%s"
                 ',
-        jsonlite::unbox(self$`affiliation`)
+        rmzTabM::safe_unbox(self$`affiliation`)
         )},
         if (!is.null(self$`email`)) {
         sprintf(
         '"email":
           "%s"
                 ',
-        jsonlite::unbox(self$`email`)
+        rmzTabM::safe_unbox(self$`email`)
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")

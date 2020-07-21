@@ -46,7 +46,7 @@ Software <- R6::R6Class(
       SoftwareObject <- list()
       if (!is.null(self$`id`)) {
         SoftwareObject[['id']] <-
-          jsonlite::unbox(self$`id`)
+          rmzTabM::safe_unbox(self$`id`)
       }
       if (!is.null(self$`parameter`)) {
         SoftwareObject[['parameter']] <-
@@ -80,7 +80,7 @@ Software <- R6::R6Class(
         '"id":
           %d
                 ',
-        jsonlite::unbox(self$`id`)
+        rmzTabM::safe_unbox(self$`id`)
         )},
         if (!is.null(self$`parameter`)) {
         sprintf(

@@ -38,11 +38,11 @@ PublicationItem <- R6::R6Class(
       PublicationItemObject <- list()
       if (!is.null(self$`type`)) {
         PublicationItemObject[['type']] <-
-          jsonlite::unbox(self$`type`)
+          rmzTabM::safe_unbox(self$`type`)
       }
       if (!is.null(self$`accession`)) {
         PublicationItemObject[['accession']] <-
-          jsonlite::unbox(self$`accession`)
+          rmzTabM::safe_unbox(self$`accession`)
       }
 
       PublicationItemObject
@@ -63,14 +63,14 @@ PublicationItem <- R6::R6Class(
         '"type":
           "%s"
                 ',
-        jsonlite::unbox(self$`type`)
+        rmzTabM::safe_unbox(self$`type`)
         )},
         if (!is.null(self$`accession`)) {
         sprintf(
         '"accession":
           "%s"
                 ',
-        jsonlite::unbox(self$`accession`)
+        rmzTabM::safe_unbox(self$`accession`)
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")

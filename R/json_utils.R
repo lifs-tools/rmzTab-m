@@ -1,5 +1,9 @@
+#'
+#'This method adds a default value to return if its argument is null in comparison to rmzTabM::safe_unbox.
+#'
 #'@param x
 #'@param default the default value to return, if x is null
+#'@export
 safe_unbox <- function(x, default = NULL) {
   if (!is.atomic(x)) {
     if (is.null(x)) {
@@ -16,11 +20,13 @@ safe_unbox <- function(x, default = NULL) {
     }
   }
   if (is.null(x)) {
-    print(paste("Returning default value", default))
+    #print(paste("Returning default value", default))
     return(default)
   } 
+  if (is.list(x)) {
+   return(unlist(x))
+  }
   if (!is.atomic(x) || length(dim(x)) > 1) {
-    browser()
     print(paste(x, "is not atomic!"))
     stop("Only atomic vectors of length 1 or data frames with 1 row can be unboxed.")
   }

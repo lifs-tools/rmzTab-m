@@ -239,23 +239,23 @@ Metadata <- R6::R6Class(
       MetadataObject <- list()
       if (!is.null(self$`prefix`)) {
         MetadataObject[['prefix']] <-
-          jsonlite::unbox(self$`prefix`)
+          rmzTabM::safe_unbox(self$`prefix`)
       }
       if (!is.null(self$`mzTab-version`)) {
         MetadataObject[['mzTab-version']] <-
-          jsonlite::unbox(self$`mzTab-version`)
+          rmzTabM::safe_unbox(self$`mzTab-version`)
       }
       if (!is.null(self$`mzTab-ID`)) {
         MetadataObject[['mzTab-ID']] <-
-          jsonlite::unbox(self$`mzTab-ID`)
+          rmzTabM::safe_unbox(self$`mzTab-ID`)
       }
       if (!is.null(self$`title`)) {
         MetadataObject[['title']] <-
-          jsonlite::unbox(self$`title`)
+          rmzTabM::safe_unbox(self$`title`)
       }
       if (!is.null(self$`description`)) {
         MetadataObject[['description']] <-
-          jsonlite::unbox(self$`description`)
+          rmzTabM::safe_unbox(self$`description`)
       }
       if (!is.null(self$`sample_processing`)) {
         MetadataObject[['sample_processing']] <-
@@ -437,12 +437,12 @@ Metadata <- R6::R6Class(
       if (!is.null(MetadataObject$`id_confidence_measure`)) {
         self$`id_confidence_measure` <- ApiClient$new()$deserializeObj(MetadataObject$`id_confidence_measure`, "array[Parameter]", loadNamespace("rmzTabM"))
       }
-      if (!is.null(MetadataObject$`colunit-small_molecule`)) {
-        self$`colunit-small_molecule` <- ApiClient$new()$deserializeObj(MetadataObject$`colunit-small_molecule`, "array[ColumnParameterMapping]", loadNamespace("rmzTabM"))
-      }
-      if (!is.null(MetadataObject$`colunit-small_molecule_feature`)) {
-        self$`colunit-small_molecule_feature` <- ApiClient$new()$deserializeObj(MetadataObject$`colunit-small_molecule_feature`, "array[ColumnParameterMapping]", loadNamespace("rmzTabM"))
-      }
+      # if (!is.null(MetadataObject$`colunit-small_molecule`)) {
+      #   self$`colunit-small_molecule` <- ApiClient$new()$deserializeObj(MetadataObject$`colunit-small_molecule`, "array[ColumnParameterMapping]", loadNamespace("rmzTabM"))
+      # }
+      # if (!is.null(MetadataObject$`colunit-small_molecule_feature`)) {
+      #   self$`colunit-small_molecule_feature` <- ApiClient$new()$deserializeObj(MetadataObject$`colunit-small_molecule_feature`, "array[ColumnParameterMapping]", loadNamespace("rmzTabM"))
+      # }
       if (!is.null(MetadataObject$`colunit-small_molecule_evidence`)) {
         self$`colunit-small_molecule_evidence` <- ApiClient$new()$deserializeObj(MetadataObject$`colunit-small_molecule_evidence`, "array[ColumnParameterMapping]", loadNamespace("rmzTabM"))
       }
@@ -454,35 +454,35 @@ Metadata <- R6::R6Class(
         '"prefix":
           "%s"
                 ',
-        jsonlite::unbox(self$`prefix`)
+        rmzTabM::safe_unbox(self$`prefix`)
         )},
         if (!is.null(self$`mzTab-version`)) {
         sprintf(
         '"mzTab-version":
           "%s"
                 ',
-        jsonlite::unbox(self$`mzTab-version`)
+        rmzTabM::safe_unbox(self$`mzTab-version`)
         )},
         if (!is.null(self$`mzTab-ID`)) {
         sprintf(
         '"mzTab-ID":
           "%s"
                 ',
-        jsonlite::unbox(self$`mzTab-ID`)
+        rmzTabM::safe_unbox(self$`mzTab-ID`)
         )},
         if (!is.null(self$`title`)) {
         sprintf(
         '"title":
           "%s"
                 ',
-        jsonlite::unbox(self$`title`)
+        rmzTabM::safe_unbox(self$`title`)
         )},
         if (!is.null(self$`description`)) {
         sprintf(
         '"description":
           "%s"
                 ',
-        jsonlite::unbox(self$`description`)
+        rmzTabM::safe_unbox(self$`description`)
         )},
         if (!is.null(self$`sample_processing`)) {
         sprintf(
@@ -663,7 +663,7 @@ Metadata <- R6::R6Class(
       self$`contact` <- ApiClient$new()$deserializeObj(MetadataObject$`contact`, "array[Contact]", loadNamespace("rmzTabM"))
       self$`uri` <- ApiClient$new()$deserializeObj(MetadataObject$`uri`, "array[Uri]", loadNamespace("rmzTabM"))
       self$`external_study_uri` <- ApiClient$new()$deserializeObj(MetadataObject$`external_study_uri`, "array[Uri]", loadNamespace("rmzTabM"))
-      self$`quantification_method` <- Parameter$new()$fromJSONString(jsonlite::toJSON(MetadataObject$quantification_method, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
+      self$`quantification_method` <- Parameter$new()$fromJSONString(jsonlite::toJSON(MetadataObject$`quantification_method`, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
       self$`study_variable` <- ApiClient$new()$deserializeObj(MetadataObject$`study_variable`, "array[StudyVariable]", loadNamespace("rmzTabM"))
       self$`ms_run` <- ApiClient$new()$deserializeObj(MetadataObject$`ms_run`, "array[MsRun]", loadNamespace("rmzTabM"))
       self$`assay` <- ApiClient$new()$deserializeObj(MetadataObject$`assay`, "array[Assay]", loadNamespace("rmzTabM"))
@@ -672,9 +672,9 @@ Metadata <- R6::R6Class(
       self$`cv` <- ApiClient$new()$deserializeObj(MetadataObject$`cv`, "array[CV]", loadNamespace("rmzTabM"))
       self$`database` <- ApiClient$new()$deserializeObj(MetadataObject$`database`, "array[Database]", loadNamespace("rmzTabM"))
       self$`derivatization_agent` <- ApiClient$new()$deserializeObj(MetadataObject$`derivatization_agent`, "array[Parameter]", loadNamespace("rmzTabM"))
-      self$`small_molecule-quantification_unit` <- Parameter$new()$fromJSONString(jsonlite::toJSON(MetadataObject$small_molecule-quantification_unit, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
-      self$`small_molecule_feature-quantification_unit` <- Parameter$new()$fromJSONString(jsonlite::toJSON(MetadataObject$small_molecule_feature-quantification_unit, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
-      self$`small_molecule-identification_reliability` <- Parameter$new()$fromJSONString(jsonlite::toJSON(MetadataObject$small_molecule-identification_reliability, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
+      self$`small_molecule-quantification_unit` <- Parameter$new()$fromJSONString(jsonlite::toJSON(MetadataObject$`small_molecule-quantification_unit`, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
+      self$`small_molecule_feature-quantification_unit` <- Parameter$new()$fromJSONString(jsonlite::toJSON(MetadataObject$`small_molecule_feature-quantification_unit`, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
+      self$`small_molecule-identification_reliability` <- Parameter$new()$fromJSONString(jsonlite::toJSON(MetadataObject$`small_molecule-identification_reliability`, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
       self$`id_confidence_measure` <- ApiClient$new()$deserializeObj(MetadataObject$`id_confidence_measure`, "array[Parameter]", loadNamespace("rmzTabM"))
       self$`colunit-small_molecule` <- ApiClient$new()$deserializeObj(MetadataObject$`colunit-small_molecule`, "array[ColumnParameterMapping]", loadNamespace("rmzTabM"))
       self$`colunit-small_molecule_feature` <- ApiClient$new()$deserializeObj(MetadataObject$`colunit-small_molecule_feature`, "array[ColumnParameterMapping]", loadNamespace("rmzTabM"))

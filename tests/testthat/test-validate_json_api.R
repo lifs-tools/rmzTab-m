@@ -18,27 +18,22 @@ test_that("validation via REST API of mztab json works", {
   expect_false(is.null(metadataJsonObject))
   #cat(names(metadataJsonObject))
   expect_false(is.null(metadataJsonObject$`mzTab-version`))
+  expect_equal(as.character(metadataJsonObject$`mzTab-version`), "2.0.0-M")
   expect_false(is.null(metadataJsonObject$`mzTab-ID`))
-  browser()
-  expect_equal(metadataJsonObject$`mzTab-ID`, "ISAS-2018-1234")
+  expect_equal(as.character(metadataJsonObject$`mzTab-ID`), "ISAS-2018-1234")
   expect_false(is.null(metadataJsonObject$`description`))
   #metadataJsonObject$`title`
   expect_true(is.null(metadataJsonObject$`title`))
   expect_true(0 == length(metadataJsonObject$`title`))
-  validateApi <- ValidateApi$new()
+  #set a custom api client to use a different URL
+  apiClient <- ApiClient$new(basePath = "https://apps.lifs.isas.de/mztabvalidator-dev/rest/v2")
+  validateApi <- ValidateApi$new(apiClient = apiClient)
+
   #browser()
   response <- validateApi$ValidateMzTabFile(mzTabObject, 'info', 50, FALSE)
-  expect_false("API server error" == response$content)
-  #browser()
-  # the next test currently fails, there is an encoding error for description, which should be null in the json but is {}.
-  expect_false("API client error" == response$content)
-  
-  expect_false(is.null(mzTabObject$metadata))
-  # expect_false(is.null(mzTabObject$smallMoleculeSummary))
-  # expect_false(is.null(mzTabObject$smallMoleculeFeature))
-  # expect_false(is.null(mzTabObject$smallMoleculeEvidence))
-  # expect_equal(object = mzTabObject$`metadata`$`mzTab-ID`, "ISAS-2018-1234")
-  # expect_length(mzTabObject$`smallMoleculeSummary`,1)
-  # expect_length(mzTabObject$`smallMoleculeEvidence`,4)
-  # expect_length(mzTabObject$`smallMoleculeFeature`,4)
+  expect_equal(response$response$status_code, 200)
+  if (!is.null(response$content)) {
+    print(response$content)
+  }
+  expect_null(response$content)
 })

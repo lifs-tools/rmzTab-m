@@ -38,11 +38,11 @@ Uri <- R6::R6Class(
       UriObject <- list()
       if (!is.null(self$`id`)) {
         UriObject[['id']] <-
-           jsonlite::unbox(self$`id`)
+           rmzTabM::safe_unbox(self$`id`)
       }
       if (!is.null(self$`value`)) {
         UriObject[['value']] <-
-           jsonlite::unbox(self$`value`)
+           rmzTabM::safe_unbox(self$`value`)
       }
 
       UriObject
@@ -63,14 +63,14 @@ Uri <- R6::R6Class(
         '"id":
           %d
                 ',
-         jsonlite::unbox(self$`id`)
+         rmzTabM::safe_unbox(self$`id`)
         )},
         if (!is.null(self$`value`)) {
         sprintf(
         '"value":
           "%s"
                 ',
-         jsonlite::unbox(self$`value`)
+         rmzTabM::safe_unbox(self$`value`)
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")

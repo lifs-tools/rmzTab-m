@@ -39,7 +39,7 @@ SampleProcessing <- R6::R6Class(
       SampleProcessingObject <- list()
       if (!is.null(self$`id`)) {
         SampleProcessingObject[['id']] <-
-          jsonlite::unbox(self$`id`)
+          rmzTabM::safe_unbox(self$`id`)
       }
       if (!is.null(self$`sampleProcessing`)) {
         SampleProcessingObject[['sampleProcessing']] <-
@@ -64,7 +64,7 @@ SampleProcessing <- R6::R6Class(
         '"id":
           %d
                 ',
-        jsonlite::unbox(self$`id`)
+        rmzTabM::safe_unbox(self$`id`)
         )},
         if (!is.null(self$`sampleProcessing`)) {
         sprintf(

@@ -26,6 +26,7 @@ test_that("reading and writing of mztab json works", {
   expect_length(mzTabObject2$`smallMoleculeSummary`,1)
   expect_length(mzTabObject2$`smallMoleculeFeature`,4)
   expect_length(mzTabObject2$`smallMoleculeEvidence`,4)
+  expect_equal(mzTabObject, mzTabObject2)
 })
 
 #' @field mzTab-version 

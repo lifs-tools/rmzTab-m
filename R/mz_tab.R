@@ -153,6 +153,9 @@ MzTab <- R6::R6Class(
       self$`smallMoleculeEvidence` <- ApiClient$new()$deserializeObj(MzTabObject$`smallMoleculeEvidence`, "array[SmallMoleculeEvidence]", loadNamespace("rmzTabM"))
       self$`comment` <- ApiClient$new()$deserializeObj(MzTabObject$`comment`, "array[Comment]", loadNamespace("rmzTabM"))
       self
+    },
+    toDataFrame = function() {
+      
     }
   )
 )

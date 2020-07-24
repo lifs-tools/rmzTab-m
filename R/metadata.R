@@ -437,12 +437,12 @@ Metadata <- R6::R6Class(
       if (!is.null(MetadataObject$`id_confidence_measure`)) {
         self$`id_confidence_measure` <- ApiClient$new()$deserializeObj(MetadataObject$`id_confidence_measure`, "array[Parameter]", loadNamespace("rmzTabM"))
       }
-      # if (!is.null(MetadataObject$`colunit-small_molecule`)) {
-      #   self$`colunit-small_molecule` <- ApiClient$new()$deserializeObj(MetadataObject$`colunit-small_molecule`, "array[ColumnParameterMapping]", loadNamespace("rmzTabM"))
-      # }
-      # if (!is.null(MetadataObject$`colunit-small_molecule_feature`)) {
-      #   self$`colunit-small_molecule_feature` <- ApiClient$new()$deserializeObj(MetadataObject$`colunit-small_molecule_feature`, "array[ColumnParameterMapping]", loadNamespace("rmzTabM"))
-      # }
+      if (!is.null(MetadataObject$`colunit-small_molecule`)) {
+        self$`colunit-small_molecule` <- ApiClient$new()$deserializeObj(MetadataObject$`colunit-small_molecule`, "array[ColumnParameterMapping]", loadNamespace("rmzTabM"))
+      }
+      if (!is.null(MetadataObject$`colunit-small_molecule_feature`)) {
+        self$`colunit-small_molecule_feature` <- ApiClient$new()$deserializeObj(MetadataObject$`colunit-small_molecule_feature`, "array[ColumnParameterMapping]", loadNamespace("rmzTabM"))
+      }
       if (!is.null(MetadataObject$`colunit-small_molecule_evidence`)) {
         self$`colunit-small_molecule_evidence` <- ApiClient$new()$deserializeObj(MetadataObject$`colunit-small_molecule_evidence`, "array[ColumnParameterMapping]", loadNamespace("rmzTabM"))
       }
@@ -680,6 +680,12 @@ Metadata <- R6::R6Class(
       self$`colunit-small_molecule_feature` <- ApiClient$new()$deserializeObj(MetadataObject$`colunit-small_molecule_feature`, "array[ColumnParameterMapping]", loadNamespace("rmzTabM"))
       self$`colunit-small_molecule_evidence` <- ApiClient$new()$deserializeObj(MetadataObject$`colunit-small_molecule_evidence`, "array[ColumnParameterMapping]", loadNamespace("rmzTabM"))
       self
+    },
+    toDataFrame = function() {
+      metadataDf <- data.frame("V2","V3")
+      metadataDf$V1 <- "MTD"
+      
+      metadataDf
     }
   )
 )

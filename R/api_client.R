@@ -88,7 +88,7 @@ ApiClient  <- R6::R6Class(
         self$timeout <- timeout
       }
     },
-    CallApi = function(url, method, queryParams, headerParams, body, ...){
+    CallApi = function(url, method, queryParams, headerParams, body, contentType = "application/json", ...){
       headers <- httr::add_headers(c(headerParams, self$defaultHeaders))
 
       httpTimeout <- NULL
@@ -99,11 +99,11 @@ ApiClient  <- R6::R6Class(
       if (method == "GET") {
         httr::GET(url, query = queryParams, headers, httpTimeout, httr::user_agent(self$`userAgent`), ...)
       } else if (method == "POST") {
-        httr::POST(url, query = queryParams, headers, body = body, httr::content_type("application/json"), httpTimeout, httr::user_agent(self$`userAgent`), ...)
+        httr::POST(url, query = queryParams, headers, body = body, httr::content_type(contentType), httpTimeout, httr::user_agent(self$`userAgent`), ...)
       } else if (method == "PUT") {
-        httr::PUT(url, query = queryParams, headers, body = body, httr::content_type("application/json"), httpTimeout, httpTimeout, httr::user_agent(self$`userAgent`), ...)
+        httr::PUT(url, query = queryParams, headers, body = body, httr::content_type(contentType), httpTimeout, httpTimeout, httr::user_agent(self$`userAgent`), ...)
       } else if (method == "PATCH") {
-        httr::PATCH(url, query = queryParams, headers, body = body, httr::content_type("application/json"), httpTimeout, httpTimeout, httr::user_agent(self$`userAgent`), ...)
+        httr::PATCH(url, query = queryParams, headers, body = body, httr::content_type(contentType), httpTimeout, httpTimeout, httr::user_agent(self$`userAgent`), ...)
       } else if (method == "HEAD") {
         httr::HEAD(url, query = queryParams, headers, httpTimeout, httpTimeout, httr::user_agent(self$`userAgent`), ...)
       } else if (method == "DELETE") {
@@ -141,16 +141,16 @@ ApiClient  <- R6::R6Class(
       else if (startsWith(returnType, "array[")) {
         innerReturnType <- regmatches(returnType, regexec(pattern = "array\\[(.*)\\]", returnType))[[1]][2]
         if (c(innerReturnType) %in% primitiveTypes) {
-          returnObj <- vector("list", length = length(obj))
           if (length(obj) > 0) {
+            returnObj <- vector("list", length = length(obj))
             for (row in 1:length(obj)) {
               returnObj[[row]] <- unlist(self$deserializeObj(obj[row], innerReturnType, pkgEnv))
             }
           }
         } else { # handle nested arrays
           if (!is.null(nrow(obj))){ # data frame with multiple rows
-            returnObj <- vector("list", length = nrow(obj))
             if (nrow(obj) > 0) {
+              returnObj <- vector("list", length = nrow(obj))
               for (row in 1:nrow(obj)) {
                 returnObj[[row]] <- self$deserializeObj(obj[row, , drop = FALSE], innerReturnType, pkgEnv)
               }
@@ -161,7 +161,7 @@ ApiClient  <- R6::R6Class(
             }
           } else if(!is.null(length(obj))) { # handle lists
             if (length(obj) > 0) {
-              if(is.null(nrow(obj[[1]]))) { # handle list of primitives
+              if (is.null(nrow(obj[[1]]))) { # handle list of primitives
                 returnObj <- vector("list", length = length(obj))
                 for (row in 1:length(obj)) {
                   if (typeof(obj[[row]]) %in% primitiveTypes) {
@@ -170,17 +170,19 @@ ApiClient  <- R6::R6Class(
                 }
               } else {
                 if (exists(innerReturnType, pkgEnv) && !(c(innerReturnType) %in% primitiveTypes)) { # handle list of model objects
-                  returnObj <- vector("list", length = length(obj))
-                  idx <- 1
-                  for (row in 1:length(obj)) {
-                    if (is.data.frame(obj[[row]])) { # resolve model objects in nested data frame
-                      for (dfrow in 1:nrow(obj[[row]])) {
-                        returnObj[[idx]] <- self$deserializeObj(obj[[row]][dfrow, ], innerReturnType, pkgEnv)  
+                  if (length(obj) > 0) {
+                    idx <- 1
+                    returnObj <- vector("list", length = length(obj))
+                    for (row in 1:length(obj)) {
+                      if (is.data.frame(obj[[row]])) { # resolve model objects in nested data frame
+                        for (dfrow in 1:nrow(obj[[row]])) {
+                          returnObj[[idx]] <- self$deserializeObj(obj[[row]][dfrow, ], innerReturnType, pkgEnv)  
+                          idx <- idx + 1
+                        }
+                      } else {
+                        returnObj[[idx]] <- self$deserializeObj(obj[[row]], innerReturnType, pkgEnv)
                         idx <- idx + 1
                       }
-                    } else {
-                      returnObj[[idx]] <- self$deserializeObj(obj[[row]], innerReturnType, pkgEnv)
-                      idx <- idx + 1
                     }
                   }
                 }

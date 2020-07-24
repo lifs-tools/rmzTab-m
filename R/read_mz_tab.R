@@ -61,11 +61,12 @@ names(mtdRegexps) <- mtdIdElements
 #'
 extractMetadata <- function(mztab.table) {
   prefix <- "MTD"
-  mtd.table <- mztab.table[startsWith(as.character(mztab.table$V1), prefix),]
+  browser()
+  mtd.table <- mztab.table[startsWith(as.character(mztab.table$V1), prefix), c("V2","V3")]
   mzTabVersion <- asCharacter(extractPart(mtd.table, "V2", "mzTab-version"),1,"V3")
-  mzTabId <- asCharacter(extractPart(mtd.table, "V2", "mzTab-ID"))
-  title <- asCharacter(extractPart(mtd.table, "V2", "title"))
-  description <- asCharacter(extractPart(mtd.table, "V2", "description"))
+  mzTabId <- asCharacter(extractPart(mtd.table, "V2", "mzTab-ID"),1,"V3")
+  title <- asCharacter(extractPart(mtd.table, "V2", "title"),1,"V3")
+  description <- asCharacter(extractPart(mtd.table, "V2", "description"),1,"V3")
   sampleProcessings <- extractPart(mtd.table, "V2", "sample_processing")
   instruments <- extractPart(mtd.table, "V2", "instruments")
   softwares <- extractPart(mtd.table, "V2", "software")

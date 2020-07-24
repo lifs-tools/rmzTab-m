@@ -196,6 +196,7 @@ writeMzTab <- function(mztab, filename) {
   if(is.null(mztab$metadata)) {
     stop("Metadata must not be null!");
   }
+  browser()
   utils::write.table(mztab$metadata, file=filename,
               row.names=FALSE, col.names=FALSE,
               quote=TRUE, sep="\t", na="\"\"")

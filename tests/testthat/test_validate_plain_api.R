@@ -5,17 +5,45 @@ context("Test ValidatePlainApi")
 
 api.instance <- ValidatePlainApi$new()
 
-test_that("ValidatePlainMzTabFile", {
-  # tests for ValidatePlainMzTabFile
-  # base path: https://apps.lifs.isas.de/mztabvalidator/rest/v2
-  # Validates an mzTab file in plain text representation / tab-separated format and reports syntactic, structural, and semantic errors. 
-  # @param character  mztabfile  mzTab file that should be validated. 
-  # @param character  level  The level of errors that should be reported, one of ERROR, WARN, INFO.  (optional)
-  # @param integer  max.errors  The maximum number of errors to return.  (optional)
-  # @param character  semantic.validation  Whether a semantic validation against the default rule set should be performed.  (optional)
-  # @return [array[ValidationMessage]]
+test_that("validation via REST API of mztab TSV works", {
+  testfile <- system.file("testdata", c("lipidomics-example.mzTab"),package="rmzTabM")
+  mzTabString <- readChar(testfile, file.info(testfile)$size)
+  
+  #set a custom api client to use a different URL
+  apiClient <- ApiClient$new(basePath = "https://apps.lifs.isas.de/mztabvalidator-dev/rest/v2")
+  validateApi <- ValidatePlainApi$new(apiClient = apiClient)
+  response <- validateApi$ValidatePlainMzTabFile(mzTabString, 'info', 50, FALSE)
+  
+  # HTTP Code 200 means request was successfully validated with no messages.
+  expect_equal(response$response$status_code, 200)
+  if (!is.null(response$content)) {
+    print(response$content)
+  }
+  expect_null(response$content)
+  
+  # retrieve the validation messages
+  validationMessages <- apiClient$deserialize(resp = response$response, returnType = "array[ValidationMessage]", loadNamespace("rmzTabM"))
+  expect_equal(length(validationMessages), 0)
+})
 
-  # uncomment below to test the operation
-  #expect_equal(result, "EXPECTED_RESULT")
+test_that("validation via REST API of mzTab TSV with an error works", {
+  testfile <- system.file("testdata", c("lipidomics-example-broken.mzTab"),package="rmzTabM")
+  mzTabString <- readChar(testfile, file.info(testfile)$size)
+  
+  #set a custom api client to use a different URL
+  apiClient <- ApiClient$new(basePath = "https://apps.lifs.isas.de/mztabvalidator-dev/rest/v2")
+  validateApi <- ValidatePlainApi$new(apiClient = apiClient)
+  response <- validateApi$ValidatePlainMzTabFile(mzTabString, 'info', 50, FALSE)
+  
+  # HTTP Code 422 is invalid input
+  expect_equal(response$response$status_code, 422)
+  expect_equal(response$content, "API client error")
+  
+  # retrieve the validation messages
+  validationMessages <- apiClient$deserialize(resp = response$response, returnType = "array[ValidationMessage]", loadNamespace("rmzTabM"))
+  expect_equal(length(validationMessages), 1)
+  expect_equal(validationMessages[[1]]$category, "logical")
+  expect_equal(validationMessages[[1]]$message_type, "error")
+  expect_equal(validationMessages[[1]]$line_number, 84)
 })
 

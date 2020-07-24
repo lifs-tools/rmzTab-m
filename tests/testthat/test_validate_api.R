@@ -3,19 +3,36 @@
 
 context("Test ValidateApi")
 
-api.instance <- ValidateApi$new()
-
-test_that("ValidateMzTabFile", {
-  # tests for ValidateMzTabFile
-  # base path: https://apps.lifs.isas.de/mztabvalidator/rest/v2
-  # Validates an mzTab file in XML or JSON representation and reports syntactic, structural, and semantic errors. 
-  # @param MzTab  mztabfile  mzTab file that should be validated. 
-  # @param character  level  The level of errors that should be reported, one of ERROR, WARN, INFO.  (optional)
-  # @param integer  max.errors  The maximum number of errors to return.  (optional)
-  # @param character  semantic.validation  Whether a semantic validation against the default rule set should be performed.  (optional)
-  # @return [array[ValidationMessage]]
-
-  # uncomment below to test the operation
-  #expect_equal(result, "EXPECTED_RESULT")
+test_that("validation via REST API of mztab json works", {
+  testfile <- system.file("testdata", c("lipidomics-example.mzTab.json"),package="rmzTabM")
+  mzTabObject <- MzTab$new()
+  mzTabObject$fromJSON(testfile)
+  metadataJsonObject <- mzTabObject$`metadata`$toJSON()
+  
+  # perform some sanity checks, reading and writing are tested in test_read_mztab.R and test_write_mztab.R
+  expect_false(is.null(metadataJsonObject))
+  expect_false(is.null(metadataJsonObject$`mzTab-version`))
+  expect_equal(as.character(metadataJsonObject$`mzTab-version`), "2.0.0-M")
+  expect_false(is.null(metadataJsonObject$`mzTab-ID`))
+  expect_equal(as.character(metadataJsonObject$`mzTab-ID`), "ISAS-2018-1234")
+  expect_false(is.null(metadataJsonObject$`description`))
+  expect_true(is.null(metadataJsonObject$`title`))
+  expect_true(0 == length(metadataJsonObject$`title`))
+  
+  # set a custom api client to use a different URL
+  apiClient <- ApiClient$new(basePath = "https://apps.lifs.isas.de/mztabvalidator-dev/rest/v2")
+  validateApi <- ValidateApi$new(apiClient = apiClient)
+  
+  response <- validateApi$ValidateMzTabFile(mzTabObject, 'info', 50, FALSE)
+  
+  # HTTP code means, that the file is valid at the current validation level 'info'.
+  expect_equal(response$response$status_code, 200)
+  if (!is.null(response$content)) {
+    print(response$content)
+  }
+  expect_null(response$content)
+  
+  # retrieve the validation messages
+  validationMessages <- apiClient$deserialize(resp = response$response, returnType = "array[ValidationMessage]", loadNamespace("rmzTabM"))
+  expect_equal(length(validationMessages), 0)
 })
-

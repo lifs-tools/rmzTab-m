@@ -71,7 +71,15 @@ Do not edit the class manually.
 \if{latex}{\out{\hypertarget{method-CallApi}{}}}
 \subsection{Method \code{CallApi()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ApiClient$CallApi(url, method, queryParams, headerParams, body, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{ApiClient$CallApi(
+  url,
+  method,
+  queryParams,
+  headerParams,
+  body,
+  contentType = "application/json",
+  ...
+)}\if{html}{\out{</div>}}
 }
 
 }

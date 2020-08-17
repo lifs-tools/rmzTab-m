@@ -62,7 +62,7 @@ Validates an mzTab file in plain text representation / tab-separated format and 
 ####################  ValidatePlainMzTabFile  ####################
 
 library(rmzTabM)
-var.mztabfile <- 'mztabfile_example' # character | mzTab file that should be validated.
+var.mztabfile <- 'mztabfile_example' # character | mzTab string content that should be validated.
 var.level <- 'info' # character | The level of errors that should be reported, one of ERROR, WARN, INFO.
 var.max.errors <- 100 # integer | The maximum number of errors to return.
 var.semantic.validation <- FALSE # character | Whether a semantic validation against the default rule set should be performed.

@@ -33,6 +33,7 @@ MzTab Class
 \item \href{#method-fromJSON}{\code{MzTab$fromJSON()}}
 \item \href{#method-toJSONString}{\code{MzTab$toJSONString()}}
 \item \href{#method-fromJSONString}{\code{MzTab$fromJSONString()}}
+\item \href{#method-toDataFrame}{\code{MzTab$toDataFrame()}}
 \item \href{#method-clone}{\code{MzTab$clone()}}
 }
 }
@@ -85,6 +86,15 @@ MzTab Class
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{MzTab$fromJSONString(MzTabJson)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-toDataFrame"></a>}}
+\if{latex}{\out{\hypertarget{method-toDataFrame}{}}}
+\subsection{Method \code{toDataFrame()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{MzTab$toDataFrame()}\if{html}{\out{</div>}}
 }
 
 }

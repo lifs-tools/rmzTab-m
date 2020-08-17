@@ -79,6 +79,7 @@ Metadata Class
 \item \href{#method-fromJSON}{\code{Metadata$fromJSON()}}
 \item \href{#method-toJSONString}{\code{Metadata$toJSONString()}}
 \item \href{#method-fromJSONString}{\code{Metadata$fromJSONString()}}
+\item \href{#method-toDataFrame}{\code{Metadata$toDataFrame()}}
 \item \href{#method-clone}{\code{Metadata$clone()}}
 }
 }
@@ -154,6 +155,15 @@ Metadata Class
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Metadata$fromJSONString(MetadataJson)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-toDataFrame"></a>}}
+\if{latex}{\out{\hypertarget{method-toDataFrame}{}}}
+\subsection{Method \code{toDataFrame()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Metadata$toDataFrame()}\if{html}{\out{</div>}}
 }
 
 }

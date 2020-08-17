@@ -7,6 +7,8 @@
 safe_unbox(x, default = NULL)
 }
 \arguments{
+\item{x}{the list, vector, or array object to unbox into a singleton}
+
 \item{default}{the default value to return, if x is null}
 }
 \description{

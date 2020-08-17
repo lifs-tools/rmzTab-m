@@ -14,7 +14,8 @@ rbind.ragged <- function(x, y) {
   y <- as.data.frame(y) 
   colnames(x) <- seq(1:ncol(x))
   colnames(y) <- seq(1:ncol(y))
-  plyr::rbind.fill(x,y)
+  #plyr::rbind.fill(x,y)``
+  dplyr::bind_rows(x,y)
 }
 
 cvTerm <- function(CV, accession, name, value) {

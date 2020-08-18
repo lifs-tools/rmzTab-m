@@ -106,6 +106,33 @@ Software <- R6::R6Class(
       self$`parameter` <- Parameter$new()$fromJSONString(jsonlite::toJSON(SoftwareObject$parameter, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
       self$`setting` <- ApiClient$new()$deserializeObj(SoftwareObject$`setting`, "array[character]", loadNamespace("rmzTabM"))
       self
+    },
+    toDataFrame = function() {
+      idPrefix <- paste0("software[", self$`id`, "]")
+      elements <- data.frame(PREFIX=character(), KEY=character(), VALUE=character())
+      if (!is.null(self$`parameter`)) {
+        parameter <-
+          list(
+            PREFIX = "MTD",
+            KEY = idPrefix,
+            VALUE = self$`parameter`$toString()
+          )
+        elements <-
+          rbind(elements,
+                parameter,
+                stringsAsFactors = FALSE)
+      }
+      if (!is.null(self$`setting`)) {
+        fl <- lapply(seq_along(self$`setting`), function(idx, elements, idPrefix) {
+          lapply(seq_along(elements[[idx]]), function(eidx, idx, element, idPrefix) {
+            list(PREFIX = "MTD", KEY=paste(idPrefix, paste0("setting[", eidx, "]"), sep="-"), VALUE=element[[eidx]])  
+          }, idx=idx, element=elements[[idx]], idPrefix=idPrefix)
+        }, elements=self$`setting`, idPrefix=idPrefix) %>% dplyr::bind_rows()
+        elements <-
+          rbind(elements,
+                fl,
+                stringsAsFactors = FALSE)
+      }
     }
   )
 )

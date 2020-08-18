@@ -81,6 +81,9 @@ PublicationItem <- R6::R6Class(
       self$`type` <- PublicationItemObject$`type`
       self$`accession` <- PublicationItemObject$`accession`
       self
+    },
+    toString = function() {
+      paste(self$`type`, self$`accession`, sep=":")
     }
   )
 )

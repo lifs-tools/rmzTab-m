@@ -147,6 +147,55 @@ CV <- R6::R6Class(
       self$`version` <- CVObject$`version`
       self$`uri` <- CVObject$`uri`
       self
+    },
+    toDataFrame = function() {
+      idPrefix <- paste0("cv[", self$`id`, "]")
+      elements <- data.frame(PREFIX=character(), KEY=character(), VALUE=character())
+      if (!is.null(self$`label`)) {
+        label <- list(
+          PREFIX = "MTD",
+          KEY = paste(idPrefix, "label", sep = "-"),
+          VALUE = self$`label`
+        )
+        elements <-
+          rbind(elements,
+                label,
+                stringsAsFactors = FALSE)
+      }
+      if (!is.null(self$`full_name`)) {
+        full_name <- list(
+          PREFIX = "MTD",
+          KEY = paste(idPrefix, "full_name", sep = "-"),
+          VALUE = self$`full_name`
+        )
+        elements <-
+          rbind(elements,
+                full_name,
+                stringsAsFactors = FALSE)
+      }
+      if (!is.null(self$`version`)) {
+        version <- list(
+          PREFIX = "MTD",
+          KEY = paste(idPrefix, "version", sep = "-"),
+          VALUE = self$`version`
+        )
+        elements <-
+          rbind(elements,
+                version,
+                stringsAsFactors = FALSE)
+      }
+      if (!is.null(self$`uri`)) {
+        uri <- list(
+          PREFIX = "MTD",
+          KEY = paste(idPrefix, "uri", sep = "-"),
+          VALUE = self$`uri`
+        )
+        elements <-
+          rbind(elements,
+                uri,
+                stringsAsFactors = FALSE)
+      }
+      elements
     }
   )
 )

@@ -682,9 +682,105 @@ Metadata <- R6::R6Class(
       self
     },
     toDataFrame = function() {
-      metadataDf <- data.frame("V2","V3")
-      metadataDf$V1 <- "MTD"
-      
+      elements <- data.frame(PREFIX=character(), KEY=character(), VALUE=character())
+      if(!is.null(self$`mzTab-version`)) {
+          mzTabVersion <-
+            list(
+              PREFIX = "MTD",
+              KEY = "mzTab-version",
+              VALUE = self$`mzTab-version`
+            )
+          elements <-
+            rbind(elements,
+                  mzTabVersion,
+                  stringsAsFactors = FALSE)
+      }
+      if(!is.null(self$`mzTab-ID`)) {
+        mzTabId <-
+          list(
+            PREFIX = "MTD",
+            KEY = "mzTab-ID",
+            VALUE = self$`mzTab-ID`
+          )
+        elements <-
+          rbind(elements,
+                mzTabId,
+                stringsAsFactors = FALSE)
+      }
+      if(!is.null(self$`title`)) {
+        title <-
+          list(
+            PREFIX = "MTD",
+            KEY = "title",
+            VALUE = self$`title`
+          )
+        elements <-
+          rbind(elements,
+                title,
+                stringsAsFactors = FALSE)
+      }
+      if(!is.null(self$`description`)) {
+        description <-
+          list(
+            PREFIX = "MTD",
+            KEY = "description",
+            VALUE = self$`description`
+          )
+        elements <-
+          rbind(elements,
+                description,
+                stringsAsFactors = FALSE)
+      }
+      if(!is.null(self$`sample_processing`)) {
+        sampleProcessing <- lapply(self$`sample_processing`, function(x){x$toDataFrame()}) %>% dplyr::bind_rows()
+        elements <-
+          rbind(elements,
+                sampleProcessing,
+                stringsAsFactors = FALSE)
+      }
+      if(!is.null(self$`instrument`)) {
+        instrument <- lapply(self$`instrument`, function(x){x$toDataFrame()}) %>% dplyr::bind_rows()
+        elements <-
+          rbind(elements,
+                instrument,
+                stringsAsFactors = FALSE)
+      }
+      if(!is.null(self$`software`)) {
+        software <- lapply(self$`software`, function(x){x$toDataFrame()}) %>% dplyr::bind_rows()
+        elements <-
+          rbind(elements,
+                software,
+                stringsAsFactors = FALSE)
+      }
+      if(!is.null(self$`publication`)) {
+        publication <- lapply(self$`publication`, function(x){
+          x$toDataFrame()
+        }) %>% dplyr::bind_rows()
+        elements <-
+          rbind(elements,
+                publication,
+                stringsAsFactors = FALSE)
+      }
+      browser()
+      if(!is.null(self$`contact`)) {}
+      if(!is.null(self$`uri`)) {}
+      if(!is.null(self$`external_study_uri`)) {}
+      if(!is.null(self$`quantification_method`)) {}
+      if(!is.null(self$`study_variable`)) {}
+      if(!is.null(self$`ms_run`)) {}
+      if(!is.null(self$`assay`)) {}
+      if(!is.null(self$`sample`)) {}
+      if(!is.null(self$`custom`)) {}
+      if(!is.null(self$`cv`)) {}
+      if(!is.null(self$`database`)) {}
+      if(!is.null(self$`derivatization_agent`)) {}
+      if(!is.null(self$`small_molecule-quantification_unit`)) {}
+      if(!is.null(self$`small_molecule_feature-quantification_unit`)) {}
+      if(!is.null(self$`small_molecule-identification_reliability`)) {}
+      if(!is.null(self$`id_confidence_measure`)) {}
+      if(!is.null(self$`colunit-small_molecule`)) {}
+      if(!is.null(self$`colunit-small_molecule_feature`)) {}
+      if(!is.null(self$`colunit-small_molecule_evidence`)) {}
       metadataDf
     }
   )

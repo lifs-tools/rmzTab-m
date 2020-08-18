@@ -13,6 +13,13 @@ ref.json <- '{
         "cv_accession" : "MSIO:0000148",
         "name" : "high performance liquid chromatography",
         "value" : null
+      },
+      {
+        "id" : null,
+        "cv_label" : "MSIO",
+        "cv_accession" : "MSIO:0000148",
+        "name" : "high performance liquid chromatography",
+        "value" : null
       } ]
     }'
 
@@ -20,7 +27,7 @@ test_that("sampleProcessing", {
   
   model.instance <- model.instance$fromJSONString(ref.json)
   expect_equal(model.instance$`id`, 1)
-  expect_equal(length(model.instance$`sampleProcessing`), 1)
+  expect_equal(length(model.instance$`sampleProcessing`), 2)
   expect_null(model.instance$`sampleProcessing`[[1]]$`id`)
   expect_equal(model.instance$`sampleProcessing`[[1]]$`cv_label`, "MSIO")
   expect_equal(model.instance$`sampleProcessing`[[1]]$`cv_accession`, "MSIO:0000148")
@@ -30,5 +37,13 @@ test_that("sampleProcessing", {
   restored.model.instance <- SampleProcessing$new()
   restored.model.instance$fromJSONString(model.instance$toJSONString())
   expect_equal(model.instance, restored.model.instance)
+})
+
+test_that("sampleProcessing$toDataFrame()", {
+  model.instance <- model.instance$fromJSONString(ref.json)
+  df <- model.instance$toDataFrame()
+  expect_equal(df[1, "PREFIX"], "MTD")
+  expect_equal(df[1, "KEY"], "sample_processing[1]")
+  expect_equal(df[1, "VALUE"], "[MSIO, MSIO:0000148, high performance liquid chromatography, ]|[MSIO, MSIO:0000148, high performance liquid chromatography, ]")
 })
 

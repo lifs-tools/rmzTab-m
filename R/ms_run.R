@@ -62,8 +62,7 @@ MsRun <- R6::R6Class(
         self$`location` <- `location`
       }
       if (!is.null(`instrument_ref`)) {
-        stopifnot(is.vector(`instrument_ref`), length(`instrument_ref`) != 0)
-        sapply(`instrument_ref`, function(x) stopifnot(is.character(x)))
+        stopifnot(is.numeric(`instrument_ref`), length(`instrument_ref`) == 1)
         self$`instrument_ref` <- `instrument_ref`
       }
       if (!is.null(`format`)) {
@@ -150,7 +149,7 @@ MsRun <- R6::R6Class(
         self$`location` <- MsRunObject$`location`
       }
       if (!is.null(MsRunObject$`instrument_ref`)) {
-        self$`instrument_ref` <- MsRunObject$`instrument_ref`#ApiClient$new()$deserializeObj(MsRunObject$`instrument_ref`, "array[integer]", loadNamespace("rmzTabM"))
+        self$`instrument_ref` <- MsRunObject$`instrument_ref`
       }
       if (!is.null(MsRunObject$`format`)) {
         formatObject <- Parameter$new()
@@ -205,7 +204,7 @@ MsRun <- R6::R6Class(
         '"instrument_ref":
         %s
         ',
-        paste(unlist(lapply(self$`ms_run_ref`, function(x) paste0(x))), collapse=",")
+        rmzTabM::safe_unbox(self$`instrument_ref`)
         )},
         if (!is.null(self$`format`)) {
         sprintf(
@@ -258,7 +257,7 @@ MsRun <- R6::R6Class(
       self$`id` <- MsRunObject$`id`
       self$`name` <- MsRunObject$`name`
       self$`location` <- MsRunObject$`location`
-      self$`instrument_ref` <- Instrument$new()$fromJSONString(jsonlite::toJSON(MsRunObject$instrument_ref, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
+      self$`instrument_ref` <- MsRunObject$`instrument_ref`
       self$`format` <- Parameter$new()$fromJSONString(jsonlite::toJSON(MsRunObject$format, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
       self$`id_format` <- Parameter$new()$fromJSONString(jsonlite::toJSON(MsRunObject$id_format, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
       self$`fragmentation_method` <- ApiClient$new()$deserializeObj(MsRunObject$`fragmentation_method`, "array[Parameter]", loadNamespace("rmzTabM"))
@@ -266,6 +265,111 @@ MsRun <- R6::R6Class(
       self$`hash` <- MsRunObject$`hash`
       self$`hash_method` <- Parameter$new()$fromJSONString(jsonlite::toJSON(MsRunObject$hash_method, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
       self
+    },
+    toDataFrame = function() {
+      idPrefix <- paste0("ms_run[", self$`id`, "]")
+      elements <- data.frame(PREFIX=character(), KEY=character(), VALUE=character())
+      if (!is.null(self$`name`)) {
+        name <- list(
+          PREFIX = "MTD",
+          KEY = paste(idPrefix, "name", sep = "-"),
+          VALUE = self$`name`
+        )
+        elements <-
+          rbind(elements,
+                name,
+                stringsAsFactors = FALSE)
+      }
+      if (!is.null(self$`location`)) {
+        location <- list(
+          PREFIX = "MTD",
+          KEY = paste(idPrefix, "location", sep="-"),
+          VALUE = self$`location`
+        )
+        elements <-
+          rbind(elements,
+                location,
+                stringsAsFactors = FALSE)
+      }
+      if (!is.null(self$`instrument_ref`)) {
+        instrumentRef <-
+          list(
+            PREFIX = "MTD",
+            KEY = paste(idPrefix, "instrument_ref", sep = "-"),
+            VALUE = paste0("instrument[", self$`instrument_ref`, "]")
+          )
+        elements <-
+          rbind(elements,
+                instrumentRef,
+                stringsAsFactors = FALSE)
+      }
+      if (!is.null(self$`format`)) {
+        format <-
+          list(
+            PREFIX = "MTD",
+            KEY = paste(idPrefix, "format", sep = "-"),
+            VALUE = self$`format`$toString()
+          )
+        elements <-
+          rbind(elements,
+                format,
+                stringsAsFactors = FALSE)
+      }
+      if (!is.null(self$`id_format`)) {
+        idFormat <-
+          list(
+            PREFIX = "MTD",
+            KEY = paste(idPrefix, "id_format", sep = "-"),
+            VALUE = self$`id_format`$toString()
+          )
+        elements <-
+          rbind(elements,
+                idFormat,
+                stringsAsFactors = FALSE)
+      }
+      if (!is.null(self$`fragmentation_method`)) {
+        fl <- lapply(seq_along(self$`fragmentation_method`), function(idx, elements, idPrefix) {
+          list(PREFIX = "MTD", KEY=paste(idPrefix, paste0("fragmentation_method[", idx, "]"), sep="-"), VALUE=elements[[idx]]$toString())
+        }, elements=self$`fragmentation_method`, idPrefix=idPrefix) %>% dplyr::bind_rows()
+        elements <-
+          rbind(elements,
+                fl,
+                stringsAsFactors = FALSE)
+      }
+      if (!is.null(self$`scan_polarity`)) {
+        fl <- lapply(seq_along(self$`scan_polarity`), function(idx, elements, idPrefix) {
+          list(PREFIX = "MTD", KEY=paste(idPrefix, paste0("scan_polarity[", idx, "]"), sep="-"), VALUE=elements[[idx]]$toString())
+        }, elements=self$`scan_polarity`, idPrefix=idPrefix) %>% dplyr::bind_rows()
+        elements <-
+          rbind(elements,
+                fl,
+                stringsAsFactors = FALSE)
+      }
+      if (!is.null(self$`hash`)) {
+        hashValue <-
+          list(
+            PREFIX = "MTD",
+            KEY = paste(idPrefix, "hash", sep = "-"),
+            VALUE = self$`hash`
+          )
+        elements <-
+          rbind(elements,
+                hashValue,
+                stringsAsFactors = FALSE)
+      }
+      if (!is.null(self$`hash_method`)) {
+        hashMethod <-
+          list(
+            PREFIX = "MTD",
+            KEY = paste(idPrefix, "hash_method", sep = "-"),
+            VALUE = self$`hash_method`$toString()
+          )
+        elements <-
+          rbind(elements,
+                hashMethod,
+                stringsAsFactors = FALSE)
+      }
+      elements
     }
   )
 )

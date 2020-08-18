@@ -197,6 +197,74 @@ StudyVariable <- R6::R6Class(
       self$`description` <- StudyVariableObject$`description`
       self$`factors` <- ApiClient$new()$deserializeObj(StudyVariableObject$`factors`, "array[Parameter]", loadNamespace("rmzTabM"))
       self
+    },
+    toDataFrame = function() {
+      idPrefix <- paste0("study_variable[", self$`id`, "]")
+      elements <- data.frame(PREFIX=character(), KEY=character(), VALUE=character())
+      if (!is.null(self$`name`)) {
+        name <- list(
+          PREFIX = "MTD",
+          KEY = paste(idPrefix, "name", sep = "-"),
+          VALUE = self$`name`
+        )
+        elements <-
+          rbind(elements,
+                name,
+                stringsAsFactors = FALSE)
+      }
+      if (!is.null(self$`assay_refs`)) {
+        assayRefsString <- paste(lapply(self$`assay_refs`, function(x) paste0("assay[", x, "]")), collapse="|")
+        elements <-
+          rbind(elements,
+                list(PREFIX = "MTD", KEY=paste(idPrefix, "assay_refs", sep="-"), VALUE=assayRefsString),
+                stringsAsFactors = FALSE)
+      }
+      if (!is.null(self$`average_function`)) {
+        average_function <-
+          list(
+            PREFIX = "MTD",
+            KEY = paste(idPrefix, "average_function", sep = "-"),
+            VALUE = self$`average_function`$toString()
+          )
+        elements <-
+          rbind(elements,
+                average_function,
+                stringsAsFactors = FALSE)
+      }
+      if (!is.null(self$`variation_function`)) {
+        variation_function <-
+          list(
+            PREFIX = "MTD",
+            KEY = paste(idPrefix, "variation_function", sep = "-"),
+            VALUE = self$`variation_function`$toString()
+          )
+        elements <-
+          rbind(elements,
+                variation_function,
+                stringsAsFactors = FALSE)
+      }
+      if (!is.null(self$`description`)) {
+        description <-
+          list(
+            PREFIX = "MTD",
+            KEY = paste(idPrefix, "description", sep = "-"),
+            VALUE = self$`description`
+          )
+        elements <-
+          rbind(elements,
+                description,
+                stringsAsFactors = FALSE)
+      }
+      if (!is.null(self$`factors`)) {
+        fl <- lapply(seq_along(self$`factors`), function(idx, elements, idPrefix) {
+          list(PREFIX = "MTD", KEY=paste(idPrefix, paste0("factors[", idx, "]"), sep="-"), VALUE=elements[[idx]]$toString())
+        }, elements=self$`factors`, idPrefix=idPrefix) %>% dplyr::bind_rows()
+        elements <-
+          rbind(elements,
+                fl,
+                stringsAsFactors = FALSE)
+      }
+      elements
     }
   )
 )

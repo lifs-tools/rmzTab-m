@@ -82,6 +82,18 @@ Publication <- R6::R6Class(
       self$`id` <- PublicationObject$`id`
       self$`publicationItems` <- ApiClient$new()$deserializeObj(PublicationObject$`publicationItems`, "array[PublicationItem]", loadNamespace("rmzTabM"))
       self
+    },
+    toDataFrame = function() {
+      idPrefix <- paste0("publication[", self$`id`, "]")
+      elements <- data.frame(PREFIX=character(), KEY=character(), VALUE=character())
+      if (!is.null(self$`publicationItems`)) {
+        publicationItemsString <- paste0(lapply(self$`publicationItems`, function(x) x$toString()), collapse="|")
+        elements <-
+          rbind(elements,
+                list(PREFIX = "MTD", KEY=idPrefix, VALUE=publicationItemsString),
+                stringsAsFactors = FALSE)
+      }
+      elements
     }
   )
 )

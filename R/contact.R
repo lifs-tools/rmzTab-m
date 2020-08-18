@@ -125,6 +125,44 @@ Contact <- R6::R6Class(
       self$`affiliation` <- ContactObject$`affiliation`
       self$`email` <- ContactObject$`email`
       self
+    },
+    toDataFrame = function() {
+      idPrefix <- paste0("contact[", self$`id`, "]")
+      elements <- data.frame(PREFIX=character(), KEY=character(), VALUE=character())
+      if (!is.null(self$`name`)) {
+        name <- list(
+          PREFIX = "MTD",
+          KEY = paste(idPrefix, "name", sep = "-"),
+          VALUE = self$`name`
+        )
+        elements <-
+          rbind(elements,
+                name,
+                stringsAsFactors = FALSE)
+      }
+      if (!is.null(self$`affiliation`)) {
+        affiliation <- list(
+          PREFIX = "MTD",
+          KEY = paste(idPrefix, "affiliation", sep = "-"),
+          VALUE = self$`affiliation`
+        )
+        elements <-
+          rbind(elements,
+                affiliation,
+                stringsAsFactors = FALSE)
+      }
+      if (!is.null(self$`email`)) {
+        email <- list(
+          PREFIX = "MTD",
+          KEY = paste(idPrefix, "email", sep = "-"),
+          VALUE = self$`email`
+        )
+        elements <-
+          rbind(elements,
+                email,
+                stringsAsFactors = FALSE)
+      }
+      elements
     }
   )
 )

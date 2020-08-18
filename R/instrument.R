@@ -154,6 +154,56 @@ Instrument <- R6::R6Class(
       self$`analyzer` <- ApiClient$new()$deserializeObj(InstrumentObject$`analyzer`, "array[Parameter]", loadNamespace("rmzTabM"))
       self$`detector` <- Parameter$new()$fromJSONString(jsonlite::toJSON(InstrumentObject$detector, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
       self
+    },
+    toDataFrame = function() {
+      idPrefix <- paste0("instrument[", self$`id`, "]")
+      elements <- data.frame(PREFIX=character(), KEY=character(), VALUE=character())
+      if (!is.null(self$`name`)) {
+        name <-
+          list(
+            PREFIX = "MTD",
+            KEY = paste(idPrefix, "name", sep = "-"),
+            VALUE = self$`name`$toString()
+          )
+        elements <-
+          rbind(elements,
+                name,
+                stringsAsFactors = FALSE)
+      }
+      if (!is.null(self$`source`)) {
+        source <-
+          list(
+            PREFIX = "MTD",
+            KEY = paste(idPrefix, "source", sep = "-"),
+            VALUE = self$`source`$toString()
+          )
+        elements <-
+          rbind(elements,
+                source,
+                stringsAsFactors = FALSE)
+      }
+      if (!is.null(self$`analyzer`)) {
+        fl <- lapply(seq_along(self$`analyzer`), function(idx, elements, idPrefix) {
+          list(PREFIX = "MTD", KEY=paste(idPrefix, paste0("analyzer[", idx, "]"), sep="-"), VALUE=elements[[idx]]$toString())
+        }, elements=self$`analyzer`, idPrefix=idPrefix) %>% dplyr::bind_rows()
+        elements <-
+          rbind(elements,
+                fl,
+                stringsAsFactors = FALSE)
+      }
+      if (!is.null(self$`detector`)) {
+        detector <-
+          list(
+            PREFIX = "MTD",
+            KEY = paste(idPrefix, "detector", sep = "-"),
+            VALUE = self$`detector`$toString()
+          )
+        elements <-
+          rbind(elements,
+                detector,
+                stringsAsFactors = FALSE)
+      }
+      elements
     }
   )
 )

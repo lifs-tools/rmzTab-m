@@ -4,6 +4,7 @@ test_that("roundtrip read, write, read of mztab json works", {
   testfile <- system.file("testdata", c("lipidomics-example.mzTab.json"),package="rmzTabM")
   mzTabObject <- MzTab$new()
   mzTabObject$fromJSON(testfile)
+  browser()
   #print(mzTabObject$toJSONString())
   expect_false(is.null(mzTabObject$metadata))
   expect_false(is.null(mzTabObject$smallMoleculeSummary))
@@ -38,7 +39,7 @@ test_that("writing of mztab TAB format works", {
   testfile <- system.file("testdata", c("lipidomics-example.mzTab.json"),package="rmzTabM")
   mzTabObject <- MzTab$new()
   mzTabObject$fromJSON(testfile)
-  browser()
+  writeMzTab(mzTabObject, tempfile(fileext = "mztab"))
   # create pipe separated list entries -> 
   # paste(mzTabObject$toJSON()$`smallMoleculeSummary`[[1]]$smf_id_refs, collapse = " | ")
   # create a string from a parameter list ->

@@ -27,3 +27,16 @@ test_that("publication", {
   expect_equal(model.instance$`publicationItems`[[2]]$`accession`, "10.1021/acs.analchem.7b03576")
 }
 )
+
+test_that("publication$toDataFrame() works", {
+  model.instance <- model.instance$fromJSONString(ref.json)
+  browser()
+  df <- model.instance$toDataFrame()
+  expect_equal(model.instance$`id`, 1)
+  expect_equal(length(model.instance$`publicationItems`), 2)
+  expect_equal(model.instance$`publicationItems`[[1]]$`type`, "pubmed")
+  expect_equal(model.instance$`publicationItems`[[1]]$`accession`, "29039908")
+  expect_equal(model.instance$`publicationItems`[[2]]$`type`, "doi")
+  expect_equal(model.instance$`publicationItems`[[2]]$`accession`, "10.1021/acs.analchem.7b03576")
+}
+)

@@ -147,6 +147,27 @@ Parameter <- R6::R6Class(
       self$`name` <- ParameterObject$`name`
       self$`value` <- ParameterObject$`value`
       self
+    },
+    toString = function() {
+      name <- self$`name`
+      if(grepl(",", name, fixed = TRUE)) {
+        name <- paste0("\"", name, "\"")
+      }
+      value <- self$`value`
+      if(!is.null(value) && grepl(",", value, fixed = TRUE)) {
+        value <- paste0("\"", value, "\"")
+      }
+      paste0(
+        "[",
+        paste(
+          self$`cv_label`,
+          self$`cv_accession`,
+          name,
+          value,
+          sep = ", "
+        ),
+        "]"
+      )
     }
   )
 )

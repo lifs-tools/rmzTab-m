@@ -223,70 +223,63 @@ Sample <- R6::R6Class(
       idPrefix <- paste0("sample[", self$`id`, "]")
       elements <- data.frame(PREFIX=character(), KEY=character(), VALUE=character())
       if (!is.null(self$`name`)) {
-        name <- list(
-          PREFIX = "MTD",
-          KEY = paste(idPrefix, "name", sep = "-"),
-          VALUE = self$`name`
-        )
         elements <-
           rbind(elements,
-                name,
+                list(
+                  PREFIX = "MTD",
+                  KEY = idPrefix,
+                  VALUE = self$`name`
+                ),
                 stringsAsFactors = FALSE)
       }
       if (!is.null(self$`custom`)) {
-        fl <- lapply(seq_along(self$`custom`), function(idx, elements, idPrefix) {
-          list(PREFIX = "MTD", KEY=paste(idPrefix, paste0("custom[", idx, "]"), sep="-"), VALUE=elements[[idx]]$toString())
-        }, elements=self$`custom`, idPrefix=idPrefix) %>% dplyr::bind_rows()
         elements <-
           rbind(elements,
-                fl,
+                lapply(seq_along(self$`custom`), function(idx, elements, idPrefix) {
+                  list(PREFIX = "MTD", KEY=paste(idPrefix, paste0("custom[", idx, "]"), sep="-"), VALUE=elements[[idx]]$toString())
+                }, elements=self$`custom`, idPrefix=idPrefix) %>% dplyr::bind_rows(),
                 stringsAsFactors = FALSE)
       }
       if (!is.null(self$`species`)) {
-        fl <- lapply(seq_along(self$`species`), function(idx, elements, idPrefix) {
-          list(PREFIX = "MTD", KEY=paste(idPrefix, paste0("species[", idx, "]"), sep="-"), VALUE=elements[[idx]]$toString())
-        }, elements=self$`species`, idPrefix=idPrefix) %>% dplyr::bind_rows()
         elements <-
           rbind(elements,
-                fl,
+                lapply(seq_along(self$`species`), function(idx, elements, idPrefix) {
+                  list(PREFIX = "MTD", KEY=paste(idPrefix, paste0("species[", idx, "]"), sep="-"), VALUE=elements[[idx]]$toString())
+                }, elements=self$`species`, idPrefix=idPrefix) %>% dplyr::bind_rows(),
                 stringsAsFactors = FALSE)
       }
       if (!is.null(self$`tissue`)) {
-        fl <- lapply(seq_along(self$`tissue`), function(idx, elements, idPrefix) {
-          list(PREFIX = "MTD", KEY=paste(idPrefix, paste0("tissue[", idx, "]"), sep="-"), VALUE=elements[[idx]]$toString())
-        }, elements=self$`tissue`, idPrefix=idPrefix) %>% dplyr::bind_rows()
         elements <-
           rbind(elements,
-                fl,
+                lapply(seq_along(self$`tissue`), function(idx, elements, idPrefix) {
+                  list(PREFIX = "MTD", KEY=paste(idPrefix, paste0("tissue[", idx, "]"), sep="-"), VALUE=elements[[idx]]$toString())
+                }, elements=self$`tissue`, idPrefix=idPrefix) %>% dplyr::bind_rows(),
                 stringsAsFactors = FALSE)
       }
       if (!is.null(self$`cell_type`)) {
-        fl <- lapply(seq_along(self$`cell_type`), function(idx, elements, idPrefix) {
-          list(PREFIX = "MTD", KEY=paste(idPrefix, paste0("cell_type[", idx, "]"), sep="-"), VALUE=elements[[idx]]$toString())
-        }, elements=self$`cell_type`, idPrefix=idPrefix) %>% dplyr::bind_rows()
         elements <-
           rbind(elements,
-                fl,
+                lapply(seq_along(self$`cell_type`), function(idx, elements, idPrefix) {
+                  list(PREFIX = "MTD", KEY=paste(idPrefix, paste0("cell_type[", idx, "]"), sep="-"), VALUE=elements[[idx]]$toString())
+                }, elements=self$`cell_type`, idPrefix=idPrefix) %>% dplyr::bind_rows(),
                 stringsAsFactors = FALSE)
       }
       if (!is.null(self$`disease`)) {
-        fl <- lapply(seq_along(self$`disease`), function(idx, elements, idPrefix) {
-          list(PREFIX = "MTD", KEY=paste(idPrefix, paste0("disease[", idx, "]"), sep="-"), VALUE=elements[[idx]]$toString())
-        }, elements=self$`disease`, idPrefix=idPrefix) %>% dplyr::bind_rows()
         elements <-
           rbind(elements,
-                fl,
+                lapply(seq_along(self$`disease`), function(idx, elements, idPrefix) {
+                  list(PREFIX = "MTD", KEY=paste(idPrefix, paste0("disease[", idx, "]"), sep="-"), VALUE=elements[[idx]]$toString())
+                }, elements=self$`disease`, idPrefix=idPrefix) %>% dplyr::bind_rows(),
                 stringsAsFactors = FALSE)
       }
       if (!is.null(self$`description`)) {
-        description <- list(
-          PREFIX = "MTD",
-          KEY = paste(idPrefix, "description", sep = "-"),
-          VALUE = self$`description`
-        )
         elements <-
           rbind(elements,
-                description,
+                list(
+                  PREFIX = "MTD",
+                  KEY = paste(idPrefix, "description", sep = "-"),
+                  VALUE = self$`description`
+                ),
                 stringsAsFactors = FALSE)
       }
       elements

@@ -87,10 +87,13 @@ Publication <- R6::R6Class(
       idPrefix <- paste0("publication[", self$`id`, "]")
       elements <- data.frame(PREFIX=character(), KEY=character(), VALUE=character())
       if (!is.null(self$`publicationItems`)) {
-        publicationItemsString <- paste0(lapply(self$`publicationItems`, function(x) x$toString()), collapse="|")
         elements <-
           rbind(elements,
-                list(PREFIX = "MTD", KEY=idPrefix, VALUE=publicationItemsString),
+                list(
+                  PREFIX = "MTD", 
+                  KEY=idPrefix, 
+                  VALUE=paste0(lapply(self$`publicationItems`, function(x) x$toString()), collapse="|")
+                  ),
                 stringsAsFactors = FALSE)
       }
       elements

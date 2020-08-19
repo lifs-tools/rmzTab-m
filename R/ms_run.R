@@ -270,103 +270,89 @@ MsRun <- R6::R6Class(
       idPrefix <- paste0("ms_run[", self$`id`, "]")
       elements <- data.frame(PREFIX=character(), KEY=character(), VALUE=character())
       if (!is.null(self$`name`)) {
-        name <- list(
-          PREFIX = "MTD",
-          KEY = paste(idPrefix, "name", sep = "-"),
-          VALUE = self$`name`
-        )
         elements <-
           rbind(elements,
-                name,
+                list(
+                  PREFIX = "MTD",
+                  KEY = paste(idPrefix, "name", sep = "-"),
+                  VALUE = self$`name`
+                ),
                 stringsAsFactors = FALSE)
       }
       if (!is.null(self$`location`)) {
-        location <- list(
-          PREFIX = "MTD",
-          KEY = paste(idPrefix, "location", sep="-"),
-          VALUE = self$`location`
-        )
         elements <-
           rbind(elements,
-                location,
+                list(
+                  PREFIX = "MTD",
+                  KEY = paste(idPrefix, "location", sep="-"),
+                  VALUE = self$`location`
+                ),
                 stringsAsFactors = FALSE)
       }
       if (!is.null(self$`instrument_ref`)) {
-        instrumentRef <-
-          list(
-            PREFIX = "MTD",
-            KEY = paste(idPrefix, "instrument_ref", sep = "-"),
-            VALUE = paste0("instrument[", self$`instrument_ref`, "]")
-          )
         elements <-
           rbind(elements,
-                instrumentRef,
+                list(
+                  PREFIX = "MTD",
+                  KEY = paste(idPrefix, "instrument_ref", sep = "-"),
+                  VALUE = paste0("instrument[", self$`instrument_ref`, "]")
+                ),
                 stringsAsFactors = FALSE)
       }
       if (!is.null(self$`format`)) {
-        format <-
-          list(
-            PREFIX = "MTD",
-            KEY = paste(idPrefix, "format", sep = "-"),
-            VALUE = self$`format`$toString()
-          )
         elements <-
           rbind(elements,
-                format,
+                list(
+                  PREFIX = "MTD",
+                  KEY = paste(idPrefix, "format", sep = "-"),
+                  VALUE = self$`format`$toString()
+                ),
                 stringsAsFactors = FALSE)
       }
       if (!is.null(self$`id_format`)) {
-        idFormat <-
-          list(
-            PREFIX = "MTD",
-            KEY = paste(idPrefix, "id_format", sep = "-"),
-            VALUE = self$`id_format`$toString()
-          )
         elements <-
           rbind(elements,
-                idFormat,
+                list(
+                  PREFIX = "MTD",
+                  KEY = paste(idPrefix, "id_format", sep = "-"),
+                  VALUE = self$`id_format`$toString()
+                ),
                 stringsAsFactors = FALSE)
       }
       if (!is.null(self$`fragmentation_method`)) {
-        fl <- lapply(seq_along(self$`fragmentation_method`), function(idx, elements, idPrefix) {
-          list(PREFIX = "MTD", KEY=paste(idPrefix, paste0("fragmentation_method[", idx, "]"), sep="-"), VALUE=elements[[idx]]$toString())
-        }, elements=self$`fragmentation_method`, idPrefix=idPrefix) %>% dplyr::bind_rows()
         elements <-
           rbind(elements,
-                fl,
+                lapply(seq_along(self$`fragmentation_method`), function(idx, elements, idPrefix) {
+                  list(PREFIX = "MTD", KEY=paste(idPrefix, paste0("fragmentation_method[", idx, "]"), sep="-"), VALUE=elements[[idx]]$toString())
+                }, elements=self$`fragmentation_method`, idPrefix=idPrefix) %>% dplyr::bind_rows(),
                 stringsAsFactors = FALSE)
       }
       if (!is.null(self$`scan_polarity`)) {
-        fl <- lapply(seq_along(self$`scan_polarity`), function(idx, elements, idPrefix) {
-          list(PREFIX = "MTD", KEY=paste(idPrefix, paste0("scan_polarity[", idx, "]"), sep="-"), VALUE=elements[[idx]]$toString())
-        }, elements=self$`scan_polarity`, idPrefix=idPrefix) %>% dplyr::bind_rows()
         elements <-
           rbind(elements,
-                fl,
+                lapply(seq_along(self$`scan_polarity`), function(idx, elements, idPrefix) {
+                  list(PREFIX = "MTD", KEY=paste(idPrefix, paste0("scan_polarity[", idx, "]"), sep="-"), VALUE=elements[[idx]]$toString())
+                }, elements=self$`scan_polarity`, idPrefix=idPrefix) %>% dplyr::bind_rows(),
                 stringsAsFactors = FALSE)
       }
       if (!is.null(self$`hash`)) {
-        hashValue <-
-          list(
-            PREFIX = "MTD",
-            KEY = paste(idPrefix, "hash", sep = "-"),
-            VALUE = self$`hash`
-          )
         elements <-
           rbind(elements,
-                hashValue,
+                list(
+                  PREFIX = "MTD",
+                  KEY = paste(idPrefix, "hash", sep = "-"),
+                  VALUE = self$`hash`
+                ),
                 stringsAsFactors = FALSE)
       }
       if (!is.null(self$`hash_method`)) {
-        hashMethod <-
-          list(
-            PREFIX = "MTD",
-            KEY = paste(idPrefix, "hash_method", sep = "-"),
-            VALUE = self$`hash_method`$toString()
-          )
         elements <-
           rbind(elements,
-                hashMethod,
+                list(
+                  PREFIX = "MTD",
+                  KEY = paste(idPrefix, "hash_method", sep = "-"),
+                  VALUE = self$`hash_method`$toString()
+                ),
                 stringsAsFactors = FALSE)
       }
       elements

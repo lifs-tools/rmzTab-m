@@ -493,6 +493,76 @@ SmallMoleculeSummary <- R6::R6Class(
       self$`opt` <- ApiClient$new()$deserializeObj(SmallMoleculeSummaryObject$`opt`, "array[OptColumnMapping]", loadNamespace("rmzTabM"))
       self$`comment` <- ApiClient$new()$deserializeObj(SmallMoleculeSummaryObject$`comment`, "array[Comment]", loadNamespace("rmzTabM"))
       self
+    },
+    toDataFrame = function() {
+      fixed_header_values <- c(
+        "SMH"=self$`prefix`,
+        "SML_ID"=self$`sml_id`,	
+        "SMF_ID_REFS"=valueOrDefault(unlist(self$`smf_id_refs`), FUN=paste, collapse="|"),
+        "chemical_name"=valueOrDefault(unlist(self$`chemical_name`), FUN=paste, collapse="|"),
+        "database_identifier"=valueOrDefault(unlist(self$`database_identifier`), FUN=paste, collapse="|"),
+        "chemical_formula"=valueOrDefault(unlist(self$`chemical_formula`), FUN=paste, collapse="|"),
+        "smiles"=valueOrDefault(unlist(self$`smiles`), FUN=paste, collapse="|"),
+        "inchi"=valueOrDefault(unlist(self$`inchi`), FUN=paste, collapse="|"),
+        "uri"=valueOrDefault(unlist(self$`uri`), FUN=paste, collapse="|"),
+        "theoretical_neutral_mass"=valueOrDefault(unlist(self$`theoretical_neutral_mass`), FUN=paste, collapse="|"),
+        "adduct_ions"=valueOrDefault(unlist(self$`adduct_ions`), FUN=paste, collapse="|"),
+        "reliability"=valueOrDefault(self$`reliability`),
+        "best_id_confidence_measure"=valueOrDefault(self$`best_id_confidence_measure`, FUN=function(x){x$toString()}),
+        "best_id_confidence_value"=valueOrDefault(self$`best_id_confidence_value`)
+      )
+      abundance_assay <-
+        unlist(lapply(seq_along(self$`abundance_assay`), function(idx, x) {
+          paste0("abundance_assay[", idx, "]")
+        }, x = self$`abundance_assay`))
+      abundance_assay_values <-
+        unlist(lapply(seq_along(self$`abundance_assay`), function(idx, x) {
+          valueOrDefault(x)
+        }, x = self$`abundance_assay`))
+      names(abundance_assay_values) <- abundance_assay
+      
+      abundance_study_variable <-
+        unlist(lapply(seq_along(self$`abundance_study_variable`), function(idx, x) {
+          paste0("abundance_study_variable[", idx, "]")
+        }, x = self$`abundance_study_variable`))
+      abundance_study_variable_values <-
+        unlist(lapply(seq_along(self$`abundance_study_variable`), function(idx, x) {
+          valueOrDefault(x)
+        }, x = self$`abundance_study_variable`))
+      names(abundance_study_variable_values) <- abundance_study_variable
+      
+      abundance_variation_study_variable <-
+        unlist(lapply(seq_along(self$`abundance_variation_study_variable`), function(idx, x) {
+          paste0("abundance_variation_study_variable[", idx, "]")
+        }, x = self$`abundance_variation_study_variable`))
+      abundance_variation_study_variable_values <-
+        unlist(lapply(seq_along(self$`abundance_variation_study_variable`), function(idx, x) {
+          valueOrDefault(x)
+        }, x = self$`abundance_variation_study_variable`))
+      names(abundance_variation_study_variable_values) <- abundance_variation_study_variable
+      
+      opt <-
+        unlist(lapply(self$`opt`, function(x) {
+          x$toString()
+        }))
+      opt_values <- 
+        unlist(lapply(self$`opt`, function(x) {
+          valueOrDefault(x$`value`)
+        }))
+      names(opt_values) <- opt
+      entries <-
+        as.data.frame(
+          t(
+            c(
+              fixed_header_values,
+              abundance_assay_values,
+              abundance_study_variable_values,
+              abundance_variation_study_variable_values,
+              opt_values
+            )
+          )
+        )
+      entries
     }
   )
 )

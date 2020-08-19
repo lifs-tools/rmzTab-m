@@ -105,6 +105,20 @@ OptColumnMapping <- R6::R6Class(
       self$`param` <- Parameter$new()$fromJSONString(jsonlite::toJSON(OptColumnMappingObject$param, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
       self$`value` <- OptColumnMappingObject$`value`
       self
+    },
+    toString = function() {
+      optStr <- ""
+      if (!is.null(self$`identifier`)) {
+        if (startsWith(self$`identifier`, "global")) {
+          optStr <- paste("opt", self$`identifier`, sep = "_")
+          if (!is.null(self$`param`)) {
+            optStr <- paste(optStr, "cv", self$`param`$`cv_accession`, gsub(" ", "_", self$`param`$`name`, fixed=TRUE), sep="_")
+          }
+        } else {
+          optStr <- paste(self$`identifier`, sep = "_")
+        }
+      }
+      optStr
     }
   )
 )

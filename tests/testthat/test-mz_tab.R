@@ -5,6 +5,15 @@ context("Test MzTab")
 
 model.instance <- MzTab$new()
 
+test_that("mzTab$toDataFrame() works", {
+  testfile <- system.file("testdata", c("lipidomics-example.mzTab.json"),package="rmzTabM")
+  model.instance <- MzTab$new()
+  model.instance$fromJSON(testfile)
+  
+  rmzTabM::writeMzTab(model.instance, "lipidomics-example.test.mztab")
+  
+})
+
 test_that("metadata", {
   # tests for the property `metadata` (Metadata)
 

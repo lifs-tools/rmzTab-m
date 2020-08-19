@@ -684,104 +684,232 @@ Metadata <- R6::R6Class(
     toDataFrame = function() {
       elements <- data.frame(PREFIX=character(), KEY=character(), VALUE=character())
       if(!is.null(self$`mzTab-version`)) {
-          mzTabVersion <-
-            list(
-              PREFIX = "MTD",
-              KEY = "mzTab-version",
-              VALUE = self$`mzTab-version`
-            )
           elements <-
             rbind(elements,
-                  mzTabVersion,
+                  list(
+                    PREFIX = "MTD",
+                    KEY = "mzTab-version",
+                    VALUE = self$`mzTab-version`
+                  ),
                   stringsAsFactors = FALSE)
       }
       if(!is.null(self$`mzTab-ID`)) {
-        mzTabId <-
-          list(
-            PREFIX = "MTD",
-            KEY = "mzTab-ID",
-            VALUE = self$`mzTab-ID`
-          )
         elements <-
           rbind(elements,
-                mzTabId,
+                list(
+                  PREFIX = "MTD",
+                  KEY = "mzTab-ID",
+                  VALUE = self$`mzTab-ID`
+                ),
                 stringsAsFactors = FALSE)
       }
       if(!is.null(self$`title`)) {
-        title <-
-          list(
-            PREFIX = "MTD",
-            KEY = "title",
-            VALUE = self$`title`
-          )
         elements <-
           rbind(elements,
-                title,
+                list(
+                  PREFIX = "MTD",
+                  KEY = "title",
+                  VALUE = self$`title`
+                ),
                 stringsAsFactors = FALSE)
       }
       if(!is.null(self$`description`)) {
-        description <-
-          list(
-            PREFIX = "MTD",
-            KEY = "description",
-            VALUE = self$`description`
-          )
         elements <-
           rbind(elements,
-                description,
+                list(
+                  PREFIX = "MTD",
+                  KEY = "description",
+                  VALUE = self$`description`
+                ),
                 stringsAsFactors = FALSE)
       }
-      if(!is.null(self$`sample_processing`)) {
-        sampleProcessing <- lapply(self$`sample_processing`, function(x){x$toDataFrame()}) %>% dplyr::bind_rows()
+      if(!is.null(self$`contact`)) {
         elements <-
           rbind(elements,
-                sampleProcessing,
-                stringsAsFactors = FALSE)
-      }
-      if(!is.null(self$`instrument`)) {
-        instrument <- lapply(self$`instrument`, function(x){x$toDataFrame()}) %>% dplyr::bind_rows()
-        elements <-
-          rbind(elements,
-                instrument,
-                stringsAsFactors = FALSE)
-      }
-      if(!is.null(self$`software`)) {
-        software <- lapply(self$`software`, function(x){x$toDataFrame()}) %>% dplyr::bind_rows()
-        elements <-
-          rbind(elements,
-                software,
+                lapply(self$`contact`, function(x){
+                  x$toDataFrame()
+                }) %>% dplyr::bind_rows(),
                 stringsAsFactors = FALSE)
       }
       if(!is.null(self$`publication`)) {
-        publication <- lapply(self$`publication`, function(x){
-          x$toDataFrame()
-        }) %>% dplyr::bind_rows()
         elements <-
           rbind(elements,
-                publication,
+                lapply(self$`publication`, function(x){
+                  x$toDataFrame()
+                }) %>% dplyr::bind_rows(),
                 stringsAsFactors = FALSE)
       }
-      browser()
-      if(!is.null(self$`contact`)) {}
-      if(!is.null(self$`uri`)) {}
-      if(!is.null(self$`external_study_uri`)) {}
-      if(!is.null(self$`quantification_method`)) {}
-      if(!is.null(self$`study_variable`)) {}
-      if(!is.null(self$`ms_run`)) {}
-      if(!is.null(self$`assay`)) {}
-      if(!is.null(self$`sample`)) {}
-      if(!is.null(self$`custom`)) {}
-      if(!is.null(self$`cv`)) {}
-      if(!is.null(self$`database`)) {}
-      if(!is.null(self$`derivatization_agent`)) {}
-      if(!is.null(self$`small_molecule-quantification_unit`)) {}
-      if(!is.null(self$`small_molecule_feature-quantification_unit`)) {}
-      if(!is.null(self$`small_molecule-identification_reliability`)) {}
-      if(!is.null(self$`id_confidence_measure`)) {}
-      if(!is.null(self$`colunit-small_molecule`)) {}
-      if(!is.null(self$`colunit-small_molecule_feature`)) {}
-      if(!is.null(self$`colunit-small_molecule_evidence`)) {}
-      metadataDf
+      if(!is.null(self$`uri`)) {
+        elements <-
+          rbind(elements,
+                lapply(self$`uri`, function(x){
+                  x$toDataFrame()
+                }) %>% dplyr::bind_rows(),
+                stringsAsFactors = FALSE)
+      }
+      if(!is.null(self$`external_study_uri`)) {
+        elements <-
+          rbind(elements,
+                lapply(self$`uri`, function(x){
+                  x$toDataFrame(type="external_study_uri")
+                }) %>% dplyr::bind_rows(),
+                stringsAsFactors = FALSE)
+      }
+      if(!is.null(self$`instrument`)) {
+        elements <-
+          rbind(elements,
+                lapply(self$`instrument`, function(x){x$toDataFrame()}) %>% dplyr::bind_rows(),
+                stringsAsFactors = FALSE)
+      }
+      if(!is.null(self$`quantification_method`)) {
+        elements <-
+          rbind(elements,
+                list(
+                  PREFIX = "MTD",
+                  KEY = "quantification_method",
+                  VALUE = self$`quantification_method`$toString()
+                ),
+                stringsAsFactors = FALSE)
+      }
+      if(!is.null(self$`sample`)) {
+        elements <-
+          rbind(elements,
+                lapply(self$`sample`, function(x){
+                  x$toDataFrame()
+                }) %>% dplyr::bind_rows(),
+                stringsAsFactors = FALSE)
+      }
+      if(!is.null(self$`sample_processing`)) {
+        elements <-
+          rbind(elements,
+                lapply(self$`sample_processing`, function(x){x$toDataFrame()}) %>% dplyr::bind_rows(),
+                stringsAsFactors = FALSE)
+      }
+      if(!is.null(self$`software`)) {
+        elements <-
+          rbind(elements,
+                lapply(self$`software`, function(x){x$toDataFrame()}) %>% dplyr::bind_rows(),
+                stringsAsFactors = FALSE)
+      }
+      if(!is.null(self$`derivatization_agent`)) {
+        elements <-
+          rbind(elements,
+                lapply(seq_along(self$`derivatization_agent`), function(idx, elements) {
+                  list(PREFIX = "MTD", KEY=paste0("derivatization_agent[", idx, "]"), VALUE=elements[[idx]]$toString())
+                }, elements=self$`derivatization_agent`) %>% dplyr::bind_rows(),
+                stringsAsFactors = FALSE)
+      }
+      if(!is.null(self$`ms_run`)) {
+        elements <-
+          rbind(elements,
+                lapply(self$`ms_run`, function(x){
+                  x$toDataFrame()
+                }) %>% dplyr::bind_rows(),
+                stringsAsFactors = FALSE)
+      }
+      if(!is.null(self$`assay`)) {
+        elements <-
+          rbind(elements,
+                lapply(self$`assay`, function(x){
+                  x$toDataFrame()
+                }) %>% dplyr::bind_rows(),
+                stringsAsFactors = FALSE)
+      }
+      if(!is.null(self$`study_variable`)) {
+        elements <-
+          rbind(elements,
+                lapply(self$`study_variable`, function(x){
+                  x$toDataFrame()
+                }) %>% dplyr::bind_rows(),
+                stringsAsFactors = FALSE)
+      }
+      if(!is.null(self$`custom`)) {
+        elements <-
+          rbind(elements,
+                lapply(seq_along(self$`custom`), function(idx, elements) {
+                  list(PREFIX = "MTD", KEY=paste0("custom[", idx, "]"), VALUE=elements[[idx]]$toString())
+                }, elements=self$`custom`) %>% dplyr::bind_rows(),
+                stringsAsFactors = FALSE)
+      }
+      if(!is.null(self$`cv`)) {
+        elements <-
+          rbind(elements,
+                lapply(self$`cv`, function(x){
+                  x$toDataFrame()
+                }) %>% dplyr::bind_rows(),
+                stringsAsFactors = FALSE)
+      }
+      if(!is.null(self$`small_molecule-quantification_unit`)) {
+        elements <-
+          rbind(elements,
+                list(
+                  PREFIX = "MTD",
+                  KEY = "small_molecule-quantification_unit",
+                  VALUE = self$`small_molecule-quantification_unit`$toString()
+                ),
+                stringsAsFactors = FALSE)
+      }
+      if(!is.null(self$`small_molecule_feature-quantification_unit`)) {
+        elements <-
+          rbind(elements,
+                list(
+                  PREFIX = "MTD",
+                  KEY = "small_molecule_feature-quantification_unit",
+                  VALUE = self$`small_molecule_feature-quantification_unit`$toString()
+                ),
+                stringsAsFactors = FALSE)
+      }
+      if(!is.null(self$`small_molecule-identification_reliability`)) {
+        elements <-
+          rbind(elements,
+                list(
+                  PREFIX = "MTD",
+                  KEY = "small_molecule-identification_reliability",
+                  VALUE = self$`small_molecule-identification_reliability`$toString()
+                ),
+                stringsAsFactors = FALSE)
+      }
+      if(!is.null(self$`database`)) {
+        elements <-
+          rbind(elements,
+                lapply(self$`database`, function(x){
+                  x$toDataFrame()
+                }) %>% dplyr::bind_rows(),
+                stringsAsFactors = FALSE)
+      }
+      if(!is.null(self$`id_confidence_measure`)) {
+        elements <-
+          rbind(elements,
+                lapply(seq_along(self$`id_confidence_measure`), function(idx, elements) {
+                  list(PREFIX = "MTD", KEY=paste0("id_confidence_measure[", idx, "]"), VALUE=elements[[idx]]$toString())
+                }, elements=self$`id_confidence_measure`) %>% dplyr::bind_rows(),
+                stringsAsFactors = FALSE)
+      }
+      if(!is.null(self$`colunit-small_molecule`)) {
+        elements <-
+          rbind(elements,
+                lapply(self$`colunit-small_molecule`, function(colunit) {
+                  colunit$toDataFrame(type = "small_molecule")
+                }) %>% dplyr::bind_rows(),
+                stringsAsFactors = FALSE)
+      }
+      if(!is.null(self$`colunit-small_molecule_feature`)) {
+        elements <-
+          rbind(elements,
+                lapply(self$`colunit-small_molecule_feature`, function(colunit) {
+                  colunit$toDataFrame(type = "small_molecule_feature")
+                }) %>% dplyr::bind_rows(),
+                stringsAsFactors = FALSE)
+      }
+      if(!is.null(self$`colunit-small_molecule_evidence`)) {
+        elements <-
+          rbind(elements,
+                lapply(self$`colunit-small_molecule_evidence`, function(colunit) {
+                  colunit$toDataFrame(type = "small_molecule_evidence")
+                }) %>% dplyr::bind_rows(),
+                stringsAsFactors = FALSE)
+      }
+      elements
     }
   )
 )

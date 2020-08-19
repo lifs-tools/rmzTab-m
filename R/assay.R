@@ -176,54 +176,49 @@ Assay <- R6::R6Class(
       idPrefix <- paste0("assay[", self$`id`, "]")
       elements <- data.frame(PREFIX=character(), KEY=character(), VALUE=character())
       if (!is.null(self$`name`)) {
-        name <- list(
-          PREFIX = "MTD",
-          KEY = paste(idPrefix, "name", sep = "-"),
-          VALUE = self$`name`
-        )
         elements <-
           rbind(elements,
-                name,
+                list(
+                  PREFIX = "MTD",
+                  KEY = idPrefix,
+                  VALUE = self$`name`
+                ),
                 stringsAsFactors = FALSE)
       }
       if (!is.null(self$`custom`)) { # list of parameters
-        fl <- lapply(seq_along(self$`custom`), function(idx, elements, idPrefix) {
-          list(PREFIX = "MTD", KEY=paste(idPrefix, paste0("custom[", idx, "]"), sep="-"), VALUE=elements[[idx]]$toString())
-        }, elements=self$`custom`, idPrefix=idPrefix) %>% dplyr::bind_rows()
         elements <-
           rbind(elements,
-                fl,
+                lapply(seq_along(self$`custom`), function(idx, elements, idPrefix) {
+                  list(PREFIX = "MTD", KEY=paste(idPrefix, paste0("custom[", idx, "]"), sep="-"), VALUE=elements[[idx]]$toString())
+                }, elements=self$`custom`, idPrefix=idPrefix) %>% dplyr::bind_rows(),
                 stringsAsFactors = FALSE)
       }
       if (!is.null(self$`external_uri`)) {
-        external_uri <- list(
-          PREFIX = "MTD",
-          KEY = paste(idPrefix, "external_uri", sep="-"),
-          VALUE = self$`external_uri`
-        )
         elements <-
           rbind(elements,
-                external_uri,
+                list(
+                  PREFIX = "MTD",
+                  KEY = paste(idPrefix, "external_uri", sep="-"),
+                  VALUE = self$`external_uri`
+                ),
                 stringsAsFactors = FALSE)
       }
       if (!is.null(self$`sample_ref`)) {
-        sample_ref <- list(
-          PREFIX = "MTD",
-          KEY = paste(idPrefix, "sample_ref", sep="-"),
-          VALUE = paste0("sample[", self$`sample_ref`, "]")
-        )
         elements <-
           rbind(elements,
-                sample_ref,
+                list(
+                  PREFIX = "MTD",
+                  KEY = paste(idPrefix, "sample_ref", sep="-"),
+                  VALUE = paste0("sample[", self$`sample_ref`, "]")
+                ),
                 stringsAsFactors = FALSE)
       }
       if (!is.null(self$`ms_run_ref`)) { # list of references
-        fl <- lapply(seq_along(self$`ms_run_ref`), function(idx, elements, idPrefix) {
-          list(PREFIX = "MTD", KEY=paste(idPrefix, "ms_run_ref", sep="-"), VALUE=paste0("ms_run[", elements[[idx]], "]"))
-        }, elements=self$`ms_run_ref`, idPrefix=idPrefix) %>% dplyr::bind_rows()
         elements <-
           rbind(elements,
-                fl,
+                lapply(seq_along(self$`ms_run_ref`), function(idx, elements, idPrefix) {
+                  list(PREFIX = "MTD", KEY=paste(idPrefix, "ms_run_ref", sep="-"), VALUE=paste0("ms_run[", elements[[idx]], "]"))
+                }, elements=self$`ms_run_ref`, idPrefix=idPrefix) %>% dplyr::bind_rows(),
                 stringsAsFactors = FALSE)
       }
       elements

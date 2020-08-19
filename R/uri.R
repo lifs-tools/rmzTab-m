@@ -81,6 +81,20 @@ Uri <- R6::R6Class(
       self$`id` <- UriObject$`id`
       self$`value` <- UriObject$`value`
       self
+    },
+    toDataFrame = function(type="uri") {
+      idPrefix <- paste0(type, "[", self$`id`, "]")
+      elements <- data.frame(PREFIX=character(), KEY=character(), VALUE=character())
+      if (!is.null(self$`value`)) {
+        elements <-
+          rbind(elements,
+                list(
+                  PREFIX = "MTD",
+                  KEY = idPrefix,
+                  VALUE = self$`value`
+                ),
+                stringsAsFactors = FALSE)
+      }
     }
   )
 )

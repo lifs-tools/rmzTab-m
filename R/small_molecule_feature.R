@@ -373,6 +373,51 @@ SmallMoleculeFeature <- R6::R6Class(
       self$`opt` <- ApiClient$new()$deserializeObj(SmallMoleculeFeatureObject$`opt`, "array[OptColumnMapping]", loadNamespace("rmzTabM"))
       self$`comment` <- ApiClient$new()$deserializeObj(SmallMoleculeFeatureObject$`comment`, "array[Comment]", loadNamespace("rmzTabM"))
       self
+    },
+    toDataFrame = function() {
+      fixed_header_values <- c(
+        "SFH"=self$`prefix`,
+        "SMF_ID"=self$`smf_id`,	
+        "SME_ID_REFS"=valueOrDefault(unlist(self$`sme_id_refs`), FUN=paste, collapse="|"),
+        "SME_ID_REF_ambiguity_code"=valueOrDefault(self$`sme_id_ref_ambiguity_code`),
+        "adduct_ion"=valueOrDefault(self$`adduct_ion`),
+        "isotopomer"=valueOrDefault(self$`isotopomer`, FUN=function(x){x$toString()}),
+        "exp_mass_to_charge"=valueOrDefault(self$`exp_mass_to_charge`),
+        "charge"=valueOrDefault(self$`charge`),
+        "retention_time_in_seconds"=valueOrDefault(self$`retention_time_in_seconds`),
+        "retention_time_in_seconds_start"=valueOrDefault(self$`retention_time_in_seconds_start`),
+        "retention_time_in_seconds_end"=valueOrDefault(self$`retention_time_in_seconds_end`)
+      )
+      abundance_assay <-
+        unlist(lapply(seq_along(self$`abundance_assay`), function(idx, x) {
+          paste0("abundance_assay[", idx, "]")
+        }, x = self$`abundance_assay`))
+      abundance_assay_values <-
+        unlist(lapply(seq_along(self$`abundance_assay`), function(idx, x) {
+          valueOrDefault(x)
+        }, x = self$`abundance_assay`))
+      names(abundance_assay_values) <- abundance_assay
+      
+      opt <-
+        unlist(lapply(self$`opt`, function(x) {
+          x$toString()
+        }))
+      opt_values <- 
+        unlist(lapply(self$`opt`, function(x) {
+          valueOrDefault(x$`value`)
+        }))
+      names(opt_values) <- opt
+      entries <-
+        as.data.frame(
+          t(
+            c(
+              fixed_header_values,
+              abundance_assay_values,
+              opt_values
+            )
+          )
+        )
+      entries
     }
   )
 )

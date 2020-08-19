@@ -83,6 +83,21 @@ ColumnParameterMapping <- R6::R6Class(
       self$`column_name` <- ColumnParameterMappingObject$`column_name`
       self$`param` <- Parameter$new()$fromJSONString(jsonlite::toJSON(ColumnParameterMappingObject$param, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
       self
+    },
+    # type can be small_molecule, small_molecule_feature or small_molecule_evidence
+    toDataFrame = function(type="small_molecule") {
+      elements <- data.frame(PREFIX=character(), KEY=character(), VALUE=character())
+      if (!is.null(self$`column_name`) && !is.null(self$`param`)) {
+        elements <-
+          rbind(elements,
+                list(
+                  PREFIX = "MTD",
+                  KEY = paste("colunit", type, sep="-"),
+                  VALUE = paste(self$`column_name`, self$`param`$toString(), sep = "=")
+                ),
+                stringsAsFactors = FALSE)
+      }
+      elements
     }
   )
 )

@@ -103,6 +103,21 @@ Comment <- R6::R6Class(
       self$`msg` <- CommentObject$`msg`
       self$`line_number` <- CommentObject$`line_number`
       self
+    },
+    toDataFrame = function() {
+      idPrefix <- paste0("assay[", self$`id`, "]")
+      elements <- data.frame(PREFIX=character(), KEY=character(), VALUE=character())
+      if (!is.null(self$`msg`)) {
+        elements <-
+          rbind(elements,
+                list(
+                  PREFIX = "COM",
+                  KEY = self$`msg`,
+                  VALUE = ""
+                ),
+                stringsAsFactors = FALSE)
+      }
+      elements
     }
   )
 )

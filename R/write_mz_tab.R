@@ -81,119 +81,6 @@ mtd.as.data.frame <- function(metadata) {
   #mztab <- rbind.ragged(mztab, mzTabAddTagValue("MTD", variableDescriptions))
 }
 
-msRun.as.data.frame <- function(msRun) {
-  browser()
-  df <- msRun$toJSON()
-  idPrefix <- paste0("ms_run[",df$id, "]")
-  mztab <- data.frame()
-  msRunLocation <- c(paste(idPrefix, "location", sep="-"), df$location)
-  msInstrumentRef <- c(paste(idPrefix, "instrument_ref", sep="-"), df$instrument_ref)
-  # cv parameters
-  msRunFormat <- c(paste(idPrefix,"format", sep="-"), cvTerm.as.string(df$format$toString()))
-  msRunIdFormat <- c(paste(idPrefix,"id_format", sep="-"), cvTerm.as.string(df$id_format$toString()))
-  msRunScanPolarity <- c(paste(idPrefix,"id_format", sep="-"), cvTerm.as.string(df$id_format$toString()))
-  msRunHashMethod <- c(paste(idPrefix,"hash_method", sep="-"), cvTerm.as.string(df$hash_method$toString()))
-  msRunHashValue <- c(paste(idPrefix,"hash", sep="-"), df$hash)
-  mztab <- rbind.ragged(mztab, mzTabAddTagValue("MTD", c(msRunFormat, msRunIdFormat, msRunScanPolarity)))
-  mztab
-}
-
-sample.as.data.frame <- function(sample) {
-  df <- sample$toJSON()
-  # id
-  idPrefix <- paste0("sample[",df$id, "]")
-  mztab <- data.frame()
-  # `id` = NULL,
-  # `name` = NULL,
-  # `custom` = NULL,
-  # `species` = NULL,
-  # `tissue` = NULL,
-  # `cell_type` = NULL,
-  # `disease` = NULL,
-  # `description` = NULL,
-  
-  # name
-  sampleName <- c(KEY=idPrefix, VALUE=df$name)
-  #mztab <- rbind.ragged(mztab, mzTabAddTagValue("MTD", sampleName))
-  
-  browser()
-  # description
-  sampleDescr <- c(KEY=paste(idPrefix,"description", sep="-"), VALUE=df$description)
-  
-  mztab <- rbind(sampleName, sampleDescr)
-  
-  #names(sampleDescr) <- c(sampleName)
-  #mztab <- rbind.ragged(mztab, mzTabAddTagValue("MTD", sampleDescr))
-  
-  # species
-  sampleSpecies <- data.frame(KEY=c(),VALUES=c())
-  speciesLen <- length(df$species)
-  speciesIds <- NULL
-  if (speciesLen>=1) {
-    speciesIds <- seq(1, speciesLen)
-    sampleSpecies <- paste(idPrefix, paste0("species", "[", speciesIds, "]"), sep="-")
-    sampleSpeciesParams <- sapply(df$species, function(x) {cvTerm.as.string(x)})
-    mztab <- rbind(mztab, c(KEY=sampleSpecies, VALUE=sampleSpeciesParams))
-  }
-  
-  # tissue
-  sampleTissues <- data.frame(KEY=c(),VALUES=c())
-  tissuesLen <- length(df$tissue)
-  tissuesIds <- NULL
-  if (tissuesLen>=1) {
-    tissuesIds <- seq(1, tissuesLen)
-    sampleTissues <- paste(idPrefix, paste0("tissue", "[", tissuesIds, "]"), sep="-")
-    sampleTissuesParams <- sapply(df$tissue, function(x) {cvTerm.as.string(x)})
-    mztab <- rbind(mztab, c(KEY=sampleTissues, VALUE=sampleTissuesParams))
-  }
-  
-  # cell type
-  sampleCellTypes <- data.frame(KEY=c(),VALUES=c())
-  cellTypeLen <- length(df$cell_type)
-  cellTypeIds <- NULL
-  if (cellTypeLen>=1) {
-    cellTypeIds <- seq(1, cellTypeLen)
-    sampleCellTypes <- paste(idPrefix, paste0("cell_type", "[", cellTypeIds, "]"), sep="-")
-    sampleCellTypesParams <- sapply(df$cell_type, function(x) {cvTerm.as.string(x)})
-    mztab <- rbind(mztab, c(KEY=sampleCellTypes, VALUE=sampleCellTypesParams))
-  }
-  
-  # disease
-  sampleDiseases <- data.frame(KEY=c(),VALUES=c())
-  diseaseLen <- length(df$disease)
-  diseaseIds <- NULL
-  if (diseaseLen>=1) {
-    diseaseIds <- seq(1, diseaseLen)
-    sampleDiseases <- paste(idPrefix, paste0("disease", "[", diseaseIds, "]"), sep="-")
-    sampleDiseaseParams <- sapply(df$disease, function(x) {cvTerm.as.string(x)})
-    mztab <- rbind(mztab, c(KEY=sampleDiseases, VALUE=sampleDiseaseParams))
-  }
-  
-  # custom
-  sampleCustoms <- data.frame(KEY=c(),VALUES=c())
-  customLen <- length(df$custom)
-  customIds <- NULL
-  if (customLen>=1) {
-    customIds <- seq(1, customLen)
-    sampleCustom <- paste(idPrefix, paste0("custom", "[", customIds, "]"), sep="-")
-    sampleCustomParams <- sapply(df$custom, function(x) {x$toString()})
-    mztab <- rbind(mztab, c(KEY=sampleCustom, VALUE=sampleCustomParams))
-  }
-  mztab
-}
-
-cvTermTagValue <- function(elementPrefix, jsonDf, memberName) {
-  if(is.null(jsonDf[[memberName]])) {
-    warning(paste("Member '", memberName, "' does not exist for ", jsonDf))
-    #stopifnot(!is.null(jsonDf[[memberName]]))
-  }
-  c(paste(elementPrefix, memberName, sep="-"), jsonDf[[memberName]]$toString())
-}
-
-cvTerm.as.string <- function(cvTermDf) {
-  paste0("[", paste(cvTermDf$cv_label, cvTermDf$cv_accession, cvTermDf$name, cvTermDf$value, sep=", "), "]")
-}
-
 mzTabHeader <- function(mztab, version, mode, type, description, xset) {
   runs <- filepaths(xset)
   names(runs) <- paste("ms_run[", 1:length(runs), "]-location", sep="")
@@ -320,33 +207,22 @@ writeMzTab <- function(mztab, filename) {
   if(is.null(mztab$metadata)) {
     stop("Metadata must not be null!");
   }
-  metadataDf <- mztab$metadata$toDataFrame()
-  mtd.as.data.frame(mztab$metadata)
-  browser()
-  utils::write.table(mztab$metadata, file=filename,
-              row.names=FALSE, col.names=FALSE,
-              quote=TRUE, sep="\t", na="\"\"")
-  if(is.null(mztab$smallMoleculeSummary)) {
+  if(is.null(mztab$`smallMoleculeSummary`)) {
     stop("SmallMoleculeSummary must not be null!");
-  }
-  utils::write.table(mztab$smallMoleculeSummary, file=filename,
-              row.names=FALSE, col.names=FALSE,
-              quote=TRUE, sep="\t", na="\"\"", append=TRUE)
-  if(is.null(mztab$smallMoleculeFeatures)) {
-    warning("SmallMoleculeFeatures should not be null!");
-  } else {
-    utils::write.table(mztab$smallMoleculeFeatures, file=filename,
-                row.names=FALSE, col.names=FALSE,
-                quote=TRUE, sep="\t", na="\"\"")
-  }
-  if(is.null(mztab$smallMoleculeEvidence)) {
+  } 
+  if(is.null(mztab$`smallMoleculeFeature`)) {
+    warning("SmallMoleculeFeature should not be null!");
+  } 
+  if(is.null(mztab$`smallMoleculeEvidence`)) {
     warning("SmallMoleculeEvidence should not be null!");
-  } else {
-    utils::write.table(mztab$smallMoleculeEvidence, file=filename,
-                row.names=FALSE, col.names=FALSE,
-                quote=TRUE, sep="\t", na="\"\"")
-  }
+  } 
     
+  utils::write.table(
+    mztab$toDataFrame(), file=filename,
+    row.names=FALSE, col.names=FALSE,
+    quote=FALSE, sep="\t", na="",
+    fileEncoding="UTF8"
+  )
 }
 
 # unlist with a custom separator

@@ -87,10 +87,11 @@ SampleProcessing <- R6::R6Class(
       idPrefix <- paste0("sample_processing[", self$`id`, "]")
       elements <- data.frame(PREFIX=character(), KEY=character(), VALUE=character())
       if (!is.null(self$`sampleProcessing`)) {
-        sampleProcessingString <- paste(lapply(self$`sampleProcessing`, function(x) x$toString()), collapse="|")
         elements <-
           rbind(elements,
-                list(PREFIX = "MTD", KEY=idPrefix, VALUE=sampleProcessingString),
+                list(PREFIX = "MTD",
+                     KEY = idPrefix,
+                     VALUE = paste(lapply(self$`sampleProcessing`, function(x) x$toString()), collapse="|")), 
                 stringsAsFactors = FALSE)
       }
       elements

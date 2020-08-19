@@ -81,6 +81,17 @@ SpectraRef <- R6::R6Class(
       self$`ms_run` <- MsRun$new()$fromJSONString(jsonlite::toJSON(SpectraRefObject$ms_run, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
       self$`reference` <- SpectraRefObject$`reference`
       self
+    },
+    toString = function() {
+      spectraRefStr <- ""
+      if (!is.null(self$`ms_run`) && !is.null(self$`reference`)) {
+        if (typeof(self$`ms_run`)=="double" || typeof(self$`ms_run`)=="integer") {
+          spectraRefStr <- paste0("ms_run[", self$`ms_run`, "]:", self$`reference`)
+        } else {
+          spectraRefStr <- paste0("ms_run[", self$`ms_run`$`id`, "]:", self$`reference`)
+        }
+      }
+      spectraRefStr
     }
   )
 )

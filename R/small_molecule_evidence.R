@@ -531,6 +531,61 @@ SmallMoleculeEvidence <- R6::R6Class(
       self$`opt` <- ApiClient$new()$deserializeObj(SmallMoleculeEvidenceObject$`opt`, "array[OptColumnMapping]", loadNamespace("rmzTabM"))
       self$`comment` <- ApiClient$new()$deserializeObj(SmallMoleculeEvidenceObject$`comment`, "array[Comment]", loadNamespace("rmzTabM"))
       self
+    },
+    toDataFrame = function() {
+      fixed_header_values <- c(
+        "SEH"=valueOrDefault(self$`prefix`, nullable = FALSE),
+        "SME_ID"=valueOrDefault(self$`sme_id`, nullable = FALSE),	
+        "evidence_input_id"=valueOrDefault(self$`evidence_input_id`, nullable = FALSE),
+        "database_identifier"=valueOrDefault(self$`database_identifier`),
+        "chemical_formula"=valueOrDefault(self$`chemical_formula`),
+        "smiles"=valueOrDefault(self$`smiles`),
+        "inchi"=valueOrDefault(self$`inchi`),
+        "chemical_name"=valueOrDefault(self$`chemical_name`),
+        "uri"=valueOrDefault(self$`uri`),
+        "derivatized_form"=valueOrDefault(self$`derivatized_form`, FUN=function(x){x$toString()}),
+        "adduct_ion"=valueOrDefault(self$`adduct_ion`),
+        "exp_mass_to_charge"=valueOrDefault(self$`exp_mass_to_charge`, nullable = FALSE),
+        "charge"=valueOrDefault(self$`charge`, nullable = FALSE),
+        "theoretical_mass_to_charge"=valueOrDefault(self$`theoretical_mass_to_charge`, nullable = FALSE),
+        "spectra_ref"=paste(unlist(lapply(self$`spectra_ref`, function(x) {
+          valueOrDefault(x, FUN=function(y){y$toString()}, nullable = FALSE)
+        })), collapse="|"),
+        "identification_method"=valueOrDefault(self$`identification_method`, FUN=function(x){x$toString()}, nullable = FALSE),
+        "ms_level"=valueOrDefault(self$`ms_level`, FUN=function(x){x$toString()}, nullable = FALSE)
+      )
+      
+      id_confidence_measure <-
+        unlist(lapply(seq_along(self$`id_confidence_measure`), function(idx, x) {
+          paste0("id_confidence_measure[", idx, "]")
+        }, x = self$`id_confidence_measure`))
+      id_confidence_measure_values <-
+        unlist(lapply(seq_along(self$`id_confidence_measure`), function(idx, x) {
+          valueOrDefault(x)
+        }, x = self$`id_confidence_measure`))
+      names(id_confidence_measure_values) <- id_confidence_measure
+      
+      opt <-
+        unlist(lapply(self$`opt`, function(x) {
+          x$toString()
+        }))
+      opt_values <- 
+        unlist(lapply(self$`opt`, function(x) {
+          valueOrDefault(x$`value`)
+        }))
+      names(opt_values) <- opt
+      entries <-
+        as.data.frame(
+          t(
+            c(
+              fixed_header_values,
+              id_confidence_measure_values,
+              "rank"=valueOrDefault(self$`rank`, nullable = FALSE),
+              opt_values
+            )
+          )
+        )
+      entries
     }
   )
 )

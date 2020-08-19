@@ -159,48 +159,41 @@ Instrument <- R6::R6Class(
       idPrefix <- paste0("instrument[", self$`id`, "]")
       elements <- data.frame(PREFIX=character(), KEY=character(), VALUE=character())
       if (!is.null(self$`name`)) {
-        name <-
-          list(
-            PREFIX = "MTD",
-            KEY = paste(idPrefix, "name", sep = "-"),
-            VALUE = self$`name`$toString()
-          )
         elements <-
           rbind(elements,
-                name,
+                list(
+                  PREFIX = "MTD",
+                  KEY = paste(idPrefix, "name", sep = "-"),
+                  VALUE = self$`name`$toString()
+                ),
                 stringsAsFactors = FALSE)
       }
       if (!is.null(self$`source`)) {
-        source <-
-          list(
-            PREFIX = "MTD",
-            KEY = paste(idPrefix, "source", sep = "-"),
-            VALUE = self$`source`$toString()
-          )
         elements <-
           rbind(elements,
-                source,
+                list(
+                  PREFIX = "MTD",
+                  KEY = paste(idPrefix, "source", sep = "-"),
+                  VALUE = self$`source`$toString()
+                ),
                 stringsAsFactors = FALSE)
       }
       if (!is.null(self$`analyzer`)) {
-        fl <- lapply(seq_along(self$`analyzer`), function(idx, elements, idPrefix) {
-          list(PREFIX = "MTD", KEY=paste(idPrefix, paste0("analyzer[", idx, "]"), sep="-"), VALUE=elements[[idx]]$toString())
-        }, elements=self$`analyzer`, idPrefix=idPrefix) %>% dplyr::bind_rows()
         elements <-
           rbind(elements,
-                fl,
+                lapply(seq_along(self$`analyzer`), function(idx, elements, idPrefix) {
+                  list(PREFIX = "MTD", KEY=paste(idPrefix, paste0("analyzer[", idx, "]"), sep="-"), VALUE=elements[[idx]]$toString())
+                }, elements=self$`analyzer`, idPrefix=idPrefix) %>% dplyr::bind_rows(),
                 stringsAsFactors = FALSE)
       }
       if (!is.null(self$`detector`)) {
-        detector <-
-          list(
-            PREFIX = "MTD",
-            KEY = paste(idPrefix, "detector", sep = "-"),
-            VALUE = self$`detector`$toString()
-          )
         elements <-
           rbind(elements,
-                detector,
+                list(
+                  PREFIX = "MTD",
+                  KEY = paste(idPrefix, "detector", sep = "-"),
+                  VALUE = self$`detector`$toString()
+                ),
                 stringsAsFactors = FALSE)
       }
       elements

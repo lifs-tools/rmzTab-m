@@ -202,66 +202,61 @@ StudyVariable <- R6::R6Class(
       idPrefix <- paste0("study_variable[", self$`id`, "]")
       elements <- data.frame(PREFIX=character(), KEY=character(), VALUE=character())
       if (!is.null(self$`name`)) {
-        name <- list(
-          PREFIX = "MTD",
-          KEY = paste(idPrefix, "name", sep = "-"),
-          VALUE = self$`name`
-        )
         elements <-
           rbind(elements,
-                name,
+                list(
+                  PREFIX = "MTD",
+                  KEY = idPrefix,
+                  VALUE = self$`name`
+                ),
                 stringsAsFactors = FALSE)
       }
       if (!is.null(self$`assay_refs`)) {
-        assayRefsString <- paste(lapply(self$`assay_refs`, function(x) paste0("assay[", x, "]")), collapse="|")
         elements <-
           rbind(elements,
-                list(PREFIX = "MTD", KEY=paste(idPrefix, "assay_refs", sep="-"), VALUE=assayRefsString),
+                list(
+                  PREFIX = "MTD",
+                  KEY = paste(idPrefix, "assay_refs", sep = "-"),
+                  VALUE = paste(lapply(self$`assay_refs`, function(x) paste0("assay[", x, "]")), collapse="|")
+                ), 
                 stringsAsFactors = FALSE)
       }
       if (!is.null(self$`average_function`)) {
-        average_function <-
-          list(
-            PREFIX = "MTD",
-            KEY = paste(idPrefix, "average_function", sep = "-"),
-            VALUE = self$`average_function`$toString()
-          )
         elements <-
           rbind(elements,
-                average_function,
+                list(
+                  PREFIX = "MTD",
+                  KEY = paste(idPrefix, "average_function", sep = "-"),
+                  VALUE = self$`average_function`$toString()
+                ),
                 stringsAsFactors = FALSE)
       }
       if (!is.null(self$`variation_function`)) {
-        variation_function <-
-          list(
-            PREFIX = "MTD",
-            KEY = paste(idPrefix, "variation_function", sep = "-"),
-            VALUE = self$`variation_function`$toString()
-          )
         elements <-
           rbind(elements,
-                variation_function,
+                list(
+                  PREFIX = "MTD",
+                  KEY = paste(idPrefix, "variation_function", sep = "-"),
+                  VALUE = self$`variation_function`$toString()
+                ),
                 stringsAsFactors = FALSE)
       }
       if (!is.null(self$`description`)) {
-        description <-
-          list(
-            PREFIX = "MTD",
-            KEY = paste(idPrefix, "description", sep = "-"),
-            VALUE = self$`description`
-          )
         elements <-
           rbind(elements,
-                description,
+                list(
+                  PREFIX = "MTD",
+                  KEY = paste(idPrefix, "description", sep = "-"),
+                  VALUE = self$`description`
+                ),
                 stringsAsFactors = FALSE)
       }
       if (!is.null(self$`factors`)) {
-        fl <- lapply(seq_along(self$`factors`), function(idx, elements, idPrefix) {
-          list(PREFIX = "MTD", KEY=paste(idPrefix, paste0("factors[", idx, "]"), sep="-"), VALUE=elements[[idx]]$toString())
-        }, elements=self$`factors`, idPrefix=idPrefix) %>% dplyr::bind_rows()
         elements <-
           rbind(elements,
-                fl,
+                lapply(seq_along(self$`factors`), function(idx, elements, idPrefix) {
+                  list(PREFIX = "MTD", KEY=paste(idPrefix, paste0("factors[", idx, "]"), sep="-"), VALUE=elements[[idx]]$toString())
+                }, elements=self$`factors`, idPrefix=idPrefix) %>% dplyr::bind_rows(),
                 stringsAsFactors = FALSE)
       }
       elements

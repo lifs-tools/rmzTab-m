@@ -154,48 +154,43 @@ Database <- R6::R6Class(
       idPrefix <- paste0("database[", self$`id`, "]")
       elements <- data.frame(PREFIX=character(), KEY=character(), VALUE=character())
       if (!is.null(self$`param`)) {
-        param <-
-          list(
-            PREFIX = "MTD",
-            KEY = paste(idPrefix, "param", sep = "-"),
-            VALUE = self$`param`$toString()
-          )
         elements <-
           rbind(elements,
-                param,
+                list(
+                  PREFIX = "MTD",
+                  KEY = idPrefix,
+                  VALUE = self$`param`$toString()
+                ),
                 stringsAsFactors = FALSE)
       }
       if (!is.null(self$`prefix`)) {
-        prefix <- list(
-          PREFIX = "MTD",
-          KEY = paste(idPrefix, "prefix", sep = "-"),
-          VALUE = self$`prefix`
-        )
         elements <-
           rbind(elements,
-                prefix,
+                list(
+                  PREFIX = "MTD",
+                  KEY = paste(idPrefix, "prefix", sep = "-"),
+                  VALUE = self$`prefix`
+                ),
                 stringsAsFactors = FALSE)
       }
       if (!is.null(self$`version`)) {
-        version <- list(
-          PREFIX = "MTD",
-          KEY = paste(idPrefix, "version", sep = "-"),
-          VALUE = self$`version`
-        )
         elements <-
           rbind(elements,
-                version,
+                list(
+                  PREFIX = "MTD",
+                  KEY = paste(idPrefix, "version", sep = "-"),
+                  VALUE = self$`version`
+                ),
                 stringsAsFactors = FALSE)
       }
       if (!is.null(self$`uri`)) {
-        uri <- list(
-          PREFIX = "MTD",
-          KEY = paste(idPrefix, "uri", sep = "-"),
-          VALUE = self$`uri`
-        )
         elements <-
           rbind(elements,
-                uri,
+                list(
+                  PREFIX = "MTD",
+                  KEY = paste(idPrefix, "uri", sep = "-"),
+                  VALUE = self$`uri`
+                ),
                 stringsAsFactors = FALSE)
       }
       elements

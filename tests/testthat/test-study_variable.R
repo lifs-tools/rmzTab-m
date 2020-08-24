@@ -52,7 +52,7 @@ test_that("studyVariable$toDataFrame works", {
   model.instance$`assay_refs` <- list(1,3)
   df <- model.instance$toDataFrame()
   expect_equal(df[1,"PREFIX"], "MTD")
-  expect_equal(df[1,"KEY"], "study_variable[1]-name")
+  expect_equal(df[1,"KEY"], "study_variable[1]")
   expect_equal(df[1,"VALUE"], "Sphingolipid SRM Quantitation")
   expect_equal(df[2,"KEY"], "study_variable[1]-assay_refs")
   expect_equal(df[2,"VALUE"], "assay[1]|assay[3]")

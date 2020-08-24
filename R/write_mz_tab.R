@@ -54,7 +54,6 @@ mtd.as.data.frame <- function(metadata) {
   #print(metadata)
   #print(metadata$classname)
   metadata.df <- mzTabAddComment("Meta data section") #data.frame()
-  browser()
   #metadata.df <- rbind.ragged(metadata.df, mzTabAddComment("Meta data section"))
   metadata.df <- rbind.ragged(metadata.df, mzTabAddTagValue("MTD",
                                                 c("mzTab-version"=metadata$`mzTab-version`,
@@ -227,17 +226,10 @@ writeMzTab <- function(mztab, filename) {
 
 # unlist with a custom separator
 unlistWithSep = function(x, sep = "-") {
-  browser()
   #save top names
   top_names = names(x)
   x = unname(x)
-  
-  #flatten
-  # if(!is.null(top_names)) {
-  #   x2 = unlistWithSep(x, sep = sep)
-  # } else {
-    x2 = unlist(x)
-  # }
+  x2 = unlist(x)
   
   #add prefix
   #determine how many prefixes to add of each

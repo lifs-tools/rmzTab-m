@@ -47,7 +47,7 @@ test_that("toDataFrame", {
   df <- assay$toDataFrame()
   expect_equal(nrow(df), 7)
   expect_equal(df[1, "PREFIX"], "MTD")
-  expect_equal(df[1, "KEY"], "assay[1]-name")
+  expect_equal(df[1, "KEY"], "assay[1]")
   expect_equal(df[1, "VALUE"], "Just a name for the assay")
   expect_equal(df[2, "KEY"], "assay[1]-custom[1]")
   expect_equal(df[2, "VALUE"], "[MS, MS:1, \"made up, also for testing\", ]")

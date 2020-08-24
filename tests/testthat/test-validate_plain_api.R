@@ -5,6 +5,30 @@ context("Test ValidatePlainApi")
 
 api.instance <- ValidatePlainApi$new()
 
+test_that("validation from mzTab TAB via REST API of mztab JSON works", {
+  testfile <- system.file("testdata", c("lipidomics-example.mzTab.json"),package="rmzTabM")
+  mzTabObject <- MzTab$new()
+  mzTabObject$fromJSON(testfile)
+  tmpFile <- tempfile(fileext = "mztab")
+  writeMzTab(mzTabObject, tmpFile)
+  mzTabString <- readChar(tmpFile, file.info(tmpFile)$size)
+  #set a custom api client to use a different URL
+  apiClient <- ApiClient$new(basePath = "https://apps.lifs.isas.de/mztabvalidator-dev/rest/v2")
+  validateApi <- ValidatePlainApi$new(apiClient = apiClient)
+  response <- validateApi$ValidatePlainMzTabFile(mzTabString, 'info', 50, FALSE)
+  
+  # HTTP Code 200 means request was successfully validated with no messages.
+  expect_equal(response$response$status_code, 200)
+  if (!is.null(response$content)) {
+    print(response$content)
+  }
+  expect_null(response$content)
+  
+  # retrieve the validation messages
+  validationMessages <- apiClient$deserialize(resp = response$response, returnType = "array[ValidationMessage]", loadNamespace("rmzTabM"))
+  expect_equal(length(validationMessages), 0)
+})
+
 test_that("validation via REST API of mztab TSV works", {
   testfile <- system.file("testdata", c("lipidomics-example.mzTab"),package="rmzTabM")
   mzTabString <- readChar(testfile, file.info(testfile)$size)

@@ -4,7 +4,6 @@ test_that("roundtrip read, write, read of mztab json works", {
   testfile <- system.file("testdata", c("lipidomics-example.mzTab.json"),package="rmzTabM")
   mzTabObject <- MzTab$new()
   mzTabObject$fromJSON(testfile)
-  browser()
   #print(mzTabObject$toJSONString())
   expect_false(is.null(mzTabObject$metadata))
   expect_false(is.null(mzTabObject$smallMoleculeSummary))

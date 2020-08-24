@@ -30,7 +30,6 @@ test_that("publication", {
 
 test_that("publication$toDataFrame() works", {
   model.instance <- model.instance$fromJSONString(ref.json)
-  browser()
   df <- model.instance$toDataFrame()
   expect_equal(model.instance$`id`, 1)
   expect_equal(length(model.instance$`publicationItems`), 2)

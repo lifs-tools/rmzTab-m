@@ -16,4 +16,5 @@ URL: https://github.com/lifs-tools/rmztab-m
 BugReports: https://github.com/lifs-tools/rmztab-m/issues
 Suggests: testthat, pkgdown
 Imports: jsonlite, httr, R6, caTools, dplyr
+LinkingTo: testthat
 RoxygenNote: 7.1.0

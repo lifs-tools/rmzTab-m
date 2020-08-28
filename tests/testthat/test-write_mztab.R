@@ -1,4 +1,4 @@
-context("test-write_mztab_json.R")
+context("test-write_mztab.R")
 
 test_that("roundtrip read, write, read of mztab json works", {
   testfile <- system.file("testdata", c("lipidomics-example.mzTab.json"),package="rmzTabM")

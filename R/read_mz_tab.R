@@ -91,37 +91,37 @@ extractMetadata <- function(mztab.table) {
   colunitSmf <- extractPart(mtd.table, "V2", "colunit-small_molecule_feature")
   colunitSme <- extractPart(mtd.table, "V2", "colunit-small_molecule_evidence")
   
-  mtd <- Metadata$new(
-    `prefix` = prefix,
-    `mzTab-version` = mzTabVersion,
-    `mzTab-ID` = mzTabId,
-    `title` = title,
-    `description` = description,
-    `sample_processing` = NULL,
-    `instrument` = NULL,
-    `software` = NULL,
-    `publication` = NULL,
-    `contact` = NULL,
-    `uri` = NULL,
-    `external_study_uri` = NULL,
-    `quantification_method` = NULL,
-    `study_variable` = NULL,
-    `ms_run` = NULL,
-    `assay` = NULL,
-    `sample` = NULL,
-    `custom` = NULL,
-    `cv` = NULL,
-    `database` = NULL,
-    `derivatization_agent` = NULL,
-    `small_molecule-quantification_unit` = NULL,
-    `small_molecule_feature-quantification_unit` = NULL,
-    `small_molecule-identification_reliability` = NULL,
-    `id_confidence_measure` = NULL,
-    `colunit-small_molecule` = NULL,
-    `colunit-small_molecule_feature` = NULL,
-    `colunit-small_molecule_evidence` = NULL
-  )
-  mtd
+  # mtd <- Metadata$new(
+  #   `prefix` = prefix,
+  #   `mzTab-version` = mzTabVersion,
+  #   `mzTab-ID` = mzTabId,
+  #   `title` = title,
+  #   `description` = description,
+  #   `sample_processing` = NULL,
+  #   `instrument` = NULL,
+  #   `software` = NULL,
+  #   `publication` = NULL,
+  #   `contact` = NULL,
+  #   `uri` = NULL,
+  #   `external_study_uri` = NULL,
+  #   `quantification_method` = NULL,
+  #   `study_variable` = NULL,
+  #   `ms_run` = NULL,
+  #   `assay` = NULL,
+  #   `sample` = NULL,
+  #   `custom` = NULL,
+  #   `cv` = NULL,
+  #   `database` = NULL,
+  #   `derivatization_agent` = NULL,
+  #   `small_molecule-quantification_unit` = NULL,
+  #   `small_molecule_feature-quantification_unit` = NULL,
+  #   `small_molecule-identification_reliability` = NULL,
+  #   `id_confidence_measure` = NULL,
+  #   `colunit-small_molecule` = NULL,
+  #   `colunit-small_molecule_feature` = NULL,
+  #   `colunit-small_molecule_evidence` = NULL
+  # )
+  # mtd
 }
 
 buildMtdVersion <- function(mztab.mtd.table) {
@@ -134,6 +134,7 @@ buildMtdId <- function(mztab.mtd.table) {
 
 
 extractSummary <- function(mztab.table) {
+  
   smh <- mztab.table[startsWith(as.character(mztab.table$V1), "SMH"),]
   sml <- mztab.table[startsWith(as.character(mztab.table$V1), "SML"),]
   sml.data.frame <- data.frame(sml)

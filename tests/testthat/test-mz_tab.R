@@ -3,53 +3,143 @@
 
 context("Test MzTab")
 
-model.instance <- MzTab$new()
-
-test_that("mzTab$toDataFrame() works", {
+test_that("reading of mztab json works", {
   testfile <- system.file("testdata", c("lipidomics-example.mzTab.json"),package="rmzTabM")
-  model.instance <- MzTab$new()
-  model.instance$fromJSON(testfile)
   
-  rmzTabM::writeMzTab(model.instance, "lipidomics-example.test.mztab")
+  # create a new instance
+  mzTab <- MzTab$new()
   
-})
-
-test_that("metadata", {
-  # tests for the property `metadata` (Metadata)
-
-  # uncomment below to test the property 
-  #expect_equal(model.instance$`metadata`, "EXPECTED_RESULT")
-})
-
-test_that("smallMoleculeSummary", {
-  # tests for the property `smallMoleculeSummary` (array[SmallMoleculeSummary])
-  # The small molecule section is table-based. The small molecule section MUST always come after the metadata section. All table columns MUST be Tab separated. There MUST NOT be any empty cells; missing values MUST be reported using “null” for columns where Is Nullable &#x3D; “True”.  Each row of the small molecule section is intended to report one final result to be communicated in terms of a molecule that has been quantified. In many cases, this may be the molecule of biological interest, although in some cases, the final result could be a derivatized form as appropriate – although it is desirable for the database identifier(s) to reference to the biological (non-derivatized) form. In general, different adduct forms would generally be reported in the Small Molecule Feature section.  The order of columns MUST follow the order specified below.  All columns are MANDATORY except for “opt_” columns. 
-
-  # uncomment below to test the property 
-  #expect_equal(model.instance$`smallMoleculeSummary`, "EXPECTED_RESULT")
-})
-
-test_that("smallMoleculeFeature", {
-  # tests for the property `smallMoleculeFeature` (array[SmallMoleculeFeature])
-  # The small molecule feature section is table-based, representing individual MS regions (generally considered to be the elution profile for all isotopomers formed from a single charge state of a molecule), that have been measured/quantified. However, for approaches that quantify individual isotopomers e.g. stable isotope labelling/flux studies, then each SMF row SHOULD represent a single isotopomer.  Different adducts or derivatives and different charge states of individual molecules should be reported as separate SMF rows.  The small molecule feature section MUST always come after the Small Molecule Table. All table columns MUST be Tab separated. There MUST NOT be any empty cells. Missing values MUST be reported using “null”.  The order of columns MUST follow the order specified below.  All columns are MANDATORY except for “opt_” columns. 
-
-  # uncomment below to test the property 
-  #expect_equal(model.instance$`smallMoleculeFeature`, "EXPECTED_RESULT")
-})
-
-test_that("smallMoleculeEvidence", {
-  # tests for the property `smallMoleculeEvidence` (array[SmallMoleculeEvidence])
-  # The small molecule evidence section is table-based, representing evidence for identifications of small molecules/features, from database search or any other process used to give putative identifications to molecules. In a typical case, each row represents one result from a single search or intepretation of a piece of evidence e.g. a database search with a fragmentation spectrum. Multiple results from a given input data item (e.g. one fragment spectrum) SHOULD share the same value under evidence_input_id.  The small molecule evidence section MUST always come after the Small Molecule Feature Table. All table columns MUST be Tab separated. There MUST NOT be any empty cells. Missing values MUST be reported using “null”.  The order of columns MUST follow the order specified below.  All columns are MANDATORY except for “opt_” columns. 
-
-  # uncomment below to test the property 
-  #expect_equal(model.instance$`smallMoleculeEvidence`, "EXPECTED_RESULT")
-})
-
-test_that("comment", {
-  # tests for the property `comment` (array[Comment])
-  # Comment lines can be placed anywhere in an mzTab file. These lines must start with the three-letter code COM and are ignored by most parsers. Empty lines can also occur anywhere in an mzTab file and are ignored. 
-
-  # uncomment below to test the property 
-  #expect_equal(model.instance$`comment`, "EXPECTED_RESULT")
+  # populate instance from JSON file
+  mzTab$fromJSON(testfile)
+  
+  # check metadata
+  expect_false(is.null(mzTab$metadata))
+  expect_equal(mzTab$metadata$`mzTab-version`, "2.0.0-M")
+  expect_equal(mzTab$metadata$`mzTab-ID`, "ISAS-2018-1234")
+  expect_null(mzTab$metadata$title)
+  expect_equal(mzTab$metadata$description, "Minimal proposed sample file for identification and quantification of lipids")
+  expect_null(mzTab$metadata$contact)
+  expect_length(mzTab$metadata$publication, 1)
+  expect_null(mzTab$metadata$uri)
+  expect_length(mzTab$metadata$`external_study_uri`, 1)
+  expect_length(mzTab$metadata$`instrument`, 1)
+  
+  expect_null(mzTab$metadata$`quantification_method`$id)
+  expect_equal(mzTab$metadata$`quantification_method`$`cv_label`, "MS")
+  expect_equal(mzTab$metadata$`quantification_method`$`cv_accession`, "MS:1001838")
+  expect_equal(mzTab$metadata$`quantification_method`$`name`, "SRM quantitation analysis")
+  
+  expect_length(mzTab$metadata$`sample`, 1)
+  expect_length(mzTab$metadata$`sample_processing`, 1)
+  expect_length(mzTab$metadata$`software`, 2)
+  expect_null(mzTab$metadata$`derivatization_agent`)
+  
+  expect_length(mzTab$metadata$`ms_run`, 1)
+  expect_length(mzTab$metadata$`assay`, 1)
+  expect_length(mzTab$metadata$`study_variable`, 1)
+  
+  expect_null(mzTab$metadata$`custom`)
+  expect_length(mzTab$metadata$`cv`, 3)
+  
+  expect_null(mzTab$metadata$`small_molecule-quantification_unit`$id)
+  expect_equal(mzTab$metadata$`small_molecule-quantification_unit`$`cv_label`, "UO")
+  expect_equal(mzTab$metadata$`small_molecule-quantification_unit`$`cv_accession`, "UO:0000072")
+  expect_equal(mzTab$metadata$`small_molecule-quantification_unit`$`name`, "picomolal")
+  
+  expect_null(mzTab$metadata$`small_molecule_feature-quantification_unit`$id)
+  expect_equal(mzTab$metadata$`small_molecule_feature-quantification_unit`$`cv_label`, "UO")
+  expect_equal(mzTab$metadata$`small_molecule_feature-quantification_unit`$`cv_accession`, "UO:0000072")
+  expect_equal(mzTab$metadata$`small_molecule_feature-quantification_unit`$`name`, "picomolal")
+  
+  expect_null(mzTab$metadata$`small_molecule-identification_reliability`$id)
+  expect_equal(mzTab$metadata$`small_molecule-identification_reliability`$`cv_label`, "MS")
+  expect_equal(mzTab$metadata$`small_molecule-identification_reliability`$`cv_accession`, "MS:1002896")
+  expect_equal(mzTab$metadata$`small_molecule-identification_reliability`$`name`, "compound identification confidence level")
+  
+  expect_length(mzTab$metadata$`database`, 3)
+  expect_length(mzTab$metadata$`id_confidence_measure`, 1)
+  
+  expect_null(mzTab$metadata$`colunit-small_molecule`)
+  expect_null(mzTab$metadata$`colunit-small_molecule_feature`)
+  expect_length(mzTab$metadata$`colunit-small_molecule_evidence`, 1)
+  
+  expect_null(mzTab$metadata$`colunit-small_molecule_evidence`[[1]]$param$id)
+  expect_equal(mzTab$metadata$`colunit-small_molecule_evidence`[[1]]$`column_name`, "opt_global_mass_error")
+  expect_equal(mzTab$metadata$`colunit-small_molecule_evidence`[[1]]$param$`cv_label`, "UO")
+  expect_equal(mzTab$metadata$`colunit-small_molecule_evidence`[[1]]$param$`cv_accession`, "UO:0000169")
+  expect_equal(mzTab$metadata$`colunit-small_molecule_evidence`[[1]]$param$`name`, "parts per million")
+  expect_null(mzTab$metadata$`colunit-small_molecule_evidence`[[1]]$param$`value`)
+  
+  expect_false(is.null(mzTab$smallMoleculeSummary))
+  expect_false(is.null(mzTab$smallMoleculeFeature))
+  expect_false(is.null(mzTab$smallMoleculeEvidence))
+  expect_length(mzTab$`smallMoleculeSummary`,1)
+  expect_length(mzTab$`smallMoleculeFeature`,4)
+  expect_length(mzTab$`smallMoleculeEvidence`,4)
+  
+  # check Summary 1 (sml_id can be different!)
+  expect_equal(mzTab$`smallMoleculeSummary`[[1]]$`sml_id`, 1)
+  expect_equal(mzTab$`smallMoleculeSummary`[[1]]$`smf_id_refs`, list(c(1,2,3,4))) # this is a bit weird, not sure why it is represented like that
+  expect_equal(mzTab$`smallMoleculeSummary`[[1]]$`chemical_name`, list("Cer(d18:1/24:0)"))
+  expect_equal(mzTab$`smallMoleculeSummary`[[1]]$`database_identifier`, list("LM:LMSP02010012"))
+  expect_equal(mzTab$`smallMoleculeSummary`[[1]]$`chemical_formula`, list("C42H83NO3"))
+  expect_equal(mzTab$`smallMoleculeSummary`[[1]]$`smiles`, list("CCCCCCCCCCCCCCCCCCCCCCCC(=O)N[C@@H](CO)[C@H](O)/C=C/CCCCCCCCCCCCC"))
+  expect_equal(mzTab$`smallMoleculeSummary`[[1]]$`inchi`, list("InChI=1S/C42H83NO3/c1-3-5-7-9-11-13-15-17-18-19-20-21-22-23-24-26-28-30-32-34-36-38-42(46)43-40(39-44)41(45)37-35-33-31-29-27-25-16-14-12-10-8-6-4-2/h35,37,40-41,44-45H,3-34,36,38-39H2,1-2H3,(H,43,46)/b37-35+/t40-,41+/m0/s1"))
+  expect_equal(mzTab$`smallMoleculeSummary`[[1]]$`uri`, list("http://www.lipidmaps.org/data/LMSDRecord.php?LM_ID=LMSP02010012"))
+  expect_equal(mzTab$`smallMoleculeSummary`[[1]]$`theoretical_neutral_mass`, list(649.6373))
+  expect_equal(mzTab$`smallMoleculeSummary`[[1]]$`adduct_ions`, list("[M+H]+"))
+  expect_equal(mzTab$`smallMoleculeSummary`[[1]]$`reliability`, "2")
+  expect_equal(mzTab$`smallMoleculeSummary`[[1]]$`best_id_confidence_measure`$name, "qualifier ions exact mass")
+  expect_equal(mzTab$`smallMoleculeSummary`[[1]]$`best_id_confidence_value`, 0.958)
+  
+  expect_equal(mzTab$`smallMoleculeSummary`[[1]]$`abundance_assay`[[1]], 4.448784E-05)
+  expect_equal(mzTab$`smallMoleculeSummary`[[1]]$`abundance_study_variable`[[1]], 4.448784E-05)
+  expect_equal(mzTab$`smallMoleculeSummary`[[1]]$`abundance_variation_study_variable`[[1]], 0)
+  
+  # opt columns
+  expect_length(mzTab$`smallMoleculeSummary`[[1]]$opt, 3)
+  
+  expect_equal(mzTab$`smallMoleculeSummary`[[1]]$opt[[1]]$`identifier`, "global_lipid_category")
+  expect_null(mzTab$`smallMoleculeSummary`[[1]]$opt[[1]]$`parameter`)
+  expect_equal(mzTab$`smallMoleculeSummary`[[1]]$opt[[1]]$`value`, "Sphingolipids")
+  
+  expect_equal(mzTab$`smallMoleculeSummary`[[1]]$opt[[2]]$`identifier`, "global_lipid_species")
+  expect_null(mzTab$`smallMoleculeSummary`[[1]]$opt[[2]]$`parameter`)
+  expect_equal(mzTab$`smallMoleculeSummary`[[1]]$opt[[2]]$`value`, "Cer 42:1")
+  
+  expect_equal(mzTab$`smallMoleculeSummary`[[1]]$opt[[3]]$`identifier`, "global_lipid_best_id_level")
+  expect_null(mzTab$`smallMoleculeSummary`[[1]]$opt[[3]]$`parameter`)
+  expect_equal(mzTab$`smallMoleculeSummary`[[1]]$opt[[3]]$`value`, "Cer d18:1/24:0")
+  
+  # check features
+  expect_length(mzTab$`smallMoleculeFeature`[[1]]$opt, 1)
+  expect_equal(mzTab$`smallMoleculeFeature`[[1]]$opt[[1]]$`identifier`, "global_quantifiers_SMF_ID_REFS")
+  expect_null(mzTab$`smallMoleculeFeature`[[1]]$opt[[1]]$`parameter`)
+  expect_equal(mzTab$`smallMoleculeFeature`[[1]]$opt[[1]]$`value`, "3")
+  
+  expect_length(mzTab$`smallMoleculeFeature`[[2]]$opt, 1)
+  expect_equal(mzTab$`smallMoleculeFeature`[[2]]$opt[[1]]$`identifier`, "global_quantifiers_SMF_ID_REFS")
+  expect_null(mzTab$`smallMoleculeFeature`[[2]]$opt[[1]]$`parameter`)
+  expect_equal(mzTab$`smallMoleculeFeature`[[2]]$opt[[1]]$`value`, "null")
+  
+  expect_length(mzTab$`smallMoleculeFeature`[[3]]$opt, 1)
+  expect_equal(mzTab$`smallMoleculeFeature`[[3]]$opt[[1]]$`identifier`, "global_quantifiers_SMF_ID_REFS")
+  expect_null(mzTab$`smallMoleculeFeature`[[3]]$opt[[1]]$`parameter`)
+  expect_equal(mzTab$`smallMoleculeFeature`[[3]]$opt[[1]]$`value`, "null")
+  
+  expect_length(mzTab$`smallMoleculeFeature`[[4]]$opt, 1)
+  expect_equal(mzTab$`smallMoleculeFeature`[[4]]$opt[[1]]$`identifier`, "global_quantifiers_SMF_ID_REFS")
+  expect_null(mzTab$`smallMoleculeFeature`[[4]]$opt[[1]]$`parameter`)
+  expect_equal(mzTab$`smallMoleculeFeature`[[4]]$opt[[1]]$`value`, "null")
+  
+  # check evidence
+  expect_length(mzTab$`smallMoleculeEvidence`[[1]]$opt, 2)
+  expect_equal(mzTab$`smallMoleculeEvidence`[[1]]$opt[[1]]$`identifier`, "global_mass_error")
+  expect_null(mzTab$`smallMoleculeEvidence`[[1]]$opt[[1]]$`parameter`)
+  expect_equal(mzTab$`smallMoleculeEvidence`[[1]]$opt[[1]]$`value`, "-2.1517")
+  
+  expect_equal(mzTab$`smallMoleculeEvidence`[[1]]$opt[[2]]$`identifier`, "global_qualifiers_evidence_grouping_ID_REFS")
+  expect_null(mzTab$`smallMoleculeEvidence`[[1]]$opt[[2]]$`parameter`)
+  expect_equal(mzTab$`smallMoleculeEvidence`[[1]]$opt[[2]]$`value`, "2")
 })
 

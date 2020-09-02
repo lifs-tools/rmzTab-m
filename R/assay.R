@@ -169,7 +169,7 @@ Assay <- R6::R6Class(
       self$`custom` <- ApiClient$new()$deserializeObj(AssayObject$`custom`, "array[Parameter]", loadNamespace("rmzTabM"))
       self$`external_uri` <- AssayObject$`external_uri`
       self$`sample_ref` <- AssayObject$`sample_ref`
-      self$`ms_run_ref` <- AssayObject$`ms_run_ref`
+      self$`ms_run_ref` <- ApiClient$new()$deserializeObj(AssayObject$`ms_run_ref`, "array[integer]", loadNamespace("rmzTabM"))
       self
     },
     toDataFrame = function() {
@@ -222,6 +222,37 @@ Assay <- R6::R6Class(
                 stringsAsFactors = FALSE)
       }
       elements
+    },
+    fromDataFrame = function(AssayDataFrame) {
+      stopifnot(nrow(AssayDataFrame)==1)
+      columnNames <- colnames(AssayDataFrame)
+      if (rlang::has_name(AssayDataFrame, "id")) {
+        self$`id` <- as.numeric(AssayDataFrame$`id`)
+      }
+      if (rlang::has_name(AssayDataFrame, "name")) {
+        self$`name` <- AssayDataFrame$`name`
+      }
+      # extract potentially multiple columns with 'custom' prefix
+      customColumns <- columnNames[grepl("^custom", columnNames)]
+      if (length(customColumns) > 0) {
+        self$`custom` <- lapply(customColumns, function(x) {
+          param <- Parameter$new()
+          param$fromString(NULL, AssayDataFrame[[x]])
+          param
+        })
+      }
+      if (rlang::has_name(AssayDataFrame, "external_uri")) {
+        self$`uri` <- AssayDataFrame$`external_uri`
+      }
+      if (rlang::has_name(AssayDataFrame, "sample_ref")) { # single reference
+        self$`sample_ref` <- extractId(AssayDataFrame$`sample_ref`)
+      }
+      if (rlang::has_name(AssayDataFrame, "ms_run_ref")) { # list of references
+        msRunRefList <- splitList(AssayDataFrame$`ms_run_ref`)
+        self$`ms_run_ref` <- lapply(msRunRefList, function(x) {
+          extractId(x)  
+        })
+      }
     }
   )
 )

@@ -39,3 +39,26 @@ test_that("publication$toDataFrame() works", {
   expect_equal(model.instance$`publicationItems`[[2]]$`accession`, "10.1021/acs.analchem.7b03576")
 }
 )
+
+test_that("publication$fromDataFrame() works", {
+  
+  publicationMtd <- 
+'
+MTD\tpublication[1]\tpubmed:29039908|doi:10.1021/acs.analchem.7b03576																			
+MTD\tpublication[2]\tpubmed:21063943|doi:10.1007/978-1-60761-987-1_6																			
+'
+  mzTabTable <- readMzTabString(publicationMtd)
+  metadataTable <- extractMetadata(mzTabTable)
+  idElements <- extractIdElements(metadataTable, "publication", "name")
+  expect_equal(length(idElements), 2)
+  model.instance <- Publication$new()
+  model.instance$fromDataFrame(idElements[[1]])
+  
+  expect_equal(model.instance$`id`, 1)
+  expect_equal(length(model.instance$`publicationItems`), 2)
+  expect_equal(model.instance$`publicationItems`[[1]]$`type`, "pubmed")
+  expect_equal(model.instance$`publicationItems`[[1]]$`accession`, "29039908")
+  expect_equal(model.instance$`publicationItems`[[2]]$`type`, "doi")
+  expect_equal(model.instance$`publicationItems`[[2]]$`accession`, "10.1021/acs.analchem.7b03576")
+}
+)

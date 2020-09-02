@@ -81,6 +81,7 @@ Database <- R6::R6Class(
       DatabaseObject
     },
     fromJSON = function(DatabaseJson) {
+      browser()
       DatabaseObject <- jsonlite::fromJSON(DatabaseJson)
       if (!is.null(DatabaseObject$`id`)) {
         self$`id` <- DatabaseObject$`id`
@@ -194,6 +195,27 @@ Database <- R6::R6Class(
                 stringsAsFactors = FALSE)
       }
       elements
+    },
+    fromDataFrame = function(DatabaseDataFrame) {
+      stopifnot(nrow(DatabaseDataFrame)==1)
+      if (rlang::has_name(DatabaseDataFrame, "id")) {
+        self$`id` <- as.numeric(DatabaseDataFrame$`id`)
+      }
+      if (rlang::has_name(DatabaseDataFrame, "param")) {
+        param <- Parameter$new()
+        param$fromString(NULL, DatabaseDataFrame$`param`)
+        self$`param` <- param
+      }
+      if (rlang::has_name(DatabaseDataFrame, "prefix")) {
+        self$`prefix` <- DatabaseDataFrame$`prefix`
+      }
+      if (rlang::has_name(DatabaseDataFrame, "version")) {
+        self$`version` <- DatabaseDataFrame$`version`
+      }
+      if (rlang::has_name(DatabaseDataFrame, "uri")) {
+        self$`uri` <- DatabaseDataFrame$`uri`
+      }
+      self
     }
   )
 )

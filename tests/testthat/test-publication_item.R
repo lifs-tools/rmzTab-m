@@ -3,21 +3,18 @@
 
 context("Test PublicationItem")
 
-model.instance <- PublicationItem$new()
-
-test_that("type", {
-  # tests for the property `type` (character)
-  # The type qualifier of this publication item.
-
-  # uncomment below to test the property 
-  #expect_equal(model.instance$`type`, "EXPECTED_RESULT")
+test_that("toString", {
+  model.instance <- PublicationItem$new()
+  model.instance$`type` <- "pubmed"
+  model.instance$`accession` <- "12897123"
+  piString <- model.instance$toString()
+  expect_equal(piString, "pubmed:12897123")
 })
 
-test_that("accession", {
-  # tests for the property `accession` (character)
-  # The native accession id for this publication item.
-
-  # uncomment below to test the property 
-  #expect_equal(model.instance$`accession`, "EXPECTED_RESULT")
+test_that("fromString", {
+  model.instance <- PublicationItem$new()
+  model.instance$fromString("pubmed:12897123")
+  expect_equal(model.instance$`type`, "pubmed")
+  expect_equal(model.instance$`accession`, "12897123")
 })
 

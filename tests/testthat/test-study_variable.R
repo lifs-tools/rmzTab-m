@@ -63,3 +63,37 @@ test_that("studyVariable$toDataFrame works", {
   expect_equal(df[5,"KEY"], "study_variable[1]-description")
   expect_equal(df[5,"VALUE"], "sphingolipid srm quantitation")
 })
+
+test_that("studyVariable$fromDataFrame works", {
+  studyVariableMtd <- 
+'
+MTD\tstudy_variable[1]\tSphingolipid SRM Quantitation																			
+MTD\tstudy_variable[1]-assay_refs\tassay[1]																			
+MTD\tstudy_variable[1]-description\tsphingolipid srm quantitation																			
+MTD\tstudy_variable[1]-average_function\t[MS, MS:1002883, median, ]																			
+MTD\tstudy_variable[1]-variation_function\t[MS, MS:1002885, standard error, ]																			
+MTD\tstudy_variable[1]-factors\t[,,rapamycin dose,0.5mg]																			
+'
+  mzTabTable <- readMzTabString(studyVariableMtd)
+  metadataTable <- extractMetadata(mzTabTable)
+  idElements <- extractIdElements(metadataTable, "study_variable", "name")
+  model.instance <- StudyVariable$new()
+  model.instance$fromDataFrame(idElements[[1]])
+  
+  expect_equal(model.instance$`id`, 1)
+  expect_equal(model.instance$`name`, "Sphingolipid SRM Quantitation")
+  expect_equal(length(model.instance$`assay_refs`), 1)
+  expect_equal(model.instance$`assay_refs`[[1]], 1)
+  expect_null(model.instance$`average_function`$id)
+  expect_equal(model.instance$`average_function`$cv_label, "MS")
+  expect_equal(model.instance$`average_function`$cv_accession, "MS:1002883")
+  expect_equal(model.instance$`average_function`$name, "median")
+  expect_null(model.instance$`average_function`$value)
+  expect_null(model.instance$`variation_function`$id)
+  expect_equal(model.instance$`variation_function`$cv_label, "MS")
+  expect_equal(model.instance$`variation_function`$cv_accession, "MS:1002885")
+  expect_equal(model.instance$`variation_function`$name, "standard error")
+  expect_null(model.instance$`variation_function`$value)
+  expect_equal(model.instance$`description`, "sphingolipid srm quantitation")
+  expect_equal(length(model.instance$`factors`), 1)
+})

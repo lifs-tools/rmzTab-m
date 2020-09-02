@@ -4,21 +4,23 @@
 context("Test Assay")
 
 model.instance <- Assay$new()
-
 ref.json <- '{
       "id" : 1,
       "name" : "Description of assay 1",
-      "custom" : null,
+      "custom" : [ 
+        {"id": 1, "cv_label": "MSIO", "cv_accession": "MSIO:0000148", "name":"high performance liquid chromatography", "value":null}, 
+        {"id": 2, "cv_label": null, "cv_accession": null, "name": "custom user param", "value":null}
+      ],
       "external_uri" : null,
       "sample_ref" : 1,
       "ms_run_ref" : [ 1 ]
     }'
 
-test_that("assay", {
+test_that("fromJSONString", {
   model.instance <- model.instance$fromJSONString(ref.json)
   expect_equal(model.instance$`id`, 1)
   expect_equal(model.instance$`name`, "Description of assay 1")
-  expect_null(model.instance$`custom`)
+  expect_equal(length(model.instance$`custom`), 2)
   expect_null(model.instance$`external_uri`)
   expect_equal(model.instance$`sample_ref`, 1)
   expect_equal(length(model.instance$`ms_run_ref`), 1)
@@ -63,3 +65,27 @@ test_that("toDataFrame", {
   expect_equal(df[7, "VALUE"], "ms_run[3]")
 })
 
+test_that("fromDataFrame", {
+  assayMtd <- 
+'
+MTD	assay[1]	Description of assay 1																			
+MTD	assay[1]-sample_ref	sample[1]																			
+MTD	assay[1]-ms_run_ref	ms_run[1]	
+MTD	assay[1]-custom[1]	[MS, MS:1, "made up, also for testing", ]	
+'
+  mzTabTable <- readMzTabString(assayMtd)
+  metadataTable <- extractMetadata(mzTabTable)
+  idElements <- extractIdElements(metadataTable, "assay", "name")
+  model.instance <- Assay$new()
+  model.instance$fromDataFrame(idElements[[1]])
+  
+  expect_equal(model.instance$`id`, 1)
+  expect_equal(model.instance$`name`, 'Description of assay 1')
+  expect_equal(length(model.instance$`custom`), 1)
+  expect_equal(model.instance$`custom`[[1]]$cv_accession, "MS:1")
+  expect_null(model.instance$`external_uri`)
+  expect_equal(model.instance$`sample_ref`, 1)
+  expect_equal(length(model.instance$`ms_run_ref`), 1)
+  expect_equal(model.instance$`ms_run_ref`[[1]], 1)
+}
+)

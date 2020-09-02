@@ -119,6 +119,9 @@ OptColumnMapping <- R6::R6Class(
         }
       }
       optStr
+    },
+    fromString = function(OptColumnMappingString) {
+      warning("fromString not implemented yet!")
     }
   )
 )

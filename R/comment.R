@@ -105,7 +105,6 @@ Comment <- R6::R6Class(
       self
     },
     toDataFrame = function() {
-      idPrefix <- paste0("assay[", self$`id`, "]")
       elements <- data.frame(PREFIX=character(), KEY=character(), VALUE=character())
       if (!is.null(self$`msg`)) {
         elements <-
@@ -118,6 +117,10 @@ Comment <- R6::R6Class(
                 stringsAsFactors = FALSE)
       }
       elements
+    },
+    fromDataFrame = function(CommentDataFrame) {
+      # TODO
+      warning("fromDataFrame not implemented yet")
     }
   )
 )

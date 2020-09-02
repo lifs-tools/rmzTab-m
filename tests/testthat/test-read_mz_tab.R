@@ -1,17 +1,26 @@
 context("test-read_mztab.R")
 
 test_that("reading of mztab TAB format works", {
-  # testfile <- system.file("testdata", c("lipidomics-example.mzTab"),package="rmzTabM")
-  # mzTabTable <- readMzTab(testfile)
-  # mtd <- extractMetadata(mzTabTable)
   testfile <- system.file("testdata", c("lipidomics-example.mzTab"), package="rmzTabM")
-  mzTabObject <- MzTab$new()
   mzTabTable <- readMzTab(testfile)
-  mtd <- extractMetadata(mzTabTable)
-  browser()
-  sml <- extractSummary(mzTabTable)
-  smf <- extractFeatures(mzTabTable)
-  sme <- extractEvidence(mzTabTable)
+  mzTabObject <- MzTab$new()
+  mzTabObject$fromDataFrame(mzTabTable)
+  
+  expect_false(is.null(mzTabObject$metadata))
+
+  expect_equal(object = mzTabObject$`metadata`$`mzTab-version`, "2.0.0-M")
+  expect_equal(object = mzTabObject$`metadata`$`mzTab-ID`, "ISAS-2018-1234")
+  expect_equal(object = mzTabObject$`metadata`$`description`, "Minimal proposed sample file for identification and quantification of lipids")
+  
+  
+  # expect_false(is.null(mzTabObject2$smallMoleculeSummary))
+  # expect_false(is.null(mzTabObject2$smallMoleculeFeature))
+  # expect_false(is.null(mzTabObject2$smallMoleculeEvidence))
+  
+  # expect_length(mzTabObject2$`smallMoleculeSummary`,1)
+  # expect_length(mzTabObject2$`smallMoleculeFeature`,4)
+  # expect_length(mzTabObject2$`smallMoleculeEvidence`,4)
+  
   # create pipe separated list entries -> 
   # paste(mzTabObject$toJSON()$`smallMoleculeSummary`[[1]]$smf_id_refs, collapse = " | ")
   # create a string from a parameter list ->

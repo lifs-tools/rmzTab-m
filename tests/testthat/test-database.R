@@ -19,7 +19,7 @@ ref.json <- '{
       "uri" : "https://www.ncbi.nlm.nih.gov/pccompound"
     }'
 
-test_that("instrument", {
+test_that("fromJSONString", {
   
   model.instance <- model.instance$fromJSONString(ref.json)
   expect_equal(model.instance$`id`, 1)
@@ -32,4 +32,25 @@ test_that("instrument", {
   expect_equal(model.instance$`version`, "02.12.2017")
   expect_equal(model.instance$`uri`, "https://www.ncbi.nlm.nih.gov/pccompound")
   }
+)
+
+test_that("fromDataFrame", {
+  testfile <- system.file("testdata", c("lipidomics-example.mzTab"), package="rmzTabM")
+  mzTabTable <- readMzTab(testfile)
+  metadataTable <- extractMetadata(mzTabTable)
+  idElements <- extractIdElements(metadataTable, "database", "param")
+
+  model.instance <- Database$new()
+  model.instance$fromDataFrame(idElements[[1]])
+
+  expect_equal(model.instance$`id`, 1)
+  expect_null(model.instance$`param`$`id`)
+  expect_equal(model.instance$`param`$`cv_label`, '')
+  expect_equal(model.instance$`param`$`cv_accession`, '')
+  expect_equal(model.instance$`param`$`name`, 'Pubchem')
+  expect_null(model.instance$`param`$`value`)
+  expect_equal(model.instance$`prefix`, "PUBCHEM-CPD")
+  expect_equal(model.instance$`version`, "02.12.2017")
+  expect_equal(model.instance$`uri`, "https://www.ncbi.nlm.nih.gov/pccompound")
+}
 )

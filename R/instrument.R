@@ -197,6 +197,10 @@ Instrument <- R6::R6Class(
                 stringsAsFactors = FALSE)
       }
       elements
+    },
+    fromDataFrame = function(InstrumentDataFrame) {
+      # TODO
+      warning("fromDataFrame not implemented yet")
     }
   )
 )

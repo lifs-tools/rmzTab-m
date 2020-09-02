@@ -168,6 +168,27 @@ Parameter <- R6::R6Class(
         ),
         "]"
       )
+    },
+    fromString = function(id, ParameterString) {
+      if (!is.null(id)) {
+        self$`id` <- as.numeric(id)
+      }
+      paramExpr <- ',([^\\"]*"[^\\"]*\\")*[^\\"]*'
+      paramContent <- gsub("]", "", gsub("[", "", ParameterString, fixed=TRUE), fixed=TRUE)
+      paramFields <- strsplit(paramContent, ",", perl=TRUE)
+      self$`cv_label` <- trimws(paramFields[[1]][1], which="both")
+      self$`cv_accession` <- trimws(paramFields[[1]][2], which="both")
+      name <- trimws(paramFields[[1]][3], which="both")
+      if (!is.null(name)) {
+        self$`name` <- gsub("\"", "", name, fixed=TRUE)
+      }
+      value <- trimws(paramFields[[1]][4], which="both")
+      if (!is.null(value) && value!="") {
+        self$`value` <- gsub("\"", "", value, fixed=TRUE)
+      } else {
+        self$`value` <- NULL
+      }
+      self
     }
   )
 )

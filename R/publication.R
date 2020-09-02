@@ -97,6 +97,20 @@ Publication <- R6::R6Class(
                 stringsAsFactors = FALSE)
       }
       elements
+    },
+    fromDataFrame = function(PublicationDataFrame) {
+      if (rlang::has_name(PublicationDataFrame, "id")) {
+        self$`id` <- PublicationDataFrame$`id`
+      }
+      if (rlang::has_name(PublicationDataFrame, "name")) {
+        pubItemsList <- splitList(PublicationDataFrame$`name`)
+        self$`publicationItems` <- lapply(pubItemsList, function(x){
+          pubItem <- PublicationItem$new()
+          pubItem$fromString(x)
+          pubItem
+        })
+      }
+      self
     }
   )
 )

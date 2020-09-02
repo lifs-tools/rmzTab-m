@@ -356,6 +356,10 @@ MsRun <- R6::R6Class(
                 stringsAsFactors = FALSE)
       }
       elements
+    },
+    fromDataFrame = function(MsRunDataFrame) {
+      # TODO
+      warning("fromDataFrame not implemented yet")
     }
   )
 )

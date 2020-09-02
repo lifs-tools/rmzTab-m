@@ -155,53 +155,13 @@ MzTab <- R6::R6Class(
       self
     },
     toDataFrame = function() {
-      elements <- data.frame(PREFIX=character(), KEY=character(), VALUE=character())
-      # metadata has three columns
-      
-      # count columns in summary elements
-      nSmlColumns <- 
-        # 13 columns + PREFIX are fixed
-        13 + 1 +
-        # abundance_assay: 1 column * #assays
-        length(self$`metadata`$assay) + 
-        # abundance_*_study_variable: 2 columns * #study variables
-        2*length(self$`metadata`$study_variable) +
-        # variable number of summary opt columns -> use maximum
-        max(unlist(lapply(self$`smallMoleculeSummary`, function(x){
-          if(!is.null(x$`opt`)) {
-            return(length(x$`opt`))
-          }
-          return(0)
-        })))
-      nSmfColumns <-
-        # 10 columns + PREFIX are fixed
-        10 + 1 +
-        # abundance_assay: 1 column * #assays
-        length(self$`metadata`$assay) +
-        # variable number of feature opt columns -> use maximum
-        max(unlist(lapply(self$`smallMoleculeFeature`, function(x){
-          if(!is.null(x$`opt`)) {
-            return(length(x$`opt`))
-          }
-          return(0)
-        })))
-      nSmeColumns <-
-        # 18 columns + PREFIX are fixed
-        18 + 1 +
-        # variable number of evidence opt columns -> use maximum
-        max(unlist(lapply(self$`smallMoleculeEvidence`, function(x){
-          if(!is.null(x$`opt`)) {
-            return(length(x$`opt`))
-          }
-          return(0)
-        })))
-      totalNColumns <- max(nSmeColumns, nSmfColumns, nSmlColumns)
-      
+      # create individual tables
       metadataTable <- self$`metadata`$toDataFrame()
       smlTable <- lapply(self$`smallMoleculeSummary`, function(x) {x$toDataFrame()}) %>% dplyr::bind_rows()
       smfTable <- lapply(self$`smallMoleculeFeature`, function(x) {x$toDataFrame()}) %>% dplyr::bind_rows()
       smeTable <- lapply(self$`smallMoleculeEvidence`, function(x) {x$toDataFrame()}) %>% dplyr::bind_rows()
       
+      # bind ragged to pad with missing columns
       df <- metadataTable %>% 
         rbind.ragged(., t(colnames(smlTable))) %>% 
         rbind.ragged(., smlTable)
@@ -216,6 +176,15 @@ MzTab <- R6::R6Class(
         rbind.ragged(., smeTable)
       }
       df
+    },
+    fromDataFrame = function(MzTabDataFrame) {
+      browser()
+      # self <- MzTab$new()
+      self$`metadata` <- Metadata$new()$fromDataFrame(extractMetadata(MzTabDataFrame))
+      # mtd <- extractMetadata(mzTabTable)
+      # sml <- extractSummary(mzTabTable)
+      # smf <- extractFeatures(mzTabTable)
+      # sme <- extractEvidence(mzTabTable)
     }
   )
 )

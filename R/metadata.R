@@ -910,6 +910,94 @@ Metadata <- R6::R6Class(
                 stringsAsFactors = FALSE)
       }
       elements
+    },
+    fromDataFrame = function(MetadataDataFrame) {
+      browser()
+      self <- Metadata$new()
+      self$`prefix` <- "MTD" #MetadataObject$`prefix`
+      self$`mzTab-version` <- asCharacter(extractPart(MetadataDataFrame, "V2", "mzTab-version"),1,"V3")
+      self$`mzTab-ID` <- asCharacter(extractPart(MetadataDataFrame, "V2", "mzTab-ID"),1,"V3")
+      self$`title` <- asCharacter(extractPart(MetadataDataFrame, "V2", "title"),1,"V3")
+      self$`description` <- asCharacter(extractPart(MetadataDataFrame, "V2", "description"),1,"V3")
+      
+      # sampleProcessings <- extractPart(MetadataDataFrame, "V2", "sample_processing")
+      # instruments <- extractPart(MetadataDataFrame, "V2", "instruments")
+      # softwares <- extractPart(MetadataDataFrame, "V2", "software")
+      # publications <- extractPart(MetadataDataFrame, "V2", "publication")
+      # contacts <- extractPart(MetadataDataFrame, "V2", "contact")
+      # uris <-  extractPart(MetadataDataFrame, "V2", "uri")
+      # extStudyUris <-  extractPart(MetadataDataFrame, "V2", "external_study_uri")
+      # quantMethod <- extractPart(MetadataDataFrame, "V2", "quantification_method")
+      # studyVariables <- extractPart(MetadataDataFrame, "V2", "study_variable")
+      # msRuns <- extractPart(MetadataDataFrame, "V2", "ms_run")
+      # assays <- extractPart(MetadataDataFrame, "V2", "assay")
+      # samples <- extractPart(MetadataDataFrame, "V2", "sample")
+      # custom <- extractPart(MetadataDataFrame, "V2", "custom")
+      # cvs <- extractPart(MetadataDataFrame, "V2", "cv")
+      # databases <- extractPart(MetadataDataFrame, "V2", "database")
+      # derivatizationAgents <- extractPart(MetadataDataFrame, "V2", "derivatization_agent");
+      # smQuantUnit <- extractPart(MetadataDataFrame, "V2", "small_molecule-quantification_unit")
+      # smfQuantUnit <- extractPart(MetadataDataFrame, "V2", "small_molecule_feature-quantification_unit")
+      # smIdentReliability <- extractPart(MetadataDataFrame, "V2", "small_molecule-identification_reliability")
+      # idConfidenceMeasures <- extractPart(MetadataDataFrame, "V2", "id_confidence_measure")
+      # colunitSm <- extractPart(MetadataDataFrame, "V2", "colunit-small_molecule")
+      # colunitSmf <- extractPart(MetadataDataFrame, "V2", "colunit-small_molecule_feature")
+      # colunitSme <- extractPart(MetadataDataFrame, "V2", "colunit-small_molecule_evidence")
+      # self$`sample_processing` <- ApiClient$new()$deserializeObj(MetadataObject$`sample_processing`, "array[SampleProcessing]", loadNamespace("rmzTabM"))
+      # self$`instrument` <- ApiClient$new()$deserializeObj(MetadataObject$`instrument`, "array[Instrument]", loadNamespace("rmzTabM"))
+      # self$`software` <- ApiClient$new()$deserializeObj(MetadataObject$`software`, "array[Software]", loadNamespace("rmzTabM"))
+      # self$`publication` <- ApiClient$new()$deserializeObj(MetadataObject$`publication`, "array[Publication]", loadNamespace("rmzTabM"))
+      # self$`contact` <- ApiClient$new()$deserializeObj(MetadataObject$`contact`, "array[Contact]", loadNamespace("rmzTabM"))
+      # self$`uri` <- ApiClient$new()$deserializeObj(MetadataObject$`uri`, "array[Uri]", loadNamespace("rmzTabM"))
+      # self$`external_study_uri` <- ApiClient$new()$deserializeObj(MetadataObject$`external_study_uri`, "array[Uri]", loadNamespace("rmzTabM"))
+      # self$`quantification_method` <- Parameter$new()$fromJSONString(jsonlite::toJSON(MetadataObject$`quantification_method`, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
+      # self$`study_variable` <- ApiClient$new()$deserializeObj(MetadataObject$`study_variable`, "array[StudyVariable]", loadNamespace("rmzTabM"))
+      # self$`ms_run` <- ApiClient$new()$deserializeObj(MetadataObject$`ms_run`, "array[MsRun]", loadNamespace("rmzTabM"))
+      # self$`assay` <- ApiClient$new()$deserializeObj(MetadataObject$`assay`, "array[Assay]", loadNamespace("rmzTabM"))
+      # self$`sample` <- ApiClient$new()$deserializeObj(MetadataObject$`sample`, "array[Sample]", loadNamespace("rmzTabM"))
+      # self$`custom` <- ApiClient$new()$deserializeObj(MetadataObject$`custom`, "array[Parameter]", loadNamespace("rmzTabM"))
+      # self$`cv` <- ApiClient$new()$deserializeObj(MetadataObject$`cv`, "array[CV]", loadNamespace("rmzTabM"))
+      # self$`database` <- ApiClient$new()$deserializeObj(MetadataObject$`database`, "array[Database]", loadNamespace("rmzTabM"))
+      # self$`derivatization_agent` <- ApiClient$new()$deserializeObj(MetadataObject$`derivatization_agent`, "array[Parameter]", loadNamespace("rmzTabM"))
+      # self$`small_molecule-quantification_unit` <- Parameter$new()$fromJSONString(jsonlite::toJSON(MetadataObject$`small_molecule-quantification_unit`, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
+      # self$`small_molecule_feature-quantification_unit` <- Parameter$new()$fromJSONString(jsonlite::toJSON(MetadataObject$`small_molecule_feature-quantification_unit`, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
+      # self$`small_molecule-identification_reliability` <- Parameter$new()$fromJSONString(jsonlite::toJSON(MetadataObject$`small_molecule-identification_reliability`, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
+      # self$`id_confidence_measure` <- ApiClient$new()$deserializeObj(MetadataObject$`id_confidence_measure`, "array[Parameter]", loadNamespace("rmzTabM"))
+      # self$`colunit-small_molecule` <- ApiClient$new()$deserializeObj(MetadataObject$`colunit-small_molecule`, "array[ColumnParameterMapping]", loadNamespace("rmzTabM"))
+      # self$`colunit-small_molecule_feature` <- ApiClient$new()$deserializeObj(MetadataObject$`colunit-small_molecule_feature`, "array[ColumnParameterMapping]", loadNamespace("rmzTabM"))
+      # self$`colunit-small_molecule_evidence` <- ApiClient$new()$deserializeObj(MetadataObject$`colunit-small_molecule_evidence`, "array[ColumnParameterMapping]", loadNamespace("rmzTabM"))
+      self
+      # mtd <- Metadata$new(
+      #   `prefix` = prefix,
+      #   `mzTab-version` = mzTabVersion,
+      #   `mzTab-ID` = mzTabId,
+      #   `title` = title,
+      #   `description` = description,
+      #   `sample_processing` = NULL,
+      #   `instrument` = NULL,
+      #   `software` = NULL,
+      #   `publication` = NULL,
+      #   `contact` = NULL,
+      #   `uri` = NULL,
+      #   `external_study_uri` = NULL,
+      #   `quantification_method` = NULL,
+      #   `study_variable` = NULL,
+      #   `ms_run` = NULL,
+      #   `assay` = NULL,
+      #   `sample` = NULL,
+      #   `custom` = NULL,
+      #   `cv` = NULL,
+      #   `database` = NULL,
+      #   `derivatization_agent` = NULL,
+      #   `small_molecule-quantification_unit` = NULL,
+      #   `small_molecule_feature-quantification_unit` = NULL,
+      #   `small_molecule-identification_reliability` = NULL,
+      #   `id_confidence_measure` = NULL,
+      #   `colunit-small_molecule` = NULL,
+      #   `colunit-small_molecule_feature` = NULL,
+      #   `colunit-small_molecule_evidence` = NULL
+      # )
+      # mtd
     }
   )
 )

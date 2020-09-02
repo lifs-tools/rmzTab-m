@@ -98,6 +98,10 @@ ColumnParameterMapping <- R6::R6Class(
                 stringsAsFactors = FALSE)
       }
       elements
+    },
+    fromDataFrame = function(ColumnParameterMappingDataFrame) {
+      # TODO
+      warning("fromDataFrame not implemented yet")
     }
   )
 )

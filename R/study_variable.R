@@ -260,6 +260,40 @@ StudyVariable <- R6::R6Class(
                 stringsAsFactors = FALSE)
       }
       elements
+    },
+    fromDataFrame = function(StudyVariableDataFrame) {
+      stopifnot(nrow(StudyVariableDataFrame)==1)
+      if (rlang::has_name(StudyVariableDataFrame, "id")) {
+        self$`id` <- as.numeric(StudyVariableDataFrame$`id`)
+      }
+      if (rlang::has_name(StudyVariableDataFrame, "name")) {
+        self$`name` <- StudyVariableDataFrame$`name`
+      }
+      if (rlang::has_name(StudyVariableDataFrame, "assay_refs")) { # list of references
+        assayRefList <- splitList(StudyVariableDataFrame$`assay_refs`)
+        self$`assay_refs` <- lapply(assayRefList, function(x) {
+          extractId(x)  
+        })
+      }
+      if (rlang::has_name(StudyVariableDataFrame, "average_function")) {
+        param <- Parameter$new()
+        self$`average_function` <- param$fromString(NULL, StudyVariableDataFrame$`average_function`)
+      }
+      if (rlang::has_name(StudyVariableDataFrame, "variation_function")) {
+        param <- Parameter$new()
+        self$`variation_function` <- param$fromString(NULL, StudyVariableDataFrame$`variation_function`)
+      }
+      if (rlang::has_name(StudyVariableDataFrame, "description")) {
+        self$`description` <- StudyVariableDataFrame$`description`
+      }
+      if (rlang::has_name(StudyVariableDataFrame, "factors")) {
+        factorsList <- splitList(StudyVariableDataFrame$`factors`)
+        self$`factors` <- lapply(factorsList, function(x) {
+          param <- Parameter$new()
+          param$fromString(NULL, x)
+          param
+        })
+      }
     }
   )
 )

@@ -84,6 +84,14 @@ PublicationItem <- R6::R6Class(
     },
     toString = function() {
       paste(self$`type`, self$`accession`, sep=":")
+    },
+    fromString = function(PublicationItemString) {
+      PublicationItemList <- splitList(PublicationItemString, separator = ":")
+      if (length(PublicationItemList) == 2) {
+        self$`type` <- PublicationItemList[[1]]
+        self$`accession` <- PublicationItemList[[2]]
+      }
+      self
     }
   )
 )

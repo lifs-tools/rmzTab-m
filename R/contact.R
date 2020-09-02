@@ -160,6 +160,10 @@ Contact <- R6::R6Class(
                 stringsAsFactors = FALSE)
       }
       elements
+    },
+    fromDataFrame = function(ContactDataFrame) {
+      # TODO
+      warning("fromDataFrame not implemented yet")
     }
   )
 )

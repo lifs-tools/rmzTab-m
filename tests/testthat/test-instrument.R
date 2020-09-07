@@ -43,7 +43,7 @@ ref.json <- '{
       }
     }'
 
-test_that("instrument", {
+test_that("Instrument$fromJSONString() works", {
   
   model.instance <- model.instance$fromJSONString(ref.json)
   expect_equal(model.instance$`id`, 1)
@@ -77,5 +77,49 @@ test_that("instrument", {
   restored.model.instance <- Instrument$new()
   restored.model.instance$fromJSONString(model.instance$toJSONString())
   expect_equal(model.instance, restored.model.instance)
+})
+
+test_that("Instrument$fromDataFrame() works", {
+  instrumentMtd <- 
+    '
+MTD\tinstrument[1]-name\t[MS, MS:1002581, QTRAP 6500 , ]
+MTD\tinstrument[1]-source\t[MS, MS:1000073, Electrospray Ionization, ]
+MTD\tinstrument[1]-analyzer[1]\t[MS, MS:1000082, quadrupole ion trap, ] | 
+"id" : null,
+        "cv_label" : "MS",
+        "cv_accession" : "MS:1000484",
+        "name" : "orbitrap",
+        "value" : null
+MTD\tinstrument[1]-detector\t[MS, MS:1000082, quadrupole ion trap, ]
+"detector" : {
+        "id" : null,
+        "cv_label" : "MS",
+        "cv_accession" : "MS:1000624",
+        "name" : "inductive detector",
+        "value" : null
+      }
+'
+  mzTabTable <- readMzTabString(instrumentMtd)
+  metadataTable <- extractMetadata(mzTabTable)
+  idElements <- extractIdElements(metadataTable, "instrument", "name")
+  model.instance <- Instrument$new()
+  model.instance$fromDataFrame(idElements[[1]])
+  
+  expect_equal(model.instance$`id`, 1)
+  expect_equal(model.instance$`name`$cv_label, 'MS')
+  expect_equal(model.instance$`name`$cv_accession, 'MS:1002581')
+  expect_equal(model.instance$`name`$name, 'QTRAP 6500')
+  expect_null(model.instance$`name`$value)
+  
+  expect_equal(model.instance$`source`$cv_label, 'MS')
+  expect_equal(model.instance$`source`$cv_accession, 'MS:1000073')
+  expect_equal(model.instance$`source`$name, 'Electrospray Ionization')
+  expect_null(model.instance$`source`$value)
+  
+  expect_equal(length(model.instance$`analyzer`), 1)
+  expect_equal(model.instance$`analyzer`[[1]]$cv_label, "MS")
+  expect_equal(model.instance$`analyzer`[[1]]$cv_accession, "MS:1000082")
+  expect_equal(model.instance$`analyzer`[[1]]$name, "quadrupole ion trap")
+  expect_null(model.instance$`analyzer`[[1]]$value)
 })
 

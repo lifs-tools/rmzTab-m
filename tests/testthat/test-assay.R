@@ -16,7 +16,7 @@ ref.json <- '{
       "ms_run_ref" : [ 1 ]
     }'
 
-test_that("fromJSONString", {
+test_that("Assay$fromJSONString() works", {
   model.instance <- model.instance$fromJSONString(ref.json)
   expect_equal(model.instance$`id`, 1)
   expect_equal(model.instance$`name`, "Description of assay 1")
@@ -29,7 +29,7 @@ test_that("fromJSONString", {
   model.instance$toJSONString()
 })
 
-test_that("toDataFrame", {
+test_that("Assay$toDataFrame() works", {
   assay <-
     Assay$new(
       id = 1,
@@ -65,7 +65,7 @@ test_that("toDataFrame", {
   expect_equal(df[7, "VALUE"], "ms_run[3]")
 })
 
-test_that("fromDataFrame", {
+test_that("Assay$fromDataFrame() works", {
   assayMtd <- 
 '
 MTD	assay[1]	Description of assay 1																			

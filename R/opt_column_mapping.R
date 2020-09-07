@@ -121,7 +121,19 @@ OptColumnMapping <- R6::R6Class(
       optStr
     },
     fromString = function(OptColumnMappingString) {
+      # if (rlang::has_name(PublicationDataFrame, "id")) {
+      #   self$`id` <- PublicationDataFrame$`id`
+      # }
+      # if (rlang::has_name(PublicationDataFrame, "name")) {
+      #   pubItemsList <- splitList(PublicationDataFrame$`name`)
+      #   self$`publicationItems` <- lapply(pubItemsList, function(x){
+      #     pubItem <- PublicationItem$new()
+      #     pubItem$fromString(x)
+      #     pubItem
+      #   })
+      # }
       warning("fromString not implemented yet!")
+      self
     }
   )
 )

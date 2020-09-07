@@ -95,6 +95,19 @@ SampleProcessing <- R6::R6Class(
                 stringsAsFactors = FALSE)
       }
       elements
+    },
+    fromDataFrame = function(SampleProcessingDataFrame) {
+      stopifnot(nrow(SampleProcessingDataFrame)==1)
+      if (rlang::has_name(SampleProcessingDataFrame, "id")) {
+        self$`id` <- as.numeric(SampleProcessingDataFrame$`id`)
+      }
+      if (rlang::has_name(SampleProcessingDataFrame, "param")) {
+        self$`sampleProcessing` <- lapply(splitList(SampleProcessingDataFrame$`param`), function(x) {
+          param <- Parameter$new()
+          param$fromString(NULL, x)
+        })
+      }
+      self
     }
   )
 )

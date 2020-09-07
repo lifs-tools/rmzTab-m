@@ -253,6 +253,7 @@ Assay <- R6::R6Class(
           extractId(x)  
         })
       }
+      self
     }
   )
 )

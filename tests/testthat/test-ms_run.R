@@ -107,7 +107,7 @@ test_that("msRun", {
   model.instance$toJSONString()
 })
 
-test_that("toDataFrame", {
+test_that("MsRun$toDataFrame() works", {
   msRun <- MsRun$new()
   msRun$`id` <- 1
   # msRun$`name` <- "Just a name for the run"
@@ -149,4 +149,62 @@ test_that("toDataFrame", {
   expect_equal(df[9, "KEY"], "ms_run[1]-hash_method")
   expect_equal(df[9, "VALUE"], "[MS, MS:5, made up for testing, ]")
 })
-
+test_that("msRun$fromDataFrame() works", {
+  model.instance <- model.instance$fromJSONString(ref.json)
+  expect_equal(model.instance$`id`, 1)
+  expect_equal(model.instance$`instrument_ref`, 1)
+  expect_equal(model.instance$`location`, "file:///path/to/my/file.mzML")
+  expect_equal(
+    model.instance$`format`,
+    Parameter$new(
+      cv_label = "MS",
+      cv_accession = "MS:1",
+      name = "made up, also for testing"
+    )
+  )
+  expect_equal(
+    model.instance$`id_format`,
+    Parameter$new(
+      cv_label = "MS",
+      cv_accession = "MS:2",
+      name = "made up for testing",
+      value = "some, weird, value"
+    )
+  )
+  expect_equal(
+    model.instance$`fragmentation_method`[[1]],
+    Parameter$new(
+      cv_label = "MS",
+      cv_accession = "MS:3",
+      name = "made up for testing"
+    )
+  )
+  expect_equal(
+    model.instance$`fragmentation_method`[[2]],
+    Parameter$new(
+      cv_label = "MS",
+      cv_accession = "MS:3a",
+      name = "made up for testing"
+    )
+  )
+  expect_equal(
+    model.instance$`scan_polarity`[[1]],
+    Parameter$new(
+      cv_label = "MS",
+      cv_accession = "MS:4",
+      name = "made up, for testing",
+      value = "some value"
+    )
+  )
+  expect_equal(model.instance$`hash`, "hlkasdhlkh2139810asjdklh")
+  expect_equal(
+    model.instance$`hash_method`,
+    Parameter$new(
+      cv_label = "MS",
+      cv_accession = "MS:5",
+      name = "made up, for testing",
+      value = "some value"
+    )
+  )
+  model.instance$toJSONString()
+})

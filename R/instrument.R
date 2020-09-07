@@ -199,8 +199,31 @@ Instrument <- R6::R6Class(
       elements
     },
     fromDataFrame = function(InstrumentDataFrame) {
-      # TODO
-      warning("fromDataFrame not implemented yet")
+      stopifnot(nrow(InstrumentDataFrame)==1)
+      columnNames <- colnames(InstrumentDataFrame)
+      if (rlang::has_name(InstrumentDataFrame, "id")) {
+        self$`id` <- as.numeric(InstrumentDataFrame$`id`)
+      }
+      if (rlang::has_name(InstrumentDataFrame, "name")) {
+        param <- Parameter$new()
+        self$`name` <- param$fromDataFrame(InstrumentDataFrame$`name`)
+      }
+      if (rlang::has_name(InstrumentDataFrame, "source")) {
+        param <- Parameter$new()
+        self$`source` <- param$fromDataFrame(InstrumentDataFrame$`source`)
+      }
+      if (rlang::has_name(InstrumentDataFrame, "analyzer")) {
+        self$`analyzer` <- lapply(splitList(InstrumentDataFrame$`analyzer`), function(x){
+          param <- Parameter$new()
+          param$fromString(NULL, x)
+          param
+        })
+      }
+      if (rlang::has_name(InstrumentDataFrame, "detector")) {
+        param <- Parameter$new()
+        self$`detector` <- param$fromDataFrame(InstrumentDataFrame$`detector`)
+      }
+      self
     }
   )
 )

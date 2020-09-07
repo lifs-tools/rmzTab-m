@@ -35,3 +35,30 @@ test_that("software$toDataFrame works", {
   expect_equal(sdf2[1, "KEY"], "software[2]")
   expect_equal(sdf2[1, "VALUE"], "[MS, MS:1000922, Skyline, 3.5.0.9319]")
 })
+
+test_that("software$fromDataFrame works", {
+  softwareMtd <-
+'
+MTD\tsoftware[1]\t[MS, MS:1000551, Analyst, 1.6.2]																			
+MTD\tsoftware[1]-setting[1]\tScheduledSRMWindow: 2 min																			
+MTD\tsoftware[1]-setting[2]\tCycleTime: 2 s																			
+MTD\tsoftware[2]\t[MS, MS:1000922, Skyline, 3.5.0.9319]																			
+MTD\tsoftware[2]-setting[1]\tMSMSmassrange: (50.0, 1800.0)																			
+'  
+  mzTabTable <- readMzTabString(softwareMtd)
+  metadataTable <- extractMetadata(mzTabTable)
+  idElements <- extractIdElements(metadataTable, "software", "parameter")
+  model.instance <- Software$new()
+  model.instance$fromDataFrame(idElements[[1]])
+  
+  expect_equal(model.instance$`id`, 1)
+  #parameter
+  expect_equal(model.instance$`parameter`$cv_label, "MS")
+  expect_equal(model.instance$`parameter`$cv_accession, "MS:1000551")
+  expect_equal(model.instance$`parameter`$name, "Analyst")
+  expect_equal(model.instance$`parameter`$value, "1.6.2")
+  #setting list
+  expect_equal(length(model.instance$`setting`), 2)
+  expect_equal(model.instance$`setting`[[1]], "ScheduledSRMWindow: 2 min")
+  expect_equal(model.instance$`setting`[[2]], "CycleTime: 2 s")
+})

@@ -49,7 +49,7 @@ extractId <- function(idElement, regexp=idRegexp) {
   as.numeric(gsub(idElementRegexp, "\\1", as.character(idElement)))
 }
 # returns a list of elements / wide data frames for each id in the format that jsonlite::fromJSON returns.
-# mapEmptyKeyTo can map either to name or to param
+# mapEmptyKeyTo can map either to name, param or parameter
 extractIdElements <- function(mtd.sub.table, typePrefix, mapEmptyKeyTo="name") {
   #browser()
   databaseRows <- mtd.sub.table[startsWith(as.character(mtd.sub.table$V2), typePrefix),]
@@ -68,8 +68,11 @@ extractIdElements <- function(mtd.sub.table, typePrefix, mapEmptyKeyTo="name") {
     } else if(mapEmptyKeyTo=="param") {
       # implicit mapping to param, e.g. for database
       subset$V2[subset$V2==""] <- "param"
+    } else if(mapEmptyKeyTo=="parameter") {
+      # implicit mapping to param, e.g. for database
+      subset$V2[subset$V2==""] <- "parameter"
     } else {
-      warning(paste("Unsupported mapEmptyKeyTo property:", mapEmptyKeyTo, "Supported are 'name' and 'param'"))
+      warning(paste("Unsupported mapEmptyKeyTo property:", mapEmptyKeyTo, "Supported are 'name', 'param' and 'parameter'"))
     }
     # pivot table from long to wide format (which is the one JSONLITE expects)
     subsetWide <- tidyr::pivot_wider(subset, names_from="V2", values_from="V3")

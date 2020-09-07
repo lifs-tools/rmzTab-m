@@ -47,3 +47,20 @@ test_that("sampleProcessing$toDataFrame()", {
   expect_equal(df[1, "VALUE"], "[MSIO, MSIO:0000148, high performance liquid chromatography, ]|[MSIO, MSIO:0000148, high performance liquid chromatography, ]")
 })
 
+test_that("sampleProcessing$fromDataFrame", {
+  sampleProcessingMtd <-
+    'MTD\tsample_processing[1]\t[MSIO, MSIO:0000148, high performance liquid chromatography, ]'  
+  mzTabTable <- readMzTabString(sampleProcessingMtd)
+  metadataTable <- extractMetadata(mzTabTable)
+  idElements <- extractIdElements(metadataTable, "sample_processing", "param")
+  model.instance <- SampleProcessing$new()
+  model.instance$fromDataFrame(idElements[[1]])  
+  expect_equal(model.instance$`id`, 1)
+  expect_equal(length(model.instance$`sampleProcessing`), 1)
+  expect_null(model.instance$`sampleProcessing`[[1]]$`id`)
+  expect_equal(model.instance$`sampleProcessing`[[1]]$`cv_label`, "MSIO")
+  expect_equal(model.instance$`sampleProcessing`[[1]]$`cv_accession`, "MSIO:0000148")
+  expect_equal(model.instance$`sampleProcessing`[[1]]$`name`, "high performance liquid chromatography")
+  expect_equal(model.instance$`sampleProcessing`[[1]]$`value`, NULL)
+})
+

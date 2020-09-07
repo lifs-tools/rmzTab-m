@@ -4,67 +4,101 @@
 context("Test Sample")
 
 model.instance <- Sample$new()
+ref.json <- '{
+      "id" : 1,
+      "name" : "QEx-1273-prm-sp1",
+      "custom" : [ 
+        {"id": 1, "cv_label": null, "cv_accession": null, "name":"Extraction date", "value": "2011-12-21"}
+      ],
+      "species" : [
+        {"id":null, "cv_label":"NCBITaxon", "cv_accession":"NCBITaxon:9606", "name":"Homo sapiens", "value":null},
+        {"id":null, "cv_label":"NCBITaxon", "cv_accession":"NCBITaxon:39767", "name":"Human rhinovirus 11", "value":null}
+      ],
+      "tissue" : null,
+      "cell_type" : [
+        {"id":null, "cv_label":"CL", "cv_accession":"CL:0000182", "name":"hepatocyte","value":null}      
+      ],
+      "disease" : [
+        {"id":null, "cv_label": "DOID", "cv_accession":"DOID:684", "name":"hepatocellular carcinoma", "value":null},
+        {"id":null, "cv_label": "DOID", "cv_accession":"DOID:9451", "name":"alcoholic fatty liver","value": null}
+      ],
+      "description" : "Sphingolipids with concentration reported as picomolar per mg of protein, abundances are reported after calibration correction."
+    }'
 
-test_that("id", {
-  # tests for the property `id` (integer)
-
-  # uncomment below to test the property 
-  #expect_equal(model.instance$`id`, "EXPECTED_RESULT")
+test_that("Sample$fromJSONString() works", {
+  model.instance <- model.instance$fromJSONString(ref.json)
+  expect_equal(model.instance$`id`, 1)
+  expect_equal(model.instance$`name`, "QEx-1273-prm-sp1")
+  expect_equal(length(model.instance$`custom`), 1)
+  expect_equal(length(model.instance$`species`), 2)
+  expect_null(model.instance$`tissue`)
+  expect_equal(length(model.instance$`cell_type`), 1)
+  expect_equal(length(model.instance$`disease`), 2)
+  expect_equal(model.instance$`description`, "Sphingolipids with concentration reported as picomolar per mg of protein, abundances are reported after calibration correction.")
+  
+  model.instance$toJSONString()
 })
 
-test_that("name", {
-  # tests for the property `name` (character)
-  # The sample&#39;s name.
-
-  # uncomment below to test the property 
-  #expect_equal(model.instance$`name`, "EXPECTED_RESULT")
+test_that("Sample$toDataFrame() works", {
+  sample <-
+    Sample$new(
+      id = 1,
+      name = "Just a name for the sample",
+      custom = list(
+        Parameter$new(
+          cv_label = "MS",
+          cv_accession = "MS:1",
+          name = "made up, also for testing"
+        )
+      ),
+      tissue = list(
+        Parameter$new(
+          cv_label = "MS",
+          cv_accession = "MS:2",
+          name = "made up, also for testing"
+        ),
+        Parameter$new(
+          name = "Human Platelet"
+        )
+      ),
+      description = "A random description",
+    )
+  
+  df <- sample$toDataFrame()
+  expect_equal(nrow(df), 5)
+  expect_equal(df[1, "PREFIX"], "MTD")
+  expect_equal(df[1, "KEY"], "sample[1]")
+  expect_equal(df[1, "VALUE"], "Just a name for the sample")
+  expect_equal(df[2, "KEY"], "sample[1]-custom[1]")
+  expect_equal(df[2, "VALUE"], "[MS, MS:1, \"made up, also for testing\", ]")
+  expect_equal(df[3, "KEY"], "sample[1]-tissue[1]")
+  expect_equal(df[3, "VALUE"], "[MS, MS:2, \"made up, also for testing\", ]")
+  expect_equal(df[4, "KEY"], "sample[1]-tissue[2]")
+  expect_equal(df[4, "VALUE"], "[, , Human Platelet, ]")  
+  expect_equal(df[5, "KEY"], "sample[1]-description")
+  expect_equal(df[5, "VALUE"], "A random description")
 })
 
-test_that("custom", {
-  # tests for the property `custom` (array[Parameter])
-  # Additional user or cv parameters.
-
-  # uncomment below to test the property 
-  #expect_equal(model.instance$`custom`, "EXPECTED_RESULT")
-})
-
-test_that("species", {
-  # tests for the property `species` (array[Parameter])
-  # Biological species information on the sample.
-
-  # uncomment below to test the property 
-  #expect_equal(model.instance$`species`, "EXPECTED_RESULT")
-})
-
-test_that("tissue", {
-  # tests for the property `tissue` (array[Parameter])
-  # Biological tissue information on the sample.
-
-  # uncomment below to test the property 
-  #expect_equal(model.instance$`tissue`, "EXPECTED_RESULT")
-})
-
-test_that("cell_type", {
-  # tests for the property `cell_type` (array[Parameter])
-  # Biological cell type information on the sample.
-
-  # uncomment below to test the property 
-  #expect_equal(model.instance$`cell_type`, "EXPECTED_RESULT")
-})
-
-test_that("disease", {
-  # tests for the property `disease` (array[Parameter])
-  # Disease information on the sample.
-
-  # uncomment below to test the property 
-  #expect_equal(model.instance$`disease`, "EXPECTED_RESULT")
-})
-
-test_that("description", {
-  # tests for the property `description` (character)
-  # A free form description of the sample.
-
-  # uncomment below to test the property 
-  #expect_equal(model.instance$`description`, "EXPECTED_RESULT")
-})
+test_that("Sample$fromDataFrame() works", {
+  sampleMtd <- 
+'MTD\tsample[1]\tName of sample 1
+MTD\tsample[1]-custom[1]\t[MS, MS:1, "made up, also for testing", ]
+MTD\tsample[1]-cell_type[1]\t[CL, CL:0000182, "hepatocyte", ]
+MTD\tsample[1]-description\tThis is a description
+'
+  mzTabTable <- readMzTabString(sampleMtd)
+  metadataTable <- extractMetadata(mzTabTable)
+  idElements <- extractIdElements(metadataTable, "sample", "name")
+  model.instance <- Sample$new()
+  model.instance$fromDataFrame(idElements[[1]])
+  
+  expect_equal(model.instance$`id`, 1)
+  expect_equal(model.instance$`name`, 'Name of sample 1')
+  expect_equal(length(model.instance$`custom`), 1)
+  expect_equal(model.instance$`custom`[[1]]$cv_accession, "MS:1")
+  expect_equal(length(model.instance$`cell_type`), 1)
+  expect_equal(model.instance$`cell_type`[[1]]$cv_accession, "CL:0000182")
+  expect_equal(model.instance$`description`, "This is a description")
+}
+)
 

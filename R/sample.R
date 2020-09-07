@@ -283,6 +283,65 @@ Sample <- R6::R6Class(
                 stringsAsFactors = FALSE)
       }
       elements
+    },
+    fromDataFrame = function(SampleDataFrame) {
+      stopifnot(nrow(SampleDataFrame)==1)
+      if (rlang::has_name(SampleDataFrame, "id")) {
+        self$`id` <- as.numeric(SampleDataFrame$`id`)
+      }
+      columnNames <- colnames(SampleDataFrame)
+      if (rlang::has_name(SampleDataFrame, "name")) {
+        self$`name` <- SampleDataFrame$`name`
+      }
+      # extract potentially multiple columns with 'custom' prefix
+      customColumns <- columnNames[grepl("^custom", columnNames)]
+      if (length(customColumns) > 0) {
+        self$`custom` <- lapply(customColumns, function(x) {
+          param <- Parameter$new()
+          param$fromString(NULL, SampleDataFrame[[x]])
+          param
+        })
+      }
+      # extract potentially multiple columns with 'species' prefix
+      speciesColumns <- columnNames[grepl("^species", columnNames)]
+      if (length(speciesColumns) > 0) {
+        self$`species` <- lapply(speciesColumns, function(x) {
+          param <- Parameter$new()
+          param$fromString(NULL, SampleDataFrame[[x]])
+          param
+        })
+      }
+      # extract potentially multiple columns with 'tissue' prefix
+      tissueColumns <- columnNames[grepl("^tissue", columnNames)]
+      if (length(tissueColumns) > 0) {
+        self$`tissue` <- lapply(tissueColumns, function(x) {
+          param <- Parameter$new()
+          param$fromString(NULL, SampleDataFrame[[x]])
+          param
+        })
+      }
+      # extract potentially multiple columns with 'cell_type' prefix
+      cellTypeColumns <- columnNames[grepl("^cell\\_type", columnNames)]
+      if (length(cellTypeColumns) > 0) {
+        self$`cell_type` <- lapply(cellTypeColumns, function(x) {
+          param <- Parameter$new()
+          param$fromString(NULL, SampleDataFrame[[x]])
+          param
+        })
+      }
+      # extract potentially multiple columns with 'disease' prefix
+      diseaseColumns <- columnNames[grepl("^disease", columnNames)]
+      if (length(diseaseColumns) > 0) {
+        self$`disease` <- lapply(diseaseColumns, function(x) {
+          param <- Parameter$new()
+          param$fromString(NULL, SampleDataFrame[[x]])
+          param
+        })
+      }
+      if (rlang::has_name(SampleDataFrame, "description")) {
+        self$`description` <- SampleDataFrame$`description`
+      }
+      self
     }
   )
 )

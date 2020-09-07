@@ -130,6 +130,31 @@ Software <- R6::R6Class(
                 }, elements=self$`setting`, idPrefix=idPrefix) %>% dplyr::bind_rows(),
                 stringsAsFactors = FALSE)
       }
+    },
+    fromDataFrame = function(SoftwareDataFrame) {
+      stopifnot(nrow(SoftwareDataFrame)==1)
+      columnNames <- colnames(SoftwareDataFrame)
+      if (rlang::has_name(SoftwareDataFrame, "id")) {
+        self$`id` <- as.numeric(SoftwareDataFrame$`id`)
+      }
+      if (rlang::has_name(SoftwareDataFrame, "parameter")) {
+        param <- Parameter$new()
+        self$`parameter` <- param$fromString(NULL, SoftwareDataFrame$`parameter`)
+      }
+      # extract potentially multiple columns with 'custom' prefix
+      customColumns <- columnNames[grepl("^setting", columnNames)]
+      if (length(customColumns) > 0) {
+        self$`setting` <- lapply(customColumns, function(x) {
+          SoftwareDataFrame[[x]]
+        })
+      }
+      if (rlang::has_name(SoftwareDataFrame, "setting")) { # list of references
+        assayRefList <- splitList(SoftwareDataFrame$`setting`)
+        self$`assay_refs` <- lapply(assayRefList, function(x) {
+          extractId(x)  
+        })
+      }
+      self
     }
   )
 )

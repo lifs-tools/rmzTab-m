@@ -19,7 +19,7 @@ ref.json <- '{
       "uri" : "https://www.ncbi.nlm.nih.gov/pccompound"
     }'
 
-test_that("fromJSONString", {
+test_that("Database$fromJSONString() works", {
   
   model.instance <- model.instance$fromJSONString(ref.json)
   expect_equal(model.instance$`id`, 1)
@@ -34,7 +34,7 @@ test_that("fromJSONString", {
   }
 )
 
-test_that("fromDataFrame", {
+test_that("Database$fromDataFrame() works", {
   testfile <- system.file("testdata", c("lipidomics-example.mzTab"), package="rmzTabM")
   mzTabTable <- readMzTab(testfile)
   metadataTable <- extractMetadata(mzTabTable)

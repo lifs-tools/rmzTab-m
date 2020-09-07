@@ -13,7 +13,7 @@ ref.json <- '{
         "value" : null
       }'
 
-test_that("parameter", {
+test_that("parameter from and toJSONString works", {
   
   model.instance <- model.instance$fromJSONString(ref.json)
   expect_equal(model.instance$`id`, NULL)

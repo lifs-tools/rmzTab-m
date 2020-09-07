@@ -33,6 +33,8 @@ Parameter Class
 \item \href{#method-fromJSON}{\code{Parameter$fromJSON()}}
 \item \href{#method-toJSONString}{\code{Parameter$toJSONString()}}
 \item \href{#method-fromJSONString}{\code{Parameter$fromJSONString()}}
+\item \href{#method-toString}{\code{Parameter$toString()}}
+\item \href{#method-fromString}{\code{Parameter$fromString()}}
 \item \href{#method-clone}{\code{Parameter$clone()}}
 }
 }
@@ -78,6 +80,24 @@ Parameter Class
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Parameter$fromJSONString(ParameterJson)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-toString"></a>}}
+\if{latex}{\out{\hypertarget{method-toString}{}}}
+\subsection{Method \code{toString()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Parameter$toString()}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-fromString"></a>}}
+\if{latex}{\out{\hypertarget{method-fromString}{}}}
+\subsection{Method \code{fromString()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Parameter$fromString(id, ParameterString)}\if{html}{\out{</div>}}
 }
 
 }

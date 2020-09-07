@@ -81,7 +81,6 @@ Database <- R6::R6Class(
       DatabaseObject
     },
     fromJSON = function(DatabaseJson) {
-      browser()
       DatabaseObject <- jsonlite::fromJSON(DatabaseJson)
       if (!is.null(DatabaseObject$`id`)) {
         self$`id` <- DatabaseObject$`id`

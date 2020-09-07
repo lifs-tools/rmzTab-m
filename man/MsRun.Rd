@@ -43,6 +43,8 @@ MsRun Class
 \item \href{#method-fromJSON}{\code{MsRun$fromJSON()}}
 \item \href{#method-toJSONString}{\code{MsRun$toJSONString()}}
 \item \href{#method-fromJSONString}{\code{MsRun$fromJSONString()}}
+\item \href{#method-toDataFrame}{\code{MsRun$toDataFrame()}}
+\item \href{#method-fromDataFrame}{\code{MsRun$fromDataFrame()}}
 \item \href{#method-clone}{\code{MsRun$clone()}}
 }
 }
@@ -100,6 +102,24 @@ MsRun Class
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{MsRun$fromJSONString(MsRunJson)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-toDataFrame"></a>}}
+\if{latex}{\out{\hypertarget{method-toDataFrame}{}}}
+\subsection{Method \code{toDataFrame()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{MsRun$toDataFrame()}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-fromDataFrame"></a>}}
+\if{latex}{\out{\hypertarget{method-fromDataFrame}{}}}
+\subsection{Method \code{fromDataFrame()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{MsRun$fromDataFrame(MsRunDataFrame)}\if{html}{\out{</div>}}
 }
 
 }

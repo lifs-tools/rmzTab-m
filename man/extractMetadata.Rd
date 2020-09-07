@@ -2,13 +2,13 @@
 % Please edit documentation in R/read_mz_tab.R
 \name{extractMetadata}
 \alias{extractMetadata}
-\title{Read the metadata from an mztab table and return the Metadata object.}
+\title{Read the metadata from an mztab data frame and return the Metadata object.}
 \usage{
-extractMetadata(mztab.table)
+extractMetadata(MzTabDataFrame)
 }
 \arguments{
-\item{the}{mztab table}
+\item{the}{mztab data frame}
 }
 \description{
-Read the metadata from an mztab table and return the Metadata object.
+Read the metadata from an mztab data frame and return the Metadata object.
 }

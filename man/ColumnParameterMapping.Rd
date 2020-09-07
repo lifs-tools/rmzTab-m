@@ -27,6 +27,8 @@ ColumnParameterMapping Class
 \item \href{#method-fromJSON}{\code{ColumnParameterMapping$fromJSON()}}
 \item \href{#method-toJSONString}{\code{ColumnParameterMapping$toJSONString()}}
 \item \href{#method-fromJSONString}{\code{ColumnParameterMapping$fromJSONString()}}
+\item \href{#method-toDataFrame}{\code{ColumnParameterMapping$toDataFrame()}}
+\item \href{#method-fromDataFrame}{\code{ColumnParameterMapping$fromDataFrame()}}
 \item \href{#method-clone}{\code{ColumnParameterMapping$clone()}}
 }
 }
@@ -72,6 +74,24 @@ ColumnParameterMapping Class
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ColumnParameterMapping$fromJSONString(ColumnParameterMappingJson)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-toDataFrame"></a>}}
+\if{latex}{\out{\hypertarget{method-toDataFrame}{}}}
+\subsection{Method \code{toDataFrame()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{ColumnParameterMapping$toDataFrame(type = "small_molecule")}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-fromDataFrame"></a>}}
+\if{latex}{\out{\hypertarget{method-fromDataFrame}{}}}
+\subsection{Method \code{fromDataFrame()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{ColumnParameterMapping$fromDataFrame(ColumnParameterMappingDataFrame)}\if{html}{\out{</div>}}
 }
 
 }

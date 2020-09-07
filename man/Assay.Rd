@@ -35,6 +35,8 @@ Assay Class
 \item \href{#method-fromJSON}{\code{Assay$fromJSON()}}
 \item \href{#method-toJSONString}{\code{Assay$toJSONString()}}
 \item \href{#method-fromJSONString}{\code{Assay$fromJSONString()}}
+\item \href{#method-toDataFrame}{\code{Assay$toDataFrame()}}
+\item \href{#method-fromDataFrame}{\code{Assay$fromDataFrame()}}
 \item \href{#method-clone}{\code{Assay$clone()}}
 }
 }
@@ -88,6 +90,24 @@ Assay Class
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Assay$fromJSONString(AssayJson)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-toDataFrame"></a>}}
+\if{latex}{\out{\hypertarget{method-toDataFrame}{}}}
+\subsection{Method \code{toDataFrame()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Assay$toDataFrame()}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-fromDataFrame"></a>}}
+\if{latex}{\out{\hypertarget{method-fromDataFrame}{}}}
+\subsection{Method \code{fromDataFrame()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Assay$fromDataFrame(AssayDataFrame)}\if{html}{\out{</div>}}
 }
 
 }

@@ -33,6 +33,8 @@ Instrument Class
 \item \href{#method-fromJSON}{\code{Instrument$fromJSON()}}
 \item \href{#method-toJSONString}{\code{Instrument$toJSONString()}}
 \item \href{#method-fromJSONString}{\code{Instrument$fromJSONString()}}
+\item \href{#method-toDataFrame}{\code{Instrument$toDataFrame()}}
+\item \href{#method-fromDataFrame}{\code{Instrument$fromDataFrame()}}
 \item \href{#method-clone}{\code{Instrument$clone()}}
 }
 }
@@ -85,6 +87,24 @@ Instrument Class
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Instrument$fromJSONString(InstrumentJson)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-toDataFrame"></a>}}
+\if{latex}{\out{\hypertarget{method-toDataFrame}{}}}
+\subsection{Method \code{toDataFrame()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Instrument$toDataFrame()}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-fromDataFrame"></a>}}
+\if{latex}{\out{\hypertarget{method-fromDataFrame}{}}}
+\subsection{Method \code{fromDataFrame()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Instrument$fromDataFrame(InstrumentDataFrame)}\if{html}{\out{</div>}}
 }
 
 }

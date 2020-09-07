@@ -27,6 +27,8 @@ SpectraRef Class
 \item \href{#method-fromJSON}{\code{SpectraRef$fromJSON()}}
 \item \href{#method-toJSONString}{\code{SpectraRef$toJSONString()}}
 \item \href{#method-fromJSONString}{\code{SpectraRef$fromJSONString()}}
+\item \href{#method-toString}{\code{SpectraRef$toString()}}
+\item \href{#method-fromString}{\code{SpectraRef$fromString()}}
 \item \href{#method-clone}{\code{SpectraRef$clone()}}
 }
 }
@@ -72,6 +74,24 @@ SpectraRef Class
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SpectraRef$fromJSONString(SpectraRefJson)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-toString"></a>}}
+\if{latex}{\out{\hypertarget{method-toString}{}}}
+\subsection{Method \code{toString()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{SpectraRef$toString()}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-fromString"></a>}}
+\if{latex}{\out{\hypertarget{method-fromString}{}}}
+\subsection{Method \code{fromString()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{SpectraRef$fromString(SpectraRefString)}\if{html}{\out{</div>}}
 }
 
 }

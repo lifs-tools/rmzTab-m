@@ -27,6 +27,8 @@ Publication Class
 \item \href{#method-fromJSON}{\code{Publication$fromJSON()}}
 \item \href{#method-toJSONString}{\code{Publication$toJSONString()}}
 \item \href{#method-fromJSONString}{\code{Publication$fromJSONString()}}
+\item \href{#method-toDataFrame}{\code{Publication$toDataFrame()}}
+\item \href{#method-fromDataFrame}{\code{Publication$fromDataFrame()}}
 \item \href{#method-clone}{\code{Publication$clone()}}
 }
 }
@@ -72,6 +74,24 @@ Publication Class
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Publication$fromJSONString(PublicationJson)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-toDataFrame"></a>}}
+\if{latex}{\out{\hypertarget{method-toDataFrame}{}}}
+\subsection{Method \code{toDataFrame()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Publication$toDataFrame()}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-fromDataFrame"></a>}}
+\if{latex}{\out{\hypertarget{method-fromDataFrame}{}}}
+\subsection{Method \code{fromDataFrame()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Publication$fromDataFrame(PublicationDataFrame)}\if{html}{\out{</div>}}
 }
 
 }

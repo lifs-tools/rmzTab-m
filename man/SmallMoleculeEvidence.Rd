@@ -67,6 +67,7 @@ SmallMoleculeEvidence Class
 \item \href{#method-fromJSON}{\code{SmallMoleculeEvidence$fromJSON()}}
 \item \href{#method-toJSONString}{\code{SmallMoleculeEvidence$toJSONString()}}
 \item \href{#method-fromJSONString}{\code{SmallMoleculeEvidence$fromJSONString()}}
+\item \href{#method-toDataFrame}{\code{SmallMoleculeEvidence$toDataFrame()}}
 \item \href{#method-clone}{\code{SmallMoleculeEvidence$clone()}}
 }
 }
@@ -136,6 +137,15 @@ SmallMoleculeEvidence Class
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SmallMoleculeEvidence$fromJSONString(SmallMoleculeEvidenceJson)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-toDataFrame"></a>}}
+\if{latex}{\out{\hypertarget{method-toDataFrame}{}}}
+\subsection{Method \code{toDataFrame()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{SmallMoleculeEvidence$toDataFrame()}\if{html}{\out{</div>}}
 }
 
 }

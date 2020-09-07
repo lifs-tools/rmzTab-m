@@ -14,11 +14,11 @@ rmzTabM.ValidatePlain
 
 \describe{
 \strong{ ValidatePlainMzTabFile } \emph{  }
-Validates an mzTab file in plain text representation / tab-separated format and reports syntactic, structural, and semantic errors. 
+Validates an mzTab file in plain text representation / tab-separated format and reports syntactic, structural, and semantic errors.
 
 \itemize{
 \item \emph{ @param } mztabfile character
-\item \emph{ @param } level Enum < [info, warn, error] > 
+\item \emph{ @param } level Enum < [info, warn, error] >
 \item \emph{ @param } max.errors integer
 \item \emph{ @param } semantic.validation character
 \item \emph{ @returnType } list( \link{ValidationMessage} ) \cr
@@ -26,7 +26,7 @@ Validates an mzTab file in plain text representation / tab-separated format and 
 
 \item status code : 200 | Validation Okay
 
-\item return type : array[ValidationMessage] 
+\item return type : array[ValidationMessage]
 \item response headers :
 
 \tabular{ll}{
@@ -40,14 +40,14 @@ Validates an mzTab file in plain text representation / tab-separated format and 
 }
 \item status code : 422 | Invalid input
 
-\item return type : array[ValidationMessage] 
+\item return type : array[ValidationMessage]
 \item response headers :
 
 \tabular{ll}{
 }
 \item status code : 0 | Unexpected error
 
-\item return type : Error 
+\item return type : Error
 \item response headers :
 
 \tabular{ll}{

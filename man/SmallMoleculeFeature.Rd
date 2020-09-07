@@ -53,6 +53,7 @@ SmallMoleculeFeature Class
 \item \href{#method-fromJSON}{\code{SmallMoleculeFeature$fromJSON()}}
 \item \href{#method-toJSONString}{\code{SmallMoleculeFeature$toJSONString()}}
 \item \href{#method-fromJSONString}{\code{SmallMoleculeFeature$fromJSONString()}}
+\item \href{#method-toDataFrame}{\code{SmallMoleculeFeature$toDataFrame()}}
 \item \href{#method-clone}{\code{SmallMoleculeFeature$clone()}}
 }
 }
@@ -115,6 +116,15 @@ SmallMoleculeFeature Class
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SmallMoleculeFeature$fromJSONString(SmallMoleculeFeatureJson)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-toDataFrame"></a>}}
+\if{latex}{\out{\hypertarget{method-toDataFrame}{}}}
+\subsection{Method \code{toDataFrame()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{SmallMoleculeFeature$toDataFrame()}\if{html}{\out{</div>}}
 }
 
 }

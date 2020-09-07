@@ -27,6 +27,8 @@ SampleProcessing Class
 \item \href{#method-fromJSON}{\code{SampleProcessing$fromJSON()}}
 \item \href{#method-toJSONString}{\code{SampleProcessing$toJSONString()}}
 \item \href{#method-fromJSONString}{\code{SampleProcessing$fromJSONString()}}
+\item \href{#method-toDataFrame}{\code{SampleProcessing$toDataFrame()}}
+\item \href{#method-fromDataFrame}{\code{SampleProcessing$fromDataFrame()}}
 \item \href{#method-clone}{\code{SampleProcessing$clone()}}
 }
 }
@@ -72,6 +74,24 @@ SampleProcessing Class
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SampleProcessing$fromJSONString(SampleProcessingJson)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-toDataFrame"></a>}}
+\if{latex}{\out{\hypertarget{method-toDataFrame}{}}}
+\subsection{Method \code{toDataFrame()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{SampleProcessing$toDataFrame()}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-fromDataFrame"></a>}}
+\if{latex}{\out{\hypertarget{method-fromDataFrame}{}}}
+\subsection{Method \code{fromDataFrame()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{SampleProcessing$fromDataFrame(SampleProcessingDataFrame)}\if{html}{\out{</div>}}
 }
 
 }

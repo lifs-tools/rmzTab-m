@@ -27,6 +27,8 @@ PublicationItem Class
 \item \href{#method-fromJSON}{\code{PublicationItem$fromJSON()}}
 \item \href{#method-toJSONString}{\code{PublicationItem$toJSONString()}}
 \item \href{#method-fromJSONString}{\code{PublicationItem$fromJSONString()}}
+\item \href{#method-toString}{\code{PublicationItem$toString()}}
+\item \href{#method-fromString}{\code{PublicationItem$fromString()}}
 \item \href{#method-clone}{\code{PublicationItem$clone()}}
 }
 }
@@ -72,6 +74,24 @@ PublicationItem Class
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{PublicationItem$fromJSONString(PublicationItemJson)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-toString"></a>}}
+\if{latex}{\out{\hypertarget{method-toString}{}}}
+\subsection{Method \code{toString()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{PublicationItem$toString()}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-fromString"></a>}}
+\if{latex}{\out{\hypertarget{method-fromString}{}}}
+\subsection{Method \code{fromString()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{PublicationItem$fromString(PublicationItemString)}\if{html}{\out{</div>}}
 }
 
 }

@@ -912,7 +912,6 @@ Metadata <- R6::R6Class(
       elements
     },
     fromDataFrame = function(MetadataDataFrame) {
-      browser()
       self <- Metadata$new()
       self$`prefix` <- "MTD"
       self$`mzTab-version` <-
@@ -997,7 +996,7 @@ Metadata <- R6::R6Class(
         lapply(extractIdElements(MetadataDataFrame, "custom"),
                function(x) {
                  param <- Parameter$new()
-                 return(param$fromString(x$value))
+                 return(param$fromString(NULL, x$name))
                })
       self$`cv` <-
         lapply(extractIdElements(MetadataDataFrame, "cv"),
@@ -1015,7 +1014,7 @@ Metadata <- R6::R6Class(
         lapply(extractIdElements(MetadataDataFrame, "derivatization_agent"),
                function(x) {
                  param <- Parameter$new()
-                 return(param$fromString(x$value))
+                 return(param$fromString(NULL, x$name))
                })
       self$`small_molecule-quantification_unit` <-
         extractParameter(MetadataDataFrame,
@@ -1033,7 +1032,7 @@ Metadata <- R6::R6Class(
         lapply(extractIdElements(MetadataDataFrame, "id_confidence_measure"),
                function(x) {
                  param <- Parameter$new()
-                 return(param$fromString(x$value))
+                 return(param$fromString(NULL, x$name))
                })
       # colunitSm <- extractPart(MetadataDataFrame, "V2", "colunit-small_molecule")
       # colunitSmf <- extractPart(MetadataDataFrame, "V2", "colunit-small_molecule_feature")

@@ -27,6 +27,8 @@ Uri Class
 \item \href{#method-fromJSON}{\code{Uri$fromJSON()}}
 \item \href{#method-toJSONString}{\code{Uri$toJSONString()}}
 \item \href{#method-fromJSONString}{\code{Uri$fromJSONString()}}
+\item \href{#method-toDataFrame}{\code{Uri$toDataFrame()}}
+\item \href{#method-fromDataFrame}{\code{Uri$fromDataFrame()}}
 \item \href{#method-clone}{\code{Uri$clone()}}
 }
 }
@@ -72,6 +74,24 @@ Uri Class
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Uri$fromJSONString(UriJson)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-toDataFrame"></a>}}
+\if{latex}{\out{\hypertarget{method-toDataFrame}{}}}
+\subsection{Method \code{toDataFrame()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Uri$toDataFrame(type = "uri")}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-fromDataFrame"></a>}}
+\if{latex}{\out{\hypertarget{method-fromDataFrame}{}}}
+\subsection{Method \code{fromDataFrame()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Uri$fromDataFrame(UriDataFrame)}\if{html}{\out{</div>}}
 }
 
 }

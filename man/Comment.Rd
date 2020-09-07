@@ -29,6 +29,8 @@ Comment Class
 \item \href{#method-fromJSON}{\code{Comment$fromJSON()}}
 \item \href{#method-toJSONString}{\code{Comment$toJSONString()}}
 \item \href{#method-fromJSONString}{\code{Comment$fromJSONString()}}
+\item \href{#method-toDataFrame}{\code{Comment$toDataFrame()}}
+\item \href{#method-fromDataFrame}{\code{Comment$fromDataFrame()}}
 \item \href{#method-clone}{\code{Comment$clone()}}
 }
 }
@@ -74,6 +76,24 @@ Comment Class
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Comment$fromJSONString(CommentJson)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-toDataFrame"></a>}}
+\if{latex}{\out{\hypertarget{method-toDataFrame}{}}}
+\subsection{Method \code{toDataFrame()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Comment$toDataFrame()}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-fromDataFrame"></a>}}
+\if{latex}{\out{\hypertarget{method-fromDataFrame}{}}}
+\subsection{Method \code{fromDataFrame()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Comment$fromDataFrame(CommentDataFrame)}\if{html}{\out{</div>}}
 }
 
 }

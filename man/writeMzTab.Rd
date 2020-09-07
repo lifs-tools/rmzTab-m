@@ -4,12 +4,12 @@
 \alias{writeMzTab}
 \title{Write an mzTab tab separated file from the passed in mzTab object.}
 \usage{
-writeMzTab(mztab, filename)
+writeMzTab(mztab, file)
 }
 \arguments{
 \item{mztab}{the R6 MzTab object to write.}
 
-\item{filename}{the filename to write to.}
+\item{file}{the file path to write to.}
 }
 \description{
 Write an mzTab tab separated file from the passed in mzTab object.

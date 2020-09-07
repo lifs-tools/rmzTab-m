@@ -33,6 +33,8 @@ CV Class
 \item \href{#method-fromJSON}{\code{CV$fromJSON()}}
 \item \href{#method-toJSONString}{\code{CV$toJSONString()}}
 \item \href{#method-fromJSONString}{\code{CV$fromJSONString()}}
+\item \href{#method-toDataFrame}{\code{CV$toDataFrame()}}
+\item \href{#method-fromDataFrame}{\code{CV$fromDataFrame()}}
 \item \href{#method-clone}{\code{CV$clone()}}
 }
 }
@@ -78,6 +80,24 @@ CV Class
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CV$fromJSONString(CVJson)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-toDataFrame"></a>}}
+\if{latex}{\out{\hypertarget{method-toDataFrame}{}}}
+\subsection{Method \code{toDataFrame()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{CV$toDataFrame()}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-fromDataFrame"></a>}}
+\if{latex}{\out{\hypertarget{method-fromDataFrame}{}}}
+\subsection{Method \code{fromDataFrame()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{CV$fromDataFrame(CvDataFrame)}\if{html}{\out{</div>}}
 }
 
 }

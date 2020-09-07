@@ -37,6 +37,8 @@ StudyVariable Class
 \item \href{#method-fromJSON}{\code{StudyVariable$fromJSON()}}
 \item \href{#method-toJSONString}{\code{StudyVariable$toJSONString()}}
 \item \href{#method-fromJSONString}{\code{StudyVariable$fromJSONString()}}
+\item \href{#method-toDataFrame}{\code{StudyVariable$toDataFrame()}}
+\item \href{#method-fromDataFrame}{\code{StudyVariable$fromDataFrame()}}
 \item \href{#method-clone}{\code{StudyVariable$clone()}}
 }
 }
@@ -91,6 +93,24 @@ StudyVariable Class
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{StudyVariable$fromJSONString(StudyVariableJson)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-toDataFrame"></a>}}
+\if{latex}{\out{\hypertarget{method-toDataFrame}{}}}
+\subsection{Method \code{toDataFrame()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{StudyVariable$toDataFrame()}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-fromDataFrame"></a>}}
+\if{latex}{\out{\hypertarget{method-fromDataFrame}{}}}
+\subsection{Method \code{fromDataFrame()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{StudyVariable$fromDataFrame(StudyVariableDataFrame)}\if{html}{\out{</div>}}
 }
 
 }

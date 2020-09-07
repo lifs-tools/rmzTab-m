@@ -36,11 +36,12 @@ extractPart <- function(mztab.table, matchColumn, matchValue) {
 }
 
 extractParameter <- function(mztab.table, matchColumn, matchValue, valueColumn = "V3") {
-  stringValue <- asCharacter(extractPart(mztab.table, matchColumn, matchValue), 1, "V3")
+  subTable <- extractPart(mztab.table, matchColumn, matchValue)
+  stringValue <- asCharacter(subTable, 1, "V3")
   if(!is.null(stringValue)) {
     param <- Parameter$new()
-    param$fromString(stringValue)
-    param
+    param$fromString(NULL, stringValue)
+    return(param)
   }
   return(NULL)
 }

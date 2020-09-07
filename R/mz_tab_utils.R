@@ -20,3 +20,13 @@ valueOrDefault <- function(x, FUN = identity, nullable = TRUE, defaultValue="nul
     return(FUN(x, ...))
   }
 }
+
+## utility function, combining different length objects into a dataframe
+## padding short columns with NA
+rbind.ragged <- function(x, y) {
+  x <- as.data.frame(x) 
+  y <- as.data.frame(y) 
+  colnames(x) <- seq(1:ncol(x))
+  colnames(y) <- seq(1:ncol(y))
+  dplyr::bind_rows(x,y)
+}

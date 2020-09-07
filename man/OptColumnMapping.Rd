@@ -29,6 +29,8 @@ OptColumnMapping Class
 \item \href{#method-fromJSON}{\code{OptColumnMapping$fromJSON()}}
 \item \href{#method-toJSONString}{\code{OptColumnMapping$toJSONString()}}
 \item \href{#method-fromJSONString}{\code{OptColumnMapping$fromJSONString()}}
+\item \href{#method-toString}{\code{OptColumnMapping$toString()}}
+\item \href{#method-fromString}{\code{OptColumnMapping$fromString()}}
 \item \href{#method-clone}{\code{OptColumnMapping$clone()}}
 }
 }
@@ -74,6 +76,24 @@ OptColumnMapping Class
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{OptColumnMapping$fromJSONString(OptColumnMappingJson)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-toString"></a>}}
+\if{latex}{\out{\hypertarget{method-toString}{}}}
+\subsection{Method \code{toString()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{OptColumnMapping$toString()}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-fromString"></a>}}
+\if{latex}{\out{\hypertarget{method-fromString}{}}}
+\subsection{Method \code{fromString()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{OptColumnMapping$fromString(OptColumnMappingString)}\if{html}{\out{</div>}}
 }
 
 }

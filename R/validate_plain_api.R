@@ -15,11 +15,11 @@
 #' @section Methods:
 #' \describe{
 #' \strong{ ValidatePlainMzTabFile } \emph{  }
-#' Validates an mzTab file in plain text representation / tab-separated format and reports syntactic, structural, and semantic errors. 
+#' Validates an mzTab file in plain text representation / tab-separated format and reports syntactic, structural, and semantic errors.
 #'
 #' \itemize{
 #' \item \emph{ @param } mztabfile character
-#' \item \emph{ @param } level Enum < [info, warn, error] > 
+#' \item \emph{ @param } level Enum < [info, warn, error] >
 #' \item \emph{ @param } max.errors integer
 #' \item \emph{ @param } semantic.validation character
 #' \item \emph{ @returnType } list( \link{ValidationMessage} ) \cr
@@ -27,7 +27,7 @@
 #'
 #' \item status code : 200 | Validation Okay
 #'
-#' \item return type : array[ValidationMessage] 
+#' \item return type : array[ValidationMessage]
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -41,14 +41,14 @@
 #' }
 #' \item status code : 422 | Invalid input
 #'
-#' \item return type : array[ValidationMessage] 
+#' \item return type : array[ValidationMessage]
 #' \item response headers :
 #'
 #' \tabular{ll}{
 #' }
 #' \item status code : 0 | Unexpected error
 #'
-#' \item return type : Error 
+#' \item return type : Error
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -81,7 +81,7 @@ ValidatePlainApi <- R6::R6Class(
   'ValidatePlainApi',
   public = list(
     apiClient = NULL,
-    initialize = function(apiClient){
+    initialize = function(apiClient) {
       if (!missing(apiClient)) {
         self$apiClient <- apiClient
       }
@@ -89,21 +89,34 @@ ValidatePlainApi <- R6::R6Class(
         self$apiClient <- ApiClient$new()
       }
     },
-    ValidatePlainMzTabFile = function(mztabfile, level='info', max.errors=100, semantic.validation=FALSE, ...){
-      apiResponse <- self$ValidatePlainMzTabFileWithHttpInfo(mztabfile, level, max.errors, semantic.validation, ...)
+    ValidatePlainMzTabFile = function(mztabfile,
+                                      level = 'info',
+                                      max.errors = 100,
+                                      semantic.validation = FALSE,
+                                      ...) {
+      apiResponse <-
+        self$ValidatePlainMzTabFileWithHttpInfo(mztabfile, level, max.errors, semantic.validation, ...)
       resp <- apiResponse$response
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+      if (httr::status_code(resp) >= 200 &&
+          httr::status_code(resp) <= 299) {
         apiResponse
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+      } else if (httr::status_code(resp) >= 300 &&
+                 httr::status_code(resp) <= 399) {
         apiResponse
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+      } else if (httr::status_code(resp) >= 400 &&
+                 httr::status_code(resp) <= 499) {
         apiResponse
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+      } else if (httr::status_code(resp) >= 500 &&
+                 httr::status_code(resp) <= 599) {
         apiResponse
       }
     },
-
-    ValidatePlainMzTabFileWithHttpInfo = function(mztabfile, level='info', max.errors=100, semantic.validation=FALSE, ...){
+    
+    ValidatePlainMzTabFileWithHttpInfo = function(mztabfile,
+                                                  level = 'info',
+                                                  max.errors = 100,
+                                                  semantic.validation = FALSE,
+                                                  ...) {
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
@@ -111,42 +124,58 @@ ValidatePlainApi <- R6::R6Class(
       if (missing(`mztabfile`)) {
         stop("Missing required parameter `mztabfile`.")
       }
-
+      
       queryParams['level'] <- level
-
+      
       queryParams['maxErrors'] <- max.errors
-
+      
       queryParams['semanticValidation'] <- semantic.validation
-
+      
       if (!missing(`mztabfile`)) {
         body <- `mztabfile`
       } else {
         body <- NULL
       }
-
+      
       urlPath <- "/validatePlain"
-
-      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
-                                 method = "POST",
-                                 queryParams = queryParams,
-                                 headerParams = headerParams,
-                                 body = body,
-                                 contentType = "text/tab-separated-values",
-                                 ...)
-
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+      
+      resp <-
+        self$apiClient$CallApi(
+          url = paste0(self$apiClient$basePath, urlPath),
+          method = "POST",
+          queryParams = queryParams,
+          headerParams = headerParams,
+          body = body,
+          contentType = "text/tab-separated-values",
+          ...
+        )
+      
+      if (httr::status_code(resp) >= 200 &&
+          httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "array[ValidationMessage]", loadNamespace("rmzTabM")),
-          error = function(e){
-             stop("Failed to deserialize response")
+          self$apiClient$deserialize(
+            resp,
+            "array[ValidationMessage]",
+            loadNamespace("rmzTabM")
+          ),
+          error = function(e) {
+            stop("Failed to deserialize response")
           }
         )
         ApiResponse$new(deserializedRespObj, resp)
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+      } else if (httr::status_code(resp) >= 300 &&
+                 httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste(
+          "Server returned " ,
+          httr::status_code(resp) ,
+          " response status code."
+        ),
+        resp)
+      } else if (httr::status_code(resp) >= 400 &&
+                 httr::status_code(resp) <= 499) {
         ApiResponse$new("API client error", resp)
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+      } else if (httr::status_code(resp) >= 500 &&
+                 httr::status_code(resp) <= 599) {
         ApiResponse$new("API server error", resp)
       }
     }

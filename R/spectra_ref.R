@@ -92,6 +92,9 @@ SpectraRef <- R6::R6Class(
         }
       }
       spectraRefStr
+    },
+    fromString = function(SpectraRefString) {
+      #TODO implement
     }
   )
 )

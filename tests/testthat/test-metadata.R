@@ -307,3 +307,19 @@ test_that("metadata$toDataFrame works", {
   # expect_equal(df[5,"VALUE"], "sphingolipid srm quantitation")
 })
 
+test_that("metadata$fromDataFrame works", {
+  #model.instance <- model.instance$fromDataFrame(ref.json)
+  #df <- model.instance$toDataFrame()
+  # expect_equal(df[1,"PREFIX"], "MTD")
+  # expect_equal(df[1,"KEY"], "study_variable[1]-name")
+  # expect_equal(df[1,"VALUE"], "Sphingolipid SRM Quantitation")
+  # expect_equal(df[2,"KEY"], "study_variable[1]-assay_refs")
+  # expect_equal(df[2,"VALUE"], "assay[1]|assay[3]")
+  # expect_equal(df[3,"KEY"], "study_variable[1]-average_function")
+  # expect_equal(df[3,"VALUE"], "[MS, MS:1002883, median, ]")
+  # expect_equal(df[4,"KEY"], "study_variable[1]-variation_function")
+  # expect_equal(df[4,"VALUE"], "[MS, MS:1002885, standard error, ]")
+  # expect_equal(df[5,"KEY"], "study_variable[1]-description")
+  # expect_equal(df[5,"VALUE"], "sphingolipid srm quantitation")
+})
+

@@ -95,6 +95,15 @@ Uri <- R6::R6Class(
                 ),
                 stringsAsFactors = FALSE)
       }
+    },
+    fromDataFrame = function(UriDataFrame) {
+      stopifnot(nrow(UriDataFrame)==1)
+      if (rlang::has_name(UriDataFrame, "id")) {
+        self$`id` <- as.numeric(UriDataFrame$`id`)
+      }
+      if (rlang::has_name(UriDataFrame, "value")) {
+        self$`value` <- UriDataFrame$`value`
+      }
     }
   )
 )

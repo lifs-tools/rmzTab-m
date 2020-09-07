@@ -35,6 +35,16 @@ extractPart <- function(mztab.table, matchColumn, matchValue) {
   mztab.table[startsWith(as.character(mztab.table[,matchColumn]), matchValue),]
 }
 
+extractParameter <- function(mztab.table, matchColumn, matchValue, valueColumn = "V3") {
+  stringValue <- asCharacter(extractPart(mztab.table, matchColumn, matchValue), 1, "V3")
+  if(!is.null(stringValue)) {
+    param <- Parameter$new()
+    param$fromString(stringValue)
+    param
+  }
+  return(NULL)
+}
+
 idRegexp <- "\\[([0-9]+)\\]"
 
 idElementRegexp <- "[a-z\\-_]+\\[([0-9]+)\\].*"

@@ -162,8 +162,20 @@ Contact <- R6::R6Class(
       elements
     },
     fromDataFrame = function(ContactDataFrame) {
-      # TODO
-      warning("fromDataFrame not implemented yet")
+      stopifnot(nrow(ContactDataFrame)==1)
+      if (rlang::has_name(ContactDataFrame, "id")) {
+        self$`id` <- as.numeric(ContactDataFrame$`id`)
+      }
+      if (rlang::has_name(ContactDataFrame, "name")) {
+        self$`name` <- ContactDataFrame$`name`
+      }
+      if (rlang::has_name(ContactDataFrame, "affiliation")) {
+        self$`affiliation` <- ContactDataFrame$`affiliation`
+      }
+      if (rlang::has_name(ContactDataFrame, "email")) {
+        self$`email` <- ContactDataFrame$`email`
+      }
+      self
     }
   )
 )

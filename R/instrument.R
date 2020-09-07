@@ -206,22 +206,24 @@ Instrument <- R6::R6Class(
       }
       if (rlang::has_name(InstrumentDataFrame, "name")) {
         param <- Parameter$new()
-        self$`name` <- param$fromDataFrame(InstrumentDataFrame$`name`)
+        self$`name` <- param$fromString(NULL, InstrumentDataFrame$`name`)
       }
       if (rlang::has_name(InstrumentDataFrame, "source")) {
         param <- Parameter$new()
-        self$`source` <- param$fromDataFrame(InstrumentDataFrame$`source`)
+        self$`source` <- param$fromString(NULL, InstrumentDataFrame$`source`)
       }
-      if (rlang::has_name(InstrumentDataFrame, "analyzer")) {
-        self$`analyzer` <- lapply(splitList(InstrumentDataFrame$`analyzer`), function(x){
+      # extract potentially multiple columns with 'analyzer' prefix
+      analyzerColumns <- columnNames[grepl("^analyzer", columnNames)]
+      if (length(analyzerColumns) > 0) {
+        self$`analyzer` <- lapply(analyzerColumns, function(x) {
           param <- Parameter$new()
-          param$fromString(NULL, x)
+          param$fromString(NULL, InstrumentDataFrame[[x]])
           param
         })
       }
       if (rlang::has_name(InstrumentDataFrame, "detector")) {
         param <- Parameter$new()
-        self$`detector` <- param$fromDataFrame(InstrumentDataFrame$`detector`)
+        self$`detector` <- param$fromString(NULL, InstrumentDataFrame$`detector`)
       }
       self
     }

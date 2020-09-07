@@ -193,9 +193,24 @@ CV <- R6::R6Class(
       }
       elements
     },
-    fromDataFrame = function(ContactDataFrame) {
-      # TODO
-      warning("fromDataFrame not implemented yet")
+    fromDataFrame = function(CvDataFrame) {
+      stopifnot(nrow(CvDataFrame)==1)
+      if (rlang::has_name(CvDataFrame, "id")) {
+        self$`id` <- as.numeric(CvDataFrame$`id`)
+      }
+      if (rlang::has_name(CvDataFrame, "label")) {
+        self$`label` <- CvDataFrame$`label`
+      }
+      if (rlang::has_name(CvDataFrame, "full_name")) {
+        self$`full_name` <- CvDataFrame$`full_name`
+      }
+      if (rlang::has_name(CvDataFrame, "version")) {
+        self$`version` <- CvDataFrame$`version`
+      }
+      if (rlang::has_name(CvDataFrame, "uri")) {
+        self$`uri` <- CvDataFrame$`uri`
+      }
+      self
     }
   )
 )

@@ -84,20 +84,9 @@ test_that("Instrument$fromDataFrame() works", {
     '
 MTD\tinstrument[1]-name\t[MS, MS:1002581, QTRAP 6500 , ]
 MTD\tinstrument[1]-source\t[MS, MS:1000073, Electrospray Ionization, ]
-MTD\tinstrument[1]-analyzer[1]\t[MS, MS:1000082, quadrupole ion trap, ] | 
-"id" : null,
-        "cv_label" : "MS",
-        "cv_accession" : "MS:1000484",
-        "name" : "orbitrap",
-        "value" : null
-MTD\tinstrument[1]-detector\t[MS, MS:1000082, quadrupole ion trap, ]
-"detector" : {
-        "id" : null,
-        "cv_label" : "MS",
-        "cv_accession" : "MS:1000624",
-        "name" : "inductive detector",
-        "value" : null
-      }
+MTD\tinstrument[1]-analyzer[1]\t[MS, MS:1000082, quadrupole ion trap, ]
+MTD\tinstrument[1]-analyzer[2]\t[MS, MS:1000484, orbitrap, ]
+MTD\tinstrument[1]-detector\t[MS, MS:1000624, inductive detector, ]
 '
   mzTabTable <- readMzTabString(instrumentMtd)
   metadataTable <- extractMetadata(mzTabTable)
@@ -116,10 +105,20 @@ MTD\tinstrument[1]-detector\t[MS, MS:1000082, quadrupole ion trap, ]
   expect_equal(model.instance$`source`$name, 'Electrospray Ionization')
   expect_null(model.instance$`source`$value)
   
-  expect_equal(length(model.instance$`analyzer`), 1)
+  expect_equal(length(model.instance$`analyzer`), 2)
   expect_equal(model.instance$`analyzer`[[1]]$cv_label, "MS")
   expect_equal(model.instance$`analyzer`[[1]]$cv_accession, "MS:1000082")
   expect_equal(model.instance$`analyzer`[[1]]$name, "quadrupole ion trap")
   expect_null(model.instance$`analyzer`[[1]]$value)
+  
+  expect_equal(model.instance$`analyzer`[[2]]$cv_label, "MS")
+  expect_equal(model.instance$`analyzer`[[2]]$cv_accession, "MS:1000484")
+  expect_equal(model.instance$`analyzer`[[2]]$name, "orbitrap")
+  expect_null(model.instance$`analyzer`[[2]]$value)
+  
+  expect_equal(model.instance$`detector`$cv_label, "MS")
+  expect_equal(model.instance$`detector`$cv_accession, "MS:1000624")
+  expect_equal(model.instance$`detector`$name, "inductive detector")
+  expect_null(model.instance$`detector`$value)
 })
 

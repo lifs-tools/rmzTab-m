@@ -121,6 +121,7 @@ Comment <- R6::R6Class(
     fromDataFrame = function(CommentDataFrame) {
       # TODO
       warning("fromDataFrame not implemented yet")
+      # if()
     }
   )
 )

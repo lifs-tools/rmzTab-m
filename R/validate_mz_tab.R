@@ -16,7 +16,7 @@ validateMzTab <-
            semanticValidation = TRUE) {
     # set a custom api client to use a different URL
     apiClient <-
-      ApiClient$new(basePath = "https://apps.lifs.isas.de/mztabvalidator-dev/rest/v2")
+      ApiClient$new(basePath = "https://apps.lifs.isas.de/mztabvalidator/rest/v2")
     if (validationMode == "json") {
       stopifnot(R6::is.R6(mztab))
       stopifnot("MzTab" != mztab$classname)

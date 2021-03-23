@@ -14,13 +14,12 @@ validateMzTab <-
            validationLevel = "info",
            maxErrors = 100,
            semanticValidation = TRUE) {
-    stopifnot(R6::is.R6(mztab))
-    
-    stopifnot("MzTab" != mztab$classname)
     # set a custom api client to use a different URL
     apiClient <-
       ApiClient$new(basePath = "https://apps.lifs.isas.de/mztabvalidator-dev/rest/v2")
     if (validationMode == "json") {
+      stopifnot(R6::is.R6(mztab))
+      stopifnot("MzTab" != mztab$classname)
       validateApi <- ValidateApi$new(apiClient = apiClient)
       response <-
         validateApi$ValidateMzTabFile(mztab, validationLevel, maxErrors, semanticValidation)
@@ -73,10 +72,10 @@ validateMzTab <-
     } else if (validationMode == "plain") {
       validatePlainApi <- ValidatePlainApi$new(apiClient = apiClient)
       tmpFile <- tempfile(fileext = "mztab")
-      writeMzTab(mztab, tmpFile)
-      mzTabString <- readChar(tmpFile, file.info(tmpFile)$size)
+      # writeMzTab(mztab, tmpFile)
+      # mzTabString <- readChar(tmpFile, file.info(tmpFile)$size)
       response <-
-        validatePlainApi$ValidatePlainMzTabFile(mzTabString,
+        validatePlainApi$ValidatePlainMzTabFile(mztab,
                                                 validationLevel,
                                                 maxErrors,
                                                 semanticValidation)

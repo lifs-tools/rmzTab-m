@@ -6,7 +6,7 @@ test_that("validation of mzTab Object via REST API of mztab JSON works", {
   mzTabObject <- MzTab$new()
   mzTabObject$fromJSON(testfile)
   
-  validationMessages <- validate_mz_tab(
+  validationMessages <- validateMzTab(
     mzTabObject,
     validationMode = "json",
     validationLevel = "info",
@@ -22,8 +22,8 @@ test_that("validation of mzTab Object via REST API of mztab TSV works", {
     system.file("testdata", c("lipidomics-example.mzTab"), package = "rmzTabM")
   mzTabString <- readChar(testfile, file.info(testfile)$size)
   
-  validationMessages <- validate_mz_tab(
-    mzTabObject,
+  validationMessages <- validateMzTab(
+    mzTabString,
     validationMode = "plain",
     validationLevel = "info",
     maxErrors = 100,

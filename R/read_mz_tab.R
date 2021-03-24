@@ -16,6 +16,7 @@ readMzTab <- function(filename) {
 #'
 #' Read an mzTab tab separated 'file' from the passed in string.
 #' This file creates a temporary file on disk to check for the maximum number of columns.
+#' The returned object is a data.frame as returned by utils::read.table. 
 #' 
 #' @param mzTabString the mzTab string to parse.
 #' @export
@@ -143,26 +144,32 @@ extractMetadata = function(MzTabDataFrame) {
   mtd.table
 }
 
-extractSummary <- function(mztab.table) {
-  
-  smh <- mztab.table[startsWith(as.character(mztab.table$V1), "SMH"),]
-  sml <- mztab.table[startsWith(as.character(mztab.table$V1), "SML"),]
-  sml.data.frame <- data.frame(sml)
-  print(as.vector(smh[1,]))
-  colnames(sml.data.frame) <- as.character(smh[1,])
-  rbind(smh, sml)
+extractTable = function(mztab.table, headerPrefix, contentPrefix) {
+  headers <- mztab.table[startsWith(as.character(mztab.table$V1), headerPrefix),]
+  contents <- mztab.table[startsWith(as.character(mztab.table$V1), contentPrefix),]
+  df <- data.frame(contents)
+  colnames(df) <- as.character(headers[1,])
+  df[, colnames(df) != ""]
 }
 
-extractFeatures <- function(mztab.table) {
-  sfh <- mztab.table[startsWith(as.character(mztab.table$V1), "SFH"),]
-  smf <- mztab.table[startsWith(as.character(mztab.table$V1), "SMF"),]
-  rbind(sfh, smf)
+extractSmallMoleculeSummary <- function(mztab.table) {
+  extractTable(mztab.table, "SMH", "SML")
 }
 
-extractEvidence <- function(mztab.table) {
-  seh <- mztab.table[startsWith(as.character(mztab.table$V1), "SEH"),]
-  sme <- mztab.table[startsWith(as.character(mztab.table$V1), "SME"),]
-  rbind(seh, sme)
+extractSmallMoleculeFeatures <- function(mztab.table) {
+  extractTable(mztab.table, "SFH", "SMF")
+}
+
+extractSmallMoleculeEvidence <- function(mztab.table) {
+  extractTable(mztab.table, "SEH", "SME")
+}
+
+extractComments <- function(mztab.table) {
+  prefix <- "COM"
+  com.table <- mztab.table[startsWith(as.character(mztab.table$V1), prefix), c("V1", "V2")]
+  colnames(com.table) <- c("prefix", "msg")
+  com.table$line_number <- rownames(com.table)
+  com.table
 }
 
 splitList <- function(listString, separator="|") {

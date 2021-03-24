@@ -358,8 +358,54 @@ MsRun <- R6::R6Class(
       elements
     },
     fromDataFrame = function(MsRunDataFrame) {
-      # TODO
-      warning("fromDataFrame not implemented yet")
+      stopifnot(nrow(MsRunDataFrame)==1)
+      columnNames <- colnames(MsRunDataFrame)
+      if (rlang::has_name(MsRunDataFrame, "id")) {
+        self$`id` <- as.numeric(MsRunDataFrame$`id`)
+      }
+      if (rlang::has_name(MsRunDataFrame, "name")) {
+        self$`name` <- MsRunDataFrame$`name`
+      }
+      if (rlang::has_name(MsRunDataFrame, "location")) {
+        self$`location` <- MsRunDataFrame$`location`
+      }
+      if (rlang::has_name(MsRunDataFrame, "instrument_ref")) { # single reference
+        self$`instrument_ref` <- extractId(MsRunDataFrame$`instrument_ref`)
+      }
+      if (rlang::has_name(MsRunDataFrame, "format")) {
+        param <- Parameter$new()
+        self$`format` <- param$fromString(NULL, MsRunDataFrame$`format`)
+      }
+      if (rlang::has_name(MsRunDataFrame, "id_format")) {
+        param <- Parameter$new()
+        self$`id_format` <- param$fromString(NULL, MsRunDataFrame$`id_format`)
+      }
+      # extract potentially multiple columns with 'fragmentation_method' prefix
+      fragmentationMethodColumns <- columnNames[grepl("^fragmentation\\_method", columnNames)]
+      if (length(fragmentationMethodColumns) > 0) {
+        self$`fragmentation_method` <- lapply(fragmentationMethodColumns, function(x) {
+          param <- Parameter$new()
+          param$fromString(NULL, MsRunDataFrame[[x]])
+          param
+        })
+      }
+      # extract potentially multiple columns with 'scan_polarity' prefix
+      scanPolarityColumns <- columnNames[grepl("^scan\\_polarity", columnNames)]
+      if (length(scanPolarityColumns) > 0) {
+        self$`scan_polarity` <- lapply(scanPolarityColumns, function(x) {
+          param <- Parameter$new()
+          param$fromString(NULL, MsRunDataFrame[[x]])
+          param
+        })
+      }
+      if (rlang::has_name(MsRunDataFrame, "hash")) {
+        self$`hash` <- MsRunDataFrame$`hash`
+      }
+      if (rlang::has_name(MsRunDataFrame, "hash_method")) {
+        param <- Parameter$new()
+        self$`hash_method` <- param$fromString(NULL, MsRunDataFrame$`hash_method`)
+      }
+      self
     }
   )
 )

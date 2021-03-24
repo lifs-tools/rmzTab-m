@@ -563,6 +563,102 @@ SmallMoleculeSummary <- R6::R6Class(
           )
         )
       entries
+    },
+    fromDataFrame = function(SummaryDataFrame) {
+      stopifnot(nrow(SummaryDataFrame)==1)
+      columnNames <- colnames(SummaryDataFrame)
+      self$`prefix` <- "SML"
+      self$`header_prefix` <- "SMH"
+      if (rlang::has_name(SummaryDataFrame, "sml_id")) {
+        self$`sml_id` <- as.numeric(SummaryDataFrame$`sml_id`)
+      }
+      if (rlang::has_name(SummaryDataFrame, "SML_ID")) {
+        self$`sml_id` <- as.numeric(SummaryDataFrame$`SMLID`)
+      }
+      if (rlang::has_name(SummaryDataFrame, "smf_id_refs")) {
+        refList <- splitList(SummaryDataFrame$`smf_id_refs`)
+        self$`smf_id_refs` <- lapply(refList, function(x) {
+          extractId(x)  
+        })
+      }
+      if (rlang::has_name(SummaryDataFrame, "SMF_ID_REFS")) {
+        refList <- splitList(SummaryDataFrame$`SMF_ID_REFS`)
+        self$`smf_id_refs` <- lapply(refList, function(x) {
+          extractId(x)  
+        })
+      }
+      if (rlang::has_name(SummaryDataFrame, "database_identifier")) {
+        refList <- splitList(SummaryDataFrame$`database_identifier`)
+        self$`database_identifier` <- lapply(refList, function(x) {x})
+      }
+      if (rlang::has_name(SummaryDataFrame, "chemical_formula")) {
+        refList <- splitList(SummaryDataFrame$`chemical_formula`)
+        self$`chemical_formula` <- lapply(refList, function(x) {x})
+      }
+      if (rlang::has_name(SummaryDataFrame, "smiles")) {
+        refList <- splitList(SummaryDataFrame$`smiles`)
+        self$`smiles` <- lapply(refList, function(x) {x})
+      }
+      if (rlang::has_name(SummaryDataFrame, "inchi")) {
+        refList <- splitList(SummaryDataFrame$`inchi`)
+        self$`inchi` <- lapply(refList, function(x) {x})
+      }
+      if (rlang::has_name(SummaryDataFrame, "chemical_name")) {
+        refList <- splitList(SummaryDataFrame$`chemical_name`)
+        self$`chemical_name` <- lapply(refList, function(x) {x})
+      }
+      if (rlang::has_name(SummaryDataFrame, "uri")) {
+        refList <- splitList(SummaryDataFrame$`uri`)
+        self$`uri` <- lapply(refList, function(x) {x})
+      }
+      if (rlang::has_name(SummaryDataFrame, "theoretical_neutral_mass")) {
+        refList <- splitList(SummaryDataFrame$`theoretical_neutral_mass`)
+        self$`theoretical_neutral_mass` <- lapply(refList, function(x) {
+          as.numeric(x)  
+        })
+      }
+      if (rlang::has_name(SummaryDataFrame, "adduct_ions")) {
+        refList <- splitList(SummaryDataFrame$`adduct_ions`)
+        self$`adduct_ions` <- lapply(refList, function(x) {x})
+      }
+      if (rlang::has_name(SummaryDataFrame, "reliability")) {
+        self$`reliability` <- SummaryDataFrame$`reliability`
+      }
+      if (rlang::has_name(SummaryDataFrame, "best_id_confidence_measure")) {
+        param <- Parameter$new()
+        self$`best_id_confidence_measure` <- param$fromString(NULL, SummaryDataFrame$`best_id_confidence_measure`)
+      }
+      if (rlang::has_name(SummaryDataFrame, "best_id_confidence_value")) {
+        self$`best_id_confidence_value` <- SummaryDataFrame$`best_id_confidence_value`
+      }
+      # TODO: extract columns starting with abundance_assay[i] etc
+      # if (rlang::has_name(SummaryDataFrame, "abundance_assay")) {
+      #   refList <- splitList(SummaryDataFrame$`abundance_assay`)
+      #   self$`abundance_assay` <- lapply(refList, function(x) {
+      #     as.numeric(x)  
+      #   })
+      # }
+      # if (rlang::has_name(SummaryDataFrame, "abundance_study_variable")) {
+      #   refList <- splitList(SummaryDataFrame$`abundance_study_variable`)
+      #   self$`abundance_study_variable` <- lapply(refList, function(x) {
+      #     as.numeric(x)  
+      #   })
+      # }
+      # if (rlang::has_name(SummaryDataFrame, "abundance_variation_study_variable")) {
+      #   refList <- splitList(SummaryDataFrame$`abundance_variation_study_variable`)
+      #   self$`abundance_variation_study_variable` <- lapply(refList, function(x) {
+      #     as.numeric(x)  
+      #   })
+      # }
+      
+      # TODO: Missing handling of optional columns
+      # self$`opt` <- ApiClient$new()$deserializeObj(SmallMoleculeSummaryObject$`opt`, "array[OptColumnMapping]", loadNamespace("rmzTabM"))
+      
+      if (rlang::has_name(SummaryDataFrame, "comment")) {
+        comment <- Comment$new()
+        self$`comment` <- comment$fromDataFrame(SummaryDataFrame$`comment`)
+      }
+      self
     }
   )
 )

@@ -178,13 +178,25 @@ MzTab <- R6::R6Class(
       df
     },
     fromDataFrame = function(MzTabDataFrame) {
-      browser()
       # self <- MzTab$new()
       self$`metadata` <- Metadata$new()$fromDataFrame(extractMetadata(MzTabDataFrame))
-      # mtd <- extractMetadata(mzTabTable)
-      # sml <- extractSummary(mzTabTable)
-      # smf <- extractFeatures(mzTabTable)
-      # sme <- extractEvidence(mzTabTable)
+      # summary
+      smlDataFrame <- extractSmallMoleculeSummary(MzTabDataFrame)
+      sml.list <- split(smlDataFrame, seq(nrow(smlDataFrame)))
+      self$`smallMoleculeSummary` <- lapply(sml.list, FUN=function(x) {SmallMoleculeSummary$new()$fromDataFrame(x)})
+      # features
+      smfDataFrame <- extractSmallMoleculeFeatures(MzTabDataFrame)
+      smf.list <- split(smfDataFrame, seq(nrow(smfDataFrame)))
+      self$`smallMoleculeFeature` <- lapply(smf.list, FUN=function(x) {SmallMoleculeFeature$new()$fromDataFrame(x)})
+      # evidence
+      smeDataFrame <- extractSmallMoleculeEvidence(MzTabDataFrame)
+      sme.list <- split(smeDataFrame, seq(nrow(smeDataFrame)))
+      self$`smallMoleculeEvidence` <- lapply(sme.list, FUN=function(x) {SmallMoleculeEvidence$new()$fromDataFrame(x)})
+      # comments
+      commentsDataFrame <- extractComments(MzTabDataFrame)
+      comments.list <- split(commentsDataFrame, seq(nrow(commentsDataFrame)))
+      self$`comment` <- lapply(comments.list, FUN=function(x) {Comment$new()$fromDataFrame(x)})
+      self
     }
   )
 )

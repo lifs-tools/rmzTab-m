@@ -119,9 +119,18 @@ Comment <- R6::R6Class(
       elements
     },
     fromDataFrame = function(CommentDataFrame) {
-      # TODO
-      warning("fromDataFrame not implemented yet")
-      # if()
+      stopifnot(nrow(CommentDataFrame)==1)
+      columnNames <- colnames(CommentDataFrame)
+      if (rlang::has_name(CommentDataFrame, "prefix")) {
+        self$`prefix` <- CommentDataFrame$`prefix`
+      }
+      if (rlang::has_name(CommentDataFrame, "msg")) {
+        self$`msg` <- CommentDataFrame$`msg`
+      }
+      if (rlang::has_name(CommentDataFrame, "line_number")) {
+        self$`line_number` <- as.numeric(CommentDataFrame$`line_number`)
+      }
+      self
     }
   )
 )

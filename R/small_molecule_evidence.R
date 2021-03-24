@@ -586,6 +586,79 @@ SmallMoleculeEvidence <- R6::R6Class(
           )
         )
       entries
+    },
+    fromDataFrame = function(EvidenceDataFrame) {
+      stopifnot(nrow(EvidenceDataFrame)==1)
+      columnNames <- colnames(EvidenceDataFrame)
+      self$`prefix` <- "SME"
+      self$`header_prefix` <- "SEH"
+      if (rlang::has_name(EvidenceDataFrame, "sme_id")) {
+        self$`sme_id` <- as.numeric(EvidenceDataFrame$`sme_id`)
+      }
+      if (rlang::has_name(EvidenceDataFrame, "SME_ID")) {
+        self$`sme_id` <- as.numeric(EvidenceDataFrame$`SME_ID`)
+      }
+      if (rlang::has_name(EvidenceDataFrame, "evidence_input_id")) {
+        self$`evidence_input_id` <- EvidenceDataFrame$`evidence_input_id`
+      }
+      if (rlang::has_name(EvidenceDataFrame, "database_identifier")) {
+        self$`database_identifier` <- EvidenceDataFrame$`database_identifier`
+      }
+      if (rlang::has_name(EvidenceDataFrame, "chemical_formula")) {
+        self$`chemical_formula` <- EvidenceDataFrame$`chemical_formula`
+      }
+      if (rlang::has_name(EvidenceDataFrame, "smiles")) {
+        self$`smiles` <- EvidenceDataFrame$`smiles`
+      }
+      if (rlang::has_name(EvidenceDataFrame, "inchi")) {
+        self$`inchi` <- EvidenceDataFrame$`inchi`
+      }
+      if (rlang::has_name(EvidenceDataFrame, "chemical_name")) {
+        self$`chemical_name` <- EvidenceDataFrame$`chemical_name`
+      }
+      if (rlang::has_name(EvidenceDataFrame, "uri")) {
+        self$`uri` <- EvidenceDataFrame$`uri`
+      }
+      if (rlang::has_name(EvidenceDataFrame, "derivatized_form")) {
+        param <- Parameter$new()
+        self$`derivatized_form` <- param$fromString(NULL, EvidenceDataFrame$`derivatized_form`)
+      }
+      if (rlang::has_name(EvidenceDataFrame, "adduct_ion")) {
+        self$`adduct_ion` <- EvidenceDataFrame$`adduct_ion`
+      }
+      if (rlang::has_name(EvidenceDataFrame, "exp_mass_to_charge")) {
+        self$`exp_mass_to_charge` <- as.numeric(EvidenceDataFrame$`exp_mass_to_charge`)
+      }
+      if (rlang::has_name(EvidenceDataFrame, "charge")) {
+        self$`charge` <- as.numeric(EvidenceDataFrame$`charge`)
+      }
+      if (rlang::has_name(EvidenceDataFrame, "theoretical_mass_to_charge")) {
+        self$`theoretical_mass_to_charge` <- as.numeric(EvidenceDataFrame$`theoretical_mass_to_charge`)
+      }
+
+      # TODO: check how spectra_ref looks like in the table
+      # self$`spectra_ref` <- ApiClient$new()$deserializeObj(SmallMoleculeEvidenceObject$`spectra_ref`, "array[SpectraRef]", loadNamespace("rmzTabM"))
+      
+      if (rlang::has_name(EvidenceDataFrame, "identification_method")) {
+        param <- Parameter$new()
+        self$`identification_method` <- param$fromString(NULL, EvidenceDataFrame$`identification_method`)
+      }
+      if (rlang::has_name(EvidenceDataFrame, "ms_level")) {
+        param <- Parameter$new()
+        self$`ms_level` <- param$fromString(NULL, EvidenceDataFrame$`ms_level`)
+      }
+      # self$`id_confidence_measure` <- ApiClient$new()$deserializeObj(SmallMoleculeEvidenceObject$`id_confidence_measure`, "array[numeric]", loadNamespace("rmzTabM"))
+      if (rlang::has_name(EvidenceDataFrame, "rank")) {
+        self$`rank` <- as.numeric(EvidenceDataFrame$`rank`)
+      }
+      # TODO opt handling
+      # self$`opt` <- ApiClient$new()$deserializeObj(SmallMoleculeFeatureObject$`opt`, "array[OptColumnMapping]", loadNamespace("rmzTabM"))
+      
+      if (rlang::has_name(EvidenceDataFrame, "comment")) {
+        comment <- Comment$new()
+        self$`comment` <- comment$fromDataFrame(EvidenceDataFrame$`comment`)
+      }
+      self
     }
   )
 )

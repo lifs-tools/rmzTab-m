@@ -418,6 +418,70 @@ SmallMoleculeFeature <- R6::R6Class(
           )
         )
       entries
+    },
+    fromDataFrame = function(FeatureDataFrame) {
+      stopifnot(nrow(FeatureDataFrame)==1)
+      columnNames <- colnames(FeatureDataFrame)
+      self$`prefix` <- "SMF"
+      self$`header_prefix` <- "SFH"
+      if (rlang::has_name(FeatureDataFrame, "smf_id")) {
+        self$`smf_id` <- as.numeric(FeatureDataFrame$`smf_id`)
+      }
+      if (rlang::has_name(FeatureDataFrame, "SMF_ID")) {
+        self$`smf_id` <- as.numeric(FeatureDataFrame$`SMF_ID`)
+      }
+      if (rlang::has_name(FeatureDataFrame, "sme_id_refs")) {
+        refList <- splitList(FeatureDataFrame$`sme_id_refs`)
+        self$`sme_id_refs` <- lapply(refList, function(x) {
+          extractId(x)  
+        })
+      }
+      if (rlang::has_name(FeatureDataFrame, "SME_ID_REFS")) {
+        refList <- splitList(FeatureDataFrame$`SME_ID_REFS`)
+        self$`sme_id_refs` <- lapply(refList, function(x) {
+          extractId(x)  
+        })
+      }
+      if (rlang::has_name(FeatureDataFrame, "sme_id_ref_ambiguity_code")) {
+        self$`sme_id_ref_ambiguity_code` <- FeatureDataFrame$`sme_id_ref_ambiguity_code`
+      }
+      if (rlang::has_name(FeatureDataFrame, "SME_ID_REF_ambiguity_code")) {
+        self$`sme_id_ref_ambiguity_code` <- FeatureDataFrame$`SME_ID_REF_ambiguity_code`
+      }
+      if (rlang::has_name(FeatureDataFrame, "adduct_ion")) {
+        self$`adduct_ion` <- FeatureDataFrame$`adduct_ion`
+      }
+      if (rlang::has_name(FeatureDataFrame, "isotopomer")) {
+        param <- Parameter$new()
+        self$`isotopomer` <- param$fromString(NULL, FeatureDataFrame$`isotopomer`)
+      }
+      if (rlang::has_name(FeatureDataFrame, "exp_mass_to_charge")) {
+        self$`exp_mass_to_charge` <- as.numeric(FeatureDataFrame$`exp_mass_to_charge`)
+      }
+      if (rlang::has_name(FeatureDataFrame, "charge")) {
+        self$`charge` <- as.numeric(FeatureDataFrame$`charge`)
+      }
+      if (rlang::has_name(FeatureDataFrame, "retention_time_in_seconds")) {
+        self$`retention_time_in_seconds` <- FeatureDataFrame$`retention_time_in_seconds`
+      }
+      if (rlang::has_name(FeatureDataFrame, "retention_time_in_seconds_start")) {
+        self$`retention_time_in_seconds_start` <- FeatureDataFrame$`retention_time_in_seconds_start`
+      }
+      if (rlang::has_name(FeatureDataFrame, "retention_time_in_seconds_end")) {
+        self$`retention_time_in_seconds_end` <- FeatureDataFrame$`retention_time_in_seconds_end`
+      }
+      
+      # TODO extract columns starting with abundance_assay[i]
+      # self$`abundance_assay` <- ApiClient$new()$deserializeObj(SmallMoleculeFeatureObject$`abundance_assay`, "array[numeric]", loadNamespace("rmzTabM"))
+      # TODO opt handling
+      # self$`opt` <- ApiClient$new()$deserializeObj(SmallMoleculeFeatureObject$`opt`, "array[OptColumnMapping]", loadNamespace("rmzTabM"))
+      
+      if (rlang::has_name(FeatureDataFrame, "comment")) {
+        comment <- Comment$new()
+        browser()
+        self$`comment` <- comment$fromDataFrame(FeatureDataFrame$`comment`)
+      }
+      self
     }
   )
 )

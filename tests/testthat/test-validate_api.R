@@ -20,7 +20,7 @@ test_that("validation via REST API of mztab json works", {
   expect_true(0 == length(metadataJsonObject$`title`))
   
   # set a custom api client to use a different URL
-  apiClient <- ApiClient$new(basePath = "https://apps.lifs.isas.de/mztabvalidator-dev/rest/v2")
+  apiClient <- ApiClient$new(basePath = "https://apps.lifs-tools.org/mztabvalidator/rest/v2")
   validateApi <- ValidateApi$new(apiClient = apiClient)
   
   response <- validateApi$ValidateMzTabFile(mzTabObject, 'info', 50, FALSE)

@@ -31,6 +31,7 @@ docker run --rm \
     -o /local/out/r
 ```
 The output in `out/r` builds the basis of this package.
+Please note that for this implementation, the generated code was heavily modified.
 
 ## Installation
 You'll need the `devtools` package in order to build the API.
@@ -55,7 +56,4 @@ To run the tests, execute
 library(devtools)
 test()
 ```
-
-## Author
-nils.hoffmann@isas.de
 

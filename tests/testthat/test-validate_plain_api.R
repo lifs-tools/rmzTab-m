@@ -13,7 +13,7 @@ test_that("validation from mzTab TAB via REST API of mztab JSON works", {
   writeMzTab(mzTabObject, tmpFile)
   mzTabString <- readChar(tmpFile, file.info(tmpFile)$size)
   #set a custom api client to use a different URL
-  apiClient <- ApiClient$new(basePath = "https://apps.lifs.isas.de/mztabvalidator-dev/rest/v2")
+  apiClient <- ApiClient$new(basePath = "https://apps.lifs-tools.org/mztabvalidator/rest/v2")
   validateApi <- ValidatePlainApi$new(apiClient = apiClient)
   response <- validateApi$ValidatePlainMzTabFile(mzTabString, 'info', 50, FALSE)
   
@@ -34,7 +34,7 @@ test_that("validation via REST API of mztab TSV works", {
   mzTabString <- readChar(testfile, file.info(testfile)$size)
   
   #set a custom api client to use a different URL
-  apiClient <- ApiClient$new(basePath = "https://apps.lifs.isas.de/mztabvalidator-dev/rest/v2")
+  apiClient <- ApiClient$new(basePath = "https://apps.lifs-tools.org/mztabvalidator/rest/v2")
   validateApi <- ValidatePlainApi$new(apiClient = apiClient)
   response <- validateApi$ValidatePlainMzTabFile(mzTabString, 'info', 50, FALSE)
   
@@ -55,7 +55,7 @@ test_that("validation via REST API of mzTab TSV with an error works", {
   mzTabString <- readChar(testfile, file.info(testfile)$size)
   
   #set a custom api client to use a different URL
-  apiClient <- ApiClient$new(basePath = "https://apps.lifs.isas.de/mztabvalidator-dev/rest/v2")
+  apiClient <- ApiClient$new(basePath = "https://apps.lifs-tools.org/mztabvalidator/rest/v2")
   validateApi <- ValidatePlainApi$new(apiClient = apiClient)
   response <- validateApi$ValidatePlainMzTabFile(mzTabString, 'info', 50, FALSE)
   

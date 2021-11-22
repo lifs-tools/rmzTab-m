@@ -8,7 +8,7 @@ Author: Nils Hoffmann [aut, cre],
   Steffen Neumann [aut]
 Maintainer: Nils Hoffmann <nils.hoffmann@cebitec.uni-bielefeld.de>
 Description: This is the mzTab-M reference implementation reader and writer for R.
-Depends: R (>= 3.5)
+Depends: R (>= 4.0)
 Encoding: UTF-8
 License: MIT + file LICENSE
 LazyData: true

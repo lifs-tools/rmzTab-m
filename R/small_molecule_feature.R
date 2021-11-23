@@ -86,7 +86,7 @@ SmallMoleculeFeature <- R6::R6Class(
       }
       if (!is.null(`sme_id_refs`)) {
         stopifnot(is.vector(`sme_id_refs`), length(`sme_id_refs`) != 0)
-        sapply(`sme_id_refs`, function(x) stopifnot(is.character(x)))
+        sapply(`sme_id_refs`, function(x) stopifnot(is.numeric(x)))
         self$`sme_id_refs` <- `sme_id_refs`
       }
       if (!is.null(`sme_id_ref_ambiguity_code`)) {
@@ -470,9 +470,12 @@ SmallMoleculeFeature <- R6::R6Class(
       if (rlang::has_name(FeatureDataFrame, "retention_time_in_seconds_end")) {
         self$`retention_time_in_seconds_end` <- FeatureDataFrame$`retention_time_in_seconds_end`
       }
-      
-      # TODO extract columns starting with abundance_assay[i]
-      # self$`abundance_assay` <- ApiClient$new()$deserializeObj(SmallMoleculeFeatureObject$`abundance_assay`, "array[numeric]", loadNamespace("rmzTabM"))
+      abundance_assay_df <- FeatureDataFrame %>% dplyr::select(dplyr::starts_with("abundance_assay"))
+      if (!is.null(dim(abundance_assay_df)) && dim(abundance_assay_df)[1] > 0) {
+        self$`abundance_assay` <- lapply(abundance_assay_df, function(x) {
+          as.numeric(x)
+        })
+      }
       # TODO opt handling
       # self$`opt` <- ApiClient$new()$deserializeObj(SmallMoleculeFeatureObject$`opt`, "array[OptColumnMapping]", loadNamespace("rmzTabM"))
       

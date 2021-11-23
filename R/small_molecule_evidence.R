@@ -635,10 +635,13 @@ SmallMoleculeEvidence <- R6::R6Class(
       if (rlang::has_name(EvidenceDataFrame, "theoretical_mass_to_charge")) {
         self$`theoretical_mass_to_charge` <- as.numeric(EvidenceDataFrame$`theoretical_mass_to_charge`)
       }
-
-      # TODO: check how spectra_ref looks like in the table
-      # self$`spectra_ref` <- ApiClient$new()$deserializeObj(SmallMoleculeEvidenceObject$`spectra_ref`, "array[SpectraRef]", loadNamespace("rmzTabM"))
-      
+      if (rlang::has_name(EvidenceDataFrame, "spectra_ref")) {
+        refList <- splitList(EvidenceDataFrame$`spectra_ref`)
+        self$`spectra_ref` <- lapply(refList, function(x) {
+          sr <- SpectraRef$new()
+          sr$fromString(x)
+        })
+      }
       if (rlang::has_name(EvidenceDataFrame, "identification_method")) {
         param <- Parameter$new()
         self$`identification_method` <- param$fromString(NULL, EvidenceDataFrame$`identification_method`)
@@ -647,7 +650,13 @@ SmallMoleculeEvidence <- R6::R6Class(
         param <- Parameter$new()
         self$`ms_level` <- param$fromString(NULL, EvidenceDataFrame$`ms_level`)
       }
-      # self$`id_confidence_measure` <- ApiClient$new()$deserializeObj(SmallMoleculeEvidenceObject$`id_confidence_measure`, "array[numeric]", loadNamespace("rmzTabM"))
+      id_confidence_measure_df <- EvidenceDataFrame %>% dplyr::select(dplyr::starts_with("id_confidence_measure"))
+      if (!is.null(dim(id_confidence_measure_df)) && dim(id_confidence_measure_df)[1] > 0) {
+        self$`id_confidence_measure` <- unlist(lapply(id_confidence_measure_df, function(x) {
+          as.numeric(x)
+        }))
+      }
+      
       if (rlang::has_name(EvidenceDataFrame, "rank")) {
         self$`rank` <- as.numeric(EvidenceDataFrame$`rank`)
       }

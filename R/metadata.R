@@ -925,98 +925,97 @@ Metadata <- R6::R6Class(
       self$`description` <-
         asCharacter(extractPart(MetadataDataFrame, "V2", "description"), 1, "V3")
       self$`sample_processing` <-
-        lapply(extractIdElements(MetadataDataFrame, "sample_processing"),
+        unlist(lapply(extractIdElements(MetadataDataFrame, "sample_processing"),
                function(x) {
                  sampleProcessing <- SampleProcessing$new()
                  return(sampleProcessing$fromDataFrame(x))
-               })
+               }))
       self$`instrument` <-
-        lapply(extractIdElements(MetadataDataFrame, "instrument"),
+        unlist(lapply(extractIdElements(MetadataDataFrame, "instrument"),
                function(x) {
                  instrument <- Instrument$new()
                  return(instrument$fromDataFrame(x))
-               })
+               }))
       self$`software` <-
-        lapply(extractIdElements(MetadataDataFrame, "software"),
+        unlist(lapply(extractIdElements(MetadataDataFrame, "software"),
                function(x) {
                  software <- Software$new()
                  return(software$fromDataFrame(x))
-               })
+               }))
       self$`publication` <-
-        lapply(extractIdElements(MetadataDataFrame, "publication"),
+        unlist(lapply(extractIdElements(MetadataDataFrame, "publication"),
                function(x) {
                  publication <- Publication$new()
                  return(publication$fromDataFrame(x))
-               })
+               }))
       self$`contact` <-
-        lapply(extractIdElements(MetadataDataFrame, "contact"),
+        unlist(lapply(extractIdElements(MetadataDataFrame, "contact"),
                function(x) {
                  contact <- Contact$new()
                  return(contact$fromDataFrame(x))
-               })
+               }))
       self$`uri` <-
-        lapply(extractIdElements(MetadataDataFrame, "uri"),
+        unlist(lapply(extractIdElements(MetadataDataFrame, "uri"),
                function(x) {
                  uri <- Uri$new()
                  return(uri$fromDataFrame(x))
-               })
+               }))
       self$`external_study_uri` <-
-        lapply(extractIdElements(MetadataDataFrame, "external_study_uri"),
+        unlist(lapply(extractIdElements(MetadataDataFrame, "external_study_uri"),
                function(x) {
                  uri <- Uri$new()
                  return(uri$fromDataFrame(x))
-               })
+               }))
       self$`quantification_method` <-
         extractParameter(MetadataDataFrame, "V2", "quantification_method")
-      browser()
       self$`study_variable` <-
-        lapply(extractIdElements(MetadataDataFrame, "study_variable"),
+        unlist(lapply(extractIdElements(MetadataDataFrame, "study_variable"),
                function(x) {
                  studyVariable <- StudyVariable$new()
                  return(studyVariable$fromDataFrame(x))
-               })
+               }))
       self$`ms_run` <-
-        lapply(extractIdElements(MetadataDataFrame, "ms_run"),
+        unlist(lapply(extractIdElements(MetadataDataFrame, "ms_run"),
                function(x) {
                  msRun <- MsRun$new()
                  return(msRun$fromDataFrame(x))
-               })
+               }))
       self$`assay` <-
-        lapply(extractIdElements(MetadataDataFrame, "assay"),
+        unlist(lapply(extractIdElements(MetadataDataFrame, "assay"),
                function(x) {
                  assay <- Assay$new()
                  return(assay$fromDataFrame(x))
-               })
+               }))
       self$`sample` <-
-        lapply(extractIdElements(MetadataDataFrame, "sample"),
+        unlist(lapply(extractIdElements(MetadataDataFrame, "sample"),
                function(x) {
                  sample <- Sample$new()
                  return(sample$fromDataFrame(x))
-               })
+               }))
       self$`custom` <-
-        lapply(extractIdElements(MetadataDataFrame, "custom"),
+        unlist(lapply(extractIdElements(MetadataDataFrame, "custom"),
                function(x) {
                  param <- Parameter$new()
                  return(param$fromString(NULL, x$name))
-               })
+               }))
       self$`cv` <-
-        lapply(extractIdElements(MetadataDataFrame, "cv"),
+        unlist(lapply(extractIdElements(MetadataDataFrame, "cv"),
                function(x) {
                  cv <- CV$new()
                  return(cv$fromDataFrame(x))
-               })
+               }))
       self$`database` <-
-        lapply(extractIdElements(MetadataDataFrame, "database"),
+        unlist(lapply(extractIdElements(MetadataDataFrame, "database"),
                function(x) {
                  database <- Database$new()
                  return(database$fromDataFrame(x))
-               })
+               }))
       self$`derivatization_agent` <-
-        lapply(extractIdElements(MetadataDataFrame, "derivatization_agent"),
+        unlist(lapply(extractIdElements(MetadataDataFrame, "derivatization_agent"),
                function(x) {
                  param <- Parameter$new()
                  return(param$fromString(NULL, x$name))
-               })
+               }))
       self$`small_molecule-quantification_unit` <-
         extractParameter(MetadataDataFrame,
                          "V2",
@@ -1030,11 +1029,11 @@ Metadata <- R6::R6Class(
                          "V2",
                          "small_molecule-identification_reliability")
       self$`id_confidence_measure` <-
-        lapply(extractIdElements(MetadataDataFrame, "id_confidence_measure"),
+        unlist(lapply(extractIdElements(MetadataDataFrame, "id_confidence_measure"),
                function(x) {
                  param <- Parameter$new()
                  return(param$fromString(NULL, x$name))
-               })
+               }))
       # colunitSm <- extractPart(MetadataDataFrame, "V2", "colunit-small_molecule")
       # colunitSmf <- extractPart(MetadataDataFrame, "V2", "colunit-small_molecule_feature")
       # colunitSme <- extractPart(MetadataDataFrame, "V2", "colunit-small_molecule_evidence")

@@ -93,7 +93,7 @@ SmallMoleculeSummary <- R6::R6Class(
       }
       if (!is.null(`smf_id_refs`)) {
         stopifnot(is.vector(`smf_id_refs`), length(`smf_id_refs`) != 0)
-        sapply(`smf_id_refs`, function(x) stopifnot(is.character(x)))
+        sapply(`smf_id_refs`, function(x) stopifnot(is.numeric(x)))
         self$`smf_id_refs` <- `smf_id_refs`
       }
       if (!is.null(`database_identifier`)) {
@@ -631,25 +631,24 @@ SmallMoleculeSummary <- R6::R6Class(
       if (rlang::has_name(SummaryDataFrame, "best_id_confidence_value")) {
         self$`best_id_confidence_value` <- SummaryDataFrame$`best_id_confidence_value`
       }
-      # TODO: extract columns starting with abundance_assay[i] etc
-      # if (rlang::has_name(SummaryDataFrame, "abundance_assay")) {
-      #   refList <- splitList(SummaryDataFrame$`abundance_assay`)
-      #   self$`abundance_assay` <- lapply(refList, function(x) {
-      #     as.numeric(x)  
-      #   })
-      # }
-      # if (rlang::has_name(SummaryDataFrame, "abundance_study_variable")) {
-      #   refList <- splitList(SummaryDataFrame$`abundance_study_variable`)
-      #   self$`abundance_study_variable` <- lapply(refList, function(x) {
-      #     as.numeric(x)  
-      #   })
-      # }
-      # if (rlang::has_name(SummaryDataFrame, "abundance_variation_study_variable")) {
-      #   refList <- splitList(SummaryDataFrame$`abundance_variation_study_variable`)
-      #   self$`abundance_variation_study_variable` <- lapply(refList, function(x) {
-      #     as.numeric(x)  
-      #   })
-      # }
+      abundance_assay_df <- SummaryDataFrame %>% dplyr::select(dplyr::starts_with("abundance_assay"))
+      if (!is.null(dim(abundance_assay_df)) && dim(abundance_assay_df)[1] > 0) {
+        self$`abundance_assay` <- unlist(lapply(abundance_assay_df, function(x) {
+          as.numeric(x)
+        }))
+      }
+      abundance_assay_sv <- SummaryDataFrame %>% dplyr::select(dplyr::starts_with("abundance_study_variable"))
+      if (!is.null(dim(abundance_assay_sv)) && dim(abundance_assay_sv)[1] > 0) {
+        self$`abundance_study_variable` <- unlist(lapply(abundance_assay_sv, function(x) {
+          as.numeric(x)
+        }))
+      }
+      abundance_variation_sv <- SummaryDataFrame %>% dplyr::select(dplyr::starts_with("abundance_variation_study_variable"))
+      if (!is.null(dim(abundance_variation_sv)) && dim(abundance_variation_sv)[1] > 0) {
+        self$`abundance_variation_study_variable` <- unlist(lapply(abundance_variation_sv, function(x) {
+          as.numeric(x)
+        }))
+      }
       
       # TODO: Missing handling of optional columns
       # self$`opt` <- ApiClient$new()$deserializeObj(SmallMoleculeSummaryObject$`opt`, "array[OptColumnMapping]", loadNamespace("rmzTabM"))

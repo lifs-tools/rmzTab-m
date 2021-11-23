@@ -29,7 +29,7 @@ test_that("reading of mztab TAB format works", {
   testfile <- system.file("testdata", c("lipidomics-example.mzTab"), package="rmzTabM")
   mzTabTable <- readMzTab(testfile)
   
-  sml.table <- extractSmallMoleculeSummary(mzTabTable)
+  # sml.table <- extractSmallMoleculeSummary(mzTabTable)
   
   mzTabObject <- MzTab$new()
   mzTabObject$fromDataFrame(mzTabTable)
@@ -43,14 +43,13 @@ test_that("reading of mztab TAB format works", {
   expect_equal(object = mzTabObject$`metadata`$`mzTab-ID`, "ISAS-2018-1234")
   expect_equal(object = mzTabObject$`metadata`$`description`, "Minimal proposed sample file for identification and quantification of lipids")
 
-  browser()
   expect_length(mzTabObject$`smallMoleculeSummary`,1)
   expect_length(mzTabObject$`smallMoleculeFeature`,4)
   expect_length(mzTabObject$`smallMoleculeEvidence`,4)
   
-  # FIXME there seems to be an issue with deserializing of study_variable
-  # expect_equal(mzTabObject$metadata$`study_variable`[[1]]$`name`, "Sphingolipid SRM Quantitation")
-  # expect_length(mzTabObject$metadata$`study_variable`[[1]]$`assay_refs`, 1)
+  expect_false(is.null(mzTabObject$metadata$study_variable))
+  expect_equal(mzTabObject$metadata$study_variable[[1]]$name, "Sphingolipid SRM Quantitation")
+  expect_length(mzTabObject$metadata$study_variable[[1]]$assay_refs, 1)
   
   expect_length(mzTabObject$metadata$`ms_run`, 1)
   expect_equal(mzTabObject$metadata$`ms_run`[[1]]$`instrument_ref`, 1)
@@ -70,7 +69,10 @@ test_that("reading of mztab TAB format works", {
   
   expect_equal(mzTabObject$metadata$`small_molecule-quantification_unit`$`cv_accession`, "UO:0000072")
   
-  # expect_equal(mzTabObject$)
+  expect_false(is.null(mzTabObject$smallMoleculeSummary[[1]]$abundance_assay))
+  
+  expect_equal(mzTabObject$smallMoleculeEvidence[[1]]$spectra_ref[[1]]$ms_run, 1)
+  expect_equal(mzTabObject$smallMoleculeEvidence[[1]]$spectra_ref[[1]]$reference, "controllerType=0 controllerNumber=1 scan=731")
   
   # create pipe separated list entries -> 
   # paste(mzTabObject$toJSON()$`smallMoleculeSummary`[[1]]$smf_id_refs, collapse = " | ")

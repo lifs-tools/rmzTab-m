@@ -3,14 +3,20 @@
 
 context("Test SmallMoleculeSummary")
 
-model.instance <- SmallMoleculeSummary$new()
+model.instance <- SmallMoleculeSummary$new(
+  `sml_id`=1,
+  `smf_id_refs`=c(1,2,3),
+  `adduct_ions`=c("[M+H]1+","[M-H]1-")
+)
+# model.instance$`sml_id` <- 1
+# model.instance$`sml_id_refs` <- list(1,2,3)
 
 test_that("prefix", {
   # tests for the property `prefix` (character)
   # The small molecule table row prefix. SML MUST be used for rows of the small molecule table.
 
   # uncomment below to test the property 
-  #expect_equal(model.instance$`prefix`, "EXPECTED_RESULT")
+  expect_equal(model.instance$`prefix`, "SML")
 })
 
 test_that("header_prefix", {
@@ -18,7 +24,7 @@ test_that("header_prefix", {
   # The small molecule table header prefix. SMH MUST be used for the small molecule table header line (the column labels).
 
   # uncomment below to test the property 
-  #expect_equal(model.instance$`header_prefix`, "EXPECTED_RESULT")
+  expect_equal(model.instance$`header_prefix`, "SMH")
 })
 
 test_that("sml_id", {
@@ -26,15 +32,14 @@ test_that("sml_id", {
   # A within file unique identifier for the small molecule.
 
   # uncomment below to test the property 
-  #expect_equal(model.instance$`sml_id`, "EXPECTED_RESULT")
+  expect_equal(model.instance$`sml_id`, 1)
 })
 
 test_that("smf_id_refs", {
   # tests for the property `smf_id_refs` (array[integer])
   # References to all the features on which quantitation has been based (SMF elements) via referencing SMF_ID values. Multiple values SHOULD be provided as a “|” separated list. This MAY be null only if this is a Summary file.
-
   # uncomment below to test the property 
-  #expect_equal(model.instance$`smf_id_refs`, "EXPECTED_RESULT")
+  expect_equal(model.instance$`smf_id_refs`, c(1,2,3))
 })
 
 test_that("database_identifier", {
@@ -98,7 +103,7 @@ test_that("adduct_ions", {
   # A “|” separated list of detected adducts for this this molecule, following the general style in the 2013 IUPAC recommendations on terms relating to MS e.g. [M+H]1+, [M+Na]1+, [M+NH4]1+, [M-H]1-, [M+Cl]1-, [M+H]1+. If the adduct classification is ambiguous with regards to identification evidence it MAY be null. 
 
   # uncomment below to test the property 
-  #expect_equal(model.instance$`adduct_ions`, "EXPECTED_RESULT")
+  expect_equal(model.instance$`adduct_ions`, c("[M+H]1+","[M-H]1-"))
 })
 
 test_that("reliability", {

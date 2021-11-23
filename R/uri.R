@@ -104,6 +104,7 @@ Uri <- R6::R6Class(
       if (rlang::has_name(UriDataFrame, "value")) {
         self$`value` <- UriDataFrame$`value`
       }
+      self
     }
   )
 )

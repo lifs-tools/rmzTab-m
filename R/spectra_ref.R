@@ -94,7 +94,10 @@ SpectraRef <- R6::R6Class(
       spectraRefStr
     },
     fromString = function(SpectraRefString) {
-      #TODO implement
+      split <- strsplit(SpectraRefString, ":", fixed=TRUE)
+      self$`ms_run` <- extractId(split[[1]][[1]], regexp = idElementRegexp)
+      self$`reference` <- split[[1]][[2]]
+      self
     }
   )
 )

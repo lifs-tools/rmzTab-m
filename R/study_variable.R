@@ -50,7 +50,7 @@ StudyVariable <- R6::R6Class(
       }
       if (!is.null(`assay_refs`)) {
         stopifnot(is.vector(`assay_refs`), length(`assay_refs`) != 0)
-        sapply(`assay_refs`, function(x) stopifnot(is.character(x)))
+        sapply(`assay_refs`, function(x) stopifnot(is.numeric(x)))
         self$`assay_refs` <- `assay_refs`
       }
       if (!is.null(`average_function`)) {
@@ -271,9 +271,9 @@ StudyVariable <- R6::R6Class(
       }
       if (rlang::has_name(StudyVariableDataFrame, "assay_refs")) { # list of references
         assayRefList <- splitList(StudyVariableDataFrame$`assay_refs`)
-        self$`assay_refs` <- lapply(assayRefList, function(x) {
+        self$`assay_refs` <- unlist(lapply(assayRefList, function(x) {
           extractId(x)  
-        })
+        }))
       }
       if (rlang::has_name(StudyVariableDataFrame, "average_function")) {
         param <- Parameter$new()
@@ -288,12 +288,13 @@ StudyVariable <- R6::R6Class(
       }
       if (rlang::has_name(StudyVariableDataFrame, "factors")) {
         factorsList <- splitList(StudyVariableDataFrame$`factors`)
-        self$`factors` <- lapply(factorsList, function(x) {
+        self$`factors` <- unlist(lapply(factorsList, function(x) {
           param <- Parameter$new()
           param$fromString(NULL, x)
           param
-        })
+        }))
       }
+      self
     }
   )
 )

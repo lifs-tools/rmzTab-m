@@ -103,36 +103,36 @@ asCharacter <- function(mtd.sub.table, row, column) {
   as.character(mtd.sub.table[row, column])
 }
 
-mtdIdElements <- c(
-  "sample_processing",
-  "instrument",
-  "software",
-  "publication",
-  "uri",
-  "external_study_uri",
-  "quantification_method",
-  "study_variable",
-  "ms_run",
-  "assay",
-  "sample",
-  "custom",
-  "cv",
-  "database",
-  "derivatization_agent"
-)
+# mtdIdElements <- c(
+#   "sample_processing",
+#   "instrument",
+#   "software",
+#   "publication",
+#   "uri",
+#   "external_study_uri",
+#   "quantification_method",
+#   "study_variable",
+#   "ms_run",
+#   "assay",
+#   "sample",
+#   "custom",
+#   "cv",
+#   "database",
+#   "derivatization_agent"
+# )
 
-mtdRegexps <- as.vector(paste0(mtdIdElements, idRegexp))
-names(mtdRegexps) <- mtdIdElements
-
-
-
-buildMtdVersion <- function(mztab.mtd.table) {
-  mztab.table[startsWith(as.character(mztab.table$V2), "mzTab-version"),]
-}
-
-buildMtdId <- function(mztab.mtd.table) {
-  
-}
+# mtdRegexps <- as.vector(paste0(mtdIdElements, idRegexp))
+# names(mtdRegexps) <- mtdIdElements
+# 
+# 
+# 
+# buildMtdVersion <- function(mztab.mtd.table) {
+#   mztab.table[startsWith(as.character(mztab.table$V2), "mzTab-version"),]
+# }
+# 
+# buildMtdId <- function(mztab.mtd.table) {
+#   
+# }
 
 #'
 #'Read the metadata from an mztab data frame and return the Metadata object.

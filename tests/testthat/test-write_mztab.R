@@ -15,7 +15,7 @@ test_that("roundtrip read, write, read of mztab json works", {
   expect_length(mzTabObject$`smallMoleculeSummary`,1)
   expect_length(mzTabObject$`smallMoleculeFeature`,4)
   expect_length(mzTabObject$`smallMoleculeEvidence`,4)
-  tmpfile <- file.path("/","tmp","rmztab-test-write_mztab_json.mzTab")
+  tmpfile <- file.path(tempdir(check=TRUE),"rmztab-test-write_mztab_json.mzTab")
   writeMzTabJSON(mzTabObject, tmpfile)
   mzTabObject2 <- MzTab$new()
   mzTabObject2$fromJSON(tmpfile)

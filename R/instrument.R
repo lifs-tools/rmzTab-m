@@ -32,6 +32,14 @@ Instrument <- R6::R6Class(
     `source` = NULL,
     `analyzer` = NULL,
     `detector` = NULL,
+    #' @description Create an Instrument
+    #' @param id Instrument id.
+    #' @param name Instrument name \link{Parameter}.
+    #' @param source Instrument source \link{Parameter}.
+    #' @param analyzer Instrument analyzer list( \link{Parameter} )s.
+    #' @param detector Instrument detector \link{Parameter}.
+    #' @param ... local optional variable arguments
+    #' 
     initialize = function(`id`=NULL, `name`=NULL, `source`=NULL, `analyzer`=NULL, `detector`=NULL, ...){
       local.optional.var <- list(...)
       if (!is.null(`id`)) {
@@ -56,6 +64,7 @@ Instrument <- R6::R6Class(
         self$`detector` <- `detector`
       }
     },
+    #' @description Serialize to list object suitable for jsonlite
     toJSON = function() {
       InstrumentObject <- list()
       if (!is.null(self$`id`)) {
@@ -81,6 +90,8 @@ Instrument <- R6::R6Class(
 
       InstrumentObject
     },
+    #' @description Deserialize from jsonlite list object
+    #' @param InstrumentJson list object.
     fromJSON = function(InstrumentJson) {
       InstrumentObject <- jsonlite::fromJSON(InstrumentJson)
       if (!is.null(InstrumentObject$`id`)) {
@@ -105,6 +116,7 @@ Instrument <- R6::R6Class(
         self$`detector` <- detectorObject
       }
     },
+    #' @description Serialize to JSON string.
     toJSONString = function() {
       jsoncontent <- c(
         if (!is.null(self$`id`)) {
@@ -146,6 +158,8 @@ Instrument <- R6::R6Class(
       jsoncontent <- paste(jsoncontent, collapse = ",")
       paste('{', jsoncontent, '}', sep = "")
     },
+    #' @description Deserialize from JSON string
+    #' @param InstrumentJson JSON string
     fromJSONString = function(InstrumentJson) {
       InstrumentObject <- jsonlite::fromJSON(InstrumentJson)
       self$`id` <- InstrumentObject$`id`
@@ -155,6 +169,7 @@ Instrument <- R6::R6Class(
       self$`detector` <- Parameter$new()$fromJSONString(jsonlite::toJSON(InstrumentObject$detector, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
       self
     },
+    #' @description Serialize to data frame
     toDataFrame = function() {
       idPrefix <- paste0("instrument[", self$`id`, "]")
       elements <- data.frame(PREFIX=character(), KEY=character(), VALUE=character())
@@ -198,6 +213,8 @@ Instrument <- R6::R6Class(
       }
       elements
     },
+    #' @description Deserialize from instrument data frame
+    #' @param InstrumentDataFrame Instrument data frame
     fromDataFrame = function(InstrumentDataFrame) {
       stopifnot(nrow(InstrumentDataFrame)==1)
       columnNames <- colnames(InstrumentDataFrame)

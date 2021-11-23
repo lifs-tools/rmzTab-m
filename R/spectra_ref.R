@@ -23,6 +23,11 @@ SpectraRef <- R6::R6Class(
   public = list(
     `ms_run` = NULL,
     `reference` = NULL,
+    #' @description Create a SpectraRef
+    #' @param ms_run The ms run \link{MsRun} .
+    #' @param reference The reference to a particular spectrum using the id_format defined in \link{MsRun}.
+    #' @param ... local optional variable arguments
+    #'     
     initialize = function(`ms_run`, `reference`, ...){
       local.optional.var <- list(...)
       if (!missing(`ms_run`)) {
@@ -34,6 +39,7 @@ SpectraRef <- R6::R6Class(
         self$`reference` <- `reference`
       }
     },
+    #' @description Serialize to list object suitable for jsonlite
     toJSON = function() {
       SpectraRefObject <- list()
       if (!is.null(self$`ms_run`)) {
@@ -47,6 +53,8 @@ SpectraRef <- R6::R6Class(
 
       SpectraRefObject
     },
+    #' @description Deserialize from jsonlite list object
+    #' @param SpectraRefJson list object.
     fromJSON = function(SpectraRefJson) {
       SpectraRefObject <- jsonlite::fromJSON(SpectraRefJson)
       if (!is.null(SpectraRefObject$`ms_run`)) {
@@ -56,6 +64,7 @@ SpectraRef <- R6::R6Class(
         self$`reference` <- SpectraRefObject$`reference`
       }
     },
+    #' @description Serialize to JSON string.
     toJSONString = function() {
       jsoncontent <- c(
         if (!is.null(self$`ms_run`)) {
@@ -76,12 +85,15 @@ SpectraRef <- R6::R6Class(
       jsoncontent <- paste(jsoncontent, collapse = ",")
       paste('{', jsoncontent, '}', sep = "")
     },
+    #' @description Deserialize from JSON string
+    #' @param SpectraRefJson JSON string
     fromJSONString = function(SpectraRefJson) {
       SpectraRefObject <- jsonlite::fromJSON(SpectraRefJson)
       self$`ms_run` <- MsRun$new()$fromJSONString(jsonlite::toJSON(SpectraRefObject$ms_run, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
       self$`reference` <- SpectraRefObject$`reference`
       self
     },
+    #' @description Serialize to string
     toString = function() {
       spectraRefStr <- ""
       if (!is.null(self$`ms_run`) && !is.null(self$`reference`)) {
@@ -93,6 +105,8 @@ SpectraRef <- R6::R6Class(
       }
       spectraRefStr
     },
+    #' @description Deerialize from string
+    #' @param SpectraRefString The SpectraRef string representation.
     fromString = function(SpectraRefString) {
       split <- strsplit(SpectraRefString, ":", fixed=TRUE)
       self$`ms_run` <- extractId(split[[1]][[1]], regexp = idElementRegexp)

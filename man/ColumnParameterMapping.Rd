@@ -36,15 +36,28 @@ ColumnParameterMapping Class
 \if{html}{\out{<a id="method-new"></a>}}
 \if{latex}{\out{\hypertarget{method-new}{}}}
 \subsection{Method \code{new()}}{
+Create ColumnParameterMapping
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ColumnParameterMapping$new(column_name, param, ...)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{column_name}}{Column name.}
+
+\item{\code{param}}{\link{Parameter} defining the column.}
+
+\item{\code{...}}{local optional variable arguments}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-toJSON"></a>}}
 \if{latex}{\out{\hypertarget{method-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
+Serialize to list object suitable for jsonlite
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ColumnParameterMapping$toJSON()}\if{html}{\out{</div>}}
 }
@@ -54,15 +67,24 @@ ColumnParameterMapping Class
 \if{html}{\out{<a id="method-fromJSON"></a>}}
 \if{latex}{\out{\hypertarget{method-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
+Deserialize from jsonlite list object
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ColumnParameterMapping$fromJSON(ColumnParameterMappingJson)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ColumnParameterMappingJson}}{list object.}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-toJSONString"></a>}}
 \if{latex}{\out{\hypertarget{method-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
+Serialize to JSON string.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ColumnParameterMapping$toJSONString()}\if{html}{\out{</div>}}
 }
@@ -72,28 +94,52 @@ ColumnParameterMapping Class
 \if{html}{\out{<a id="method-fromJSONString"></a>}}
 \if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
+Deserialize from JSON string
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ColumnParameterMapping$fromJSONString(ColumnParameterMappingJson)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ColumnParameterMappingJson}}{JSON string}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-toDataFrame"></a>}}
 \if{latex}{\out{\hypertarget{method-toDataFrame}{}}}
 \subsection{Method \code{toDataFrame()}}{
+Serialize to data frame
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ColumnParameterMapping$toDataFrame(type = "small_molecule")}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{type}}{can be small_molecule, small_molecule_feature or small_molecule_evidence}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-fromDataFrame"></a>}}
 \if{latex}{\out{\hypertarget{method-fromDataFrame}{}}}
 \subsection{Method \code{fromDataFrame()}}{
+Deserialize from ColumnParameterMappingDataFrame
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ColumnParameterMapping$fromDataFrame(ColumnParameterMappingDataFrame)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ColumnParameterMappingDataFrame}}{data frame}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-clone"></a>}}

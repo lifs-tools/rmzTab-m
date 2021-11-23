@@ -38,6 +38,16 @@ StudyVariable <- R6::R6Class(
     `variation_function` = NULL,
     `description` = NULL,
     `factors` = NULL,
+    #' @description Create a StudyVariable
+    #' @param id StudyVariable id.
+    #' @param name StudyVariable name.
+    #' @param assay_refs Reference to list( \link{Assay} ).
+    #' @param average_function The averaging function used to calculate abundance_study_variable, defined by \link{Parameter}.
+    #' @param variation_function The variation function used to calculate abundance_variation_study_variable, defined by \link{Parameter}.
+    #' @param description Description of the StudyVariable.
+    #' @param factors A list of study variable factors list( \link{Parameter} ).
+    #' @param ... local optional variable arguments
+    #' 
     initialize = function(`id`, `name`, `assay_refs`=NULL, `average_function`=NULL, `variation_function`=NULL, `description`=NULL, `factors`=NULL, ...){
       local.optional.var <- list(...)
       if (!missing(`id`)) {
@@ -71,6 +81,7 @@ StudyVariable <- R6::R6Class(
         self$`factors` <- `factors`
       }
     },
+    #' @description Serialize to list object suitable for jsonlite
     toJSON = function() {
       StudyVariableObject <- list()
       if (!is.null(self$`id`)) {
@@ -104,6 +115,8 @@ StudyVariable <- R6::R6Class(
 
       StudyVariableObject
     },
+    #' @description Deserialize from jsonlite list object
+    #' @param StudyVariableJson list object.
     fromJSON = function(StudyVariableJson) {
       StudyVariableObject <- jsonlite::fromJSON(StudyVariableJson)
       if (!is.null(StudyVariableObject$`id`)) {
@@ -132,6 +145,7 @@ StudyVariable <- R6::R6Class(
         self$`factors` <- ApiClient$new()$deserializeObj(StudyVariableObject$`factors`, "array[Parameter]", loadNamespace("rmzTabM"))
       }
     },
+    #' @description Serialize to JSON string.
     toJSONString = function() {
       jsoncontent <- c(
         if (!is.null(self$`id`)) {
@@ -187,6 +201,8 @@ StudyVariable <- R6::R6Class(
       jsoncontent <- paste(jsoncontent, collapse = ",")
       paste('{', jsoncontent, '}', sep = "")
     },
+    #' @description Deserialize from JSON string
+    #' @param StudyVariableJson JSON string
     fromJSONString = function(StudyVariableJson) {
       StudyVariableObject <- jsonlite::fromJSON(StudyVariableJson)
       self$`id` <- StudyVariableObject$`id`
@@ -198,6 +214,7 @@ StudyVariable <- R6::R6Class(
       self$`factors` <- ApiClient$new()$deserializeObj(StudyVariableObject$`factors`, "array[Parameter]", loadNamespace("rmzTabM"))
       self
     },
+    #' @description Serialize to data frame    
     toDataFrame = function() {
       idPrefix <- paste0("study_variable[", self$`id`, "]")
       elements <- data.frame(PREFIX=character(), KEY=character(), VALUE=character())
@@ -261,6 +278,8 @@ StudyVariable <- R6::R6Class(
       }
       elements
     },
+    #' @description Deserialize from StudyVariable data frame
+    #' @param StudyVariableDataFrame StudyVariable data frame    
     fromDataFrame = function(StudyVariableDataFrame) {
       stopifnot(nrow(StudyVariableDataFrame)==1)
       if (rlang::has_name(StudyVariableDataFrame, "id")) {

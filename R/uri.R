@@ -23,6 +23,11 @@ Uri <- R6::R6Class(
   public = list(
     `id` = NULL,
     `value` = NULL,
+    #' @description Create a URI
+    #' @param id URI id.
+    #' @param value The URI.
+    #' @param ... local optional variable arguments
+    #' 
     initialize = function(`id`=NULL, `value`=NULL, ...){
       local.optional.var <- list(...)
       if (!is.null(`id`)) {
@@ -34,6 +39,7 @@ Uri <- R6::R6Class(
         self$`value` <- `value`
       }
     },
+    #' @description Serialize to list object suitable for jsonlite
     toJSON = function() {
       UriObject <- list()
       if (!is.null(self$`id`)) {
@@ -47,6 +53,8 @@ Uri <- R6::R6Class(
 
       UriObject
     },
+    #' @description Deserialize from jsonlite list object
+    #' @param UriJson list object.
     fromJSON = function(UriJson) {
       UriObject <- jsonlite::fromJSON(UriJson)
       if (!is.null(UriObject$`id`)) {
@@ -56,6 +64,7 @@ Uri <- R6::R6Class(
         self$`value` <- UriObject$`value`
       }
     },
+    #' @description Serialize to JSON string.
     toJSONString = function() {
       jsoncontent <- c(
         if (!is.null(self$`id`)) {
@@ -76,12 +85,16 @@ Uri <- R6::R6Class(
       jsoncontent <- paste(jsoncontent, collapse = ",")
       paste('{', jsoncontent, '}', sep = "")
     },
+    #' @description Deserialize from JSON string
+    #' @param UriJson JSON string
     fromJSONString = function(UriJson) {
       UriObject <- jsonlite::fromJSON(UriJson)
       self$`id` <- UriObject$`id`
       self$`value` <- UriObject$`value`
       self
     },
+    #' @description Serialize to data frame
+    #' @param type The prefix of the URI
     toDataFrame = function(type="uri") {
       idPrefix <- paste0(type, "[", self$`id`, "]")
       elements <- data.frame(PREFIX=character(), KEY=character(), VALUE=character())
@@ -96,6 +109,8 @@ Uri <- R6::R6Class(
                 stringsAsFactors = FALSE)
       }
     },
+    #' @description Deserialize from assay data frame
+    #' @param UriDataFrame Uri data frame
     fromDataFrame = function(UriDataFrame) {
       stopifnot(nrow(UriDataFrame)==1)
       if (rlang::has_name(UriDataFrame, "id")) {

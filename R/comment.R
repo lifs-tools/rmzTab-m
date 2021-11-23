@@ -26,6 +26,12 @@ Comment <- R6::R6Class(
     `prefix` = NULL,
     `msg` = NULL,
     `line_number` = NULL,
+    #' @description Create a Comment
+    #' @param prefix 'COM'.
+    #' @param msg Comment content.
+    #' @param line_number Line number in the mzTab-M file.
+    #' @param ... local optional variable arguments
+    #'     
     initialize = function(`prefix`, `msg`, `line_number`=NULL, ...){
       local.optional.var <- list(...)
       if (!missing(`prefix`)) {
@@ -41,6 +47,7 @@ Comment <- R6::R6Class(
         self$`line_number` <- `line_number`
       }
     },
+    #' @description Serialize to list object suitable for jsonlite    
     toJSON = function() {
       CommentObject <- list()
       if (!is.null(self$`prefix`)) {
@@ -58,6 +65,8 @@ Comment <- R6::R6Class(
 
       CommentObject
     },
+    #' @description Deserialize from jsonlite list object
+    #' @param CommentJson list object.    
     fromJSON = function(CommentJson) {
       CommentObject <- jsonlite::fromJSON(CommentJson)
       if (!is.null(CommentObject$`prefix`)) {
@@ -70,6 +79,7 @@ Comment <- R6::R6Class(
         self$`line_number` <- CommentObject$`line_number`
       }
     },
+    #' @description Serialize to JSON string.    
     toJSONString = function() {
       jsoncontent <- c(
         if (!is.null(self$`prefix`)) {
@@ -97,6 +107,8 @@ Comment <- R6::R6Class(
       jsoncontent <- paste(jsoncontent, collapse = ",")
       paste('{', jsoncontent, '}', sep = "")
     },
+    #' @description Deserialize from JSON string
+    #' @param CommentJson JSON string    
     fromJSONString = function(CommentJson) {
       CommentObject <- jsonlite::fromJSON(CommentJson)
       self$`prefix` <- CommentObject$`prefix`
@@ -104,6 +116,7 @@ Comment <- R6::R6Class(
       self$`line_number` <- CommentObject$`line_number`
       self
     },
+    #' @description Serialize to data frame    
     toDataFrame = function() {
       elements <- data.frame(PREFIX=character(), KEY=character(), VALUE=character())
       if (!is.null(self$`msg`)) {
@@ -118,6 +131,8 @@ Comment <- R6::R6Class(
       }
       elements
     },
+    #' @description Deserialize from comment data frame
+    #' @param CommentDataFrame Comment data frame    
     fromDataFrame = function(CommentDataFrame) {
       stopifnot(nrow(CommentDataFrame)==1)
       columnNames <- colnames(CommentDataFrame)

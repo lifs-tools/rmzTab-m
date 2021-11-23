@@ -47,6 +47,19 @@ MsRun <- R6::R6Class(
     `scan_polarity` = NULL,
     `hash` = NULL,
     `hash_method` = NULL,
+    #' @description Create an MsRun
+    #' @param id MsRun id.
+    #' @param name MsRun name.
+    #' @param location the location URI to retrieve the MsRun file.
+    #' @param instrument_ref Link to the \link{Instrument} used to acquire this MsRun.
+    #' @param format CV parameter defining the file format \link{Parameter}.
+    #' @param id_format CV parameter defining the mass spec id format \link{Parameter}.
+    #' @param fragmentation_method Fragementation methods list( \link{Parameter} ).
+    #' @param scan_polarity Scan polarities present in the file list( \link{Parameter} ).
+    #' @param hash Hash value of the file using the hash_method.
+    #' @param hash_method \link{Parameter}
+    #' @param ... local optional variable arguments
+    #' 
     initialize = function(`id`, `name`, `location`, `instrument_ref`=NULL, `format`=NULL, `id_format`=NULL, `fragmentation_method`=NULL, `scan_polarity`=NULL, `hash`=NULL, `hash_method`=NULL, ...){
       local.optional.var <- list(...)
       if (!missing(`id`)) {
@@ -92,6 +105,7 @@ MsRun <- R6::R6Class(
         self$`hash_method` <- `hash_method`
       }
     },
+    #' @description Serialize to list object suitable for jsonlite
     toJSON = function() {
       MsRunObject <- list()
       if (!is.null(self$`id`)) {
@@ -137,6 +151,8 @@ MsRun <- R6::R6Class(
 
       MsRunObject
     },
+    #' @description Deserialize from jsonlite list object
+    #' @param MsRunJson list object.
     fromJSON = function(MsRunJson) {
       MsRunObject <- jsonlite::fromJSON(MsRunJson)
       if (!is.null(MsRunObject$`id`)) {
@@ -176,6 +192,7 @@ MsRun <- R6::R6Class(
         self$`hash_method` <- hash_methodObject
       }
     },
+    #' @description Serialize to JSON string.
     toJSONString = function() {
       jsoncontent <- c(
         if (!is.null(self$`id`)) {
@@ -252,6 +269,8 @@ MsRun <- R6::R6Class(
       jsoncontent <- paste(jsoncontent, collapse = ",")
       paste('{', jsoncontent, '}', sep = "")
     },
+    #' @description Deserialize from JSON string
+    #' @param MsRunJson JSON string
     fromJSONString = function(MsRunJson) {
       MsRunObject <- jsonlite::fromJSON(MsRunJson)
       self$`id` <- MsRunObject$`id`
@@ -266,6 +285,7 @@ MsRun <- R6::R6Class(
       self$`hash_method` <- Parameter$new()$fromJSONString(jsonlite::toJSON(MsRunObject$hash_method, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
       self
     },
+    #' @description Serialize to data frame
     toDataFrame = function() {
       idPrefix <- paste0("ms_run[", self$`id`, "]")
       elements <- data.frame(PREFIX=character(), KEY=character(), VALUE=character())
@@ -357,6 +377,8 @@ MsRun <- R6::R6Class(
       }
       elements
     },
+    #' @description Deserialize from ms run data frame
+    #' @param MsRunDataFrame MsRun data frame    
     fromDataFrame = function(MsRunDataFrame) {
       stopifnot(nrow(MsRunDataFrame)==1)
       columnNames <- colnames(MsRunDataFrame)

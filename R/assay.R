@@ -35,6 +35,15 @@ Assay <- R6::R6Class(
     `external_uri` = NULL,
     `sample_ref` = NULL,
     `ms_run_ref` = NULL,
+    #' @description Create an Assay
+    #' @param name Assay name.
+    #' @param ms_run_ref Reference to \link{MsRun}s.
+    #' @param id Assay id.
+    #' @param custom Custom parameters.
+    #' @param external_uri External URI.
+    #' @param sample_ref Reference to \link{Sample}.
+    #' @param ... local optional variable arguments
+    #' 
     initialize = function(`name`, `ms_run_ref`, `id`=NULL, `custom`=NULL, `external_uri`=NULL, `sample_ref`=NULL, ...){
       local.optional.var <- list(...)
       if (!missing(`name`)) {
@@ -64,6 +73,7 @@ Assay <- R6::R6Class(
         self$`sample_ref` <- `sample_ref`
       }
     },
+    #' @description Serialize to list object suitable for jsonlite
     toJSON = function() {
       AssayObject <- list()
       if (!is.null(self$`id`)) {
@@ -93,6 +103,8 @@ Assay <- R6::R6Class(
 
       AssayObject
     },
+    #' @description Deserialize from jsonlite list object
+    #' @param AssayJson list object.
     fromJSON = function(AssayJson) {
       AssayObject <- jsonlite::fromJSON(AssayJson)
       if (!is.null(AssayObject$`id`)) {
@@ -114,6 +126,7 @@ Assay <- R6::R6Class(
         self$`ms_run_ref` <- ApiClient$new()$deserializeObj(AssayObject$`ms_run_ref`, "array[integer]", loadNamespace("rmzTabM"))
       }
     },
+    #' @description Serialize to JSON string.
     toJSONString = function() {
       jsoncontent <- c(
         if (!is.null(self$`id`)) {
@@ -162,6 +175,8 @@ Assay <- R6::R6Class(
       jsoncontent <- paste(jsoncontent, collapse = ",")
       paste('{', jsoncontent, '}', sep = "")
     },
+    #' @description Deserialize from JSON string
+    #' @param AssayJson JSON string
     fromJSONString = function(AssayJson) {
       AssayObject <- jsonlite::fromJSON(AssayJson)
       self$`id` <- AssayObject$`id`
@@ -172,6 +187,7 @@ Assay <- R6::R6Class(
       self$`ms_run_ref` <- ApiClient$new()$deserializeObj(AssayObject$`ms_run_ref`, "array[integer]", loadNamespace("rmzTabM"))
       self
     },
+    #' @description Serialize to data frame
     toDataFrame = function() {
       idPrefix <- paste0("assay[", self$`id`, "]")
       elements <- data.frame(PREFIX=character(), KEY=character(), VALUE=character())
@@ -223,6 +239,8 @@ Assay <- R6::R6Class(
       }
       elements
     },
+    #' @description Deserialize from assay data frame
+    #' @param AssayDataFrame Assay data frame
     fromDataFrame = function(AssayDataFrame) {
       stopifnot(nrow(AssayDataFrame)==1)
       columnNames <- colnames(AssayDataFrame)

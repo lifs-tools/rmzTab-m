@@ -23,6 +23,11 @@ PublicationItem <- R6::R6Class(
   public = list(
     `type` = NULL,
     `accession` = NULL,
+    #' @description Create a PublicationItem
+    #' @param type The type of the PublicationItem.
+    #' @param accession The type-dependent accession of the PublicationItem.
+    #' @param ... local optional variable arguments
+    #'
     initialize = function(`type`, `accession`, ...){
       local.optional.var <- list(...)
       if (!missing(`type`)) {
@@ -34,6 +39,7 @@ PublicationItem <- R6::R6Class(
         self$`accession` <- `accession`
       }
     },
+    #' @description Serialize to list object suitable for jsonlite
     toJSON = function() {
       PublicationItemObject <- list()
       if (!is.null(self$`type`)) {
@@ -47,6 +53,8 @@ PublicationItem <- R6::R6Class(
 
       PublicationItemObject
     },
+    #' @description Deserialize from jsonlite list object
+    #' @param PublicationItemJson list object.
     fromJSON = function(PublicationItemJson) {
       PublicationItemObject <- jsonlite::fromJSON(PublicationItemJson)
       if (!is.null(PublicationItemObject$`type`)) {
@@ -56,6 +64,7 @@ PublicationItem <- R6::R6Class(
         self$`accession` <- PublicationItemObject$`accession`
       }
     },
+    #' @description Serialize to JSON string.
     toJSONString = function() {
       jsoncontent <- c(
         if (!is.null(self$`type`)) {
@@ -76,15 +85,20 @@ PublicationItem <- R6::R6Class(
       jsoncontent <- paste(jsoncontent, collapse = ",")
       paste('{', jsoncontent, '}', sep = "")
     },
+    #' @description Deserialize from JSON string
+    #' @param PublicationItemJson JSON string
     fromJSONString = function(PublicationItemJson) {
       PublicationItemObject <- jsonlite::fromJSON(PublicationItemJson)
       self$`type` <- PublicationItemObject$`type`
       self$`accession` <- PublicationItemObject$`accession`
       self
     },
+    #' @description Serialize to string.
     toString = function() {
       paste(self$`type`, self$`accession`, sep=":")
     },
+    #' @description Deserialize from string.
+    #' @param PublicationItemString the string representation of a PublicationItem.
     fromString = function(PublicationItemString) {
       PublicationItemList <- splitList(PublicationItemString, separator = ":")
       if (length(PublicationItemList) == 2) {

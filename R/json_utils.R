@@ -1,9 +1,9 @@
+#' Extends jsonlite's safe_unbox method.
+#' @description This method adds a default value to return if its argument is null in comparison to rmzTabM::safe_unbox.
 #'
-#'This method adds a default value to return if its argument is null in comparison to rmzTabM::safe_unbox.
-#'
-#'@param x the list, vector, or array object to unbox into a singleton
-#'@param default the default value to return, if x is null
-#'@export
+#' @param x the list, vector, or array object to unbox into a singleton
+#' @param default the default value to return, if x is null
+#' @export
 safe_unbox <- function(x, default = NULL) {
   if (!is.atomic(x)) {
     if (is.null(x)) {
@@ -38,10 +38,12 @@ safe_unbox <- function(x, default = NULL) {
   }
 }
 
-# This function is originally from the jsonlite package, file as.scalar.R
-# Unfortunately, that function is not exported from jsonlite, but we need it for 
-# our more safe_unbox function above. The call to is.namedlist has been 
-# inlined with the actual code.
+#' Extends jsonlite's as.scalar method.
+#' @description This function is originally from the jsonlite package, file as.scalar.R
+#' Unfortunately, that function is not exported from jsonlite, but we need it for 
+#' our more safe_unbox function above. The call to is.namedlist has been 
+#' inlined with the actual code.
+#' @param obj The object to convert to a scalar 
 as.scalar <- function(obj) {
   # Lists can never be a scalar (this can arise if a dataframe contains a column
   # with lists)

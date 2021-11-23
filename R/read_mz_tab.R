@@ -1,6 +1,6 @@
 
-#'
-#' Read an mzTab tab separated file from the passed in file.
+#' Read mzTab-M file into data frame.
+#' @description Read an mzTab tab separated file from the passed in file.
 #' @param filename the mzTab file to parse.
 #' @export
 readMzTab <- function(filename) {
@@ -13,8 +13,8 @@ readMzTab <- function(filename) {
   mztab.table
 }
 
-#'
-#' Read an mzTab tab separated 'file' from the passed in string.
+#' Read an mzTab-M string into a data frame.
+#' @description Read an mzTab tab separated file from the passed in string.
 #' This file creates a temporary file on disk to check for the maximum number of columns.
 #' The returned object is a data.frame as returned by utils::read.table. 
 #' 
@@ -134,10 +134,10 @@ asCharacter <- function(mtd.sub.table, row, column) {
 #   
 # }
 
-#'
-#'Read the metadata from an mztab data frame and return the Metadata object.
-#'@param the mztab data frame
-#'
+#' Extract metadata from data frame.
+#' @description Extract the \link{Metadata} from an mztab data frame.
+#' @param MzTabDataFrame the mztab data frame
+#' @export
 extractMetadata = function(MzTabDataFrame) {
   prefix <- "MTD"
   mtd.table <- MzTabDataFrame[startsWith(as.character(MzTabDataFrame$V1), prefix), c("V1","V2","V3")]
@@ -152,18 +152,34 @@ extractTable = function(mztab.table, headerPrefix, contentPrefix) {
   df[, colnames(df) != ""]
 }
 
+#' Extract the SmallMoleculeSummary from data frame.
+#' @description Extract the \link{SmallMoleculeSummary} from an mztab data frame.
+#' @param mztab.table the mztab data frame
+#' @export
 extractSmallMoleculeSummary <- function(mztab.table) {
   extractTable(mztab.table, "SMH", "SML")
 }
 
+#' Extract the SmallMoleculeFeatures from data frame.
+#' @description Extract the \link{SmallMoleculeFeature} from an mztab data frame.
+#' @param mztab.table the mztab data frame
+#' @export
 extractSmallMoleculeFeatures <- function(mztab.table) {
   extractTable(mztab.table, "SFH", "SMF")
 }
 
+#' Extract the SmallMoleculeEvidence from data frame.
+#' @description Extract the \link{SmallMoleculeEvidence} from an mztab data frame.
+#' @param mztab.table the mztab data frame
+#' @export
 extractSmallMoleculeEvidence <- function(mztab.table) {
   extractTable(mztab.table, "SEH", "SME")
 }
 
+#' Extract the Comment from data frame.
+#' @description Extract the \link{Comment}s from an mztab data frame.
+#' @param mztab.table the mztab data frame
+#' @export
 extractComments <- function(mztab.table) {
   prefix <- "COM"
   com.table <- mztab.table[startsWith(as.character(mztab.table$V1), prefix), c("V1", "V2")]

@@ -36,15 +36,28 @@ Publication Class
 \if{html}{\out{<a id="method-new"></a>}}
 \if{latex}{\out{\hypertarget{method-new}{}}}
 \subsection{Method \code{new()}}{
+Create a Publication
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Publication$new(publicationItems, id = NULL, ...)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{publicationItems}}{The list( \link{PublicationItem} )s.}
+
+\item{\code{id}}{Publication id.}
+
+\item{\code{...}}{local optional variable arguments}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-toJSON"></a>}}
 \if{latex}{\out{\hypertarget{method-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
+Serialize to list object suitable for jsonlite
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Publication$toJSON()}\if{html}{\out{</div>}}
 }
@@ -54,15 +67,24 @@ Publication Class
 \if{html}{\out{<a id="method-fromJSON"></a>}}
 \if{latex}{\out{\hypertarget{method-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
+Deserialize from jsonlite list object
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Publication$fromJSON(PublicationJson)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{PublicationJson}}{list object.}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-toJSONString"></a>}}
 \if{latex}{\out{\hypertarget{method-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
+Serialize to JSON string.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Publication$toJSONString()}\if{html}{\out{</div>}}
 }
@@ -72,15 +94,24 @@ Publication Class
 \if{html}{\out{<a id="method-fromJSONString"></a>}}
 \if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
+Deserialize from JSON string
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Publication$fromJSONString(PublicationJson)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{PublicationJson}}{JSON string}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-toDataFrame"></a>}}
 \if{latex}{\out{\hypertarget{method-toDataFrame}{}}}
 \subsection{Method \code{toDataFrame()}}{
+Serialize to data frame
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Publication$toDataFrame()}\if{html}{\out{</div>}}
 }
@@ -90,10 +121,18 @@ Publication Class
 \if{html}{\out{<a id="method-fromDataFrame"></a>}}
 \if{latex}{\out{\hypertarget{method-fromDataFrame}{}}}
 \subsection{Method \code{fromDataFrame()}}{
+Deserialize from publication data frame
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Publication$fromDataFrame(PublicationDataFrame)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{PublicationDataFrame}}{Publication data frame}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-clone"></a>}}

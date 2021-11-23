@@ -2,7 +2,7 @@
 % Please edit documentation in R/json_utils.R
 \name{safe_unbox}
 \alias{safe_unbox}
-\title{This method adds a default value to return if its argument is null in comparison to rmzTabM::safe_unbox.}
+\title{Extends jsonlite's safe_unbox method.}
 \usage{
 safe_unbox(x, default = NULL)
 }

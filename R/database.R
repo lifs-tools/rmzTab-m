@@ -32,6 +32,14 @@ Database <- R6::R6Class(
     `prefix` = NULL,
     `version` = NULL,
     `uri` = NULL,
+    #' @description Create a Database
+    #' @param param Parameter defining the database \link{Parameter}.
+    #' @param prefix Database prefix.
+    #' @param version Database version.
+    #' @param uri External database URI.
+    #' @param id Database id.
+    #' @param ... local optional variable arguments
+    #'     
     initialize = function(`param`, `prefix`, `version`, `uri`, `id`=NULL, ...){
       local.optional.var <- list(...)
       if (!missing(`param`)) {
@@ -55,6 +63,7 @@ Database <- R6::R6Class(
         self$`id` <- `id`
       }
     },
+    #' @description Serialize to list object suitable for jsonlite    
     toJSON = function() {
       DatabaseObject <- list()
       if (!is.null(self$`id`)) {
@@ -80,6 +89,8 @@ Database <- R6::R6Class(
 
       DatabaseObject
     },
+    #' @description Deserialize from jsonlite list object
+    #' @param DatabaseJson list object.
     fromJSON = function(DatabaseJson) {
       DatabaseObject <- jsonlite::fromJSON(DatabaseJson)
       if (!is.null(DatabaseObject$`id`)) {
@@ -100,6 +111,7 @@ Database <- R6::R6Class(
         self$`uri` <- DatabaseObject$`uri`
       }
     },
+    #' @description Serialize to JSON string.
     toJSONString = function() {
       jsoncontent <- c(
         if (!is.null(self$`id`)) {
@@ -141,6 +153,8 @@ Database <- R6::R6Class(
       jsoncontent <- paste(jsoncontent, collapse = ",")
       paste('{', jsoncontent, '}', sep = "")
     },
+    #' @description Deserialize from JSON string
+    #' @param DatabaseJson JSON string
     fromJSONString = function(DatabaseJson) {
       DatabaseObject <- jsonlite::fromJSON(DatabaseJson)
       self$`id` <- DatabaseObject$`id`
@@ -150,6 +164,7 @@ Database <- R6::R6Class(
       self$`uri` <- DatabaseObject$`uri`
       self
     },
+    #' @description Serialize to data frame
     toDataFrame = function() {
       idPrefix <- paste0("database[", self$`id`, "]")
       elements <- data.frame(PREFIX=character(), KEY=character(), VALUE=character())
@@ -195,6 +210,8 @@ Database <- R6::R6Class(
       }
       elements
     },
+    #' @description Deserialize from database data frame
+    #' @param DatabaseDataFrame database data frame
     fromDataFrame = function(DatabaseDataFrame) {
       stopifnot(nrow(DatabaseDataFrame)==1)
       if (rlang::has_name(DatabaseDataFrame, "id")) {

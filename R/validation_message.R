@@ -32,6 +32,13 @@ ValidationMessage <- R6::R6Class(
     `message_type` = NULL,
     `message` = NULL,
     `line_number` = NULL,
+    #' @description Create a new ValidationMessage object.
+    #' @param code The message code.
+    #' @param category The message category.
+    #' @param message The message content.
+    #' @param message_type The message type.
+    #' @param line_number The line number in the mzTab-M file to which this message refers to.
+    #' @param ... local optional variable arguments
     initialize = function(`code`, `category`, `message`, `message_type`='info', `line_number`=NULL, ...){
       local.optional.var <- list(...)
       if (!missing(`code`)) {
@@ -55,6 +62,7 @@ ValidationMessage <- R6::R6Class(
         self$`line_number` <- `line_number`
       }
     },
+    #' @description Serialize to list object suitable for jsonlite
     toJSON = function() {
       ValidationMessageObject <- list()
       if (!is.null(self$`code`)) {
@@ -80,6 +88,8 @@ ValidationMessage <- R6::R6Class(
 
       ValidationMessageObject
     },
+    #' @description Deserialize from jsonlite list object
+    #' @param ValidationMessageJson list object.    
     fromJSON = function(ValidationMessageJson) {
       ValidationMessageObject <- jsonlite::fromJSON(ValidationMessageJson)
       if (!is.null(ValidationMessageObject$`code`)) {
@@ -98,6 +108,7 @@ ValidationMessage <- R6::R6Class(
         self$`line_number` <- ValidationMessageObject$`line_number`
       }
     },
+    #' @description Serialize to JSON string.    
     toJSONString = function() {
       jsoncontent <- c(
         if (!is.null(self$`code`)) {
@@ -139,6 +150,8 @@ ValidationMessage <- R6::R6Class(
       jsoncontent <- paste(jsoncontent, collapse = ",")
       paste('{', jsoncontent, '}', sep = "")
     },
+    #' @description Deserialize from JSON string
+    #' @param ValidationMessageJson JSON string    
     fromJSONString = function(ValidationMessageJson) {
       ValidationMessageObject <- jsonlite::fromJSON(ValidationMessageJson)
       self$`code` <- ValidationMessageObject$`code`

@@ -77,6 +77,28 @@ SmallMoleculeSummary <- R6::R6Class(
     `abundance_variation_study_variable` = NULL,
     `opt` = NULL,
     `comment` = NULL,
+    #' @description Create a new SmallMoleculeSummary.
+    #' @param sml_id The small molecule summary id.
+    #' @param prefix 'SML'.
+    #' @param header_prefix 'SMH'.
+    #' @param smf_id_refs References by id to \link{SmallMoleculeFeature}s.
+    #' @param database_identifier The database identifiers.
+    #' @param chemical_formula The chemical formulas.
+    #' @param smiles The SMILES strings.
+    #' @param inchi The INCHI identifiers.
+    #' @param chemical_name The chemical names.
+    #' @param uri External URIs.
+    #' @param theoretical_neutral_mass The theoretical neutral masses.
+    #' @param adduct_ions The adduct ions.
+    #' @param reliability The reliability according to the system defined in the \link{Metadata} section.
+    #' @param best_id_confidence_measure The best id confidence measure \link{Parameter}.
+    #' @param best_id_confidence_value The best id confidence value.
+    #' @param abundance_assay The abundances over all assays.
+    #' @param abundance_study_variable The abundances over study variables. 
+    #' @param abundance_variation_study_variable The abundances variation over study variables.
+    #' @param opt Optional columns and values.
+    #' @param comment Comments.
+    #' @param ... local optional variable arguments.
     initialize = function(`sml_id`, `prefix`='SML', `header_prefix`='SMH', `smf_id_refs`=NULL, `database_identifier`=NULL, `chemical_formula`=NULL, `smiles`=NULL, `inchi`=NULL, `chemical_name`=NULL, `uri`=NULL, `theoretical_neutral_mass`=NULL, `adduct_ions`=NULL, `reliability`=NULL, `best_id_confidence_measure`=NULL, `best_id_confidence_value`=NULL, `abundance_assay`=NULL, `abundance_study_variable`=NULL, `abundance_variation_study_variable`=NULL, `opt`=NULL, `comment`=NULL, ...){
       local.optional.var <- list(...)
       if (!missing(`sml_id`)) {
@@ -174,6 +196,7 @@ SmallMoleculeSummary <- R6::R6Class(
         self$`comment` <- `comment`
       }
     },
+    #' @description Serialize to list object suitable for jsonlite
     toJSON = function() {
       SmallMoleculeSummaryObject <- list()
       if (!is.null(self$`prefix`)) {
@@ -259,6 +282,8 @@ SmallMoleculeSummary <- R6::R6Class(
 
       SmallMoleculeSummaryObject
     },
+    #' @description Deserialize from jsonlite list object
+    #' @param SmallMoleculeSummaryJson list object.
     fromJSON = function(SmallMoleculeSummaryJson) {
       SmallMoleculeSummaryObject <- jsonlite::fromJSON(SmallMoleculeSummaryJson)
       if (!is.null(SmallMoleculeSummaryObject$`prefix`)) {
@@ -324,6 +349,7 @@ SmallMoleculeSummary <- R6::R6Class(
         self$`comment` <- ApiClient$new()$deserializeObj(SmallMoleculeSummaryObject$`comment`, "array[Comment]", loadNamespace("rmzTabM"))
       }
     },
+    #' @description Serialize to JSON string. 
     toJSONString = function() {
       jsoncontent <- c(
         if (!is.null(self$`prefix`)) {
@@ -470,6 +496,8 @@ SmallMoleculeSummary <- R6::R6Class(
       jsoncontent <- paste(jsoncontent, collapse = ",")
       paste('{', jsoncontent, '}', sep = "")
     },
+    #' @description Deserialize from JSON string
+    #' @param SmallMoleculeSummaryJson SmallMoleculeSummaryJson string
     fromJSONString = function(SmallMoleculeSummaryJson) {
       SmallMoleculeSummaryObject <- jsonlite::fromJSON(SmallMoleculeSummaryJson)
       self$`prefix` <- SmallMoleculeSummaryObject$`prefix`
@@ -494,6 +522,7 @@ SmallMoleculeSummary <- R6::R6Class(
       self$`comment` <- ApiClient$new()$deserializeObj(SmallMoleculeSummaryObject$`comment`, "array[Comment]", loadNamespace("rmzTabM"))
       self
     },
+    #' @description Serialize to data frame
     toDataFrame = function() {
       fixed_header_values <- c(
         "SMH"=self$`prefix`,
@@ -564,6 +593,8 @@ SmallMoleculeSummary <- R6::R6Class(
         )
       entries
     },
+    #' @description Deserialize from summary data frame
+    #' @param SummaryDataFrame Summary data frame
     fromDataFrame = function(SummaryDataFrame) {
       stopifnot(nrow(SummaryDataFrame)==1)
       columnNames <- colnames(SummaryDataFrame)
@@ -652,6 +683,10 @@ SmallMoleculeSummary <- R6::R6Class(
       
       # TODO: Missing handling of optional columns
       # self$`opt` <- ApiClient$new()$deserializeObj(SmallMoleculeSummaryObject$`opt`, "array[OptColumnMapping]", loadNamespace("rmzTabM"))
+      opt_cols <- SummaryDataFrame %>% dplyr::select(dplyr::starts_with("opt_"))
+      if (!is.null(dim(opt_cols)) && dim(opt_cols)[1] > 0) {
+        warning("Handling of Optional columns not yet implemented")
+      }
       
       if (rlang::has_name(SummaryDataFrame, "comment")) {
         comment <- Comment$new()

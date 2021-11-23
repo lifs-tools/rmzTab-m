@@ -68,6 +68,7 @@ SmallMoleculeEvidence Class
 \item \href{#method-toJSONString}{\code{SmallMoleculeEvidence$toJSONString()}}
 \item \href{#method-fromJSONString}{\code{SmallMoleculeEvidence$fromJSONString()}}
 \item \href{#method-toDataFrame}{\code{SmallMoleculeEvidence$toDataFrame()}}
+\item \href{#method-fromDataFrame}{\code{SmallMoleculeEvidence$fromDataFrame()}}
 \item \href{#method-clone}{\code{SmallMoleculeEvidence$clone()}}
 }
 }
@@ -75,6 +76,7 @@ SmallMoleculeEvidence Class
 \if{html}{\out{<a id="method-new"></a>}}
 \if{latex}{\out{\hypertarget{method-new}{}}}
 \subsection{Method \code{new()}}{
+Create a new SmallMoleculeEvidence.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SmallMoleculeEvidence$new(
   sme_id,
@@ -103,11 +105,63 @@ SmallMoleculeEvidence Class
 )}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{sme_id}}{The small molecule evidence id.}
+
+\item{\code{evidence_input_id}}{The evidence input id.}
+
+\item{\code{database_identifier}}{The database identifier.}
+
+\item{\code{exp_mass_to_charge}}{The experimental mass to charge of the evidence.}
+
+\item{\code{charge}}{The charge of the evidence.}
+
+\item{\code{theoretical_mass_to_charge}}{The theoretical mass to charge.}
+
+\item{\code{spectra_ref}}{The references to source spectra list( \link{SpectraRef} ).}
+
+\item{\code{identification_method}}{The identification method \link{Parameter}.}
+
+\item{\code{ms_level}}{The ms level used for evidence \link{Parameter}.}
+
+\item{\code{rank}}{The database search / id rank.}
+
+\item{\code{prefix}}{'SMF'.}
+
+\item{\code{header_prefix}}{'SFH'.}
+
+\item{\code{chemical_formula}}{The chemical formula.}
+
+\item{\code{smiles}}{The SMILES string.}
+
+\item{\code{inchi}}{The INCHI identifier.}
+
+\item{\code{chemical_name}}{The chemical name.}
+
+\item{\code{uri}}{External URI.}
+
+\item{\code{derivatized_form}}{The derivatized form of the molecule.}
+
+\item{\code{adduct_ion}}{The adduct ion.}
+
+\item{\code{id_confidence_measure}}{The confidence measure used.}
+
+\item{\code{opt}}{Optional columns and values.}
+
+\item{\code{comment}}{Comments.}
+
+\item{\code{...}}{local optional variable arguments.}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-toJSON"></a>}}
 \if{latex}{\out{\hypertarget{method-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
+Serialize to list object suitable for jsonlite
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SmallMoleculeEvidence$toJSON()}\if{html}{\out{</div>}}
 }
@@ -117,15 +171,24 @@ SmallMoleculeEvidence Class
 \if{html}{\out{<a id="method-fromJSON"></a>}}
 \if{latex}{\out{\hypertarget{method-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
+Deserialize from jsonlite list object
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SmallMoleculeEvidence$fromJSON(SmallMoleculeEvidenceJson)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{SmallMoleculeEvidenceJson}}{list object.}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-toJSONString"></a>}}
 \if{latex}{\out{\hypertarget{method-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
+Serialize to JSON string.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SmallMoleculeEvidence$toJSONString()}\if{html}{\out{</div>}}
 }
@@ -135,19 +198,45 @@ SmallMoleculeEvidence Class
 \if{html}{\out{<a id="method-fromJSONString"></a>}}
 \if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
+Deserialize from JSON string
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SmallMoleculeEvidence$fromJSONString(SmallMoleculeEvidenceJson)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{SmallMoleculeEvidenceJson}}{SmallMoleculeEvidenceJson string}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-toDataFrame"></a>}}
 \if{latex}{\out{\hypertarget{method-toDataFrame}{}}}
 \subsection{Method \code{toDataFrame()}}{
+Serialize to data frame
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SmallMoleculeEvidence$toDataFrame()}\if{html}{\out{</div>}}
 }
 
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-fromDataFrame"></a>}}
+\if{latex}{\out{\hypertarget{method-fromDataFrame}{}}}
+\subsection{Method \code{fromDataFrame()}}{
+Deserialize from evidence data frame
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{SmallMoleculeEvidence$fromDataFrame(EvidenceDataFrame)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{EvidenceDataFrame}}{Evidence data frame}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-clone"></a>}}

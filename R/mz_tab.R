@@ -32,6 +32,14 @@ MzTab <- R6::R6Class(
     `smallMoleculeFeature` = NULL,
     `smallMoleculeEvidence` = NULL,
     `comment` = NULL,
+    #' @description Create an MzTab object.
+    #' @param metadata The metadata \link{Metadata}.
+    #' @param smallMoleculeSummary The list( \link{SmallMoleculeSummary} ).
+    #' @param smallMoleculeFeature The list( \link{SmallMoleculeFeature} ).
+    #' @param smallMoleculeEvidence The list( \link{SmallMoleculeEvidence} ).
+    #' @param comment The list( \link{Comment} ).
+    #' @param ... local optional variable arguments
+    #'     
     initialize = function(`metadata`, `smallMoleculeSummary`, `smallMoleculeFeature`, `smallMoleculeEvidence`, `comment`=NULL, ...){
       local.optional.var <- list(...)
       if (!missing(`metadata`)) {
@@ -59,6 +67,7 @@ MzTab <- R6::R6Class(
         self$`comment` <- `comment`
       }
     },
+    #' @description Serialize to list object suitable for jsonlite
     toJSON = function() {
       MzTabObject <- list()
       if (!is.null(self$`metadata`)) {
@@ -84,6 +93,8 @@ MzTab <- R6::R6Class(
 
       MzTabObject
     },
+    #' @description Deserialize from jsonlite list object
+    #' @param MzTabJson list object.
     fromJSON = function(MzTabJson) {
       MzTabObject <- jsonlite::fromJSON(MzTabJson)
       if (!is.null(MzTabObject$`metadata`)) {
@@ -104,6 +115,7 @@ MzTab <- R6::R6Class(
         self$`comment` <- ApiClient$new()$deserializeObj(MzTabObject$`comment`, "array[Comment]", loadNamespace("rmzTabM"))
       }
     },
+    #' @description Serialize to JSON string.
     toJSONString = function() {
       jsoncontent <- c(
         if (!is.null(self$`metadata`)) {
@@ -145,6 +157,8 @@ MzTab <- R6::R6Class(
       jsoncontent <- paste(jsoncontent, collapse = ",")
       paste('{', jsoncontent, '}', sep = "")
     },
+    #' @description Deserialize from JSON string
+    #' @param MzTabJson JSON string
     fromJSONString = function(MzTabJson) {
       MzTabObject <- jsonlite::fromJSON(MzTabJson)
       self$`metadata` <- Metadata$new()$fromJSONString(jsonlite::toJSON(MzTabObject$metadata, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
@@ -154,6 +168,7 @@ MzTab <- R6::R6Class(
       self$`comment` <- ApiClient$new()$deserializeObj(MzTabObject$`comment`, "array[Comment]", loadNamespace("rmzTabM"))
       self
     },
+    #' @description Serialize to data frame
     toDataFrame = function() {
       # create individual tables
       metadataTable <- self$`metadata`$toDataFrame()
@@ -177,6 +192,8 @@ MzTab <- R6::R6Class(
       }
       df
     },
+    #' @description Deserialize from MzTab data frame
+    #' @param MzTabDataFrame MzTab data frame
     fromDataFrame = function(MzTabDataFrame) {
       # self <- MzTab$new()
       self$`metadata` <- Metadata$new()$fromDataFrame(extractMetadata(MzTabDataFrame))

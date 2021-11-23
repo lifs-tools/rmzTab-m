@@ -32,6 +32,14 @@ Parameter <- R6::R6Class(
     `cv_accession` = NULL,
     `name` = NULL,
     `value` = NULL,
+    #' @description Create a Parameter
+    #' @param name Parameter name.
+    #' @param value Parameter value.
+    #' @param id Parameter id.
+    #' @param cv_label The label of the controlled vocabulary.
+    #' @param cv_accession The accession number of this Parameter.
+    #' @param ... local optional variable arguments
+    #'     
     initialize = function(`name`, `value`, `id`=NULL, `cv_label`='', `cv_accession`='', ...){
       local.optional.var <- list(...)
       if (!missing(`name`)) {
@@ -55,6 +63,7 @@ Parameter <- R6::R6Class(
         self$`cv_accession` <- `cv_accession`
       }
     },
+    #' @description Serialize to list object suitable for jsonlite
     toJSON = function() {
       ParameterObject <- list()
       if (!is.null(self$`id`)) {
@@ -80,6 +89,8 @@ Parameter <- R6::R6Class(
 
       ParameterObject
     },
+    #' @description Deserialize from jsonlite list object
+    #' @param ParameterJson list object.    
     fromJSON = function(ParameterJson) {
       ParameterObject <- jsonlite::fromJSON(ParameterJson)
       if (!is.null(ParameterObject$`id`)) {
@@ -98,6 +109,7 @@ Parameter <- R6::R6Class(
         self$`value` <- ParameterObject$`value`
       }
     },
+    #' @description Serialize to JSON string.    
     toJSONString = function() {
       jsoncontent <- c(
         if (!is.null(self$`id`)) {
@@ -139,6 +151,8 @@ Parameter <- R6::R6Class(
       jsoncontent <- paste(jsoncontent, collapse = ",")
       paste('{', jsoncontent, '}', sep = "")
     },
+    #' @description Deserialize from JSON string
+    #' @param ParameterJson JSON string
     fromJSONString = function(ParameterJson) {
       ParameterObject <- jsonlite::fromJSON(ParameterJson)
       self$`id` <- ParameterObject$`id`
@@ -148,6 +162,7 @@ Parameter <- R6::R6Class(
       self$`value` <- ParameterObject$`value`
       self
     },
+    #' @description Serialize to string
     toString = function() {
       name <- self$`name`
       if(grepl(",", name, fixed = TRUE)) {
@@ -169,6 +184,9 @@ Parameter <- R6::R6Class(
         "]"
       )
     },
+    #' @description Deserialize from string
+    #' @param id Optional id of the Parameter.
+    #' @param ParameterString String representation of the Parameter.
     fromString = function(id, ParameterString) {
       if (!is.null(id)) {
         self$`id` <- as.numeric(id)

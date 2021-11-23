@@ -25,11 +25,11 @@
 #' @format An \code{R6Class} generator object
 #' @field basePath Base url
 #' @field userAgent Default user agent
-#' @field defaultHeaders
+#' @field defaultHeaders Default HTTP headers
 #' @field username Username for HTTP basic authentication
 #' @field password Password for HTTP basic authentication
-#' @field apiKeys
-#' @field accessToken
+#' @field apiKeys API keys - not used
+#' @field accessToken HTTP Access token - not used
 #' @field timeout Default timeout in seconds
 #' @importFrom httr add_headers accept timeout content
 #' @export
@@ -53,6 +53,16 @@ ApiClient  <- R6::R6Class(
     # Time Out (seconds)
     timeout = NULL,
     # constructor
+    #' @description
+    #' Create an ApiClient
+    #' @param basePath HTTP call base path to the end point
+    #' @param userAgent User agent string to access endpoint with
+    #' @param defaultHeaders default headers in the HTTP request
+    #' @param username User name (HTTP basic authentication)
+    #' @param password User password (HTTP basic authentication)
+    #' @param apiKeys API keys
+    #' @param accessToken Access token
+    #' @param timeout Time Out (seconds)
     initialize = function(basePath=NULL, userAgent=NULL, defaultHeaders=NULL, username=NULL, password=NULL, apiKeys=NULL, accessToken=NULL, timeout=NULL){
       if (!is.null(basePath)) {
         self$basePath <- basePath
@@ -88,6 +98,15 @@ ApiClient  <- R6::R6Class(
         self$timeout <- timeout
       }
     },
+    #' @description CallApi
+    #' @param url URL to call
+    #' @param method One of GET, POST, PUT, PATCH, HEAD, DELETE
+    #' @param queryParams Query parameters
+    #' @param headerParams Additional header parameters
+    #' @param body The call body (only in POST, PUT, PATCH)
+    #' @param contentType Defaults to application/json
+    #' @param ... Pass through to httr method call
+    #'
     CallApi = function(url, method, queryParams, headerParams, body, contentType = "application/json", ...){
       headers <- httr::add_headers(c(headerParams, self$defaultHeaders))
 
@@ -114,17 +133,23 @@ ApiClient  <- R6::R6Class(
       }
     },
 
-    # Deserialize the content of api response to the given type.
+    #' @description Deserialize the content of api response to the given type.
+    #' @param resp HTTP response, compatible to be read as httr::content text
+    #' @param returnType Target type to deserialize into
+    #' @param pkgEnv Current package environment
     deserialize = function(resp, returnType, pkgEnv) {
       respObj <- jsonlite::fromJSON(httr::content(resp, "text", encoding = "UTF-8"))
       self$deserializeObj(respObj, returnType, pkgEnv)
     },
 
 
-    # Deserialize the response from jsonlite object based on the given type
-    # by handling complex and nested types by iterating recursively
-    # Example returnTypes will be like "array[integer]", "map(Pet)", "array[map(Tag)]", etc.,
-
+    #' @description
+    #' Deserialize the response from jsonlite object based on the given type
+    #' by handling complex and nested types by iterating recursively
+    #' Example returnTypes will be like "array[integer]", "map(Pet)", "array[map(Tag)]", etc.,
+    #' @param obj Object to deserialize
+    #' @param returnType Target type to deserialize into
+    #' @param pkgEnv Current package environment
     deserializeObj = function(obj, returnType, pkgEnv) {
       returnObj <- NULL
       primitiveTypes <- c("character", "numeric", "integer", "logical", "complex")

@@ -88,6 +88,7 @@ Metadata Class
 \if{html}{\out{<a id="method-new"></a>}}
 \if{latex}{\out{\hypertarget{method-new}{}}}
 \subsection{Method \code{new()}}{
+Create Metadata
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Metadata$new(
   prefix,
@@ -122,11 +123,75 @@ Metadata Class
 )}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{prefix}}{'MTD'.}
+
+\item{\code{mzTab-version}}{The version e.g. '2.0.0-M'.}
+
+\item{\code{mzTab-ID}}{MzTab file id.}
+
+\item{\code{software}}{Software used to generate the results and the file list( \link{Software} ).}
+
+\item{\code{quantification_method}}{Quantification method \link{Parameter}.}
+
+\item{\code{study_variable}}{Study variables list( \link{StudyVariable} ).}
+
+\item{\code{ms_run}}{MsRuns of this study list( \link{MsRun} ).}
+
+\item{\code{assay}}{Assays linking \link{Sample}s and \link{MsRun}s list( \link{Assay} ).}
+
+\item{\code{cv}}{Controlled vocabularies list( \link{CV} ).}
+
+\item{\code{database}}{Databases used for identification or matching list( \link{Database} ).}
+
+\item{\code{small_molecule-quantification_unit}}{Quantification unit for small molecule summary abundances \link{Parameter}.}
+
+\item{\code{small_molecule_feature-quantification_unit}}{Quantification unit for small molecule feature abundances \link{Parameter}.}
+
+\item{\code{id_confidence_measure}}{Identification confidence rule set ( \link{Parameter} ).}
+
+\item{\code{title}}{The title of the MzTab file.}
+
+\item{\code{description}}{The description.}
+
+\item{\code{sample_processing}}{List of sample processing steps list( \link{SampleProcessing} ).}
+
+\item{\code{instrument}}{Instruments used to acquire MsRuns list( \link{Instrument} ).}
+
+\item{\code{publication}}{Publications linked to this data list( \link{Publication} ).}
+
+\item{\code{contact}}{Contacts / creators of this file list( \link{Contact} ).}
+
+\item{\code{uri}}{External URIs relevant to this file list( \link{Uri} ).}
+
+\item{\code{external_study_uri}}{Where to find this study externall list( \link{Uri} ).}
+
+\item{\code{sample}}{Samples of this study list( \link{Sample} ).}
+
+\item{\code{custom}}{Custom definitions for this study list( \link{Parameter} ).}
+
+\item{\code{derivatization_agent}}{Derivatization agents used list( \link{Parameter} ).}
+
+\item{\code{small_molecule-identification_reliability}}{Identification reliability rule set \link{Parameter}.}
+
+\item{\code{colunit-small_molecule}}{Additional \link{SmallMoleculeSummary} column units list( \link{ColumnParameterMapping} ).}
+
+\item{\code{colunit-small_molecule_feature}}{Additional \link{SmallMoleculeFeature} column units list( \link{ColumnParameterMapping} ).}
+
+\item{\code{colunit-small_molecule_evidence}}{Additional \link{SmallMoleculeEvidence} column units list( \link{ColumnParameterMapping} ).}
+
+\item{\code{...}}{local optional variable arguments}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-toJSON"></a>}}
 \if{latex}{\out{\hypertarget{method-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
+Serialize to list object suitable for jsonlite
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Metadata$toJSON()}\if{html}{\out{</div>}}
 }
@@ -136,15 +201,24 @@ Metadata Class
 \if{html}{\out{<a id="method-fromJSON"></a>}}
 \if{latex}{\out{\hypertarget{method-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
+Deserialize from jsonlite list object
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Metadata$fromJSON(MetadataJson)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{MetadataJson}}{list object.}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-toJSONString"></a>}}
 \if{latex}{\out{\hypertarget{method-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
+Serialize to JSON string.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Metadata$toJSONString()}\if{html}{\out{</div>}}
 }
@@ -154,15 +228,24 @@ Metadata Class
 \if{html}{\out{<a id="method-fromJSONString"></a>}}
 \if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
+Deserialize from JSON string
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Metadata$fromJSONString(MetadataJson)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{MetadataJson}}{JSON string}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-toDataFrame"></a>}}
 \if{latex}{\out{\hypertarget{method-toDataFrame}{}}}
 \subsection{Method \code{toDataFrame()}}{
+Serialize to data frame
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Metadata$toDataFrame()}\if{html}{\out{</div>}}
 }
@@ -172,10 +255,18 @@ Metadata Class
 \if{html}{\out{<a id="method-fromDataFrame"></a>}}
 \if{latex}{\out{\hypertarget{method-fromDataFrame}{}}}
 \subsection{Method \code{fromDataFrame()}}{
+Deserialize from metadata data frame
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Metadata$fromDataFrame(MetadataDataFrame)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{MetadataDataFrame}}{Metadata data frame}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-clone"></a>}}

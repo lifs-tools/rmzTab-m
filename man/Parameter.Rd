@@ -42,15 +42,34 @@ Parameter Class
 \if{html}{\out{<a id="method-new"></a>}}
 \if{latex}{\out{\hypertarget{method-new}{}}}
 \subsection{Method \code{new()}}{
+Create a Parameter
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Parameter$new(name, value, id = NULL, cv_label = "", cv_accession = "", ...)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{name}}{Parameter name.}
+
+\item{\code{value}}{Parameter value.}
+
+\item{\code{id}}{Parameter id.}
+
+\item{\code{cv_label}}{The label of the controlled vocabulary.}
+
+\item{\code{cv_accession}}{The accession number of this Parameter.}
+
+\item{\code{...}}{local optional variable arguments}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-toJSON"></a>}}
 \if{latex}{\out{\hypertarget{method-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
+Serialize to list object suitable for jsonlite
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Parameter$toJSON()}\if{html}{\out{</div>}}
 }
@@ -60,15 +79,24 @@ Parameter Class
 \if{html}{\out{<a id="method-fromJSON"></a>}}
 \if{latex}{\out{\hypertarget{method-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
+Deserialize from jsonlite list object
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Parameter$fromJSON(ParameterJson)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ParameterJson}}{list object.}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-toJSONString"></a>}}
 \if{latex}{\out{\hypertarget{method-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
+Serialize to JSON string.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Parameter$toJSONString()}\if{html}{\out{</div>}}
 }
@@ -78,15 +106,24 @@ Parameter Class
 \if{html}{\out{<a id="method-fromJSONString"></a>}}
 \if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
+Deserialize from JSON string
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Parameter$fromJSONString(ParameterJson)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ParameterJson}}{JSON string}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-toString"></a>}}
 \if{latex}{\out{\hypertarget{method-toString}{}}}
 \subsection{Method \code{toString()}}{
+Serialize to string
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Parameter$toString()}\if{html}{\out{</div>}}
 }
@@ -96,10 +133,20 @@ Parameter Class
 \if{html}{\out{<a id="method-fromString"></a>}}
 \if{latex}{\out{\hypertarget{method-fromString}{}}}
 \subsection{Method \code{fromString()}}{
+Deserialize from string
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Parameter$fromString(id, ParameterString)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{id}}{Optional id of the Parameter.}
+
+\item{\code{ParameterString}}{String representation of the Parameter.}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-clone"></a>}}

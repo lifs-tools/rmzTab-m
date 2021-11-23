@@ -8,3 +8,4 @@
 ^build-site.sh$
 ^build.sh$
 ^docs$
+^.github$

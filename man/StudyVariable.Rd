@@ -46,6 +46,7 @@ StudyVariable Class
 \if{html}{\out{<a id="method-new"></a>}}
 \if{latex}{\out{\hypertarget{method-new}{}}}
 \subsection{Method \code{new()}}{
+Create a StudyVariable
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{StudyVariable$new(
   id,
@@ -59,11 +60,33 @@ StudyVariable Class
 )}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{id}}{StudyVariable id.}
+
+\item{\code{name}}{StudyVariable name.}
+
+\item{\code{assay_refs}}{Reference to list( \link{Assay} ).}
+
+\item{\code{average_function}}{The averaging function used to calculate abundance_study_variable, defined by \link{Parameter}.}
+
+\item{\code{variation_function}}{The variation function used to calculate abundance_variation_study_variable, defined by \link{Parameter}.}
+
+\item{\code{description}}{Description of the StudyVariable.}
+
+\item{\code{factors}}{A list of study variable factors list( \link{Parameter} ).}
+
+\item{\code{...}}{local optional variable arguments}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-toJSON"></a>}}
 \if{latex}{\out{\hypertarget{method-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
+Serialize to list object suitable for jsonlite
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{StudyVariable$toJSON()}\if{html}{\out{</div>}}
 }
@@ -73,15 +96,24 @@ StudyVariable Class
 \if{html}{\out{<a id="method-fromJSON"></a>}}
 \if{latex}{\out{\hypertarget{method-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
+Deserialize from jsonlite list object
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{StudyVariable$fromJSON(StudyVariableJson)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{StudyVariableJson}}{list object.}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-toJSONString"></a>}}
 \if{latex}{\out{\hypertarget{method-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
+Serialize to JSON string.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{StudyVariable$toJSONString()}\if{html}{\out{</div>}}
 }
@@ -91,15 +123,24 @@ StudyVariable Class
 \if{html}{\out{<a id="method-fromJSONString"></a>}}
 \if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
+Deserialize from JSON string
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{StudyVariable$fromJSONString(StudyVariableJson)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{StudyVariableJson}}{JSON string}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-toDataFrame"></a>}}
 \if{latex}{\out{\hypertarget{method-toDataFrame}{}}}
 \subsection{Method \code{toDataFrame()}}{
+Serialize to data frame
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{StudyVariable$toDataFrame()}\if{html}{\out{</div>}}
 }
@@ -109,10 +150,18 @@ StudyVariable Class
 \if{html}{\out{<a id="method-fromDataFrame"></a>}}
 \if{latex}{\out{\hypertarget{method-fromDataFrame}{}}}
 \subsection{Method \code{fromDataFrame()}}{
+Deserialize from StudyVariable data frame
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{StudyVariable$fromDataFrame(StudyVariableDataFrame)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{StudyVariableDataFrame}}{StudyVariable data frame}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-clone"></a>}}

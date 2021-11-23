@@ -1,6 +1,6 @@
-#'
-#' Converts the provided mztab object to JSON and writes it to the provided file.
-#' @param mztab the R6 mzTab object to write.
+#' Write MzTab object as JSON to file.
+#' @description Converts the provided \link{MzTab} object to JSON and writes it to the provided file.
+#' @param mztab the R6 \link{MzTab} object to write.
 #' @param file the file path to write to.
 #' @export
 writeMzTabJSON <- function(mztab, file) {
@@ -35,9 +35,9 @@ writeMzTabJSON <- function(mztab, file) {
   write(json, file)
 }
 
-#'
-#' Write an mzTab tab separated file from the passed in mzTab object.
-#' @param mztab the R6 MzTab object to write.
+#' Write MzTab object as TSV to file.
+#' @description Write an mzTab-M tab separated file from the passed in \link{MzTab} object.
+#' @param mztab the R6 \link{MzTab} object to write.
 #' @param file the file path to write to.
 #' @export
 writeMzTab <- function(mztab, file) {

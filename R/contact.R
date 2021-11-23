@@ -29,6 +29,13 @@ Contact <- R6::R6Class(
     `name` = NULL,
     `affiliation` = NULL,
     `email` = NULL,
+    #' @description Create a Contact
+    #' @param id Contact id.
+    #' @param name Contact name.
+    #' @param affiliation Contact affiliation / address.
+    #' @param email Contact email.
+    #' @param ... local optional variable arguments
+    #' 
     initialize = function(`id`=NULL, `name`=NULL, `affiliation`=NULL, `email`=NULL, ...){
       local.optional.var <- list(...)
       if (!is.null(`id`)) {
@@ -48,6 +55,7 @@ Contact <- R6::R6Class(
         self$`email` <- `email`
       }
     },
+    #' @description Serialize to list object suitable for jsonlite
     toJSON = function() {
       ContactObject <- list()
       if (!is.null(self$`id`)) {
@@ -69,6 +77,8 @@ Contact <- R6::R6Class(
 
       ContactObject
     },
+    #' @description Deserialize from jsonlite list object
+    #' @param ContactJson list object.    
     fromJSON = function(ContactJson) {
       ContactObject <- jsonlite::fromJSON(ContactJson)
       if (!is.null(ContactObject$`id`)) {
@@ -84,6 +94,7 @@ Contact <- R6::R6Class(
         self$`email` <- ContactObject$`email`
       }
     },
+    #' @description Serialize to JSON string.    
     toJSONString = function() {
       jsoncontent <- c(
         if (!is.null(self$`id`)) {
@@ -118,6 +129,8 @@ Contact <- R6::R6Class(
       jsoncontent <- paste(jsoncontent, collapse = ",")
       paste('{', jsoncontent, '}', sep = "")
     },
+    #' @description Deserialize from JSON string
+    #' @param ContactJson JSON string    
     fromJSONString = function(ContactJson) {
       ContactObject <- jsonlite::fromJSON(ContactJson)
       self$`id` <- ContactObject$`id`
@@ -126,6 +139,7 @@ Contact <- R6::R6Class(
       self$`email` <- ContactObject$`email`
       self
     },
+    #' @description Serialize to data frame
     toDataFrame = function() {
       idPrefix <- paste0("contact[", self$`id`, "]")
       elements <- data.frame(PREFIX=character(), KEY=character(), VALUE=character())
@@ -161,6 +175,8 @@ Contact <- R6::R6Class(
       }
       elements
     },
+    #' @description Deserialize from contact data frame
+    #' @param ContactDataFrame contact data frame
     fromDataFrame = function(ContactDataFrame) {
       stopifnot(nrow(ContactDataFrame)==1)
       if (rlang::has_name(ContactDataFrame, "id")) {

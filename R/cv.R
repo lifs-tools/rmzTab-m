@@ -32,6 +32,14 @@ CV <- R6::R6Class(
     `full_name` = NULL,
     `version` = NULL,
     `uri` = NULL,
+    #' @description Create a CV
+    #' @param label CV label.
+    #' @param full_name CV full name.
+    #' @param version CV version.
+    #' @param uri URI to external CV.
+    #' @param id URI id.
+    #' @param ... local optional variable arguments
+    #' 
     initialize = function(`label`, `full_name`, `version`, `uri`, `id`=NULL, ...){
       local.optional.var <- list(...)
       if (!missing(`label`)) {
@@ -55,6 +63,7 @@ CV <- R6::R6Class(
         self$`id` <- `id`
       }
     },
+    #' @description Serialize to list object suitable for jsonlite
     toJSON = function() {
       CVObject <- list()
       if (!is.null(self$`id`)) {
@@ -80,6 +89,8 @@ CV <- R6::R6Class(
 
       CVObject
     },
+    #' @description Deserialize from jsonlite list object
+    #' @param CVJson list object.    
     fromJSON = function(CVJson) {
       CVObject <- jsonlite::fromJSON(CVJson)
       if (!is.null(CVObject$`id`)) {
@@ -98,6 +109,7 @@ CV <- R6::R6Class(
         self$`uri` <- CVObject$`uri`
       }
     },
+    #' @description Serialize to JSON string.
     toJSONString = function() {
       jsoncontent <- c(
         if (!is.null(self$`id`)) {
@@ -139,6 +151,8 @@ CV <- R6::R6Class(
       jsoncontent <- paste(jsoncontent, collapse = ",")
       paste('{', jsoncontent, '}', sep = "")
     },
+    #' @description Deserialize from JSON string
+    #' @param CVJson JSON string
     fromJSONString = function(CVJson) {
       CVObject <- jsonlite::fromJSON(CVJson)
       self$`id` <- CVObject$`id`
@@ -148,6 +162,7 @@ CV <- R6::R6Class(
       self$`uri` <- CVObject$`uri`
       self
     },
+    #' @description Serialize to data frame    
     toDataFrame = function() {
       idPrefix <- paste0("cv[", self$`id`, "]")
       elements <- data.frame(PREFIX=character(), KEY=character(), VALUE=character())
@@ -193,6 +208,8 @@ CV <- R6::R6Class(
       }
       elements
     },
+    #' @description Deserialize from CV data frame
+    #' @param CvDataFrame CV data frame
     fromDataFrame = function(CvDataFrame) {
       stopifnot(nrow(CvDataFrame)==1)
       if (rlang::has_name(CvDataFrame, "id")) {

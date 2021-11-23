@@ -83,6 +83,30 @@ SmallMoleculeEvidence <- R6::R6Class(
     `rank` = NULL,
     `opt` = NULL,
     `comment` = NULL,
+    #' @description Create a new SmallMoleculeEvidence.
+    #' @param sme_id The small molecule evidence id.
+    #' @param evidence_input_id The evidence input id.
+    #' @param database_identifier The database identifier.
+    #' @param exp_mass_to_charge The experimental mass to charge of the evidence.
+    #' @param charge The charge of the evidence.
+    #' @param theoretical_mass_to_charge The theoretical mass to charge.
+    #' @param spectra_ref The references to source spectra list( \link{SpectraRef} ).
+    #' @param identification_method The identification method \link{Parameter}.
+    #' @param ms_level The ms level used for evidence \link{Parameter}.
+    #' @param rank The database search / id rank.
+    #' @param prefix 'SMF'.
+    #' @param header_prefix 'SFH'.
+    #' @param chemical_formula The chemical formula.
+    #' @param smiles The SMILES string.
+    #' @param inchi The INCHI identifier.
+    #' @param chemical_name The chemical name. 
+    #' @param uri External URI.
+    #' @param derivatized_form The derivatized form of the molecule.
+    #' @param adduct_ion The adduct ion.
+    #' @param id_confidence_measure The confidence measure used.
+    #' @param opt Optional columns and values.
+    #' @param comment Comments.
+    #' @param ... local optional variable arguments. 
     initialize = function(`sme_id`, `evidence_input_id`, `database_identifier`, `exp_mass_to_charge`, `charge`, `theoretical_mass_to_charge`, `spectra_ref`, `identification_method`, `ms_level`, `rank`, `prefix`='SME', `header_prefix`='SEH', `chemical_formula`=NULL, `smiles`=NULL, `inchi`=NULL, `chemical_name`=NULL, `uri`=NULL, `derivatized_form`=NULL, `adduct_ion`=NULL, `id_confidence_measure`=NULL, `opt`=NULL, `comment`=NULL, ...){
       local.optional.var <- list(...)
       if (!missing(`sme_id`)) {
@@ -178,6 +202,7 @@ SmallMoleculeEvidence <- R6::R6Class(
         self$`comment` <- `comment`
       }
     },
+    #' @description Serialize to list object suitable for jsonlite
     toJSON = function() {
       SmallMoleculeEvidenceObject <- list()
       if (!is.null(self$`prefix`)) {
@@ -271,6 +296,8 @@ SmallMoleculeEvidence <- R6::R6Class(
 
       SmallMoleculeEvidenceObject
     },
+    #' @description Deserialize from jsonlite list object
+    #' @param SmallMoleculeEvidenceJson list object.
     fromJSON = function(SmallMoleculeEvidenceJson) {
       SmallMoleculeEvidenceObject <- jsonlite::fromJSON(SmallMoleculeEvidenceJson)
       if (!is.null(SmallMoleculeEvidenceObject$`prefix`)) {
@@ -346,6 +373,7 @@ SmallMoleculeEvidence <- R6::R6Class(
         self$`comment` <- ApiClient$new()$deserializeObj(SmallMoleculeEvidenceObject$`comment`, "array[Comment]", loadNamespace("rmzTabM"))
       }
     },
+    #' @description Serialize to JSON string. 
     toJSONString = function() {
       jsoncontent <- c(
         if (!is.null(self$`prefix`)) {
@@ -506,6 +534,8 @@ SmallMoleculeEvidence <- R6::R6Class(
       jsoncontent <- paste(jsoncontent, collapse = ",")
       paste('{', jsoncontent, '}', sep = "")
     },
+    #' @description Deserialize from JSON string
+    #' @param SmallMoleculeEvidenceJson SmallMoleculeEvidenceJson string
     fromJSONString = function(SmallMoleculeEvidenceJson) {
       SmallMoleculeEvidenceObject <- jsonlite::fromJSON(SmallMoleculeEvidenceJson)
       self$`prefix` <- SmallMoleculeEvidenceObject$`prefix`
@@ -532,6 +562,7 @@ SmallMoleculeEvidence <- R6::R6Class(
       self$`comment` <- ApiClient$new()$deserializeObj(SmallMoleculeEvidenceObject$`comment`, "array[Comment]", loadNamespace("rmzTabM"))
       self
     },
+    #' @description Serialize to data frame
     toDataFrame = function() {
       fixed_header_values <- c(
         "SEH"=valueOrDefault(self$`prefix`, nullable = FALSE),
@@ -587,6 +618,8 @@ SmallMoleculeEvidence <- R6::R6Class(
         )
       entries
     },
+    #' @description Deserialize from evidence data frame
+    #' @param EvidenceDataFrame Evidence data frame
     fromDataFrame = function(EvidenceDataFrame) {
       stopifnot(nrow(EvidenceDataFrame)==1)
       columnNames <- colnames(EvidenceDataFrame)
@@ -662,6 +695,10 @@ SmallMoleculeEvidence <- R6::R6Class(
       }
       # TODO opt handling
       # self$`opt` <- ApiClient$new()$deserializeObj(SmallMoleculeFeatureObject$`opt`, "array[OptColumnMapping]", loadNamespace("rmzTabM"))
+      opt_cols <- EvidenceDataFrame %>% dplyr::select(dplyr::starts_with("opt_"))
+      if (!is.null(dim(opt_cols)) && dim(opt_cols)[1] > 0) {
+        warning("Handling of Optional columns not yet implemented")
+      }
       
       if (rlang::has_name(EvidenceDataFrame, "comment")) {
         comment <- Comment$new()

@@ -23,6 +23,11 @@ ColumnParameterMapping <- R6::R6Class(
   public = list(
     `column_name` = NULL,
     `param` = NULL,
+    #' @description Create ColumnParameterMapping
+    #' @param column_name Column name.
+    #' @param param \link{Parameter} defining the column.
+    #' @param ... local optional variable arguments
+    #' 
     initialize = function(`column_name`, `param`, ...){
       local.optional.var <- list(...)
       if (!missing(`column_name`)) {
@@ -34,6 +39,7 @@ ColumnParameterMapping <- R6::R6Class(
         self$`param` <- `param`
       }
     },
+    #' @description Serialize to list object suitable for jsonlite    
     toJSON = function() {
       ColumnParameterMappingObject <- list()
       if (!is.null(self$`column_name`)) {
@@ -47,6 +53,8 @@ ColumnParameterMapping <- R6::R6Class(
 
       ColumnParameterMappingObject
     },
+    #' @description Deserialize from jsonlite list object
+    #' @param ColumnParameterMappingJson list object.    
     fromJSON = function(ColumnParameterMappingJson) {
       ColumnParameterMappingObject <- jsonlite::fromJSON(ColumnParameterMappingJson)
       if (!is.null(ColumnParameterMappingObject$`column_name`)) {
@@ -58,6 +66,7 @@ ColumnParameterMapping <- R6::R6Class(
         self$`param` <- paramObject
       }
     },
+    #' @description Serialize to JSON string.    
     toJSONString = function() {
       jsoncontent <- c(
         if (!is.null(self$`column_name`)) {
@@ -78,13 +87,16 @@ ColumnParameterMapping <- R6::R6Class(
       jsoncontent <- paste(jsoncontent, collapse = ",")
       paste('{', jsoncontent, '}', sep = "")
     },
+    #' @description Deserialize from JSON string
+    #' @param ColumnParameterMappingJson JSON string    
     fromJSONString = function(ColumnParameterMappingJson) {
       ColumnParameterMappingObject <- jsonlite::fromJSON(ColumnParameterMappingJson)
       self$`column_name` <- ColumnParameterMappingObject$`column_name`
       self$`param` <- Parameter$new()$fromJSONString(jsonlite::toJSON(ColumnParameterMappingObject$param, auto_unbox = TRUE, null = "null", na = "null", digits = NA))
       self
     },
-    # type can be small_molecule, small_molecule_feature or small_molecule_evidence
+    #' @description Serialize to data frame
+    #' @param type can be small_molecule, small_molecule_feature or small_molecule_evidence
     toDataFrame = function(type="small_molecule") {
       elements <- data.frame(PREFIX=character(), KEY=character(), VALUE=character())
       if (!is.null(self$`column_name`) && !is.null(self$`param`)) {
@@ -99,6 +111,8 @@ ColumnParameterMapping <- R6::R6Class(
       }
       elements
     },
+    #' @description Deserialize from ColumnParameterMappingDataFrame
+    #' @param ColumnParameterMappingDataFrame data frame    
     fromDataFrame = function(ColumnParameterMappingDataFrame) {
       # TODO
       warning("fromDataFrame not implemented yet")

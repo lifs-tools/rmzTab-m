@@ -2,15 +2,15 @@
 % Please edit documentation in R/write_mz_tab.R
 \name{writeMzTab}
 \alias{writeMzTab}
-\title{Write an mzTab tab separated file from the passed in mzTab object.}
+\title{Write MzTab object as TSV to file.}
 \usage{
 writeMzTab(mztab, file)
 }
 \arguments{
-\item{mztab}{the R6 MzTab object to write.}
+\item{mztab}{the R6 \link{MzTab} object to write.}
 
 \item{file}{the file path to write to.}
 }
 \description{
-Write an mzTab tab separated file from the passed in mzTab object.
+Write an mzTab-M tab separated file from the passed in \link{MzTab} object.
 }

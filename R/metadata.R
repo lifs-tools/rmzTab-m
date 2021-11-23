@@ -101,6 +101,36 @@ Metadata <- R6::R6Class(
     `colunit-small_molecule` = NULL,
     `colunit-small_molecule_feature` = NULL,
     `colunit-small_molecule_evidence` = NULL,
+    #' @description Create Metadata
+    #' @param prefix 'MTD'.
+    #' @param mzTab-version The version e.g. '2.0.0-M'.
+    #' @param mzTab-ID MzTab file id.
+    #' @param software Software used to generate the results and the file list( \link{Software} ).
+    #' @param quantification_method Quantification method \link{Parameter}.
+    #' @param title The title of the MzTab file.
+    #' @param description The description.
+    #' @param sample_processing List of sample processing steps list( \link{SampleProcessing} ).
+    #' @param instrument Instruments used to acquire MsRuns list( \link{Instrument} ).
+    #' @param publication Publications linked to this data list( \link{Publication} ).
+    #' @param contact Contacts / creators of this file list( \link{Contact} ).
+    #' @param uri External URIs relevant to this file list( \link{Uri} ).
+    #' @param external_study_uri Where to find this study externall list( \link{Uri} ).
+    #' @param study_variable Study variables list( \link{StudyVariable} ).
+    #' @param ms_run MsRuns of this study list( \link{MsRun} ).
+    #' @param assay Assays linking \link{Sample}s and \link{MsRun}s list( \link{Assay} ).
+    #' @param sample Samples of this study list( \link{Sample} ).
+    #' @param custom Custom definitions for this study list( \link{Parameter} ).
+    #' @param cv Controlled vocabularies list( \link{CV} ).
+    #' @param database Databases used for identification or matching list( \link{Database} ).
+    #' @param derivatization_agent Derivatization agents used list( \link{Parameter} ).
+    #' @param small_molecule-quantification_unit Quantification unit for small molecule summary abundances \link{Parameter}.
+    #' @param small_molecule_feature-quantification_unit Quantification unit for small molecule feature abundances \link{Parameter}.
+    #' @param small_molecule-identification_reliability Identification reliability rule set \link{Parameter}.
+    #' @param id_confidence_measure Identification confidence rule set ( \link{Parameter} ).
+    #' @param colunit-small_molecule Additional \link{SmallMoleculeSummary} column units list( \link{ColumnParameterMapping} ).
+    #' @param colunit-small_molecule_feature Additional \link{SmallMoleculeFeature} column units list( \link{ColumnParameterMapping} ).
+    #' @param colunit-small_molecule_evidence Additional \link{SmallMoleculeEvidence} column units list( \link{ColumnParameterMapping} ).
+    #' @param ... local optional variable arguments
     initialize = function(`prefix`, `mzTab-version`, `mzTab-ID`, `software`, `quantification_method`, `study_variable`, `ms_run`, `assay`, `cv`, `database`, `small_molecule-quantification_unit`, `small_molecule_feature-quantification_unit`, `id_confidence_measure`, `title`=NULL, `description`=NULL, `sample_processing`=NULL, `instrument`=NULL, `publication`=NULL, `contact`=NULL, `uri`=NULL, `external_study_uri`=NULL, `sample`=NULL, `custom`=NULL, `derivatization_agent`=NULL, `small_molecule-identification_reliability`=NULL, `colunit-small_molecule`=NULL, `colunit-small_molecule_feature`=NULL, `colunit-small_molecule_evidence`=NULL, ...){
       local.optional.var <- list(...)
       if (!missing(`prefix`)) {
@@ -235,6 +265,7 @@ Metadata <- R6::R6Class(
         self$`colunit-small_molecule_evidence` <- `colunit-small_molecule_evidence`
       }
     },
+    #' @description Serialize to list object suitable for jsonlite
     toJSON = function() {
       MetadataObject <- list()
       if (!is.null(self$`prefix`)) {
@@ -352,6 +383,8 @@ Metadata <- R6::R6Class(
 
       MetadataObject
     },
+    #' @description Deserialize from jsonlite list object
+    #' @param MetadataJson list object.
     fromJSON = function(MetadataJson) {
       MetadataObject <- jsonlite::fromJSON(MetadataJson)
       if (!is.null(MetadataObject$`prefix`)) {
@@ -447,6 +480,7 @@ Metadata <- R6::R6Class(
         self$`colunit-small_molecule_evidence` <- ApiClient$new()$deserializeObj(MetadataObject$`colunit-small_molecule_evidence`, "array[ColumnParameterMapping]", loadNamespace("rmzTabM"))
       }
     },
+    #' @description Serialize to JSON string.
     toJSONString = function() {
       jsoncontent <- c(
         if (!is.null(self$`prefix`)) {
@@ -649,6 +683,8 @@ Metadata <- R6::R6Class(
       jsoncontent <- paste(jsoncontent, collapse = ",")
       paste('{', jsoncontent, '}', sep = "")
     },
+    #' @description Deserialize from JSON string
+    #' @param MetadataJson JSON string
     fromJSONString = function(MetadataJson) {
       MetadataObject <- jsonlite::fromJSON(MetadataJson)
       self$`prefix` <- MetadataObject$`prefix`
@@ -681,6 +717,7 @@ Metadata <- R6::R6Class(
       self$`colunit-small_molecule_evidence` <- ApiClient$new()$deserializeObj(MetadataObject$`colunit-small_molecule_evidence`, "array[ColumnParameterMapping]", loadNamespace("rmzTabM"))
       self
     },
+    #' @description Serialize to data frame
     toDataFrame = function() {
       elements <- data.frame(PREFIX=character(), KEY=character(), VALUE=character())
       if(!is.null(self$`mzTab-version`)) {
@@ -911,6 +948,8 @@ Metadata <- R6::R6Class(
       }
       elements
     },
+    #' @description Deserialize from metadata data frame
+    #' @param MetadataDataFrame Metadata data frame
     fromDataFrame = function(MetadataDataFrame) {
       self <- Metadata$new()
       self$`prefix` <- "MTD"

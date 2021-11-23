@@ -2,7 +2,7 @@
 % Please edit documentation in R/read_mz_tab.R
 \name{readMzTab}
 \alias{readMzTab}
-\title{Read an mzTab tab separated file from the passed in file.}
+\title{Read mzTab-M file into data frame.}
 \usage{
 readMzTab(filename)
 }

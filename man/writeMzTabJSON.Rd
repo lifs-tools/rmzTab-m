@@ -2,15 +2,15 @@
 % Please edit documentation in R/write_mz_tab.R
 \name{writeMzTabJSON}
 \alias{writeMzTabJSON}
-\title{Converts the provided mztab object to JSON and writes it to the provided file.}
+\title{Write MzTab object as JSON to file.}
 \usage{
 writeMzTabJSON(mztab, file)
 }
 \arguments{
-\item{mztab}{the R6 mzTab object to write.}
+\item{mztab}{the R6 \link{MzTab} object to write.}
 
 \item{file}{the file path to write to.}
 }
 \description{
-Converts the provided mztab object to JSON and writes it to the provided file.
+Converts the provided \link{MzTab} object to JSON and writes it to the provided file.
 }

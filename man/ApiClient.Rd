@@ -30,9 +30,15 @@ Do not edit the class manually.
 
 \item{\code{userAgent}}{Default user agent}
 
+\item{\code{defaultHeaders}}{Default HTTP headers}
+
 \item{\code{username}}{Username for HTTP basic authentication}
 
 \item{\code{password}}{Password for HTTP basic authentication}
+
+\item{\code{apiKeys}}{API keys - not used}
+
+\item{\code{accessToken}}{HTTP Access token - not used}
 
 \item{\code{timeout}}{Default timeout in seconds}
 }
@@ -52,6 +58,7 @@ Do not edit the class manually.
 \if{html}{\out{<a id="method-new"></a>}}
 \if{latex}{\out{\hypertarget{method-new}{}}}
 \subsection{Method \code{new()}}{
+Create an ApiClient
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ApiClient$new(
   basePath = NULL,
@@ -65,11 +72,33 @@ Do not edit the class manually.
 )}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{basePath}}{HTTP call base path to the end point}
+
+\item{\code{userAgent}}{User agent string to access endpoint with}
+
+\item{\code{defaultHeaders}}{default headers in the HTTP request}
+
+\item{\code{username}}{User name (HTTP basic authentication)}
+
+\item{\code{password}}{User password (HTTP basic authentication)}
+
+\item{\code{apiKeys}}{API keys}
+
+\item{\code{accessToken}}{Access token}
+
+\item{\code{timeout}}{Time Out (seconds)}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-CallApi"></a>}}
 \if{latex}{\out{\hypertarget{method-CallApi}{}}}
 \subsection{Method \code{CallApi()}}{
+CallApi
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ApiClient$CallApi(
   url,
@@ -82,24 +111,69 @@ Do not edit the class manually.
 )}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{url}}{URL to call}
+
+\item{\code{method}}{One of GET, POST, PUT, PATCH, HEAD, DELETE}
+
+\item{\code{queryParams}}{Query parameters}
+
+\item{\code{headerParams}}{Additional header parameters}
+
+\item{\code{body}}{The call body (only in POST, PUT, PATCH)}
+
+\item{\code{contentType}}{Defaults to application/json}
+
+\item{\code{...}}{Pass through to httr method call}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-deserialize"></a>}}
 \if{latex}{\out{\hypertarget{method-deserialize}{}}}
 \subsection{Method \code{deserialize()}}{
+Deserialize the content of api response to the given type.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ApiClient$deserialize(resp, returnType, pkgEnv)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{resp}}{HTTP response, compatible to be read as httr::content text}
+
+\item{\code{returnType}}{Target type to deserialize into}
+
+\item{\code{pkgEnv}}{Current package environment}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-deserializeObj"></a>}}
 \if{latex}{\out{\hypertarget{method-deserializeObj}{}}}
 \subsection{Method \code{deserializeObj()}}{
+Deserialize the response from jsonlite object based on the given type
+by handling complex and nested types by iterating recursively
+Example returnTypes will be like "array[integer]", "map(Pet)", "array[map(Tag)]", etc.,
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ApiClient$deserializeObj(obj, returnType, pkgEnv)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{obj}}{Object to deserialize}
+
+\item{\code{returnType}}{Target type to deserialize into}
+
+\item{\code{pkgEnv}}{Current package environment}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-clone"></a>}}

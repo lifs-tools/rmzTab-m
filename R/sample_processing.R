@@ -23,6 +23,11 @@ SampleProcessing <- R6::R6Class(
   public = list(
     `id` = NULL,
     `sampleProcessing` = NULL,
+    #' @description Create a SampleProcessing object
+    #' @param id SampleProcessing id.
+    #' @param sampleProcessing Sample processing list( \link{Parameter} ).
+    #' @param ... local optional variable arguments
+    #'     
     initialize = function(`id`=NULL, `sampleProcessing`=NULL, ...){
       local.optional.var <- list(...)
       if (!is.null(`id`)) {
@@ -35,6 +40,7 @@ SampleProcessing <- R6::R6Class(
         self$`sampleProcessing` <- `sampleProcessing`
       }
     },
+    #' @description Serialize to list object suitable for jsonlite
     toJSON = function() {
       SampleProcessingObject <- list()
       if (!is.null(self$`id`)) {
@@ -48,6 +54,8 @@ SampleProcessing <- R6::R6Class(
 
       SampleProcessingObject
     },
+    #' @description Deserialize from jsonlite list object
+    #' @param SampleProcessingJson list object.
     fromJSON = function(SampleProcessingJson) {
       SampleProcessingObject <- jsonlite::fromJSON(SampleProcessingJson)
       if (!is.null(SampleProcessingObject$`id`)) {
@@ -57,6 +65,7 @@ SampleProcessing <- R6::R6Class(
         self$`sampleProcessing` <- ApiClient$new()$deserializeObj(SampleProcessingObject$`sampleProcessing`, "array[Parameter]", loadNamespace("rmzTabM"))
       }
     },
+    #' @description Serialize to JSON string.
     toJSONString = function() {
       jsoncontent <- c(
         if (!is.null(self$`id`)) {
@@ -77,12 +86,15 @@ SampleProcessing <- R6::R6Class(
       jsoncontent <- paste(jsoncontent, collapse = ",")
       paste('{', jsoncontent, '}', sep = "")
     },
+    #' @description Deserialize from JSON string
+    #' @param SampleProcessingJson JSON string
     fromJSONString = function(SampleProcessingJson) {
       SampleProcessingObject <- jsonlite::fromJSON(SampleProcessingJson)
       self$`id` <- SampleProcessingObject$`id`
       self$`sampleProcessing` <- ApiClient$new()$deserializeObj(SampleProcessingObject$`sampleProcessing`, "array[Parameter]", loadNamespace("rmzTabM"))
       self
     },
+    #' @description Serialize to data frame
     toDataFrame = function() {
       idPrefix <- paste0("sample_processing[", self$`id`, "]")
       elements <- data.frame(PREFIX=character(), KEY=character(), VALUE=character())
@@ -96,6 +108,8 @@ SampleProcessing <- R6::R6Class(
       }
       elements
     },
+    #' @description Deserialize from SampleProcessingDataFrame
+    #' @param SampleProcessingDataFrame Sample processing data frame
     fromDataFrame = function(SampleProcessingDataFrame) {
       stopifnot(nrow(SampleProcessingDataFrame)==1)
       if (rlang::has_name(SampleProcessingDataFrame, "id")) {

@@ -2,8 +2,7 @@
 % Please edit documentation in R/read_mz_tab.R
 \name{readMzTabString}
 \alias{readMzTabString}
-\title{Read an mzTab tab separated 'file' from the passed in string.
-This file creates a temporary file on disk to check for the maximum number of columns.}
+\title{Read an mzTab-M string into a data frame.}
 \usage{
 readMzTabString(mzTabString)
 }
@@ -11,6 +10,7 @@ readMzTabString(mzTabString)
 \item{mzTabString}{the mzTab string to parse.}
 }
 \description{
-Read an mzTab tab separated 'file' from the passed in string.
+Read an mzTab tab separated file from the passed in string.
 This file creates a temporary file on disk to check for the maximum number of columns.
+The returned object is a data.frame as returned by utils::read.table.
 }

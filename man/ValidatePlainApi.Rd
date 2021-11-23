@@ -62,14 +62,19 @@ Validates an mzTab file in plain text representation / tab-separated format and 
 ####################  ValidatePlainMzTabFile  ####################
 
 library(rmzTabM)
-var.mztabfile <- 'mztabfile_example' # character | mzTab string content that should be validated.
-var.level <- 'info' # character | The level of errors that should be reported, one of ERROR, WARN, INFO.
-var.max.errors <- 100 # integer | The maximum number of errors to return.
-var.semantic.validation <- FALSE # character | Whether a semantic validation against the default rule set should be performed.
+# character | mzTab string content that should be validated.
+var.mztabfile <- 'mztabfile_example' 
+# character | The level of errors that should be reported, one of ERROR, WARN, INFO.
+var.level <- 'info' 
+# integer | The maximum number of errors to return.
+var.max.errors <- 100 
+# character | Whether a semantic validation against the default rule set should be performed.
+var.semantic.validation <- FALSE 
 
 api.instance <- ValidatePlainApi$new()
 
-result <- api.instance$ValidatePlainMzTabFile(var.mztabfile, level=var.level, max.errors=var.max.errors, semantic.validation=var.semantic.validation)
+result <- api.instance$ValidatePlainMzTabFile(var.mztabfile, level=var.level,
+ max.errors=var.max.errors, semantic.validation=var.semantic.validation)
 
 
 }
@@ -94,15 +99,24 @@ result <- api.instance$ValidatePlainMzTabFile(var.mztabfile, level=var.level, ma
 \if{html}{\out{<a id="method-new"></a>}}
 \if{latex}{\out{\hypertarget{method-new}{}}}
 \subsection{Method \code{new()}}{
+Create a new ValidatePlainApi object.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ValidatePlainApi$new(apiClient)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{apiClient}}{An initialized \link{ApiClient}.}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ValidatePlainMzTabFile"></a>}}
 \if{latex}{\out{\hypertarget{method-ValidatePlainMzTabFile}{}}}
 \subsection{Method \code{ValidatePlainMzTabFile()}}{
+Validate a plaintext MzTab file.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ValidatePlainApi$ValidatePlainMzTabFile(
   mztabfile,
@@ -113,11 +127,27 @@ result <- api.instance$ValidatePlainMzTabFile(var.mztabfile, level=var.level, ma
 )}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{mztabfile}}{The mzTab file string to validate.}
+
+\item{\code{level}}{The validation level.}
+
+\item{\code{max.errors}}{The maximum number of errors.}
+
+\item{\code{semantic.validation}}{Whether semantic validation should also be performed.}
+
+\item{\code{...}}{local optional variable arguments}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ValidatePlainMzTabFileWithHttpInfo"></a>}}
 \if{latex}{\out{\hypertarget{method-ValidatePlainMzTabFileWithHttpInfo}{}}}
 \subsection{Method \code{ValidatePlainMzTabFileWithHttpInfo()}}{
+Validate an plaintext MzTab file but include HTTP response info.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ValidatePlainApi$ValidatePlainMzTabFileWithHttpInfo(
   mztabfile,
@@ -128,6 +158,21 @@ result <- api.instance$ValidatePlainMzTabFile(var.mztabfile, level=var.level, ma
 )}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{mztabfile}}{The mzTab file string to validate.}
+
+\item{\code{level}}{The validation level.}
+
+\item{\code{max.errors}}{The maximum number of errors.}
+
+\item{\code{semantic.validation}}{Whether semantic validation should also be performed.}
+
+\item{\code{...}}{local optional variable arguments}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-clone"></a>}}

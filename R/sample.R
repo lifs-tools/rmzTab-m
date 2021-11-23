@@ -41,6 +41,17 @@ Sample <- R6::R6Class(
     `cell_type` = NULL,
     `disease` = NULL,
     `description` = NULL,
+    #' @description Create a Sample
+    #' @param id Sample id.
+    #' @param name Sample name.
+    #' @param custom Custom parameters list( \link{Parameter} ).
+    #' @param species Species CV parameters list( \link{Parameter} ).
+    #' @param tissue Tissue CV parameters list( \link{Parameter} ).
+    #' @param cell_type Cell Type CV parameters list( \link{Parameter} ).
+    #' @param disease Disease CV parameters list( \link{Parameter} ).
+    #' @param description Description of the sample.
+    #' @param ... local optional variable arguments
+    #'     
     initialize = function(`id`=NULL, `name`=NULL, `custom`=NULL, `species`=NULL, `tissue`=NULL, `cell_type`=NULL, `disease`=NULL, `description`=NULL, ...){
       local.optional.var <- list(...)
       if (!is.null(`id`)) {
@@ -81,6 +92,7 @@ Sample <- R6::R6Class(
         self$`description` <- `description`
       }
     },
+    #' @description Serialize to list object suitable for jsonlite
     toJSON = function() {
       SampleObject <- list()
       if (!is.null(self$`id`)) {
@@ -118,6 +130,8 @@ Sample <- R6::R6Class(
 
       SampleObject
     },
+    #' @description Deserialize from jsonlite list object
+    #' @param SampleJson list object.
     fromJSON = function(SampleJson) {
       SampleObject <- jsonlite::fromJSON(SampleJson)
       if (!is.null(SampleObject$`id`)) {
@@ -145,6 +159,7 @@ Sample <- R6::R6Class(
         self$`description` <- SampleObject$`description`
       }
     },
+    #' @description Serialize to JSON string.
     toJSONString = function() {
       jsoncontent <- c(
         if (!is.null(self$`id`)) {
@@ -207,6 +222,8 @@ Sample <- R6::R6Class(
       jsoncontent <- paste(jsoncontent, collapse = ",")
       paste('{', jsoncontent, '}', sep = "")
     },
+    #' @description Deserialize from JSON string
+    #' @param SampleJson SampleJson string
     fromJSONString = function(SampleJson) {
       SampleObject <- jsonlite::fromJSON(SampleJson)
       self$`id` <- SampleObject$`id`
@@ -219,6 +236,7 @@ Sample <- R6::R6Class(
       self$`description` <- SampleObject$`description`
       self
     },
+    #' @description Serialize to data frame
     toDataFrame = function() {
       idPrefix <- paste0("sample[", self$`id`, "]")
       elements <- data.frame(PREFIX=character(), KEY=character(), VALUE=character())
@@ -284,6 +302,8 @@ Sample <- R6::R6Class(
       }
       elements
     },
+    #' @description Deserialize from sample data frame
+    #' @param SampleDataFrame Sample data frame
     fromDataFrame = function(SampleDataFrame) {
       stopifnot(nrow(SampleDataFrame)==1)
       if (rlang::has_name(SampleDataFrame, "id")) {

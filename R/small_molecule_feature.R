@@ -62,6 +62,23 @@ SmallMoleculeFeature <- R6::R6Class(
     `abundance_assay` = NULL,
     `opt` = NULL,
     `comment` = NULL,
+    #' @description Create a new SmallMoleculeFeature.
+    #' @param smf_id The small molecule feature id.
+    #' @param exp_mass_to_charge The experimental mass to charge of the feature.
+    #' @param charge The charge of the feature.
+    #' @param prefix 'SMF'.
+    #' @param header_prefix 'SFH'.
+    #' @param sme_id_refs References by id to \link{SmallMoleculeEvidence}s.
+    #' @param sme_id_ref_ambiguity_code Ambiguity code for SME id refs.
+    #' @param adduct_ion The adduct ion.
+    #' @param isotopomer The isotopomer.
+    #' @param retention_time_in_seconds The feature's retention time in seconds.
+    #' @param retention_time_in_seconds_start The feature's retention time start in seconds.
+    #' @param retention_time_in_seconds_end The feature's retention time end in seconds.
+    #' @param abundance_assay The abundances over all assays.
+    #' @param opt Optional columns and values.
+    #' @param comment Comments.
+    #' @param ... local optional variable arguments.
     initialize = function(`smf_id`, `exp_mass_to_charge`, `charge`, `prefix`='SMF', `header_prefix`='SFH', `sme_id_refs`=NULL, `sme_id_ref_ambiguity_code`=NULL, `adduct_ion`=NULL, `isotopomer`=NULL, `retention_time_in_seconds`=NULL, `retention_time_in_seconds_start`=NULL, `retention_time_in_seconds_end`=NULL, `abundance_assay`=NULL, `opt`=NULL, `comment`=NULL, ...){
       local.optional.var <- list(...)
       if (!missing(`smf_id`)) {
@@ -129,6 +146,7 @@ SmallMoleculeFeature <- R6::R6Class(
         self$`comment` <- `comment`
       }
     },
+    #' @description Serialize to list object suitable for jsonlite    
     toJSON = function() {
       SmallMoleculeFeatureObject <- list()
       if (!is.null(self$`prefix`)) {
@@ -194,6 +212,8 @@ SmallMoleculeFeature <- R6::R6Class(
 
       SmallMoleculeFeatureObject
     },
+    #' @description Deserialize from jsonlite list object
+    #' @param SmallMoleculeFeatureJson list object.
     fromJSON = function(SmallMoleculeFeatureJson) {
       SmallMoleculeFeatureObject <- jsonlite::fromJSON(SmallMoleculeFeatureJson)
       if (!is.null(SmallMoleculeFeatureObject$`prefix`)) {
@@ -244,6 +264,7 @@ SmallMoleculeFeature <- R6::R6Class(
         self$`comment` <- ApiClient$new()$deserializeObj(SmallMoleculeFeatureObject$`comment`, "array[Comment]", loadNamespace("rmzTabM"))
       }
     },
+    #' @description Serialize to JSON string.
     toJSONString = function() {
       jsoncontent <- c(
         if (!is.null(self$`prefix`)) {
@@ -355,6 +376,8 @@ SmallMoleculeFeature <- R6::R6Class(
       jsoncontent <- paste(jsoncontent, collapse = ",")
       paste('{', jsoncontent, '}', sep = "")
     },
+    #' @description Deserialize from JSON string
+    #' @param SmallMoleculeFeatureJson SmallMoleculeFeatureJson string
     fromJSONString = function(SmallMoleculeFeatureJson) {
       SmallMoleculeFeatureObject <- jsonlite::fromJSON(SmallMoleculeFeatureJson)
       self$`prefix` <- SmallMoleculeFeatureObject$`prefix`
@@ -374,6 +397,7 @@ SmallMoleculeFeature <- R6::R6Class(
       self$`comment` <- ApiClient$new()$deserializeObj(SmallMoleculeFeatureObject$`comment`, "array[Comment]", loadNamespace("rmzTabM"))
       self
     },
+    #' @description Serialize to data frame
     toDataFrame = function() {
       fixed_header_values <- c(
         "SFH"=self$`prefix`,
@@ -419,6 +443,8 @@ SmallMoleculeFeature <- R6::R6Class(
         )
       entries
     },
+    #' @description Deserialize from feature data frame
+    #' @param FeatureDataFrame Feature data frame
     fromDataFrame = function(FeatureDataFrame) {
       stopifnot(nrow(FeatureDataFrame)==1)
       columnNames <- colnames(FeatureDataFrame)
@@ -478,6 +504,11 @@ SmallMoleculeFeature <- R6::R6Class(
       }
       # TODO opt handling
       # self$`opt` <- ApiClient$new()$deserializeObj(SmallMoleculeFeatureObject$`opt`, "array[OptColumnMapping]", loadNamespace("rmzTabM"))
+      
+      opt_cols <- FeatureDataFrame %>% dplyr::select(dplyr::starts_with("opt_"))
+      if (!is.null(dim(opt_cols)) && dim(opt_cols)[1] > 0) {
+        warning("Handling of Optional columns not yet implemented")
+      }
       
       if (rlang::has_name(FeatureDataFrame, "comment")) {
         comment <- Comment$new()

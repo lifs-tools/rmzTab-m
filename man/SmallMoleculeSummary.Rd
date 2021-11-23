@@ -64,6 +64,7 @@ SmallMoleculeSummary Class
 \item \href{#method-toJSONString}{\code{SmallMoleculeSummary$toJSONString()}}
 \item \href{#method-fromJSONString}{\code{SmallMoleculeSummary$fromJSONString()}}
 \item \href{#method-toDataFrame}{\code{SmallMoleculeSummary$toDataFrame()}}
+\item \href{#method-fromDataFrame}{\code{SmallMoleculeSummary$fromDataFrame()}}
 \item \href{#method-clone}{\code{SmallMoleculeSummary$clone()}}
 }
 }
@@ -71,6 +72,7 @@ SmallMoleculeSummary Class
 \if{html}{\out{<a id="method-new"></a>}}
 \if{latex}{\out{\hypertarget{method-new}{}}}
 \subsection{Method \code{new()}}{
+Create a new SmallMoleculeSummary.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SmallMoleculeSummary$new(
   sml_id,
@@ -97,11 +99,59 @@ SmallMoleculeSummary Class
 )}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{sml_id}}{The small molecule summary id.}
+
+\item{\code{prefix}}{'SML'.}
+
+\item{\code{header_prefix}}{'SMH'.}
+
+\item{\code{smf_id_refs}}{References by id to \link{SmallMoleculeFeature}s.}
+
+\item{\code{database_identifier}}{The database identifiers.}
+
+\item{\code{chemical_formula}}{The chemical formulas.}
+
+\item{\code{smiles}}{The SMILES strings.}
+
+\item{\code{inchi}}{The INCHI identifiers.}
+
+\item{\code{chemical_name}}{The chemical names.}
+
+\item{\code{uri}}{External URIs.}
+
+\item{\code{theoretical_neutral_mass}}{The theoretical neutral masses.}
+
+\item{\code{adduct_ions}}{The adduct ions.}
+
+\item{\code{reliability}}{The reliability according to the system defined in the \link{Metadata} section.}
+
+\item{\code{best_id_confidence_measure}}{The best id confidence measure \link{Parameter}.}
+
+\item{\code{best_id_confidence_value}}{The best id confidence value.}
+
+\item{\code{abundance_assay}}{The abundances over all assays.}
+
+\item{\code{abundance_study_variable}}{The abundances over study variables.}
+
+\item{\code{abundance_variation_study_variable}}{The abundances variation over study variables.}
+
+\item{\code{opt}}{Optional columns and values.}
+
+\item{\code{comment}}{Comments.}
+
+\item{\code{...}}{local optional variable arguments.}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-toJSON"></a>}}
 \if{latex}{\out{\hypertarget{method-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
+Serialize to list object suitable for jsonlite
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SmallMoleculeSummary$toJSON()}\if{html}{\out{</div>}}
 }
@@ -111,15 +161,24 @@ SmallMoleculeSummary Class
 \if{html}{\out{<a id="method-fromJSON"></a>}}
 \if{latex}{\out{\hypertarget{method-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
+Deserialize from jsonlite list object
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SmallMoleculeSummary$fromJSON(SmallMoleculeSummaryJson)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{SmallMoleculeSummaryJson}}{list object.}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-toJSONString"></a>}}
 \if{latex}{\out{\hypertarget{method-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
+Serialize to JSON string.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SmallMoleculeSummary$toJSONString()}\if{html}{\out{</div>}}
 }
@@ -129,19 +188,45 @@ SmallMoleculeSummary Class
 \if{html}{\out{<a id="method-fromJSONString"></a>}}
 \if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
+Deserialize from JSON string
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SmallMoleculeSummary$fromJSONString(SmallMoleculeSummaryJson)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{SmallMoleculeSummaryJson}}{SmallMoleculeSummaryJson string}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-toDataFrame"></a>}}
 \if{latex}{\out{\hypertarget{method-toDataFrame}{}}}
 \subsection{Method \code{toDataFrame()}}{
+Serialize to data frame
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SmallMoleculeSummary$toDataFrame()}\if{html}{\out{</div>}}
 }
 
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-fromDataFrame"></a>}}
+\if{latex}{\out{\hypertarget{method-fromDataFrame}{}}}
+\subsection{Method \code{fromDataFrame()}}{
+Deserialize from summary data frame
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{SmallMoleculeSummary$fromDataFrame(SummaryDataFrame)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{SummaryDataFrame}}{Summary data frame}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-clone"></a>}}

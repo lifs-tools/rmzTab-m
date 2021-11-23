@@ -10,6 +10,9 @@ ApiResponse  <- R6::R6Class(
   public = list(
     content = NULL,
     response = NULL,
+    #'@description Create an ApiResponse
+    #'@param content The deserialized response body.
+    #'@param response The raw response from the endpoint.
     initialize = function(content, response){
       self$content <- content
       self$response <- response

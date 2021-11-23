@@ -52,6 +52,7 @@ MsRun Class
 \if{html}{\out{<a id="method-new"></a>}}
 \if{latex}{\out{\hypertarget{method-new}{}}}
 \subsection{Method \code{new()}}{
+Create an MsRun
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{MsRun$new(
   id,
@@ -68,11 +69,39 @@ MsRun Class
 )}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{id}}{MsRun id.}
+
+\item{\code{name}}{MsRun name.}
+
+\item{\code{location}}{the location URI to retrieve the MsRun file.}
+
+\item{\code{instrument_ref}}{Link to the \link{Instrument} used to acquire this MsRun.}
+
+\item{\code{format}}{CV parameter defining the file format \link{Parameter}.}
+
+\item{\code{id_format}}{CV parameter defining the mass spec id format \link{Parameter}.}
+
+\item{\code{fragmentation_method}}{Fragementation methods list( \link{Parameter} ).}
+
+\item{\code{scan_polarity}}{Scan polarities present in the file list( \link{Parameter} ).}
+
+\item{\code{hash}}{Hash value of the file using the hash_method.}
+
+\item{\code{hash_method}}{\link{Parameter}}
+
+\item{\code{...}}{local optional variable arguments}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-toJSON"></a>}}
 \if{latex}{\out{\hypertarget{method-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
+Serialize to list object suitable for jsonlite
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{MsRun$toJSON()}\if{html}{\out{</div>}}
 }
@@ -82,15 +111,24 @@ MsRun Class
 \if{html}{\out{<a id="method-fromJSON"></a>}}
 \if{latex}{\out{\hypertarget{method-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
+Deserialize from jsonlite list object
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{MsRun$fromJSON(MsRunJson)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{MsRunJson}}{list object.}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-toJSONString"></a>}}
 \if{latex}{\out{\hypertarget{method-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
+Serialize to JSON string.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{MsRun$toJSONString()}\if{html}{\out{</div>}}
 }
@@ -100,15 +138,24 @@ MsRun Class
 \if{html}{\out{<a id="method-fromJSONString"></a>}}
 \if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
+Deserialize from JSON string
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{MsRun$fromJSONString(MsRunJson)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{MsRunJson}}{JSON string}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-toDataFrame"></a>}}
 \if{latex}{\out{\hypertarget{method-toDataFrame}{}}}
 \subsection{Method \code{toDataFrame()}}{
+Serialize to data frame
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{MsRun$toDataFrame()}\if{html}{\out{</div>}}
 }
@@ -118,10 +165,18 @@ MsRun Class
 \if{html}{\out{<a id="method-fromDataFrame"></a>}}
 \if{latex}{\out{\hypertarget{method-fromDataFrame}{}}}
 \subsection{Method \code{fromDataFrame()}}{
+Deserialize from ms run data frame
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{MsRun$fromDataFrame(MsRunDataFrame)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{MsRunDataFrame}}{MsRun data frame}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-clone"></a>}}

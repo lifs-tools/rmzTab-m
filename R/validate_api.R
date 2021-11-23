@@ -63,14 +63,21 @@
 #' ####################  ValidateMzTabFile  ####################
 #'
 #' library(rmzTabM)
-#' var.mztabfile <- MzTab$new() # MzTab | mzTab file that should be validated.
-#' var.level <- 'info' # character | The level of errors that should be reported, one of ERROR, WARN, INFO.
-#' var.max.errors <- 100 # integer | The maximum number of errors to return.
-#' var.semantic.validation <- FALSE # character | Whether a semantic validation against the default rule set should be performed.
+#' # MzTab | mzTab file that should be validated.
+#' var.mztabfile <- MzTab$new()
+#' # character | The level of errors that should be reported, one of ERROR, WARN, INFO.
+#' var.level <- 'info' 
+#' # integer | The maximum number of errors to return.
+#' var.max.errors <- 100 
+#' # character | Whether a semantic validation against the default rule set should be performed.
+#' var.semantic.validation <- FALSE 
 #'
 #' api.instance <- ValidateApi$new()
 #'
-#' result <- api.instance$ValidateMzTabFile(var.mztabfile, level=var.level, max.errors=var.max.errors, semantic.validation=var.semantic.validation)
+#' result <- api.instance$ValidateMzTabFile(var.mztabfile, 
+#'   level=var.level, max.errors=var.max.errors, 
+#'   semantic.validation=var.semantic.validation
+#' )
 #'
 #'
 #' }
@@ -81,6 +88,8 @@ ValidateApi <- R6::R6Class(
   'ValidateApi',
   public = list(
     apiClient = NULL,
+    #' @description Create a new ValidateApi object.
+    #' @param apiClient An initialized \link{ApiClient}.
     initialize = function(apiClient) {
       if (!missing(apiClient)) {
         self$apiClient <- apiClient
@@ -89,6 +98,12 @@ ValidateApi <- R6::R6Class(
         self$apiClient <- ApiClient$new()
       }
     },
+    #' @description Validate an MzTab object.
+    #' @param mztabfile The \link{MzTab} object to validate.
+    #' @param level The validation level.
+    #' @param max.errors The maximum number of errors.
+    #' @param semantic.validation Whether semantic validation should also be performed.
+    #' @param ... local optional variable arguments
     ValidateMzTabFile = function(mztabfile,
                                  level = 'info',
                                  max.errors = 100,
@@ -111,7 +126,12 @@ ValidateApi <- R6::R6Class(
         apiResponse
       }
     },
-    
+    #' @description Validate an MzTab file but include HTTP response info.
+    #' @param mztabfile The \link{MzTab} object to validate.
+    #' @param level The validation level.
+    #' @param max.errors The maximum number of errors.
+    #' @param semantic.validation Whether semantic validation should also be performed.
+    #' @param ... local optional variable arguments
     ValidateMzTabFileWithHttpInfo = function(mztabfile,
                                              level = 'info',
                                              max.errors = 100,

@@ -23,6 +23,11 @@ Publication <- R6::R6Class(
   public = list(
     `id` = NULL,
     `publicationItems` = NULL,
+    #' @description Create a Publication
+    #' @param publicationItems The list( \link{PublicationItem} )s.
+    #' @param id Publication id.
+    #' @param ... local optional variable arguments
+    #' 
     initialize = function(`publicationItems`, `id`=NULL, ...){
       local.optional.var <- list(...)
       if (!missing(`publicationItems`)) {
@@ -35,6 +40,7 @@ Publication <- R6::R6Class(
         self$`id` <- `id`
       }
     },
+    #' @description Serialize to list object suitable for jsonlite    
     toJSON = function() {
       PublicationObject <- list()
       if (!is.null(self$`id`)) {
@@ -48,6 +54,8 @@ Publication <- R6::R6Class(
 
       PublicationObject
     },
+    #' @description Deserialize from jsonlite list object
+    #' @param PublicationJson list object.
     fromJSON = function(PublicationJson) {
       PublicationObject <- jsonlite::fromJSON(PublicationJson)
       if (!is.null(PublicationObject$`id`)) {
@@ -57,6 +65,7 @@ Publication <- R6::R6Class(
         self$`publicationItems` <- ApiClient$new()$deserializeObj(PublicationObject$`publicationItems`, "array[PublicationItem]", loadNamespace("rmzTabM"))
       }
     },
+    #' @description Serialize to JSON string.    
     toJSONString = function() {
       jsoncontent <- c(
         if (!is.null(self$`id`)) {
@@ -77,12 +86,15 @@ Publication <- R6::R6Class(
       jsoncontent <- paste(jsoncontent, collapse = ",")
       paste('{', jsoncontent, '}', sep = "")
     },
+    #' @description Deserialize from JSON string
+    #' @param PublicationJson JSON string    
     fromJSONString = function(PublicationJson) {
       PublicationObject <- jsonlite::fromJSON(PublicationJson)
       self$`id` <- PublicationObject$`id`
       self$`publicationItems` <- ApiClient$new()$deserializeObj(PublicationObject$`publicationItems`, "array[PublicationItem]", loadNamespace("rmzTabM"))
       self
     },
+    #' @description Serialize to data frame
     toDataFrame = function() {
       idPrefix <- paste0("publication[", self$`id`, "]")
       elements <- data.frame(PREFIX=character(), KEY=character(), VALUE=character())
@@ -98,6 +110,8 @@ Publication <- R6::R6Class(
       }
       elements
     },
+    #' @description Deserialize from publication data frame
+    #' @param PublicationDataFrame Publication data frame
     fromDataFrame = function(PublicationDataFrame) {
       if (rlang::has_name(PublicationDataFrame, "id")) {
         self$`id` <- PublicationDataFrame$`id`

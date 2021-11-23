@@ -26,6 +26,12 @@ OptColumnMapping <- R6::R6Class(
     `identifier` = NULL,
     `param` = NULL,
     `value` = NULL,
+    #' @description Create an OptColumnMapping
+    #' @param identifier The Identifier for the mapping.
+    #' @param param The CV \link{Parameter} defining the type of the value.
+    #' @param value The value.
+    #' @param ... local optional variable arguments
+    #' 
     initialize = function(`identifier`, `param`=NULL, `value`=NULL, ...){
       local.optional.var <- list(...)
       if (!missing(`identifier`)) {
@@ -41,6 +47,7 @@ OptColumnMapping <- R6::R6Class(
         self$`value` <- `value`
       }
     },
+    #' @description Serialize to list object suitable for jsonlite
     toJSON = function() {
       OptColumnMappingObject <- list()
       if (!is.null(self$`identifier`)) {
@@ -58,6 +65,8 @@ OptColumnMapping <- R6::R6Class(
 
       OptColumnMappingObject
     },
+    #' @description Deserialize from jsonlite list object
+    #' @param OptColumnMappingJson list object.
     fromJSON = function(OptColumnMappingJson) {
       OptColumnMappingObject <- jsonlite::fromJSON(OptColumnMappingJson)
       if (!is.null(OptColumnMappingObject$`identifier`)) {
@@ -72,6 +81,7 @@ OptColumnMapping <- R6::R6Class(
         self$`value` <- OptColumnMappingObject$`value`
       }
     },
+    #' @description Serialize to JSON string.
     toJSONString = function() {
       jsoncontent <- c(
         if (!is.null(self$`identifier`)) {
@@ -99,6 +109,8 @@ OptColumnMapping <- R6::R6Class(
       jsoncontent <- paste(jsoncontent, collapse = ",")
       paste('{', jsoncontent, '}', sep = "")
     },
+    #' @description Deserialize from JSON string
+    #' @param OptColumnMappingJson JSON string
     fromJSONString = function(OptColumnMappingJson) {
       OptColumnMappingObject <- jsonlite::fromJSON(OptColumnMappingJson)
       self$`identifier` <- OptColumnMappingObject$`identifier`
@@ -106,6 +118,7 @@ OptColumnMapping <- R6::R6Class(
       self$`value` <- OptColumnMappingObject$`value`
       self
     },
+    #' @description Serialize to string
     toString = function() {
       optStr <- ""
       if (!is.null(self$`identifier`)) {
@@ -120,6 +133,8 @@ OptColumnMapping <- R6::R6Class(
       }
       optStr
     },
+    #' @description Deserialize from string
+    #' @param OptColumnMappingString The string representation to deserialize
     fromString = function(OptColumnMappingString) {
       # if (rlang::has_name(PublicationDataFrame, "id")) {
       #   self$`id` <- PublicationDataFrame$`id`

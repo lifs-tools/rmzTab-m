@@ -26,6 +26,12 @@ Software <- R6::R6Class(
     `id` = NULL,
     `parameter` = NULL,
     `setting` = NULL,
+    #' @description Create a Software
+    #' @param id Software id.
+    #' @param parameter CV parameter for software \link{Parameter}.
+    #' @param setting Software settings list( character ).
+    #' @param ... local optional variable arguments
+    #' 
     initialize = function(`id`=NULL, `parameter`=NULL, `setting`=NULL, ...){
       local.optional.var <- list(...)
       if (!is.null(`id`)) {
@@ -42,6 +48,7 @@ Software <- R6::R6Class(
         self$`setting` <- `setting`
       }
     },
+    #' @description Serialize to list object suitable for jsonlite    
     toJSON = function() {
       SoftwareObject <- list()
       if (!is.null(self$`id`)) {
@@ -59,6 +66,8 @@ Software <- R6::R6Class(
 
       SoftwareObject
     },
+    #' @description Deserialize from jsonlite list object
+    #' @param SoftwareJson list object.    
     fromJSON = function(SoftwareJson) {
       SoftwareObject <- jsonlite::fromJSON(SoftwareJson)
       if (!is.null(SoftwareObject$`id`)) {
@@ -73,6 +82,7 @@ Software <- R6::R6Class(
         self$`setting` <- ApiClient$new()$deserializeObj(SoftwareObject$`setting`, "array[character]", loadNamespace("rmzTabM"))
       }
     },
+    #' @description Serialize to JSON string.    
     toJSONString = function() {
       jsoncontent <- c(
         if (!is.null(self$`id`)) {
@@ -100,6 +110,8 @@ Software <- R6::R6Class(
       jsoncontent <- paste(jsoncontent, collapse = ",")
       paste('{', jsoncontent, '}', sep = "")
     },
+    #' @description Deserialize from JSON string
+    #' @param SoftwareJson JSON string
     fromJSONString = function(SoftwareJson) {
       SoftwareObject <- jsonlite::fromJSON(SoftwareJson)
       self$`id` <- SoftwareObject$`id`
@@ -107,6 +119,7 @@ Software <- R6::R6Class(
       self$`setting` <- ApiClient$new()$deserializeObj(SoftwareObject$`setting`, "array[character]", loadNamespace("rmzTabM"))
       self
     },
+    #' @description Serialize to data frame
     toDataFrame = function() {
       idPrefix <- paste0("software[", self$`id`, "]")
       elements <- data.frame(PREFIX=character(), KEY=character(), VALUE=character())
@@ -131,6 +144,8 @@ Software <- R6::R6Class(
                 stringsAsFactors = FALSE)
       }
     },
+    #' @description Deserialize from software data frame
+    #' @param SoftwareDataFrame Software data frame
     fromDataFrame = function(SoftwareDataFrame) {
       stopifnot(nrow(SoftwareDataFrame)==1)
       columnNames <- colnames(SoftwareDataFrame)

@@ -36,15 +36,28 @@ SpectraRef Class
 \if{html}{\out{<a id="method-new"></a>}}
 \if{latex}{\out{\hypertarget{method-new}{}}}
 \subsection{Method \code{new()}}{
+Create a SpectraRef
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SpectraRef$new(ms_run, reference, ...)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ms_run}}{The ms run \link{MsRun} .}
+
+\item{\code{reference}}{The reference to a particular spectrum using the id_format defined in \link{MsRun}.}
+
+\item{\code{...}}{local optional variable arguments}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-toJSON"></a>}}
 \if{latex}{\out{\hypertarget{method-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
+Serialize to list object suitable for jsonlite
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SpectraRef$toJSON()}\if{html}{\out{</div>}}
 }
@@ -54,15 +67,24 @@ SpectraRef Class
 \if{html}{\out{<a id="method-fromJSON"></a>}}
 \if{latex}{\out{\hypertarget{method-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
+Deserialize from jsonlite list object
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SpectraRef$fromJSON(SpectraRefJson)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{SpectraRefJson}}{list object.}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-toJSONString"></a>}}
 \if{latex}{\out{\hypertarget{method-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
+Serialize to JSON string.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SpectraRef$toJSONString()}\if{html}{\out{</div>}}
 }
@@ -72,15 +94,24 @@ SpectraRef Class
 \if{html}{\out{<a id="method-fromJSONString"></a>}}
 \if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
+Deserialize from JSON string
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SpectraRef$fromJSONString(SpectraRefJson)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{SpectraRefJson}}{JSON string}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-toString"></a>}}
 \if{latex}{\out{\hypertarget{method-toString}{}}}
 \subsection{Method \code{toString()}}{
+Serialize to string
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SpectraRef$toString()}\if{html}{\out{</div>}}
 }
@@ -90,10 +121,18 @@ SpectraRef Class
 \if{html}{\out{<a id="method-fromString"></a>}}
 \if{latex}{\out{\hypertarget{method-fromString}{}}}
 \subsection{Method \code{fromString()}}{
+Deerialize from string
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SpectraRef$fromString(SpectraRefString)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{SpectraRefString}}{The SpectraRef string representation.}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-clone"></a>}}

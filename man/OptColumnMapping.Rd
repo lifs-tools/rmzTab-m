@@ -38,15 +38,30 @@ OptColumnMapping Class
 \if{html}{\out{<a id="method-new"></a>}}
 \if{latex}{\out{\hypertarget{method-new}{}}}
 \subsection{Method \code{new()}}{
+Create an OptColumnMapping
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{OptColumnMapping$new(identifier, param = NULL, value = NULL, ...)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{identifier}}{The Identifier for the mapping.}
+
+\item{\code{param}}{The CV \link{Parameter} defining the type of the value.}
+
+\item{\code{value}}{The value.}
+
+\item{\code{...}}{local optional variable arguments}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-toJSON"></a>}}
 \if{latex}{\out{\hypertarget{method-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
+Serialize to list object suitable for jsonlite
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{OptColumnMapping$toJSON()}\if{html}{\out{</div>}}
 }
@@ -56,15 +71,24 @@ OptColumnMapping Class
 \if{html}{\out{<a id="method-fromJSON"></a>}}
 \if{latex}{\out{\hypertarget{method-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
+Deserialize from jsonlite list object
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{OptColumnMapping$fromJSON(OptColumnMappingJson)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{OptColumnMappingJson}}{list object.}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-toJSONString"></a>}}
 \if{latex}{\out{\hypertarget{method-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
+Serialize to JSON string.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{OptColumnMapping$toJSONString()}\if{html}{\out{</div>}}
 }
@@ -74,15 +98,24 @@ OptColumnMapping Class
 \if{html}{\out{<a id="method-fromJSONString"></a>}}
 \if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
+Deserialize from JSON string
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{OptColumnMapping$fromJSONString(OptColumnMappingJson)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{OptColumnMappingJson}}{JSON string}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-toString"></a>}}
 \if{latex}{\out{\hypertarget{method-toString}{}}}
 \subsection{Method \code{toString()}}{
+Serialize to string
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{OptColumnMapping$toString()}\if{html}{\out{</div>}}
 }
@@ -92,10 +125,18 @@ OptColumnMapping Class
 \if{html}{\out{<a id="method-fromString"></a>}}
 \if{latex}{\out{\hypertarget{method-fromString}{}}}
 \subsection{Method \code{fromString()}}{
+Deserialize from string
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{OptColumnMapping$fromString(OptColumnMappingString)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{OptColumnMappingString}}{The string representation to deserialize}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-clone"></a>}}

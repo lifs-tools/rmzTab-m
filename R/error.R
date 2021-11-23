@@ -23,6 +23,11 @@ Error <- R6::R6Class(
   public = list(
     `code` = NULL,
     `message` = NULL,
+    #' @description Create an Error
+    #' @param code Error code.
+    #' @param message Error message.
+    #' @param ... local optional variable arguments
+    #' 
     initialize = function(`code`, `message`, ...){
       local.optional.var <- list(...)
       if (!missing(`code`)) {
@@ -34,6 +39,7 @@ Error <- R6::R6Class(
         self$`message` <- `message`
       }
     },
+    #' @description Serialize to list object suitable for jsonlite
     toJSON = function() {
       ErrorObject <- list()
       if (!is.null(self$`code`)) {
@@ -47,6 +53,8 @@ Error <- R6::R6Class(
 
       ErrorObject
     },
+    #' @description Deserialize from jsonlite list object
+    #' @param ErrorJson list object.    
     fromJSON = function(ErrorJson) {
       ErrorObject <- jsonlite::fromJSON(ErrorJson)
       if (!is.null(ErrorObject$`code`)) {
@@ -56,6 +64,7 @@ Error <- R6::R6Class(
         self$`message` <- ErrorObject$`message`
       }
     },
+    #' @description Serialize to JSON string.    
     toJSONString = function() {
       jsoncontent <- c(
         if (!is.null(self$`code`)) {
@@ -76,6 +85,8 @@ Error <- R6::R6Class(
       jsoncontent <- paste(jsoncontent, collapse = ",")
       paste('{', jsoncontent, '}', sep = "")
     },
+    #' @description Deserialize from JSON string
+    #' @param ErrorJson JSON string
     fromJSONString = function(ErrorJson) {
       ErrorObject <- jsonlite::fromJSON(ErrorJson)
       self$`code` <- ErrorObject$`code`

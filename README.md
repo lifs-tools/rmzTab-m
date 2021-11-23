@@ -1,5 +1,5 @@
 # R implementation for mzTab-M
-[![Build Status](https://travis-ci.org/lifs-tools/rmzTab-m.svg?branch=master)](https://travis-ci.org/lifs-tools/rmzTab-m)
+[![Build Status](https://github.com/lifs-tools/rmzTab-m/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/lifs-tools/rmzTab-m/actions/workflows/check-standard.yaml)
 
 This is the mzTab-M reference implementation and validation API service.
 

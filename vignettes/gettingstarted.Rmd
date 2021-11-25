@@ -149,3 +149,5 @@ Alternatively, to run the validation with semantic checks of the used CV paramet
   vmdf <- do.call("rbind", dfList)
   knitr::kable(vmdf) %>% kable_styling(bootstrap_options = c("striped", "hover", "condensed", font_size = 7)) %>% scroll_box(width = "800px", height = "1000px")
 ```
+```{r validate2, warning=FALSE, }
+

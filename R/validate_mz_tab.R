@@ -6,6 +6,7 @@
 #' @param validationLevel level of validation messages to return, can be one of 'info', 'warn' or 'error'.
 #' @param maxErrors maximum number of validation errors at which the validation should stop.
 #' @param semanticValidation use semantic validation (CV parameters) against the default mapping file.
+#' @param basePath the base URL endpoint to use for validation.
 #' @return a list of validation messages or an empty list if no messages were generated.
 #' @export
 validateMzTab <-
@@ -13,12 +14,11 @@ validateMzTab <-
            validationMode = "json",
            validationLevel = "info",
            maxErrors = 100,
-           semanticValidation = TRUE) {
+           semanticValidation = TRUE,
+           basePath = "https://apps.lifs-tools.org/mztabvalidator/rest/v2") {
     # set a custom api client to use a different URL
-    # apiClient <-
-    #   ApiClient$new(basePath = "https://apps.lifs-tools.org/mztabvalidator/rest/v2")
     apiClient <-
-      ApiClient$new(basePath = "http://localhost:8083/mztabvalidator/rest/v2")
+      ApiClient$new(basePath = basePath)
     if (validationMode == "json") {
       stopifnot(R6::is.R6(mztab))
       stopifnot("MzTab" != mztab$classname)
@@ -96,7 +96,7 @@ validateMzTab <-
           apiClient$deserialize(resp = response$response,
                                 returnType = "array[ValidationMessage]",
                                 loadNamespace("rmzTabM"))
-        if(response$response$status_code >= 400 && length(validationMessages)>=1) {
+        if(response$response$status_code >= 400 && response$response$status_code <= 405 && length(validationMessages)>=1) {
           message <- ValidationMessage$new()
           message$message_type <- 'error'
           message$category <- validationMessages[[1]]$error

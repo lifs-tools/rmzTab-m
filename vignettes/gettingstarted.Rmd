@@ -107,18 +107,18 @@ writeMzTabJSON(mzTabObject, file.path(tempdir(check=TRUE), "mzTabWrite3.mztab.js
 ## Validating mzTab-M files
 
 To validate an mzTab-M file, you can access the mzTab Validator web application at https://apps.lifs-tools.org/mztabvalidator
-rmzTab-M provides an API client to perform the validation against the web application:
+<!-- rmzTab-M provides an API client to perform the validation against the web application: -->
 
-```{r validate, warning=FALSE}
-  validationMessages1 <- validateMzTab(
-    mzTabObject,
-    validationMode = "json",
-    validationLevel = "info",
-    maxErrors = 100,
-    semanticValidation = FALSE
-  )
-  validationMessages1
-```
+<!-- ```{r validate, warning=FALSE} -->
+<!--   validationMessages1 <- validateMzTab( -->
+<!--     mzTabObject, -->
+<!--     validationMode = "json", -->
+<!--     validationLevel = "info", -->
+<!--     maxErrors = 100, -->
+<!--     semanticValidation = FALSE -->
+<!--   ) -->
+<!--   validationMessages1 -->
+<!-- ``` -->
 
 You can set the `validationLevel` to one of `info`, `warning` or `error`. If you enable `semanticValidation`, CV parameters present in your file will be checked against the [default recommended mapping file](https://github.com/HUPO-PSI/mzTab/blob/master/specification_document-releases/2_0-Metabolomics-Release/mzTab_2_0-M_mapping.xml).
 
@@ -134,5 +134,23 @@ In order to validate an mzTab-M file without needing to parse it locally, use th
     maxErrors = 100,
     semanticValidation = FALSE
   )
-  validationMessages2
+  if(length(validationMessages2)==0) {
+    print("No validation messages")
+  } else {
+    validationMessages2
+  }
+```
+Alternatively, to run the validation with semantic checks of the used CV parameters against the default mapping file, which will give you hints on how to improve your file:
+
+```{r validate, warning=FALSE}
+  validatePlainFile <- system.file("testdata", c("lipidomics-example.mzTab"),package="rmzTabM")
+  mzTabString <- readChar(validatePlainFile, file.info(testfile)$size)
+  validationMessages2 <- validateMzTab(
+    mzTabString,
+    validationMode = "plain",
+    validationLevel = "info",
+    maxErrors = 100,
+    semanticValidation = TRUE
+  )
+  lapply(validationMessages2, function(x) { list("Category"=x$category, "Message"=x$code, "Description"= x$message)})
 ```

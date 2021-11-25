@@ -17,20 +17,15 @@ knitr::opts_chunk$set(
 ```{r setup}
 library(rmzTabM)
 library(dplyr)
+library(kableExtra)
 ```
 
 ## Reading mzTab-M files
 You can read an mzTab-M file in *tab separated format* into a data frame structure as follows:
-```{r readMzTabM, warning=FALSE}
+```{r readMzTabM1, warning=FALSE}
 testfile <- system.file("testdata", c("lipidomics-example.mzTab"), package="rmzTabM")
 mzTabTable <- readMzTab(testfile)
-head(mzTabTable[,1:3])
-```
-
-```{r readMzTabM, warning=FALSE}
-testfile <- system.file("testdata", c("lipidomics-example.mzTab"), package="rmzTabM")
-mzTabTable <- readMzTab(testfile)
-mzTabTable
+kable(head(mzTabTable[,1:3])) %>% kable_styling(bootstrap_options = c("striped", "hover", "condensed", font_size = 7)) %>% scroll_box(width = "800px", height = "200px")
 ```
 
 You can extract the individual section tables from this one as follows:
@@ -41,11 +36,11 @@ smlTable <- extractSmallMoleculeSummary(mzTabTable)
 smfTable <- extractSmallMoleculeFeatures(mzTabTable)
 smeTable <- extractSmallMoleculeEvidence(mzTabTable)
 
-head(smlTable[,1:6])
+knitr::kable(head(smlTable)) %>% kable_styling(bootstrap_options = c("striped", "hover", "condensed", font_size = 7)) %>% scroll_box(width = "800px", height = "200px")
 
-head(smfTable[,1:6])
+knitr::kable(head(smfTable)) %>% kable_styling(bootstrap_options = c("striped", "hover", "condensed", font_size = 7)) %>% scroll_box(width = "800px", height = "200px")
 
-head(smeTable[,1:6])
+knitr::kable(head(smeTable)) %>% kable_styling(bootstrap_options = c("striped", "hover", "condensed", font_size = 7)) %>% scroll_box(width = "800px", height = "200px")
 ```
 
 
@@ -124,7 +119,7 @@ You can set the `validationLevel` to one of `info`, `warning` or `error`. If you
 
 In order to validate an mzTab-M file without needing to parse it locally, use the following call, which should return an empty list:
 
-```{r validate, warning=FALSE}
+```{r validate1, warning=FALSE}
   validatePlainFile <- system.file("testdata", c("lipidomics-example.mzTab"),package="rmzTabM")
   mzTabString <- readChar(validatePlainFile, file.info(testfile)$size)
   validationMessages2 <- validateMzTab(
@@ -142,9 +137,7 @@ In order to validate an mzTab-M file without needing to parse it locally, use th
 ```
 Alternatively, to run the validation with semantic checks of the used CV parameters against the default mapping file, which will give you hints on how to improve your file:
 
-```{r validate, warning=FALSE}
-  validatePlainFile <- system.file("testdata", c("lipidomics-example.mzTab"),package="rmzTabM")
-  mzTabString <- readChar(validatePlainFile, file.info(testfile)$size)
+```{r validate2, warning=FALSE}
   validationMessages2 <- validateMzTab(
     mzTabString,
     validationMode = "plain",
@@ -152,5 +145,7 @@ Alternatively, to run the validation with semantic checks of the used CV paramet
     maxErrors = 100,
     semanticValidation = TRUE
   )
-  lapply(validationMessages2, function(x) { list("Category"=x$category, "Message"=x$code, "Description"= x$message)})
+  dfList<-lapply(validationMessages2, function(x) { data.frame("Category"=x$category, "Message"=x$code) })
+  vmdf <- do.call("rbind", dfList)
+  knitr::kable(vmdf) %>% kable_styling(bootstrap_options = c("striped", "hover", "condensed", font_size = 7)) %>% scroll_box(width = "800px", height = "1000px")
 ```

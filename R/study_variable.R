@@ -94,7 +94,7 @@ StudyVariable <- R6::R6Class(
       }
       if (!is.null(self$`assay_refs`)) {
         StudyVariableObject[['assay_refs']] <-
-          rmzTabM::safe_unbox(self$`assay_refs`)
+          unlist(self$`assay_refs`)
       }
       if (!is.null(self$`average_function`)) {
         StudyVariableObject[['average_function']] <-
@@ -147,6 +147,7 @@ StudyVariable <- R6::R6Class(
     },
     #' @description Serialize to JSON string.
     toJSONString = function() {
+      browser
       jsoncontent <- c(
         if (!is.null(self$`id`)) {
         sprintf(

@@ -66,6 +66,9 @@ Parameter <- R6::R6Class(
     #' @description Serialize to list object suitable for jsonlite
     toJSON = function() {
       ParameterObject <- list()
+      if (is.null(self$`name`) || is.na(self$`name`)) {
+        return(NULL)
+      }
       if (!is.null(self$`id`)) {
         ParameterObject[['id']] <-
           rmzTabM::safe_unbox(self$`id`)

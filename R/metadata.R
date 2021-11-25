@@ -1071,7 +1071,8 @@ Metadata <- R6::R6Class(
         unlist(lapply(extractIdElements(MetadataDataFrame, "id_confidence_measure"),
                function(x) {
                  param <- Parameter$new()
-                 return(param$fromString(NULL, x$name))
+                 param$fromString(x$id, x$name)
+                 return(param)
                }))
       # colunitSm <- extractPart(MetadataDataFrame, "V2", "colunit-small_molecule")
       # colunitSmf <- extractPart(MetadataDataFrame, "V2", "colunit-small_molecule_feature")

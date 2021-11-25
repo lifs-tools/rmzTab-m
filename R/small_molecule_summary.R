@@ -213,39 +213,39 @@ SmallMoleculeSummary <- R6::R6Class(
       }
       if (!is.null(self$`smf_id_refs`)) {
         SmallMoleculeSummaryObject[['smf_id_refs']] <-
-          rmzTabM::safe_unbox(self$`smf_id_refs`)
+          unlist(self$`smf_id_refs`)
       }
       if (!is.null(self$`database_identifier`)) {
         SmallMoleculeSummaryObject[['database_identifier']] <-
-          rmzTabM::safe_unbox(self$`database_identifier`)
+          unlist(self$`database_identifier`)
       }
       if (!is.null(self$`chemical_formula`)) {
         SmallMoleculeSummaryObject[['chemical_formula']] <-
-          rmzTabM::safe_unbox(self$`chemical_formula`)
+          unlist(self$`chemical_formula`)
       }
       if (!is.null(self$`smiles`)) {
         SmallMoleculeSummaryObject[['smiles']] <-
-          rmzTabM::safe_unbox(self$`smiles`)
+          unlist(self$`smiles`)
       }
       if (!is.null(self$`inchi`)) {
         SmallMoleculeSummaryObject[['inchi']] <-
-          rmzTabM::safe_unbox(self$`inchi`)
+          unlist(self$`inchi`)
       }
       if (!is.null(self$`chemical_name`)) {
         SmallMoleculeSummaryObject[['chemical_name']] <-
-          rmzTabM::safe_unbox(self$`chemical_name`)
+          unlist(self$`chemical_name`)
       }
       if (!is.null(self$`uri`)) {
         SmallMoleculeSummaryObject[['uri']] <-
-          rmzTabM::safe_unbox(self$`uri`)
+          unlist(self$`uri`)
       }
       if (!is.null(self$`theoretical_neutral_mass`)) {
         SmallMoleculeSummaryObject[['theoretical_neutral_mass']] <-
-          rmzTabM::safe_unbox(self$`theoretical_neutral_mass`)
+          unlist(self$`theoretical_neutral_mass`)
       }
       if (!is.null(self$`adduct_ions`)) {
         SmallMoleculeSummaryObject[['adduct_ions']] <-
-          rmzTabM::safe_unbox(self$`adduct_ions`)
+          unlist(self$`adduct_ions`)
       }
       if (!is.null(self$`reliability`)) {
         SmallMoleculeSummaryObject[['reliability']] <-
@@ -261,15 +261,15 @@ SmallMoleculeSummary <- R6::R6Class(
       }
       if (!is.null(self$`abundance_assay`)) {
         SmallMoleculeSummaryObject[['abundance_assay']] <-
-          rmzTabM::safe_unbox(self$`abundance_assay`)
+          unlist(self$`abundance_assay`)
       }
       if (!is.null(self$`abundance_study_variable`)) {
         SmallMoleculeSummaryObject[['abundance_study_variable']] <-
-          rmzTabM::safe_unbox(self$`abundance_study_variable`)
+          unlist(self$`abundance_study_variable`)
       }
       if (!is.null(self$`abundance_variation_study_variable`)) {
         SmallMoleculeSummaryObject[['abundance_variation_study_variable']] <-
-          rmzTabM::safe_unbox(self$`abundance_variation_study_variable`)
+          unlist(self$`abundance_variation_study_variable`)
       }
       if (!is.null(self$`opt`)) {
         SmallMoleculeSummaryObject[['opt']] <-
@@ -604,7 +604,7 @@ SmallMoleculeSummary <- R6::R6Class(
         self$`sml_id` <- as.numeric(SummaryDataFrame$`sml_id`)
       }
       if (rlang::has_name(SummaryDataFrame, "SML_ID")) {
-        self$`sml_id` <- as.numeric(SummaryDataFrame$`SMLID`)
+        self$`sml_id` <- as.numeric(SummaryDataFrame$`SML_ID`)
       }
       if (rlang::has_name(SummaryDataFrame, "smf_id_refs")) {
         refList <- splitList(SummaryDataFrame$`smf_id_refs`)

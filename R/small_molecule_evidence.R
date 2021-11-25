@@ -279,7 +279,7 @@ SmallMoleculeEvidence <- R6::R6Class(
       }
       if (!is.null(self$`id_confidence_measure`)) {
         SmallMoleculeEvidenceObject[['id_confidence_measure']] <-
-          rmzTabM::safe_unbox(self$`id_confidence_measure`)
+          unlist(self$`id_confidence_measure`)
       }
       if (!is.null(self$`rank`)) {
         SmallMoleculeEvidenceObject[['rank']] <-

@@ -163,7 +163,7 @@ SmallMoleculeFeature <- R6::R6Class(
       }
       if (!is.null(self$`sme_id_refs`)) {
         SmallMoleculeFeatureObject[['sme_id_refs']] <-
-          rmzTabM::safe_unbox(self$`sme_id_refs`)
+          unlist(self$`sme_id_refs`)
       }
       if (!is.null(self$`sme_id_ref_ambiguity_code`)) {
         SmallMoleculeFeatureObject[['sme_id_ref_ambiguity_code']] <-
@@ -175,7 +175,7 @@ SmallMoleculeFeature <- R6::R6Class(
       }
       if (!is.null(self$`isotopomer`)) {
         SmallMoleculeFeatureObject[['isotopomer']] <-
-          self$`isotopomer`$toJSON()
+          rmzTabM::safe_unbox(self$`isotopomer`$toJSON())
       }
       if (!is.null(self$`exp_mass_to_charge`)) {
         SmallMoleculeFeatureObject[['exp_mass_to_charge']] <-

@@ -13,6 +13,11 @@ Encoding: UTF-8
 License: MIT + file LICENSE
 URL: https://github.com/lifs-tools/rmztab-m
 BugReports: https://github.com/lifs-tools/rmztab-m/issues
-Suggests: testthat, pkgdown
+Suggests: 
+    testthat,
+    pkgdown,
+    knitr,
+    rmarkdown
 Imports: jsonlite, httr, R6, caTools, dplyr, tidyr
 RoxygenNote: 7.1.1
+VignetteBuilder: knitr

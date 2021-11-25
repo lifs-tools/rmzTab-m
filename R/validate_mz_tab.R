@@ -15,21 +15,29 @@ validateMzTab <-
            maxErrors = 100,
            semanticValidation = TRUE) {
     # set a custom api client to use a different URL
+    # apiClient <-
+    #   ApiClient$new(basePath = "https://apps.lifs-tools.org/mztabvalidator/rest/v2")
     apiClient <-
-      ApiClient$new(basePath = "https://apps.lifs-tools.org/mztabvalidator/rest/v2")
+      ApiClient$new(basePath = "http://localhost:8083/mztabvalidator/rest/v2")
     if (validationMode == "json") {
       stopifnot(R6::is.R6(mztab))
       stopifnot("MzTab" != mztab$classname)
       validateApi <- ValidateApi$new(apiClient = apiClient)
       response <-
         validateApi$ValidateMzTabFile(mztab, validationLevel, maxErrors, semanticValidation)
-      
       if (!is.null(response$response)) {
         # retrieve the validation messages
         validationMessages <-
           apiClient$deserialize(resp = response$response,
                                 returnType = "array[ValidationMessage]",
                                 loadNamespace("rmzTabM"))
+        if(response$response$status_code >= 400 && response$response$status_code <= 405 && length(validationMessages)>=1) {
+          message <- ValidationMessage$new()
+          message$message_type <- 'error'
+          message$category <- validationMessages[[1]]$error
+          message$message <- validationMessages[[1]]$trace
+          return(list(message))
+        }
         lapply(validationMessages, function(x) {
           if (x$message_type != 'info') {
             warning(
@@ -65,6 +73,9 @@ validateMzTab <-
             )
           }
         })
+        if(is.null(validationMessages)) {
+          return(list())
+        }
         return(validationMessages)
       } else {
         return(list())
@@ -79,13 +90,19 @@ validateMzTab <-
                                                 validationLevel,
                                                 maxErrors,
                                                 semanticValidation)
-      
       if (!is.null(response$response)) {
         # retrieve the validation messages
         validationMessages <-
           apiClient$deserialize(resp = response$response,
                                 returnType = "array[ValidationMessage]",
                                 loadNamespace("rmzTabM"))
+        if(response$response$status_code >= 400 && length(validationMessages)>=1) {
+          message <- ValidationMessage$new()
+          message$message_type <- 'error'
+          message$category <- validationMessages[[1]]$error
+          message$message <- validationMessages[[1]]$trace
+          return(list(message))
+        }
         lapply(validationMessages, function(x) {
           if (x$message_type != 'info') {
             warning(
@@ -121,6 +138,9 @@ validateMzTab <-
             )
           }
         })
+        if(is.null(validationMessages)) {
+          return(list())
+        }
         return(validationMessages)
       } else {
         return(list())

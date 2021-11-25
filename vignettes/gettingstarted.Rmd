@@ -1,0 +1,138 @@
+---
+title: "Getting started with rmzTab-M"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Getting started with rmzTab-M}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(rmzTabM)
+library(dplyr)
+```
+
+## Reading mzTab-M files
+You can read an mzTab-M file in *tab separated format* into a data frame structure as follows:
+```{r readMzTabM, warning=FALSE}
+testfile <- system.file("testdata", c("lipidomics-example.mzTab"), package="rmzTabM")
+mzTabTable <- readMzTab(testfile)
+head(mzTabTable[,1:3])
+```
+
+```{r readMzTabM, warning=FALSE}
+testfile <- system.file("testdata", c("lipidomics-example.mzTab"), package="rmzTabM")
+mzTabTable <- readMzTab(testfile)
+mzTabTable
+```
+
+You can extract the individual section tables from this one as follows:
+
+```{r mzTabMExtract, warning=FALSE}
+mtdTable <- extractMetadata(mzTabTable)
+smlTable <- extractSmallMoleculeSummary(mzTabTable)
+smfTable <- extractSmallMoleculeFeatures(mzTabTable)
+smeTable <- extractSmallMoleculeEvidence(mzTabTable)
+
+head(smlTable[,1:6])
+
+head(smfTable[,1:6])
+
+head(smeTable[,1:6])
+```
+
+
+To turn these tables into objects, use the R6 class constructor method `new()`:
+
+```{r readMzTabMObj, warning=FALSE}
+mzTabObject <- MzTab$new()$fromDataFrame(mzTabTable)
+```
+
+You can then access sections like Metadata as object members:
+
+```{r readMzTabMMetadata, warning=FALSE}
+# this is an R6 object
+metadata <- mzTabObject$metadata
+# these are lists
+smallMoleculeSummaryEntries <- mzTabObject$smallMoleculeSummary
+smallMoleculeFeatureEntries <- mzTabObject$smallMoleculeFeature
+smallMoleculeEvidenceEntries <- mzTabObject$smallMoleculeEvidence
+```
+
+Extracting values is possible from either representation, depending on whether you prefer a tabular style or an object oriented style, however, there may be type differences:
+
+```{r extractValues, warning=FALSE}
+# this is the SmallMoleculeSummary list first entry id
+smallMoleculeSummaryEntries[[1]]$sml_id
+
+# and this is the same with the data frame
+as.numeric(smlTable$SML_ID)
+```
+
+## Writing mzTab-M files
+
+If you have an mzTab-M data frame, you can write it as follows:
+
+```{r writeMzTabMTable1, warning=FALSE}
+utils::write.table(
+    mzTabTable,
+    file = file.path(tempdir(check=TRUE), "mzTabWrite1.mztab"),
+    row.names = FALSE,
+    col.names = FALSE,
+    quote = FALSE,
+    sep = "\t",
+    na = "",
+    fileEncoding = "UTF8"
+  )
+```
+
+For an MzTab object, you can write to the tab separated format:
+
+```{r writeMzTabMTable2, warning=FALSE}
+writeMzTab(mzTabObject, file.path(tempdir(check=TRUE), "mzTabWrite2.mztab"))
+```
+
+Or to JSON format:
+```{r writeMzTabMTable3, warning=FALSE}
+writeMzTabJSON(mzTabObject, file.path(tempdir(check=TRUE), "mzTabWrite3.mztab.json"))
+```
+
+## Validating mzTab-M files
+
+To validate an mzTab-M file, you can access the mzTab Validator web application at https://apps.lifs-tools.org/mztabvalidator
+rmzTab-M provides an API client to perform the validation against the web application:
+
+```{r validate, warning=FALSE}
+  validationMessages1 <- validateMzTab(
+    mzTabObject,
+    validationMode = "json",
+    validationLevel = "info",
+    maxErrors = 100,
+    semanticValidation = FALSE
+  )
+  validationMessages1
+```
+
+You can set the `validationLevel` to one of `info`, `warning` or `error`. If you enable `semanticValidation`, CV parameters present in your file will be checked against the [default recommended mapping file](https://github.com/HUPO-PSI/mzTab/blob/master/specification_document-releases/2_0-Metabolomics-Release/mzTab_2_0-M_mapping.xml).
+
+In order to validate an mzTab-M file without needing to parse it locally, use the following call, which should return an empty list:
+
+```{r validate, warning=FALSE}
+  validatePlainFile <- system.file("testdata", c("lipidomics-example.mzTab"),package="rmzTabM")
+  mzTabString <- readChar(validatePlainFile, file.info(testfile)$size)
+  validationMessages2 <- validateMzTab(
+    mzTabString,
+    validationMode = "plain",
+    validationLevel = "info",
+    maxErrors = 100,
+    semanticValidation = FALSE
+  )
+  validationMessages2
+```

@@ -9,7 +9,8 @@ validateMzTab(
   validationMode = "json",
   validationLevel = "info",
   maxErrors = 100,
-  semanticValidation = TRUE
+  semanticValidation = TRUE,
+  basePath = "https://apps.lifs-tools.org/mztabvalidator/rest/v2"
 )
 }
 \arguments{
@@ -23,6 +24,8 @@ if "plain", validate against the mzTab-M validator online service by converting 
 \item{maxErrors}{maximum number of validation errors at which the validation should stop.}
 
 \item{semanticValidation}{use semantic validation (CV parameters) against the default mapping file.}
+
+\item{basePath}{the base URL endpoint to use for validation.}
 }
 \value{
 a list of validation messages or an empty list if no messages were generated.

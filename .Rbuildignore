@@ -8,4 +8,7 @@
 ^build-site.sh$
 ^build.sh$
 ^docs$
-^.github$
+^\.github$
+^renovate.json$
+^pkgdown$
+^_pkgdown\.yml$

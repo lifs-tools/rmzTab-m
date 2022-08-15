@@ -9,7 +9,8 @@ readMzTab <- function(filename) {
   mztab.table = utils::read.table(file=filename, header=FALSE,
                     row.names=NULL, dec = ".", fill = TRUE,
                     col.names = paste0("V", seq_len(ncol)),
-                    sep="\t", na.strings="null", quote = "", colClasses = "character")
+                    sep="\t", na.strings="null", quote = "", comment.char = "",
+                    colClasses = "character")
   mztab.table
 }
 
@@ -28,7 +29,8 @@ readMzTabString <- function(mzTabString) {
   mztab.table = utils::read.table(file=file, header=FALSE,
                                   row.names=NULL, dec = ".", fill = TRUE,
                                   col.names = paste0("V", seq_len(ncol)),
-                                  sep="\t", na.strings="null", quote = "", colClasses = "character")
+                                  sep="\t", na.strings="null", quote = "", comment.char = "#",
+                                  colClasses = "character")
   mztab.table
 }
 

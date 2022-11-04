@@ -23,6 +23,7 @@
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
+#' @importFrom dplyr %>%
 #' @export
 MzTab <- R6::R6Class(
   'MzTab',

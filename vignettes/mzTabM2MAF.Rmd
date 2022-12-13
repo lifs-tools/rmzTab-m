@@ -1,0 +1,52 @@
+---
+title: "Conversion of an mzTab-M to MetaboLights MAF"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Conversion of an mzTab-M to MetaboLights MAF}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteDepends{rmzTabM,metabolighteR,BiocStyle}
+  %\VignettePackage{rmzTabM}
+  %\VignetteKeywords{mass spectrometry, metabolomics, lipidomics}
+
+---
+```{r biocstyle, echo = FALSE, results = "asis"}
+BiocStyle::markdown()
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+**Package**: `r Biocpkg("rmzTabM")`<br />
+**Authors**: Steffen Neumann<br />
+**Modified**: `r file.info("mzTabM2MAF.Rmd")$mtime`<br />
+**Compiled**: `r date()`
+
+
+```{r setup}
+library(BiocStyle)
+library(rmzTabM)
+library(metabolighteR)
+library(kableExtra)
+```
+
+## Reading mzTab-M files
+You can read an mzTab-M file in *tab separated format* into a data frame structure as follows:
+```{r readMzTabM1, warning=FALSE}
+
+maf <- convertMzTab2MAF(mzTabfile=system.file("testdata", c("lcmsms_dda_hydrophilic_height_mzTab.mztab"), package="rmzTabM"),
+                 MAFfile=file.path(tempdir(check=TRUE), "m_MTBLS007_v2_maf.tsv"))
+
+kable(head(maf)) %>% kable_styling(bootstrap_options = c("striped", "hover", "condensed", font_size = 7)) %>% scroll_box(width = "800px", height = "200px")
+
+```
+
+
+# Session information
+
+```{r sessionInfo}
+sessionInfo()
+```
+
+# References

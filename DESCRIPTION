@@ -22,6 +22,6 @@ Suggests:
     kableExtra
 Imports: jsonlite, httr, R6, caTools, dplyr, tidyr, metabolighteR
 Remotes:
-    github::aberHRML/metabolighteR@devel (>= 0.1.4)
+    github::aberHRML/metabolighteR@devel
 RoxygenNote: 7.2.0
 VignetteBuilder: knitr

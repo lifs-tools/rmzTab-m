@@ -13,6 +13,9 @@
     <loc>/articles/index.html</loc>
   </url>
   <url>
+    <loc>/articles/mzTabM2MAF.html</loc>
+  </url>
+  <url>
     <loc>/authors.html</loc>
   </url>
   <url>
@@ -107,6 +110,9 @@
   </url>
   <url>
     <loc>/reference/as.scalar.html</loc>
+  </url>
+  <url>
+    <loc>/reference/convertMzTab2MAF.html</loc>
   </url>
   <url>
     <loc>/reference/extractComments.html</loc>

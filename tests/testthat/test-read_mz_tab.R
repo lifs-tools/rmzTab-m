@@ -25,6 +25,17 @@ test_that("reading of mztab JSON format works", {
   expect_length(mzTabObject$metadata$`assay`, 6)
 })
 
+test_that("reading of mztab TAB format of MTBLS263 works", {
+  testfile <- system.file("testdata", c("MTBLS263.mztab"), package="rmzTabM")
+  mzTabTable <- readMzTab(testfile)
+  
+  # sml.table <- extractSmallMoleculeSummary(mzTabTable)
+  # browser()
+  mzTabObject <- MzTab$new()
+  mzTabObject$fromDataFrame(mzTabTable)
+  
+})
+
 test_that("reading of mztab TAB format works", {
   testfile <- system.file("testdata", c("lipidomics-example.mzTab"), package="rmzTabM")
   mzTabTable <- readMzTab(testfile)

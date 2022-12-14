@@ -6,10 +6,14 @@
 readMzTab <- function(filename) {
   # read maximum number of columns in file
   ncol <- max(stats::na.omit(utils::count.fields(file=filename, sep = "\t")))
+  if (is.infinite(ncol)) {
+    stop(paste("Number of columns is infinite.", paste0("Please check file: ", filename)))
+  }
   mztab.table = utils::read.table(file=filename, header=FALSE,
                     row.names=NULL, dec = ".", fill = TRUE,
                     col.names = paste0("V", seq_len(ncol)),
-                    sep="\t", na.strings="null", quote = "", comment.char = "",
+                    sep="\t", na.strings="null", quote = "", comment.char = "#",
+                    blank.lines.skip = TRUE, strip.white = TRUE,
                     colClasses = "character")
   mztab.table
 }
@@ -30,6 +34,7 @@ readMzTabString <- function(mzTabString) {
                                   row.names=NULL, dec = ".", fill = TRUE,
                                   col.names = paste0("V", seq_len(ncol)),
                                   sep="\t", na.strings="null", quote = "", comment.char = "#",
+                                  blank.lines.skip = TRUE, strip.white = TRUE,
                                   colClasses = "character")
   mztab.table
 }

@@ -97,6 +97,8 @@ ApiClient  <- R6::R6Class(
       if (!is.null(timeout)) {
         self$timeout <- timeout
       }
+      
+      httr::set_config(httr::config(ssl_verifypeer = 0L))
     },
     #' @description CallApi
     #' @param url URL to call

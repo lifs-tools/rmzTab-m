@@ -210,10 +210,12 @@ MzTab <- R6::R6Class(
       smeDataFrame <- extractSmallMoleculeEvidence(MzTabDataFrame)
       sme.list <- split(smeDataFrame, seq(nrow(smeDataFrame)))
       self$`smallMoleculeEvidence` <- lapply(sme.list, FUN=function(x) {SmallMoleculeEvidence$new()$fromDataFrame(x)})
-      # comments
+      # comments, if any exist
       commentsDataFrame <- extractComments(MzTabDataFrame)
-      comments.list <- split(commentsDataFrame, seq(nrow(commentsDataFrame)))
-      self$`comment` <- lapply(comments.list, FUN=function(x) {Comment$new()$fromDataFrame(x)})
+      if (nrow(commentsDataFrame>0)) {
+        comments.list <- split(commentsDataFrame, seq(nrow(commentsDataFrame)))
+        self$`comment` <- lapply(comments.list, FUN=function(x) {Comment$new()$fromDataFrame(x)})
+      }
       self
     }
   )

@@ -31,17 +31,42 @@ library(metabolighteR)
 library(kableExtra)
 ```
 
-## Reading mzTab-M files
-You can read an mzTab-M file in *tab separated format* into a data frame structure as follows:
-```{r readMzTabM1, warning=FALSE}
+# Converting an mzTab-M file to MetaboLights MAF 
 
-maf <- convertMzTab2MAF(mzTabfile=system.file("testdata", c("lcmsms_dda_hydrophilic_height_mzTab.mztab"), package="rmzTabM"),
-                 MAFfile=file.path(tempdir(check=TRUE), "m_MTBLS007_v2_maf.tsv"))
+The Metabolites Asignement File (MAF) is used by the EMBL-EBI MetaboLights 
+repository to capture the metabolite abundances in the individual samples, 
+the spectral characteristics of the features and, if present, the metabolite 
+identifications. 
 
-kable(head(maf)) %>% kable_styling(bootstrap_options = c("striped", "hover", "condensed", font_size = 7)) %>% scroll_box(width = "800px", height = "200px")
+The `convertMzTab2MAF()` function will read the mzTab-M via `readMzTab()` 
+and extract the `smlTable` and the `smfTable`. Abundances are extracted 
+from the `smlTable`, while *m/z* and retention time come from the feature table. 
+
+The MAF is created as a `data.frame` and written as TSV using `write.MAF()` 
+from the `metabolighteR` package by Tom Wilson. The data.frame is also returned 
+as (invisible) return value of `convertMzTab2MAF()`.
+
+```{r convertMzTabM, warning=FALSE}
+
+mztabfile <- system.file("testdata", 
+                         c("lcmsms_dda_hydrophilic_height_mzTab.mztab"), 
+                         package="rmzTabM")
+MAFfile <- file.path(tempdir(check=TRUE), "m_MTBLS0815_v2_maf.tsv")                      
+
+maf <- convertMzTab2MAF(mzTabfile=mztabfile,
+                        MAFfile=MAFfile)
 
 ```
 
+
+
+```{r analyseMAF, warning=FALSE}
+
+kable(head(maf[!(grepl ("MSP: Unknown", maf$database_identifier) | is.na(maf$database_identifier)), ])) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed", font_size = 7)) %>% 
+  scroll_box(width = "800px", height = "200px")
+
+```
 
 # Session information
 

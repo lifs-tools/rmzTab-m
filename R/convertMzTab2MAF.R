@@ -2,15 +2,27 @@
 #' 
 #' @description Convert from mzTab-M to MetaboLights MAF
 #' 
+#' The `convertMzTab2MAF()` function will read the mzTab-M via `readMzTab()`
+#' and extract the `smlTable` and the `smfTable`. Abundances are extracted 
+#' from the `smlTable`, while *m/z* and retention time come from the feature table. 
+#' 
 #' @param mzTabfile path to an mzTab-M 2.0 file to be read with rmzTab-M
 #' @param MAFfile for an output
+#' 
+#' @returns data.frame of the MAF file (invisible)
 #' 
 #' @importFrom metabolighteR create.MAF write.MAF
 #' @export convertMzTab2MAF
 #' 
 #' @examples
 #' \dontrun{
-#' example from the vignette
+#' mztabfile <- system.file("testdata", 
+#'                          c("lcmsms_dda_hydrophilic_height_mzTab.mztab"), 
+#'                          package="rmzTabM")
+#' MAFfile <- file.path(tempdir(check=TRUE), "m_MTBLS0815_v2_maf.tsv")                      
+#' 
+#' maf <- convertMzTab2MAF(mzTabfile=mztabfile,
+#'                         MAFfile=MAFfile)
 #' }
 
 convertMzTab2MAF <- function(mzTabfile, MAFfile) {
@@ -24,7 +36,14 @@ convertMzTab2MAF <- function(mzTabfile, MAFfile) {
 
   smlTable <- extractSmallMoleculeSummary(mzTabTable)
   smfTable <- extractSmallMoleculeFeatures(mzTabTable)
-  #smeTable <- extractSmallMoleculeEvidence(mzTabTable)
+  
+  if (nrow(smlTable) != nrow(smfTable)) {
+    warning("Sorry, I can't create a MAF file with SML and SMF tables have different dimensions")
+    return(NULL)
+  }
+  
+  # SME not needed here
+  # smeTable <- extractSmallMoleculeEvidence(mzTabTable)
 
   abundances <- as.matrix(smlTable[,which(grepl("abundance_assay", colnames(smlTable)))])
   colnames(abundances) <- msassaynames

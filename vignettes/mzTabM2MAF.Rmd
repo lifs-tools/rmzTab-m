@@ -48,9 +48,18 @@ as (invisible) return value of `convertMzTab2MAF()`.
 
 ```{r convertMzTabM, warning=FALSE}
 
+# An example file:
+mzTabfile <- system.file("testdata", 
+                         "MTBLS263.mztab", 
+                         package="rmzTabM",
+                         mustWork=TRUE)
+
+# Another example file shipped is:
 mztabfile <- system.file("testdata", 
                          c("lcmsms_dda_hydrophilic_height_mzTab.mztab"), 
-                         package="rmzTabM")
+                         package="rmzTabM",
+                         mustWork=TRUE)
+
 MAFfile <- file.path(tempdir(check=TRUE), "m_MTBLS0815_v2_maf.tsv")                      
 
 maf <- convertMzTab2MAF(mzTabfile=mztabfile,

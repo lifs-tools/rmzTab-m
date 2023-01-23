@@ -25,7 +25,7 @@ test_that("reading of mztab JSON format works", {
   expect_length(mzTabObject$metadata$`assay`, 6)
 })
 
-test_that("reading of mztab TAB format of MTBLS263 works", {
+test_that("reading of mzTab TAB format of MTBLS263 works", {
   testfile <- system.file("testdata", c("MTBLS263.mztab"), package="rmzTabM")
   mzTabTable <- readMzTab(testfile)
   
@@ -36,7 +36,30 @@ test_that("reading of mztab TAB format of MTBLS263 works", {
   
 })
 
-test_that("reading of mztab TAB format works", {
+test_that("reading of mzTab TAB format from MS-Dial 4.12 (mzTab exporter 1.05) works", {
+  testfile <- system.file("testdata", c("lcmsms_dda_hydrophilic_height_mzTab.mztab"), package="rmzTabM")
+  mzTabTable <- readMzTab(testfile)
+
+  mzTabObject <- MzTab$new()
+  mzTabObject$fromDataFrame(mzTabTable)
+
+  sml.table <- extractSmallMoleculeSummary(mzTabTable)
+  expect_equal(object = nrow(sml), 5144)
+  expect_equal(object = ncol(sml), 32)
+  
+  ## Parse input without SME section, https://github.com/lifs-tools/rmzTab-m/issues/28
+  smeindex <- mzTabTable[,1]=="SEH" | mzTabTable[,1]=="SME"
+  mzTabTableWithoutSME <- mzTabTable[!smeindex, ]
+  sme <- extractTable(mzTabTableWithoutSME, "SEH", "SME")
+  expect_null(sme) # Without Any SEH/SME lines don't do anything
+  
+  smeindex <- mzTabTable[,1]=="SME" ## Header but no content
+  mzTabTableWithoutSME <- mzTabTable[!smeindex, ]
+  sme <- extractTable(mzTabTableWithoutSME, "SEH", "SME")
+  expect_equal(object = nrow(sme), 0)
+})
+
+test_that("reading of lipidomics-example mzTab TAB format works", {
   testfile <- system.file("testdata", c("lipidomics-example.mzTab"), package="rmzTabM")
   mzTabTable <- readMzTab(testfile)
   

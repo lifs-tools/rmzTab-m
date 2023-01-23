@@ -154,9 +154,19 @@ extractMetadata = function(MzTabDataFrame) {
 extractTable = function(mztab.table, headerPrefix, contentPrefix) {
   headers <- mztab.table[startsWith(as.character(mztab.table$V1), headerPrefix),]
   contents <- mztab.table[startsWith(as.character(mztab.table$V1), contentPrefix),]
-  df <- data.frame(contents)
-  colnames(df) <- as.character(headers[1,])
-  df[, colnames(df) != ""]
+  if (nrow(contents) >0) {
+    df <- data.frame(contents)
+    colnames(df) <- as.character(headers[1,])
+    df[, colnames(df) != ""] ## remove empty (e.g. trailing) columns
+  } else if (nrow(contents) == 0 & nrow(headers==1)) {
+    warning("Empty ",contentPrefix, " section")
+    df <- data.frame(headers[NULL,])
+    colnames(df) <- as.character(headers[1,])
+    df[, colnames(df) != ""] ## remove empty (e.g. trailing) columns
+  } else {
+    warning("No ",contentPrefix, " section")
+    df <- NULL ## Maybe empty dataframe with mandatory columns only ?!
+  }
 }
 
 #' Extract the SmallMoleculeSummary from data frame.

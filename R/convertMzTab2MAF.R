@@ -12,6 +12,7 @@
 #' @returns data.frame of the MAF file (invisible)
 #' 
 #' @importFrom metabolighteR create.MAF write.MAF
+#' @importFrom stats var
 #' @export convertMzTab2MAF
 #' 
 #' @examples
@@ -81,7 +82,7 @@ checkRefs <- function(table1, refcol, table2) {
   ## Check if all refs in table1 point to a row in table2,
   ## where rownames(table2)
 
-  simplerefs <- not(grepl('\\|', table1[, refcol]))
+  simplerefs <- !grepl('\\|', table1[, refcol])
   any(is.na(rownames(table2)[simplerefs]))
 
   multirefs <- !simplerefs

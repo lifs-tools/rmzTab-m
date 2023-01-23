@@ -164,7 +164,9 @@ extractTable = function(mztab.table, headerPrefix, contentPrefix) {
 #' @param mztab.table the mztab data frame
 #' @export
 extractSmallMoleculeSummary <- function(mztab.table) {
-  extractTable(mztab.table, "SMH", "SML")
+  sml <- extractTable(mztab.table, "SMH", "SML")
+  rownames(sml) <- sml[,"SML_ID"]
+  sml
 }
 
 #' Extract the SmallMoleculeFeatures from data frame.
@@ -172,7 +174,9 @@ extractSmallMoleculeSummary <- function(mztab.table) {
 #' @param mztab.table the mztab data frame
 #' @export
 extractSmallMoleculeFeatures <- function(mztab.table) {
-  extractTable(mztab.table, "SFH", "SMF")
+  smf <- extractTable(mztab.table, "SFH", "SMF")
+  rownames(smf) <- smf[,"SMF_ID"]
+  smf
 }
 
 #' Extract the SmallMoleculeEvidence from data frame.
@@ -180,7 +184,9 @@ extractSmallMoleculeFeatures <- function(mztab.table) {
 #' @param mztab.table the mztab data frame
 #' @export
 extractSmallMoleculeEvidence <- function(mztab.table) {
-  extractTable(mztab.table, "SEH", "SME")
+  sme <- extractTable(mztab.table, "SEH", "SME")
+  rownames(sme) <- sme[,"SME_ID"]
+  sme
 }
 
 #' Extract the Comment from data frame.

@@ -37,11 +37,6 @@ convertMzTab2MAF <- function(mzTabfile, MAFfile) {
   smlTable <- extractSmallMoleculeSummary(mzTabTable)
   smfTable <- extractSmallMoleculeFeatures(mzTabTable)
   
-  if (nrow(smlTable) != nrow(smfTable)) {
-    warning("Sorry, I can't create a MAF file with SML and SMF tables have different dimensions")
-    return(NULL)
-  }
-  
   # SME not needed here
   # smeTable <- extractSmallMoleculeEvidence(mzTabTable)
 
@@ -64,11 +59,8 @@ convertMzTab2MAF <- function(mzTabfile, MAFfile) {
   maf[,"inchi"] <- smlTable[,"inchi"]
   maf[,"metabolite_identification"] <- smlTable[,"chemical_name"]
 
-  ##
-  ## This only works if sml and smf have same dim and same order !!!
-  ##
-  maf[,"retention_time"] <- smfTable[, "retention_time_in_seconds"]
-  maf[,"mass_to_charge"] <- smfTable[, "exp_mass_to_charge"]
+  maf[,"retention_time"] <- moleculeRT(smlTable, smfTable)
+  maf[,"mass_to_charge"] <- moleculeMZ(smlTable, smfTable)
 
   ##
   ## Database handling in mzTab is more powerful than in MAF,
@@ -83,4 +75,80 @@ convertMzTab2MAF <- function(mzTabfile, MAFfile) {
 
   write.MAF(maf, MAFfile)
   return(maf)
+}
+
+checkRefs <- function(table1, refcol, table2) {
+  ## Check if all refs in table1 point to a row in table2,
+  ## where rownames(table2)
+
+  simplerefs <- not(grepl('\\|', table1[, refcol]))
+  any(is.na(rownames(table2)[simplerefs]))
+
+  multirefs <- !simplerefs
+  if (any(multirefs)) {
+    multirefindices <- lapply(strsplit(table1[, refcol], "|", fixed=TRUE),
+                              trimws)
+    misses <- sapply(multirefindices, function(x) any(is.na(rownames(table2[x,1]))))
+    if (any(misses)) {
+      warning(length(which(misses)), " entries have broken REFS")
+    }
+  }
+}
+
+moleculeRT <- function(smlTable, smfTable) {
+  ## Initialise empty RTs
+  rt <- rep(NA_real_, nrow(smlTable))
+  
+  ## These are simple & fast:
+#  simplerefs <- not(grepl('\\|', smlTable$SMF_ID_REFS))
+  simplerefs <- !grepl('\\|', smlTable$SMF_ID_REFS)
+  simplerefidx <- smlTable[simplerefs, "SMF_ID_REFS"]
+  rt[simplerefs] <- as.numeric(smfTable[simplerefidx, "retention_time_in_seconds"])
+  
+  multirefs <- !simplerefs
+  if (any(multirefs)) {
+    ## Other metabolites require some (slower) split/list/mean calculation
+    multirefindices <- lapply(strsplit(smlTable[multirefs, "SMF_ID_REFS"], "|", fixed=TRUE),
+                              trimws)
+    agg <- t(sapply(multirefindices, function(x) {
+      rt <- as.numeric(smfTable[x, "retention_time_in_seconds"])
+      c(mean=mean(rt), var=var(rt))
+    }))
+    rownames(agg) <- rownames(smlTable)[multirefs]
+    
+    weirdos <- which(agg[, "var"] > max(c(0, rt), na.rm = TRUE) * 0.1)
+    if (length(weirdos)>0) {
+      warning(length(weirdos), " features have RT variance > 10% of max RT")
+    }
+    rt[multirefs] <-agg[,"mean"]
+  }
+  return(rt)
+}
+
+moleculeMZ <- function(smlTable, smfTable) {
+  ## Initialise empty m/z
+  mz <- rep(NA_real_, nrow(smlTable))
+  
+  ## These are simple & fast:
+  simplerefs <- !grepl('\\|', smlTable$SMF_ID_REFS)
+  simplerefidx <- smlTable[simplerefs, "SMF_ID_REFS"]
+  mz[simplerefs] <- as.numeric(smfTable[simplerefidx, "exp_mass_to_charge"])
+  
+  multirefs <- !simplerefs
+  if (any(multirefs)) {
+    ## Other metabolites require some (slower) split/list/mean calculation
+    multirefindices <- lapply(strsplit(smlTable[multirefs, "SMF_ID_REFS"], "|", fixed=TRUE),
+                              trimws)
+    intcols=which(grepl("abundance_assay", colnames(smfTable)))
+    agg <- t(sapply(multirefindices, function(x) {
+      mz <- as.numeric(smfTable[x, "exp_mass_to_charge"])
+      intsum <- rowSums(as.matrix(sapply(smfTable[x, intcols], function(y) as.numeric(y))))
+      maxind <- which.max(intsum)
+      c(minmz=min(mz), maxmz=max(mz), maxintmz=mz[maxind])
+    }))
+    rownames(agg) <- rownames(smlTable)[multirefs]
+    
+    mz[multirefs] <-agg[,"maxintmz"]
+  }
+  return(mz)
 }

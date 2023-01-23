@@ -4,6 +4,8 @@
 context("Test ValidateApi")
 
 test_that("validation via REST API of mztab json works", {
+  skip_if_not(apps_lifstools_statusOK, "apps.lifs-tools.org not reachable")
+  
   testfile <- system.file("testdata", c("lipidomics-example.mzTab.json"),package="rmzTabM")
   mzTabObject <- MzTab$new()
   mzTabObject$fromJSON(testfile)

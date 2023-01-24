@@ -4,3 +4,6 @@
 .Ruserdata
 ..Rcheck
 inst/doc
+
+# Editor backup files
+*~

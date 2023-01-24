@@ -70,6 +70,9 @@ test_that("reading of mzTab TAB format from MS-Dial 4.12 (mzTab exporter 1.05) w
   ## Parse input without SME section, https://github.com/lifs-tools/rmzTab-m/issues/28
   smeindex <- mzTabTable[,1]=="SEH" | mzTabTable[,1]=="SME"
   mzTabTableWithoutSME <- mzTabTable[!smeindex, ]
+  
+  mzTabObject <- MzTab$new()$fromDataFrame(mzTabTableWithoutSME)
+  
   sme <- extractTable(mzTabTableWithoutSME, "SEH", "SME")
   expect_null(sme) # Without Any SEH/SME lines don't do anything
   

@@ -1,6 +1,6 @@
 Package: rmzTabM
 Title: R Package Client for mzTab-M Reference Implementation and Validation API
-Version: 1.0.5.9006
+Version: 1.0.5.9007
 Authors@R: c(
     person("Nils", "Hoffmann", email = "nils.hoffmann@cebitec.uni-bielefeld.de", role=c("aut","cre"), comment = c(ORCID = "0000-0002-6540-6875")),
     person("Steffen", "Neumann", email = "sneumann@ipb-halle.de", role=c("aut"), comment = c(ORCID = "0000-0002-7899-7192")))

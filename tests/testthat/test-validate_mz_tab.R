@@ -1,6 +1,8 @@
 context("Test ValidateMzTab")
 
 test_that("validation of mzTab Object via REST API of mztab JSON works", {
+  skip_if_not(apps_lifstools_statusOK, "apps.lifs-tools.org not reachable")
+  
   testfile <-
     system.file("testdata", c("lipidomics-example.mzTab.json"), package = "rmzTabM")
   mzTabObject <- MzTab$new()
@@ -18,6 +20,8 @@ test_that("validation of mzTab Object via REST API of mztab JSON works", {
 })
 
 test_that("validation of mzTab file as string via REST API of mztab TSV works", {
+  skip_if_not(apps_lifstools_statusOK, "apps.lifs-tools.org not reachable")
+  
   testfile <-
     system.file("testdata", c("lipidomics-example.mzTab"), package = "rmzTabM")
   mzTabString <- readChar(testfile, file.info(testfile)$size)

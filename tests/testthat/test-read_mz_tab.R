@@ -25,25 +25,72 @@ test_that("reading of mztab JSON format works", {
   expect_length(mzTabObject$metadata$`assay`, 6)
 })
 
-test_that("reading of mztab TAB format of MTBLS263 works", {
+test_that("reading of mzTab TAB format of MTBLS263 works", {
   testfile <- system.file("testdata", c("MTBLS263.mztab"), package="rmzTabM")
   mzTabTable <- readMzTab(testfile)
   
   # sml.table <- extractSmallMoleculeSummary(mzTabTable)
   # browser()
   mzTabObject <- MzTab$new()
-  mzTabObject$fromDataFrame(mzTabTable)
+  w <- capture_warnings(mzTabObject$fromDataFrame(mzTabTable))
+  expect_length(w, 55) # "Handling of Optional columns not yet implemented"
+})
+
+test_that("conversion of MTBLS263.mzTab to MAF works", {
+  testfile <- system.file("testdata", c("MTBLS263.mztab"), package="rmzTabM")
+  tmpfile <- file.path(tempdir(check=TRUE),"m_MTBLS263_v2_maf.tsv")
+  
+  maf <<- NULL
+  w <- capture_warnings({maf <<- convertMzTab2MAF(mzTabfile=testfile, MAFfile=tmpfile)})
+  expect_length(w, 55) # "Handling of Optional columns not yet implemented"
+  expect_false(is.null(maf)) ## https://github.com/lifs-tools/rmzTab-m/issues/29
+  
+  # Creatinine: Features "6 | 937"
+  expect_equal(maf["469", "mass_to_charge"], 114.0654) ## [M+H]+, not the less abundant [M-Na]
+  expect_equal(maf["469", "retention_time"], mean(c(413.81,413.81))) ## Identical RT
+  
+  # Lysine: Features "79 | 523"
+  expect_equal(maf["1022", "mass_to_charge"], 147.1122) ## [M+H]+, not the less abundant [M-Na]
+  expect_equal(maf["1022", "retention_time"], mean(c(1282.28, 1279.2))) ## Similar RT
   
 })
 
-test_that("reading of mztab TAB format works", {
+test_that("reading of mzTab TAB format from MS-Dial 4.12 (mzTab exporter 1.05) works", {
+  testfile <- system.file("testdata", c("lcmsms_dda_hydrophilic_height_mzTab.mztab"), package="rmzTabM")
+  mzTabTable <- readMzTab(testfile)
+
+  mzTabObject <- MzTab$new()
+  w <- capture_warnings(mzTabObject$fromDataFrame(mzTabTable))
+  expect_length(w, 10374) # "Handling of Optional columns not yet implemented"
+  
+  sml.table <- extractSmallMoleculeSummary(mzTabTable)
+  expect_equal(object = nrow(sml.table), 5144)
+  expect_equal(object = ncol(sml.table), 32)
+  
+  ## Parse input without SME section, https://github.com/lifs-tools/rmzTab-m/issues/28
+  smeindex <- mzTabTable[,1]=="SEH" | mzTabTable[,1]=="SME"
+  mzTabTableWithoutSME <- mzTabTable[!smeindex, ]
+  
+  mzTabObject <- MzTab$new()$fromDataFrame(mzTabTableWithoutSME)
+  
+  sme <- extractTable(mzTabTableWithoutSME, "SEH", "SME")
+  expect_null(sme) # Without Any SEH/SME lines don't do anything
+  
+  smeindex <- mzTabTable[,1]=="SME" ## Header but no content
+  mzTabTableWithoutSME <- mzTabTable[!smeindex, ]
+  sme <- extractTable(mzTabTableWithoutSME, "SEH", "SME")
+  expect_equal(object = nrow(sme), 0)
+})
+
+test_that("reading of lipidomics-example mzTab TAB format works", {
   testfile <- system.file("testdata", c("lipidomics-example.mzTab"), package="rmzTabM")
   mzTabTable <- readMzTab(testfile)
   
   # sml.table <- extractSmallMoleculeSummary(mzTabTable)
   
   mzTabObject <- MzTab$new()
-  mzTabObject$fromDataFrame(mzTabTable)
+  w <- capture_warnings(mzTabObject$fromDataFrame(mzTabTable))
+  expect_length(w, 9) # "Handling of Optional columns not yet implemented"
   
   expect_false(is.null(mzTabObject$metadata))
   expect_false(is.null(mzTabObject$smallMoleculeSummary))

@@ -200,16 +200,22 @@ MzTab <- R6::R6Class(
       self$`metadata` <- Metadata$new()$fromDataFrame(extractMetadata(MzTabDataFrame))
       # summary
       smlDataFrame <- extractSmallMoleculeSummary(MzTabDataFrame)
-      sml.list <- split(smlDataFrame, seq(nrow(smlDataFrame)))
-      self$`smallMoleculeSummary` <- lapply(sml.list, FUN=function(x) {SmallMoleculeSummary$new()$fromDataFrame(x)})
+      if (!is.null(smlDataFrame)) {
+        sml.list <- split(smlDataFrame, seq(nrow(smlDataFrame)))
+        self$`smallMoleculeSummary` <- lapply(sml.list, FUN=function(x) {SmallMoleculeSummary$new()$fromDataFrame(x)})
+      }
       # features
       smfDataFrame <- extractSmallMoleculeFeatures(MzTabDataFrame)
-      smf.list <- split(smfDataFrame, seq(nrow(smfDataFrame)))
-      self$`smallMoleculeFeature` <- lapply(smf.list, FUN=function(x) {SmallMoleculeFeature$new()$fromDataFrame(x)})
+      if (!is.null(smfDataFrame)) {
+        smf.list <- split(smfDataFrame, seq(nrow(smfDataFrame)))
+        self$`smallMoleculeFeature` <- lapply(smf.list, FUN=function(x) {SmallMoleculeFeature$new()$fromDataFrame(x)})
+      }
       # evidence
       smeDataFrame <- extractSmallMoleculeEvidence(MzTabDataFrame)
-      sme.list <- split(smeDataFrame, seq(nrow(smeDataFrame)))
-      self$`smallMoleculeEvidence` <- lapply(sme.list, FUN=function(x) {SmallMoleculeEvidence$new()$fromDataFrame(x)})
+      if (!is.null(smeDataFrame)) {
+        sme.list <- split(smeDataFrame, seq(nrow(smeDataFrame)))
+        self$`smallMoleculeEvidence` <- lapply(sme.list, FUN=function(x) {SmallMoleculeEvidence$new()$fromDataFrame(x)})
+    }
       # comments, if any exist
       commentsDataFrame <- extractComments(MzTabDataFrame)
       if (nrow(commentsDataFrame>0)) {

@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rmzTabM</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.5.9005</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.5.9007</span>
       </span>
     </div>
 
@@ -101,24 +101,52 @@ document.addEventListener("DOMContentLoaded", function() {
     if (links[i].hostname != window.location.hostname)
       links[i].target = '_blank';
 });
-</script><p><strong>Package</strong>: <em><a href="https://bioconductor.org/packages/3.16/rmzTabM" class="external-link">rmzTabM</a></em><br><strong>Authors</strong>: Steffen Neumann<br><strong>Modified</strong>: 2022-12-14 17:06:36<br><strong>Compiled</strong>: Wed Dec 14 17:08:57 2022</p>
+</script><p><strong>Package</strong>: <em><a href="https://bioconductor.org/packages/3.16/rmzTabM" class="external-link">rmzTabM</a></em><br><strong>Authors</strong>: Steffen Neumann<br><strong>Modified</strong>: 2023-01-25 07:39:20<br><strong>Compiled</strong>: Wed Jan 25 07:48:16 2023</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/Bioconductor/BiocStyle" class="external-link">BiocStyle</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/lifs-tools/rmztab-m" class="external-link">rmzTabM</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/aberHRML/metabolighteR" class="external-link">metabolighteR</a></span><span class="op">)</span></span>
 <span><span class="co">#&gt; Loading required package: magrittr</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://haozhu233.github.io/kableExtra/" class="external-link">kableExtra</a></span><span class="op">)</span></span></code></pre></div>
-<div class="section level3">
-<h3 id="reading-mztab-m-files">Reading mzTab-M files<a class="anchor" aria-label="anchor" href="#reading-mztab-m-files"></a>
-</h3>
-<p>You can read an mzTab-M file in <em>tab separated format</em> into a
-data frame structure as follows:</p>
+<div class="section level2">
+<h2 id="converting-an-mztab-m-file-to-metabolights-maf">Converting an mzTab-M file to MetaboLights MAF<a class="anchor" aria-label="anchor" href="#converting-an-mztab-m-file-to-metabolights-maf"></a>
+</h2>
+<p>The Metabolites Asignement File (MAF) is used by the EMBL-EBI
+MetaboLights repository to capture the metabolite abundances in the
+individual samples, the spectral characteristics of the features and, if
+present, the metabolite identifications.</p>
+<p>The <code><a href="../reference/convertMzTab2MAF.html">convertMzTab2MAF()</a></code> function will read the mzTab-M
+via <code><a href="../reference/readMzTab.html">readMzTab()</a></code> and extract the <code>smlTable</code> and
+the <code>smfTable</code>. Abundances are extracted from the
+<code>smlTable</code>, while <em>m/z</em> and retention time come from
+the feature table.</p>
+<p>The MAF is created as a <code>data.frame</code> and written as TSV
+using <code><a href="https://rdrr.io/pkg/metabolighteR/man/write.MAF.html" class="external-link">write.MAF()</a></code> from the <code>metabolighteR</code>
+package by Tom Wilson. The data.frame is also returned as (invisible)
+return value of <code><a href="../reference/convertMzTab2MAF.html">convertMzTab2MAF()</a></code>.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
-<span><span class="va">maf</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/convertMzTab2MAF.html">convertMzTab2MAF</a></span><span class="op">(</span>mzTabfile<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"testdata"</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"lcmsms_dda_hydrophilic_height_mzTab.mztab"</span><span class="op">)</span>, package<span class="op">=</span><span class="st">"rmzTabM"</span><span class="op">)</span>,</span>
-<span>                 MAFfile<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span>check<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span>, <span class="st">"m_MTBLS007_v2_maf.tsv"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co"># An example file:</span></span>
+<span><span class="va">mzTabfile</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"testdata"</span>, </span>
+<span>                         <span class="st">"MTBLS263.mztab"</span>, </span>
+<span>                         package<span class="op">=</span><span class="st">"rmzTabM"</span>,</span>
+<span>                         mustWork<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">maf</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/pkg/kableExtra/man/kable_styling.html" class="external-link">kable_styling</a></span><span class="op">(</span>bootstrap_options <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"striped"</span>, <span class="st">"hover"</span>, <span class="st">"condensed"</span>, font_size <span class="op">=</span> <span class="fl">7</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/pkg/kableExtra/man/scroll_box.html" class="external-link">scroll_box</a></span><span class="op">(</span>width <span class="op">=</span> <span class="st">"800px"</span>, height <span class="op">=</span> <span class="st">"200px"</span><span class="op">)</span></span></code></pre></div>
+<span><span class="co"># Another example file shipped is:</span></span>
+<span><span class="va">mztabfile</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"testdata"</span>, </span>
+<span>                         <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"lcmsms_dda_hydrophilic_height_mzTab.mztab"</span><span class="op">)</span>, </span>
+<span>                         package<span class="op">=</span><span class="st">"rmzTabM"</span>,</span>
+<span>                         mustWork<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">MAFfile</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span>check<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span>, <span class="st">"m_MTBLS0815_v2_maf.tsv"</span><span class="op">)</span>                      </span>
+<span></span>
+<span><span class="va">maf</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/convertMzTab2MAF.html">convertMzTab2MAF</a></span><span class="op">(</span>mzTabfile<span class="op">=</span><span class="va">mztabfile</span>,</span>
+<span>                        MAFfile<span class="op">=</span><span class="va">MAFfile</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">maf</span><span class="op">[</span><span class="op">!</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">grepl</a></span> <span class="op">(</span><span class="st">"MSP: Unknown"</span>, <span class="va">maf</span><span class="op">$</span><span class="va">database_identifier</span><span class="op">)</span> <span class="op">|</span> <span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">maf</span><span class="op">$</span><span class="va">database_identifier</span><span class="op">)</span><span class="op">)</span>, <span class="op">]</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/kableExtra/man/kable_styling.html" class="external-link">kable_styling</a></span><span class="op">(</span>bootstrap_options <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"striped"</span>, <span class="st">"hover"</span>, <span class="st">"condensed"</span>, font_size <span class="op">=</span> <span class="fl">7</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/kableExtra/man/scroll_box.html" class="external-link">scroll_box</a></span><span class="op">(</span>width <span class="op">=</span> <span class="st">"800px"</span>, height <span class="op">=</span> <span class="st">"200px"</span><span class="op">)</span></span></code></pre></div>
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:200px; overflow-x: scroll; width:800px; ">
 <table class="table table table-striped table-hover table-condensed" style="margin-left: auto; margin-right: auto;">
 <thead><tr>
@@ -139,7 +167,7 @@ inchi
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 metabolite_identification
 </th>
-<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
 mass_to_charge
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
@@ -151,7 +179,7 @@ charge
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 modifications
 </th>
-<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
 retention_time
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
@@ -209,7 +237,25 @@ smallmolecule_abundance_std_error_sub
 <tbody>
 <tr>
 <td style="text-align:left;">
-81
+193
+</td>
+<td style="text-align:left;">
+MSP: URACIL
+</td>
+<td style="text-align:left;">
+C4H4N2O2
+</td>
+<td style="text-align:left;">
+OC1=NC(O)=NC=C1
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+w/o MS2:URACIL
+</td>
+<td style="text-align:right;">
+113.0359
 </td>
 <td style="text-align:left;">
 NA
@@ -220,26 +266,8 @@ NA
 <td style="text-align:left;">
 NA
 </td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-62.99282
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-31.295
+<td style="text-align:right;">
+32.05267
 </td>
 <td style="text-align:left;">
 NA
@@ -254,7 +282,7 @@ NA
 Unknown
 </td>
 <td style="text-align:left;">
-NA
+63
 </td>
 <td style="text-align:left;">
 NA
@@ -275,27 +303,45 @@ NA
 NA
 </td>
 <td style="text-align:left;">
-1445
+9664
 </td>
 <td style="text-align:left;">
-853
+7888
 </td>
 <td style="text-align:left;">
-802
+5912
 </td>
 <td style="text-align:left;">
-833
+13912
 </td>
 <td style="text-align:left;">
-652
+8022
 </td>
 <td style="text-align:left;">
-887
+4678
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-82
+220
+</td>
+<td style="text-align:left;">
+MSP: C5H9NO2; PlaSMA ID-48
+</td>
+<td style="text-align:left;">
+C5H9NO2
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+C5H9NO2; PlaSMA ID-48
+</td>
+<td style="text-align:right;">
+116.0708
 </td>
 <td style="text-align:left;">
 NA
@@ -306,26 +352,8 @@ NA
 <td style="text-align:left;">
 NA
 </td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-63.99909
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-31.587
+<td style="text-align:right;">
+28.98533
 </td>
 <td style="text-align:left;">
 NA
@@ -340,7 +368,7 @@ NA
 Unknown
 </td>
 <td style="text-align:left;">
-NA
+88.8
 </td>
 <td style="text-align:left;">
 NA
@@ -361,27 +389,45 @@ NA
 NA
 </td>
 <td style="text-align:left;">
-6600
+11891
 </td>
 <td style="text-align:left;">
-6761
+6080
 </td>
 <td style="text-align:left;">
-7229
+13243
 </td>
 <td style="text-align:left;">
-5357
+14411
 </td>
 <td style="text-align:left;">
-5198
+10669
 </td>
 <td style="text-align:left;">
-6898
+28595
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-83
+325
+</td>
+<td style="text-align:left;">
+MSP: Pyroglutamic acid (not validated, isomer of 89); PlaSMA ID-88
+</td>
+<td style="text-align:left;">
+C5H7NO3
+</td>
+<td style="text-align:left;">
+O=C(O)C1NC(=O)CC1
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+Pyroglutamic acid (not validated, isomer of 89); PlaSMA ID-88
+</td>
+<td style="text-align:right;">
+130.0494
 </td>
 <td style="text-align:left;">
 NA
@@ -392,26 +438,8 @@ NA
 <td style="text-align:left;">
 NA
 </td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-65.96549
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-23.415
+<td style="text-align:right;">
+38.17650
 </td>
 <td style="text-align:left;">
 NA
@@ -426,7 +454,7 @@ NA
 Unknown
 </td>
 <td style="text-align:left;">
-NA
+86.8
 </td>
 <td style="text-align:left;">
 NA
@@ -447,27 +475,45 @@ NA
 NA
 </td>
 <td style="text-align:left;">
-826
+25494
 </td>
 <td style="text-align:left;">
-1270
+19988
 </td>
 <td style="text-align:left;">
-1186
+32873
 </td>
 <td style="text-align:left;">
-1852
+28238
 </td>
 <td style="text-align:left;">
-720
+26622
 </td>
 <td style="text-align:left;">
-1082
+35567
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-84
+354
+</td>
+<td style="text-align:left;">
+MSP: Leucine; PlaSMA ID-100
+</td>
+<td style="text-align:left;">
+C6H13NO2
+</td>
+<td style="text-align:left;">
+O=C(O)C(N)CC(C)C
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+w/o MS2:Leucine; PlaSMA ID-100
+</td>
+<td style="text-align:right;">
+132.1008
 </td>
 <td style="text-align:left;">
 NA
@@ -478,26 +524,8 @@ NA
 <td style="text-align:left;">
 NA
 </td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-67.05617
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-132.376
+<td style="text-align:right;">
+147.66800
 </td>
 <td style="text-align:left;">
 NA
@@ -512,7 +540,7 @@ NA
 Unknown
 </td>
 <td style="text-align:left;">
-NA
+99.6
 </td>
 <td style="text-align:left;">
 NA
@@ -533,27 +561,45 @@ NA
 NA
 </td>
 <td style="text-align:left;">
-2424
+1092
 </td>
 <td style="text-align:left;">
-1462
+607
 </td>
 <td style="text-align:left;">
-1765
+2840
 </td>
 <td style="text-align:left;">
-708
+465
 </td>
 <td style="text-align:left;">
-1100
+1234
 </td>
 <td style="text-align:left;">
-1257
+1083
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-85
+402
+</td>
+<td style="text-align:left;">
+MSP: Hypoxanthine
+</td>
+<td style="text-align:left;">
+C5H4N4O
+</td>
+<td style="text-align:left;">
+OC1=NC=NC=2NC=NC12
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+w/o MS2:Hypoxanthine
+</td>
+<td style="text-align:right;">
+137.0468
 </td>
 <td style="text-align:left;">
 NA
@@ -564,26 +610,8 @@ NA
 <td style="text-align:left;">
 NA
 </td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-68.95267
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-23.686
+<td style="text-align:right;">
+31.73683
 </td>
 <td style="text-align:left;">
 NA
@@ -598,7 +626,7 @@ NA
 Unknown
 </td>
 <td style="text-align:left;">
-NA
+68.1
 </td>
 <td style="text-align:left;">
 NA
@@ -619,33 +647,45 @@ NA
 NA
 </td>
 <td style="text-align:left;">
-1042
+7305
 </td>
 <td style="text-align:left;">
-831
+3924
 </td>
 <td style="text-align:left;">
-702
+10788
 </td>
 <td style="text-align:left;">
-1159
+13304
 </td>
 <td style="text-align:left;">
-634
+9321
 </td>
 <td style="text-align:left;">
-886
+8399
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-86
+471
 </td>
 <td style="text-align:left;">
-MSP: Unknown (carbon number 5); PlaSMA ID-0
+MSP: 4-Methyl-5-thiazoleethanol; LC-ESI-QTOF; MS2; CE
 </td>
 <td style="text-align:left;">
-C5H8
+C6H9NOS
+</td>
+<td style="text-align:left;">
+CC1=C(CCO)SC=N1
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+w/o MS2:4-Methyl-5-thiazoleethanol; LC-ESI-QTOF; MS2; CE
+</td>
+<td style="text-align:right;">
+144.0475
 </td>
 <td style="text-align:left;">
 NA
@@ -654,22 +694,10 @@ NA
 NA
 </td>
 <td style="text-align:left;">
-w/o MS2:Unknown (carbon number 5); PlaSMA ID-0
-</td>
-<td style="text-align:left;">
-69.07104
-</td>
-<td style="text-align:left;">
 NA
 </td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-115.93
+<td style="text-align:right;">
+47.81267
 </td>
 <td style="text-align:left;">
 NA
@@ -684,7 +712,7 @@ NA
 Unknown
 </td>
 <td style="text-align:left;">
-99.2
+67
 </td>
 <td style="text-align:left;">
 NA
@@ -705,22 +733,22 @@ NA
 NA
 </td>
 <td style="text-align:left;">
-2815
+23383
 </td>
 <td style="text-align:left;">
-991
+17362
 </td>
 <td style="text-align:left;">
-2065
+24074
 </td>
 <td style="text-align:left;">
-2286
+32806
 </td>
 <td style="text-align:left;">
-982
+17364
 </td>
 <td style="text-align:left;">
-676
+34208
 </td>
 </tr>
 </tbody>
@@ -730,7 +758,7 @@ NA
 <div class="section level2">
 <h2 id="session-information">Session information<a class="anchor" aria-label="anchor" href="#session-information"></a>
 </h2>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/sessionInfo.html" class="external-link">sessionInfo</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; R version 4.2.2 (2022-10-31)</span></span>
 <span><span class="co">#&gt; Platform: x86_64-pc-linux-gnu (64-bit)</span></span>
@@ -751,28 +779,28 @@ NA
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; other attached packages:</span></span>
 <span><span class="co">#&gt; [1] kableExtra_1.3.4    metabolighteR_0.1.4 magrittr_2.0.3     </span></span>
-<span><span class="co">#&gt; [4] rmzTabM_1.0.5.9005  BiocStyle_2.24.0   </span></span>
+<span><span class="co">#&gt; [4] rmzTabM_1.0.5.9007  BiocStyle_2.26.0   </span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; loaded via a namespace (and not attached):</span></span>
-<span><span class="co">#&gt;  [1] tidyselect_1.2.0    xfun_0.35           bslib_0.4.1        </span></span>
-<span><span class="co">#&gt;  [4] purrr_0.3.5         colorspace_2.0-3    vctrs_0.5.1        </span></span>
+<span><span class="co">#&gt;  [1] tidyselect_1.2.0    xfun_0.36           bslib_0.4.2        </span></span>
+<span><span class="co">#&gt;  [4] purrr_1.0.1         colorspace_2.1-0    vctrs_0.5.2        </span></span>
 <span><span class="co">#&gt;  [7] generics_0.1.3      htmltools_0.5.4     viridisLite_0.4.1  </span></span>
-<span><span class="co">#&gt; [10] yaml_2.3.6          utf8_1.2.2          rlang_1.0.6        </span></span>
+<span><span class="co">#&gt; [10] yaml_2.3.7          utf8_1.2.2          rlang_1.0.6        </span></span>
 <span><span class="co">#&gt; [13] pkgdown_2.0.7       jquerylib_0.1.4     pillar_1.8.1       </span></span>
-<span><span class="co">#&gt; [16] withr_2.5.0         glue_1.6.2          lifecycle_1.0.3    </span></span>
-<span><span class="co">#&gt; [19] stringr_1.5.0       munsell_0.5.0       ragg_1.2.4         </span></span>
+<span><span class="co">#&gt; [16] glue_1.6.2          withr_2.5.0         lifecycle_1.0.3    </span></span>
+<span><span class="co">#&gt; [19] stringr_1.5.0       munsell_0.5.0       ragg_1.2.5         </span></span>
 <span><span class="co">#&gt; [22] rvest_1.0.3         caTools_1.18.2      memoise_2.0.1      </span></span>
-<span><span class="co">#&gt; [25] evaluate_0.18       knitr_1.41          fastmap_1.1.0      </span></span>
-<span><span class="co">#&gt; [28] fansi_1.0.3         highr_0.9           scales_1.2.1       </span></span>
+<span><span class="co">#&gt; [25] evaluate_0.20       knitr_1.41          fastmap_1.1.0      </span></span>
+<span><span class="co">#&gt; [28] fansi_1.0.4         highr_0.10          scales_1.2.1       </span></span>
 <span><span class="co">#&gt; [31] BiocManager_1.30.19 cachem_1.0.6        desc_1.4.2         </span></span>
 <span><span class="co">#&gt; [34] webshot_0.5.4       jsonlite_1.8.4      systemfonts_1.0.4  </span></span>
-<span><span class="co">#&gt; [37] fs_1.5.2            textshaping_0.3.6   digest_0.6.31      </span></span>
-<span><span class="co">#&gt; [40] stringi_1.7.8       dplyr_1.0.10        rprojroot_2.0.3    </span></span>
-<span><span class="co">#&gt; [43] cli_3.4.1           tools_4.2.2         bitops_1.0-7       </span></span>
-<span><span class="co">#&gt; [46] sass_0.4.4          tibble_3.1.8        tidyr_1.2.1        </span></span>
-<span><span class="co">#&gt; [49] pkgconfig_2.0.3     ellipsis_0.3.2      xml2_1.3.3         </span></span>
-<span><span class="co">#&gt; [52] rmarkdown_2.18      svglite_2.1.0       httr_1.4.4         </span></span>
-<span><span class="co">#&gt; [55] rstudioapi_0.14     R6_2.5.1            compiler_4.2.2</span></span></code></pre></div>
+<span><span class="co">#&gt; [37] fs_1.6.0            textshaping_0.3.6   digest_0.6.31      </span></span>
+<span><span class="co">#&gt; [40] stringi_1.7.12      dplyr_1.0.10        rprojroot_2.0.3    </span></span>
+<span><span class="co">#&gt; [43] cli_3.6.0           tools_4.2.2         bitops_1.0-7       </span></span>
+<span><span class="co">#&gt; [46] sass_0.4.5          tibble_3.1.8        tidyr_1.3.0        </span></span>
+<span><span class="co">#&gt; [49] pkgconfig_2.0.3     xml2_1.3.3          rmarkdown_2.20     </span></span>
+<span><span class="co">#&gt; [52] svglite_2.1.1       httr_1.4.4          rstudioapi_0.14    </span></span>
+<span><span class="co">#&gt; [55] R6_2.5.1            compiler_4.2.2</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>

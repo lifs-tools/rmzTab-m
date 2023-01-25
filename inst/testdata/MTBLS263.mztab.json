@@ -10,11 +10,11 @@
     "software" : [ {
       "elementType" : "Software",
       "id" : 1,
-      "elementType" : "element_type",
+      
       "parameter" : {
         "elementType" : "Parameter",
         "id" : null,
-        "elementType" : "element_type",
+        
         "cv_label" : "MS",
         "cv_accession" : "MS:1002879",
         "name" : "Progenesis QI",
@@ -29,7 +29,7 @@
     "quantification_method" : {
       "elementType" : "Parameter",
       "id" : null,
-      "elementType" : "element_type",
+      
       "cv_label" : "MS",
       "cv_accession" : "MS:1001834",
       "name" : "LC-MS label-free quantitation analysis",
@@ -38,19 +38,19 @@
     "study_variable" : [ {
       "elementType" : "StudyVariable",
       "id" : 1,
-      "elementType" : "element_type",
+      
       "name" : "Replicates",
       "assay_refs" : [ {
         "elementType" : "Assay",
         "id" : 1,
-        "elementType" : "element_type",
+        
         "name" : "3injections_inj1_POS",
         "custom" : null,
         "external_uri" : null,
         "sample_ref" : {
           "elementType" : "Sample",
           "id" : 1,
-          "elementType" : "element_type",
+          
           "name" : "3injections_POS",
           "custom" : null,
           "species" : null,
@@ -62,14 +62,14 @@
         "ms_run_ref" : [ {
           "elementType" : "MsRun",
           "id" : 1,
-          "elementType" : "element_type",
+          
           "name" : null,
           "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj1_POS.mzML",
           "instrument_ref" : null,
           "format" : {
             "elementType" : "Parameter",
             "id" : null,
-            "elementType" : "element_type",
+            
             "cv_label" : "MS",
             "cv_accession" : "MS:1000584",
             "name" : "mzML file",
@@ -78,7 +78,7 @@
           "id_format" : {
             "elementType" : "Parameter",
             "id" : null,
-            "elementType" : "element_type",
+            
             "cv_label" : "MS",
             "cv_accession" : "MS:1000768",
             "name" : "Thermo nativeID format",
@@ -88,7 +88,7 @@
           "scan_polarity" : [ {
             "elementType" : "Parameter",
             "id" : null,
-            "elementType" : "element_type",
+            
             "cv_label" : "MS",
             "cv_accession" : "MS:1000130",
             "name" : "positive scan",
@@ -105,19 +105,19 @@
     }, {
       "elementType" : "StudyVariable",
       "id" : 2,
-      "elementType" : "element_type",
+      
       "name" : "Samples",
       "assay_refs" : [ {
         "elementType" : "Assay",
         "id" : 4,
-        "elementType" : "element_type",
+        
         "name" : "3samples_sampl1_POS",
         "custom" : null,
         "external_uri" : null,
         "sample_ref" : {
           "elementType" : "Sample",
           "id" : 2,
-          "elementType" : "element_type",
+          
           "name" : "3samples_sampl1_POS",
           "custom" : null,
           "species" : null,
@@ -129,14 +129,14 @@
         "ms_run_ref" : [ {
           "elementType" : "MsRun",
           "id" : 4,
-          "elementType" : "element_type",
+          
           "name" : null,
           "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl1_POS.mzML",
           "instrument_ref" : null,
           "format" : {
             "elementType" : "Parameter",
             "id" : null,
-            "elementType" : "element_type",
+            
             "cv_label" : "MS",
             "cv_accession" : "MS:1000584",
             "name" : "mzML file",
@@ -145,7 +145,7 @@
           "id_format" : {
             "elementType" : "Parameter",
             "id" : null,
-            "elementType" : "element_type",
+            
             "cv_label" : "MS",
             "cv_accession" : "MS:1000768",
             "name" : "Thermo nativeID format",
@@ -155,7 +155,7 @@
           "scan_polarity" : [ {
             "elementType" : "Parameter",
             "id" : null,
-            "elementType" : "element_type",
+            
             "cv_label" : "MS",
             "cv_accession" : "MS:1000130",
             "name" : "positive scan",
@@ -173,14 +173,14 @@
     "ms_run" : [ {
       "elementType" : "MsRun",
       "id" : 1,
-      "elementType" : "element_type",
+      
       "name" : null,
       "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj1_POS.mzML",
       "instrument_ref" : null,
       "format" : {
         "elementType" : "Parameter",
         "id" : null,
-        "elementType" : "element_type",
+        
         "cv_label" : "MS",
         "cv_accession" : "MS:1000584",
         "name" : "mzML file",
@@ -189,7 +189,7 @@
       "id_format" : {
         "elementType" : "Parameter",
         "id" : null,
-        "elementType" : "element_type",
+        
         "cv_label" : "MS",
         "cv_accession" : "MS:1000768",
         "name" : "Thermo nativeID format",
@@ -199,7 +199,7 @@
       "scan_polarity" : [ {
         "elementType" : "Parameter",
         "id" : null,
-        "elementType" : "element_type",
+        
         "cv_label" : "MS",
         "cv_accession" : "MS:1000130",
         "name" : "positive scan",
@@ -210,14 +210,14 @@
     }, {
       "elementType" : "MsRun",
       "id" : 2,
-      "elementType" : "element_type",
+      
       "name" : null,
       "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj2_POS.mzML",
       "instrument_ref" : null,
       "format" : {
         "elementType" : "Parameter",
         "id" : null,
-        "elementType" : "element_type",
+        
         "cv_label" : "MS",
         "cv_accession" : "MS:1000584",
         "name" : "mzML file",
@@ -226,7 +226,7 @@
       "id_format" : {
         "elementType" : "Parameter",
         "id" : null,
-        "elementType" : "element_type",
+        
         "cv_label" : "MS",
         "cv_accession" : "MS:1000768",
         "name" : "Thermo nativeID format",
@@ -236,7 +236,7 @@
       "scan_polarity" : [ {
         "elementType" : "Parameter",
         "id" : null,
-        "elementType" : "element_type",
+        
         "cv_label" : "MS",
         "cv_accession" : "MS:1000130",
         "name" : "positive scan",
@@ -247,14 +247,14 @@
     }, {
       "elementType" : "MsRun",
       "id" : 3,
-      "elementType" : "element_type",
+      
       "name" : null,
       "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj3_POS.mzML",
       "instrument_ref" : null,
       "format" : {
         "elementType" : "Parameter",
         "id" : null,
-        "elementType" : "element_type",
+        
         "cv_label" : "MS",
         "cv_accession" : "MS:1000584",
         "name" : "mzML file",
@@ -263,7 +263,7 @@
       "id_format" : {
         "elementType" : "Parameter",
         "id" : null,
-        "elementType" : "element_type",
+        
         "cv_label" : "MS",
         "cv_accession" : "MS:1000768",
         "name" : "Thermo nativeID format",
@@ -273,7 +273,7 @@
       "scan_polarity" : [ {
         "elementType" : "Parameter",
         "id" : null,
-        "elementType" : "element_type",
+        
         "cv_label" : "MS",
         "cv_accession" : "MS:1000130",
         "name" : "positive scan",
@@ -284,14 +284,14 @@
     }, {
       "elementType" : "MsRun",
       "id" : 4,
-      "elementType" : "element_type",
+      
       "name" : null,
       "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl1_POS.mzML",
       "instrument_ref" : null,
       "format" : {
         "elementType" : "Parameter",
         "id" : null,
-        "elementType" : "element_type",
+        
         "cv_label" : "MS",
         "cv_accession" : "MS:1000584",
         "name" : "mzML file",
@@ -300,7 +300,7 @@
       "id_format" : {
         "elementType" : "Parameter",
         "id" : null,
-        "elementType" : "element_type",
+        
         "cv_label" : "MS",
         "cv_accession" : "MS:1000768",
         "name" : "Thermo nativeID format",
@@ -310,7 +310,7 @@
       "scan_polarity" : [ {
         "elementType" : "Parameter",
         "id" : null,
-        "elementType" : "element_type",
+        
         "cv_label" : "MS",
         "cv_accession" : "MS:1000130",
         "name" : "positive scan",
@@ -321,14 +321,14 @@
     }, {
       "elementType" : "MsRun",
       "id" : 5,
-      "elementType" : "element_type",
+      
       "name" : null,
       "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl2_POS.mzML",
       "instrument_ref" : null,
       "format" : {
         "elementType" : "Parameter",
         "id" : null,
-        "elementType" : "element_type",
+        
         "cv_label" : "MS",
         "cv_accession" : "MS:1000584",
         "name" : "mzML file",
@@ -337,7 +337,7 @@
       "id_format" : {
         "elementType" : "Parameter",
         "id" : null,
-        "elementType" : "element_type",
+        
         "cv_label" : "MS",
         "cv_accession" : "MS:1000768",
         "name" : "Thermo nativeID format",
@@ -347,7 +347,7 @@
       "scan_polarity" : [ {
         "elementType" : "Parameter",
         "id" : null,
-        "elementType" : "element_type",
+        
         "cv_label" : "MS",
         "cv_accession" : "MS:1000130",
         "name" : "positive scan",
@@ -358,14 +358,14 @@
     }, {
       "elementType" : "MsRun",
       "id" : 6,
-      "elementType" : "element_type",
+      
       "name" : null,
       "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl3_POS.mzML",
       "instrument_ref" : null,
       "format" : {
         "elementType" : "Parameter",
         "id" : null,
-        "elementType" : "element_type",
+        
         "cv_label" : "MS",
         "cv_accession" : "MS:1000584",
         "name" : "mzML file",
@@ -374,7 +374,7 @@
       "id_format" : {
         "elementType" : "Parameter",
         "id" : null,
-        "elementType" : "element_type",
+        
         "cv_label" : "MS",
         "cv_accession" : "MS:1000768",
         "name" : "Thermo nativeID format",
@@ -384,7 +384,7 @@
       "scan_polarity" : [ {
         "elementType" : "Parameter",
         "id" : null,
-        "elementType" : "element_type",
+        
         "cv_label" : "MS",
         "cv_accession" : "MS:1000130",
         "name" : "positive scan",
@@ -396,14 +396,14 @@
     "assay" : [ {
       "elementType" : "Assay",
       "id" : 1,
-      "elementType" : "element_type",
+      
       "name" : "3injections_inj1_POS",
       "custom" : null,
       "external_uri" : null,
       "sample_ref" : {
         "elementType" : "Sample",
         "id" : 1,
-        "elementType" : "element_type",
+        
         "name" : "3injections_POS",
         "custom" : null,
         "species" : null,
@@ -415,14 +415,14 @@
       "ms_run_ref" : [ {
         "elementType" : "MsRun",
         "id" : 1,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj1_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -431,7 +431,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -441,7 +441,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -453,14 +453,14 @@
     }, {
       "elementType" : "Assay",
       "id" : 2,
-      "elementType" : "element_type",
+      
       "name" : "3injections_inj2_POS",
       "custom" : null,
       "external_uri" : null,
       "sample_ref" : {
         "elementType" : "Sample",
         "id" : 1,
-        "elementType" : "element_type",
+        
         "name" : "3injections_POS",
         "custom" : null,
         "species" : null,
@@ -472,14 +472,14 @@
       "ms_run_ref" : [ {
         "elementType" : "MsRun",
         "id" : 2,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj2_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -488,7 +488,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -498,7 +498,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -510,14 +510,14 @@
     }, {
       "elementType" : "Assay",
       "id" : 3,
-      "elementType" : "element_type",
+      
       "name" : "3injections_inj3_POS",
       "custom" : null,
       "external_uri" : null,
       "sample_ref" : {
         "elementType" : "Sample",
         "id" : 1,
-        "elementType" : "element_type",
+        
         "name" : "3injections_POS",
         "custom" : null,
         "species" : null,
@@ -529,14 +529,14 @@
       "ms_run_ref" : [ {
         "elementType" : "MsRun",
         "id" : 3,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj3_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -545,7 +545,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -555,7 +555,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -567,14 +567,14 @@
     }, {
       "elementType" : "Assay",
       "id" : 4,
-      "elementType" : "element_type",
+      
       "name" : "3samples_sampl1_POS",
       "custom" : null,
       "external_uri" : null,
       "sample_ref" : {
         "elementType" : "Sample",
         "id" : 2,
-        "elementType" : "element_type",
+        
         "name" : "3samples_sampl1_POS",
         "custom" : null,
         "species" : null,
@@ -586,14 +586,14 @@
       "ms_run_ref" : [ {
         "elementType" : "MsRun",
         "id" : 4,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl1_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -602,7 +602,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -612,7 +612,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -624,14 +624,14 @@
     }, {
       "elementType" : "Assay",
       "id" : 5,
-      "elementType" : "element_type",
+      
       "name" : "3samples_sampl2_POS",
       "custom" : null,
       "external_uri" : null,
       "sample_ref" : {
         "elementType" : "Sample",
         "id" : 3,
-        "elementType" : "element_type",
+        
         "name" : "3samples_sampl2_POS",
         "custom" : null,
         "species" : null,
@@ -643,14 +643,14 @@
       "ms_run_ref" : [ {
         "elementType" : "MsRun",
         "id" : 5,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl2_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -659,7 +659,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -669,7 +669,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -681,14 +681,14 @@
     }, {
       "elementType" : "Assay",
       "id" : 6,
-      "elementType" : "element_type",
+      
       "name" : "3samples_sampl3_POS",
       "custom" : null,
       "external_uri" : null,
       "sample_ref" : {
         "elementType" : "Sample",
         "id" : 4,
-        "elementType" : "element_type",
+        
         "name" : "3samples_sampl3_POS",
         "custom" : null,
         "species" : null,
@@ -700,14 +700,14 @@
       "ms_run_ref" : [ {
         "elementType" : "MsRun",
         "id" : 6,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl3_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -716,7 +716,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -726,7 +726,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -739,7 +739,7 @@
     "sample" : [ {
       "elementType" : "Sample",
       "id" : 1,
-      "elementType" : "element_type",
+      
       "name" : "3injections_POS",
       "custom" : null,
       "species" : null,
@@ -750,7 +750,7 @@
     }, {
       "elementType" : "Sample",
       "id" : 2,
-      "elementType" : "element_type",
+      
       "name" : "3samples_sampl1_POS",
       "custom" : null,
       "species" : null,
@@ -761,7 +761,7 @@
     }, {
       "elementType" : "Sample",
       "id" : 3,
-      "elementType" : "element_type",
+      
       "name" : "3samples_sampl2_POS",
       "custom" : null,
       "species" : null,
@@ -772,7 +772,7 @@
     }, {
       "elementType" : "Sample",
       "id" : 4,
-      "elementType" : "element_type",
+      
       "name" : "3samples_sampl3_POS",
       "custom" : null,
       "species" : null,
@@ -785,7 +785,7 @@
     "cv" : [ {
       "elementType" : "CV",
       "id" : 1,
-      "elementType" : "element_type",
+      
       "label" : "MS",
       "full_name" : "PSI-MS controlled vocabulary",
       "version" : "4.0.9",
@@ -794,11 +794,11 @@
     "database" : [ {
       "elementType" : "Database",
       "id" : 1,
-      "elementType" : "element_type",
+      
       "param" : {
         "elementType" : "Parameter",
         "id" : null,
-        "elementType" : "element_type",
+        
         "cv_label" : "",
         "cv_accession" : "",
         "name" : "no database",
@@ -810,11 +810,11 @@
     }, {
       "elementType" : "Database",
       "id" : 2,
-      "elementType" : "element_type",
+      
       "param" : {
         "elementType" : "Parameter",
         "id" : null,
-        "elementType" : "element_type",
+        
         "cv_label" : "",
         "cv_accession" : "",
         "name" : "Local CHEBI copy",
@@ -828,7 +828,7 @@
     "small_molecule-quantification_unit" : {
       "elementType" : "Parameter",
       "id" : null,
-      "elementType" : "element_type",
+      
       "cv_label" : "",
       "cv_accession" : "",
       "name" : "Progenesis QI Normalised Abundance",
@@ -837,7 +837,7 @@
     "small_molecule_feature-quantification_unit" : {
       "elementType" : "Parameter",
       "id" : null,
-      "elementType" : "element_type",
+      
       "cv_label" : "",
       "cv_accession" : "",
       "name" : "Progenesis QI Normalised Abundance",
@@ -846,7 +846,7 @@
     "small_molecule-identification_reliability" : {
       "elementType" : "Parameter",
       "id" : null,
-      "elementType" : "element_type",
+      
       "cv_label" : "MS",
       "cv_accession" : "MS:1002896",
       "name" : "compound identification confidence level",
@@ -855,7 +855,7 @@
     "id_confidence_measure" : [ {
       "elementType" : "Parameter",
       "id" : 1,
-      "elementType" : "element_type",
+      
       "cv_label" : "MS",
       "cv_accession" : "MS:1002889",
       "name" : "Progenesis MetaScope score",
@@ -863,7 +863,7 @@
     }, {
       "elementType" : "Parameter",
       "id" : 2,
-      "elementType" : "element_type",
+      
       "cv_label" : "MS",
       "cv_accession" : "MS:1002890",
       "name" : "fragmentation score",
@@ -871,7 +871,7 @@
     }, {
       "elementType" : "Parameter",
       "id" : 3,
-      "elementType" : "element_type",
+      
       "cv_label" : "MS",
       "cv_accession" : "MS:1002891",
       "name" : "isotopic fit score",
@@ -898,7 +898,7 @@
     "best_id_confidence_measure" : {
       "elementType" : "Parameter",
       "id" : null,
-      "elementType" : "element_type",
+      
       "cv_label" : "MS",
       "cv_accession" : "MS:1002889",
       "name" : "Progenesis MetaScope score",
@@ -931,7 +931,7 @@
     "best_id_confidence_measure" : {
       "elementType" : "Parameter",
       "id" : null,
-      "elementType" : "element_type",
+      
       "cv_label" : "MS",
       "cv_accession" : "MS:1002889",
       "name" : "Progenesis MetaScope score",
@@ -964,7 +964,7 @@
     "best_id_confidence_measure" : {
       "elementType" : "Parameter",
       "id" : null,
-      "elementType" : "element_type",
+      
       "cv_label" : "MS",
       "cv_accession" : "MS:1002889",
       "name" : "Progenesis MetaScope score",
@@ -997,7 +997,7 @@
     "best_id_confidence_measure" : {
       "elementType" : "Parameter",
       "id" : null,
-      "elementType" : "element_type",
+      
       "cv_label" : "MS",
       "cv_accession" : "MS:1002889",
       "name" : "Progenesis MetaScope score",
@@ -1030,7 +1030,7 @@
     "best_id_confidence_measure" : {
       "elementType" : "Parameter",
       "id" : null,
-      "elementType" : "element_type",
+      
       "cv_label" : "MS",
       "cv_accession" : "MS:1002889",
       "name" : "Progenesis MetaScope score",
@@ -1063,7 +1063,7 @@
     "best_id_confidence_measure" : {
       "elementType" : "Parameter",
       "id" : null,
-      "elementType" : "element_type",
+      
       "cv_label" : "MS",
       "cv_accession" : "MS:1002889",
       "name" : "Progenesis MetaScope score",
@@ -1096,7 +1096,7 @@
     "best_id_confidence_measure" : {
       "elementType" : "Parameter",
       "id" : null,
-      "elementType" : "element_type",
+      
       "cv_label" : "MS",
       "cv_accession" : "MS:1002889",
       "name" : "Progenesis MetaScope score",
@@ -1129,7 +1129,7 @@
     "best_id_confidence_measure" : {
       "elementType" : "Parameter",
       "id" : null,
-      "elementType" : "element_type",
+      
       "cv_label" : "MS",
       "cv_accession" : "MS:1002889",
       "name" : "Progenesis MetaScope score",
@@ -1162,7 +1162,7 @@
     "best_id_confidence_measure" : {
       "elementType" : "Parameter",
       "id" : null,
-      "elementType" : "element_type",
+      
       "cv_label" : "MS",
       "cv_accession" : "MS:1002889",
       "name" : "Progenesis MetaScope score",
@@ -1195,7 +1195,7 @@
     "best_id_confidence_measure" : {
       "elementType" : "Parameter",
       "id" : null,
-      "elementType" : "element_type",
+      
       "cv_label" : "MS",
       "cv_accession" : "MS:1002889",
       "name" : "Progenesis MetaScope score",
@@ -1228,7 +1228,7 @@
     "best_id_confidence_measure" : {
       "elementType" : "Parameter",
       "id" : null,
-      "elementType" : "element_type",
+      
       "cv_label" : "MS",
       "cv_accession" : "MS:1002889",
       "name" : "Progenesis MetaScope score",
@@ -1261,7 +1261,7 @@
     "best_id_confidence_measure" : {
       "elementType" : "Parameter",
       "id" : null,
-      "elementType" : "element_type",
+      
       "cv_label" : "MS",
       "cv_accession" : "MS:1002889",
       "name" : "Progenesis MetaScope score",
@@ -1294,7 +1294,7 @@
     "best_id_confidence_measure" : {
       "elementType" : "Parameter",
       "id" : null,
-      "elementType" : "element_type",
+      
       "cv_label" : "MS",
       "cv_accession" : "MS:1002889",
       "name" : "Progenesis MetaScope score",
@@ -1327,7 +1327,7 @@
     "best_id_confidence_measure" : {
       "elementType" : "Parameter",
       "id" : null,
-      "elementType" : "element_type",
+      
       "cv_label" : "MS",
       "cv_accession" : "MS:1002889",
       "name" : "Progenesis MetaScope score",
@@ -1360,7 +1360,7 @@
     "best_id_confidence_measure" : {
       "elementType" : "Parameter",
       "id" : null,
-      "elementType" : "element_type",
+      
       "cv_label" : "MS",
       "cv_accession" : "MS:1002889",
       "name" : "Progenesis MetaScope score",
@@ -1393,7 +1393,7 @@
     "best_id_confidence_measure" : {
       "elementType" : "Parameter",
       "id" : null,
-      "elementType" : "element_type",
+      
       "cv_label" : "MS",
       "cv_accession" : "MS:1002889",
       "name" : "Progenesis MetaScope score",
@@ -1426,7 +1426,7 @@
     "best_id_confidence_measure" : {
       "elementType" : "Parameter",
       "id" : null,
-      "elementType" : "element_type",
+      
       "cv_label" : "MS",
       "cv_accession" : "MS:1002889",
       "name" : "Progenesis MetaScope score",
@@ -1768,14 +1768,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 1,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj1_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -1784,7 +1784,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -1794,7 +1794,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -1808,14 +1808,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 1,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj1_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -1824,7 +1824,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -1834,7 +1834,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -1848,14 +1848,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 2,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj2_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -1864,7 +1864,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -1874,7 +1874,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -1888,14 +1888,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 2,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj2_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -1904,7 +1904,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -1914,7 +1914,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -1928,14 +1928,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 3,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj3_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -1944,7 +1944,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -1954,7 +1954,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -1968,14 +1968,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 3,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj3_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -1984,7 +1984,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -1994,7 +1994,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -2008,14 +2008,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 4,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl1_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -2024,7 +2024,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -2034,7 +2034,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -2048,14 +2048,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 4,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl1_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -2064,7 +2064,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -2074,7 +2074,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -2088,14 +2088,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 5,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl2_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -2104,7 +2104,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -2114,7 +2114,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -2128,14 +2128,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 5,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl2_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -2144,7 +2144,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -2154,7 +2154,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -2168,14 +2168,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 6,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl3_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -2184,7 +2184,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -2194,7 +2194,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -2208,14 +2208,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 6,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl3_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -2224,7 +2224,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -2234,7 +2234,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -2248,7 +2248,7 @@
     "identification_method" : {
       "elementType" : "Parameter",
       "id" : null,
-      "elementType" : "element_type",
+      
       "cv_label" : "",
       "cv_accession" : "",
       "name" : "Progenesis MetaScope",
@@ -2257,7 +2257,7 @@
     "ms_level" : {
       "elementType" : "Parameter",
       "id" : null,
-      "elementType" : "element_type",
+      
       "cv_label" : "MS",
       "cv_accession" : "MS:1000511",
       "name" : "ms level",
@@ -2295,14 +2295,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 1,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj1_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -2311,7 +2311,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -2321,7 +2321,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -2335,14 +2335,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 2,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj2_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -2351,7 +2351,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -2361,7 +2361,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -2375,14 +2375,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 3,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj3_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -2391,7 +2391,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -2401,7 +2401,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -2415,14 +2415,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 4,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl1_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -2431,7 +2431,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -2441,7 +2441,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -2455,14 +2455,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 5,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl2_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -2471,7 +2471,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -2481,7 +2481,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -2495,14 +2495,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 6,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl3_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -2511,7 +2511,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -2521,7 +2521,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -2535,7 +2535,7 @@
     "identification_method" : {
       "elementType" : "Parameter",
       "id" : null,
-      "elementType" : "element_type",
+      
       "cv_label" : "",
       "cv_accession" : "",
       "name" : "Progenesis MetaScope",
@@ -2544,7 +2544,7 @@
     "ms_level" : {
       "elementType" : "Parameter",
       "id" : null,
-      "elementType" : "element_type",
+      
       "cv_label" : "MS",
       "cv_accession" : "MS:1000511",
       "name" : "ms level",
@@ -2582,14 +2582,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 1,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj1_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -2598,7 +2598,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -2608,7 +2608,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -2622,14 +2622,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 2,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj2_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -2638,7 +2638,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -2648,7 +2648,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -2662,14 +2662,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 3,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj3_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -2678,7 +2678,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -2688,7 +2688,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -2702,14 +2702,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 4,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl1_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -2718,7 +2718,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -2728,7 +2728,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -2742,14 +2742,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 5,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl2_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -2758,7 +2758,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -2768,7 +2768,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -2782,14 +2782,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 6,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl3_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -2798,7 +2798,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -2808,7 +2808,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -2822,7 +2822,7 @@
     "identification_method" : {
       "elementType" : "Parameter",
       "id" : null,
-      "elementType" : "element_type",
+      
       "cv_label" : "",
       "cv_accession" : "",
       "name" : "Progenesis MetaScope",
@@ -2831,7 +2831,7 @@
     "ms_level" : {
       "elementType" : "Parameter",
       "id" : null,
-      "elementType" : "element_type",
+      
       "cv_label" : "MS",
       "cv_accession" : "MS:1000511",
       "name" : "ms level",
@@ -2869,14 +2869,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 1,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj1_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -2885,7 +2885,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -2895,7 +2895,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -2909,14 +2909,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 1,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj1_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -2925,7 +2925,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -2935,7 +2935,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -2949,14 +2949,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 1,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj1_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -2965,7 +2965,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -2975,7 +2975,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -2989,14 +2989,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 2,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj2_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -3005,7 +3005,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -3015,7 +3015,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -3029,14 +3029,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 2,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj2_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -3045,7 +3045,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -3055,7 +3055,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -3069,14 +3069,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 2,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj2_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -3085,7 +3085,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -3095,7 +3095,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -3109,14 +3109,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 3,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj3_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -3125,7 +3125,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -3135,7 +3135,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -3149,14 +3149,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 3,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj3_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -3165,7 +3165,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -3175,7 +3175,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -3189,14 +3189,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 3,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj3_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -3205,7 +3205,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -3215,7 +3215,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -3229,14 +3229,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 4,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl1_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -3245,7 +3245,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -3255,7 +3255,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -3269,14 +3269,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 4,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl1_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -3285,7 +3285,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -3295,7 +3295,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -3309,14 +3309,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 5,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl2_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -3325,7 +3325,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -3335,7 +3335,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -3349,14 +3349,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 5,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl2_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -3365,7 +3365,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -3375,7 +3375,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -3389,14 +3389,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 5,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl2_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -3405,7 +3405,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -3415,7 +3415,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -3429,14 +3429,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 6,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl3_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -3445,7 +3445,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -3455,7 +3455,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -3469,14 +3469,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 6,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl3_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -3485,7 +3485,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -3495,7 +3495,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -3509,14 +3509,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 6,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl3_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -3525,7 +3525,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -3535,7 +3535,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -3549,7 +3549,7 @@
     "identification_method" : {
       "elementType" : "Parameter",
       "id" : null,
-      "elementType" : "element_type",
+      
       "cv_label" : "",
       "cv_accession" : "",
       "name" : "Progenesis MetaScope",
@@ -3558,7 +3558,7 @@
     "ms_level" : {
       "elementType" : "Parameter",
       "id" : null,
-      "elementType" : "element_type",
+      
       "cv_label" : "MS",
       "cv_accession" : "MS:1000511",
       "name" : "ms level",
@@ -3596,14 +3596,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 1,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj1_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -3612,7 +3612,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -3622,7 +3622,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -3636,14 +3636,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 2,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj2_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -3652,7 +3652,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -3662,7 +3662,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -3676,14 +3676,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 3,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj3_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -3692,7 +3692,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -3702,7 +3702,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -3716,14 +3716,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 4,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl1_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -3732,7 +3732,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -3742,7 +3742,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -3756,14 +3756,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 5,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl2_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -3772,7 +3772,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -3782,7 +3782,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -3796,14 +3796,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 6,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl3_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -3812,7 +3812,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -3822,7 +3822,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -3836,7 +3836,7 @@
     "identification_method" : {
       "elementType" : "Parameter",
       "id" : null,
-      "elementType" : "element_type",
+      
       "cv_label" : "",
       "cv_accession" : "",
       "name" : "Progenesis MetaScope",
@@ -3845,7 +3845,7 @@
     "ms_level" : {
       "elementType" : "Parameter",
       "id" : null,
-      "elementType" : "element_type",
+      
       "cv_label" : "MS",
       "cv_accession" : "MS:1000511",
       "name" : "ms level",
@@ -3883,14 +3883,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 1,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj1_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -3899,7 +3899,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -3909,7 +3909,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -3923,14 +3923,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 2,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj2_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -3939,7 +3939,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -3949,7 +3949,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -3963,14 +3963,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 3,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj3_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -3979,7 +3979,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -3989,7 +3989,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -4003,14 +4003,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 4,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl1_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -4019,7 +4019,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -4029,7 +4029,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -4043,14 +4043,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 5,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl2_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -4059,7 +4059,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -4069,7 +4069,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -4083,14 +4083,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 6,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl3_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -4099,7 +4099,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -4109,7 +4109,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -4123,7 +4123,7 @@
     "identification_method" : {
       "elementType" : "Parameter",
       "id" : null,
-      "elementType" : "element_type",
+      
       "cv_label" : "",
       "cv_accession" : "",
       "name" : "Progenesis MetaScope",
@@ -4132,7 +4132,7 @@
     "ms_level" : {
       "elementType" : "Parameter",
       "id" : null,
-      "elementType" : "element_type",
+      
       "cv_label" : "MS",
       "cv_accession" : "MS:1000511",
       "name" : "ms level",
@@ -4170,14 +4170,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 1,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj1_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -4186,7 +4186,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -4196,7 +4196,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -4210,14 +4210,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 1,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj1_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -4226,7 +4226,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -4236,7 +4236,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -4250,14 +4250,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 1,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj1_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -4266,7 +4266,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -4276,7 +4276,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -4290,14 +4290,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 2,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj2_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -4306,7 +4306,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -4316,7 +4316,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -4330,14 +4330,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 2,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj2_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -4346,7 +4346,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -4356,7 +4356,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -4370,14 +4370,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 3,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj3_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -4386,7 +4386,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -4396,7 +4396,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -4410,14 +4410,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 3,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj3_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -4426,7 +4426,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -4436,7 +4436,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -4450,14 +4450,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 4,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl1_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -4466,7 +4466,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -4476,7 +4476,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -4490,14 +4490,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 4,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl1_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -4506,7 +4506,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -4516,7 +4516,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -4530,14 +4530,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 5,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl2_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -4546,7 +4546,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -4556,7 +4556,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -4570,14 +4570,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 5,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl2_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -4586,7 +4586,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -4596,7 +4596,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -4610,14 +4610,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 6,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl3_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -4626,7 +4626,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -4636,7 +4636,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -4650,14 +4650,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 6,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl3_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -4666,7 +4666,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -4676,7 +4676,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -4690,7 +4690,7 @@
     "identification_method" : {
       "elementType" : "Parameter",
       "id" : null,
-      "elementType" : "element_type",
+      
       "cv_label" : "",
       "cv_accession" : "",
       "name" : "Progenesis MetaScope",
@@ -4699,7 +4699,7 @@
     "ms_level" : {
       "elementType" : "Parameter",
       "id" : null,
-      "elementType" : "element_type",
+      
       "cv_label" : "MS",
       "cv_accession" : "MS:1000511",
       "name" : "ms level",
@@ -4737,14 +4737,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 1,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj1_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -4753,7 +4753,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -4763,7 +4763,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -4777,14 +4777,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 2,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj2_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -4793,7 +4793,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -4803,7 +4803,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -4817,14 +4817,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 3,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj3_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -4833,7 +4833,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -4843,7 +4843,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -4857,14 +4857,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 4,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl1_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -4873,7 +4873,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -4883,7 +4883,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -4897,14 +4897,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 5,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl2_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -4913,7 +4913,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -4923,7 +4923,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -4937,14 +4937,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 6,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl3_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -4953,7 +4953,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -4963,7 +4963,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -4977,7 +4977,7 @@
     "identification_method" : {
       "elementType" : "Parameter",
       "id" : null,
-      "elementType" : "element_type",
+      
       "cv_label" : "",
       "cv_accession" : "",
       "name" : "Progenesis MetaScope",
@@ -4986,7 +4986,7 @@
     "ms_level" : {
       "elementType" : "Parameter",
       "id" : null,
-      "elementType" : "element_type",
+      
       "cv_label" : "MS",
       "cv_accession" : "MS:1000511",
       "name" : "ms level",
@@ -5024,14 +5024,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 1,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj1_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -5040,7 +5040,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -5050,7 +5050,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -5064,14 +5064,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 2,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj2_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -5080,7 +5080,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -5090,7 +5090,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -5104,14 +5104,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 3,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj3_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -5120,7 +5120,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -5130,7 +5130,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -5144,14 +5144,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 4,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl1_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -5160,7 +5160,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -5170,7 +5170,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -5184,14 +5184,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 5,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl2_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -5200,7 +5200,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -5210,7 +5210,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -5224,14 +5224,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 6,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl3_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -5240,7 +5240,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -5250,7 +5250,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -5264,7 +5264,7 @@
     "identification_method" : {
       "elementType" : "Parameter",
       "id" : null,
-      "elementType" : "element_type",
+      
       "cv_label" : "",
       "cv_accession" : "",
       "name" : "Progenesis MetaScope",
@@ -5273,7 +5273,7 @@
     "ms_level" : {
       "elementType" : "Parameter",
       "id" : null,
-      "elementType" : "element_type",
+      
       "cv_label" : "MS",
       "cv_accession" : "MS:1000511",
       "name" : "ms level",
@@ -5311,14 +5311,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 2,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj2_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -5327,7 +5327,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -5337,7 +5337,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -5351,7 +5351,7 @@
     "identification_method" : {
       "elementType" : "Parameter",
       "id" : null,
-      "elementType" : "element_type",
+      
       "cv_label" : "",
       "cv_accession" : "",
       "name" : "Progenesis MetaScope",
@@ -5360,7 +5360,7 @@
     "ms_level" : {
       "elementType" : "Parameter",
       "id" : null,
-      "elementType" : "element_type",
+      
       "cv_label" : "MS",
       "cv_accession" : "MS:1000511",
       "name" : "ms level",
@@ -5398,14 +5398,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 1,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj1_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -5414,7 +5414,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -5424,7 +5424,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -5438,14 +5438,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 2,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj2_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -5454,7 +5454,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -5464,7 +5464,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -5478,14 +5478,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 3,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj3_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -5494,7 +5494,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -5504,7 +5504,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -5518,14 +5518,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 5,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl2_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -5534,7 +5534,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -5544,7 +5544,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -5558,14 +5558,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 6,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl3_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -5574,7 +5574,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -5584,7 +5584,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -5598,7 +5598,7 @@
     "identification_method" : {
       "elementType" : "Parameter",
       "id" : null,
-      "elementType" : "element_type",
+      
       "cv_label" : "",
       "cv_accession" : "",
       "name" : "Progenesis MetaScope",
@@ -5607,7 +5607,7 @@
     "ms_level" : {
       "elementType" : "Parameter",
       "id" : null,
-      "elementType" : "element_type",
+      
       "cv_label" : "MS",
       "cv_accession" : "MS:1000511",
       "name" : "ms level",
@@ -5645,14 +5645,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 1,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj1_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -5661,7 +5661,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -5671,7 +5671,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -5685,14 +5685,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 2,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj2_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -5701,7 +5701,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -5711,7 +5711,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -5725,14 +5725,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 3,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj3_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -5741,7 +5741,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -5751,7 +5751,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -5765,14 +5765,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 4,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl1_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -5781,7 +5781,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -5791,7 +5791,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -5805,14 +5805,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 5,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl2_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -5821,7 +5821,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -5831,7 +5831,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -5845,14 +5845,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 6,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl3_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -5861,7 +5861,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -5871,7 +5871,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -5885,7 +5885,7 @@
     "identification_method" : {
       "elementType" : "Parameter",
       "id" : null,
-      "elementType" : "element_type",
+      
       "cv_label" : "",
       "cv_accession" : "",
       "name" : "Progenesis MetaScope",
@@ -5894,7 +5894,7 @@
     "ms_level" : {
       "elementType" : "Parameter",
       "id" : null,
-      "elementType" : "element_type",
+      
       "cv_label" : "MS",
       "cv_accession" : "MS:1000511",
       "name" : "ms level",
@@ -5932,14 +5932,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 1,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj1_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -5948,7 +5948,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -5958,7 +5958,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -5972,14 +5972,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 2,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj2_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -5988,7 +5988,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -5998,7 +5998,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -6012,14 +6012,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 3,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj3_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -6028,7 +6028,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -6038,7 +6038,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -6052,14 +6052,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 4,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl1_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -6068,7 +6068,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -6078,7 +6078,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -6092,14 +6092,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 4,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl1_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -6108,7 +6108,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -6118,7 +6118,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -6132,14 +6132,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 5,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl2_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -6148,7 +6148,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -6158,7 +6158,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -6172,14 +6172,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 6,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl3_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -6188,7 +6188,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -6198,7 +6198,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -6212,14 +6212,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 6,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl3_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -6228,7 +6228,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -6238,7 +6238,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -6252,7 +6252,7 @@
     "identification_method" : {
       "elementType" : "Parameter",
       "id" : null,
-      "elementType" : "element_type",
+      
       "cv_label" : "",
       "cv_accession" : "",
       "name" : "Progenesis MetaScope",
@@ -6261,7 +6261,7 @@
     "ms_level" : {
       "elementType" : "Parameter",
       "id" : null,
-      "elementType" : "element_type",
+      
       "cv_label" : "MS",
       "cv_accession" : "MS:1000511",
       "name" : "ms level",
@@ -6299,14 +6299,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 1,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj1_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -6315,7 +6315,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -6325,7 +6325,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -6339,14 +6339,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 2,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj2_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -6355,7 +6355,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -6365,7 +6365,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -6379,14 +6379,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 3,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj3_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -6395,7 +6395,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -6405,7 +6405,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -6419,14 +6419,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 4,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl1_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -6435,7 +6435,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -6445,7 +6445,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -6459,14 +6459,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 5,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl2_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -6475,7 +6475,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -6485,7 +6485,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -6499,14 +6499,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 6,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl3_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -6515,7 +6515,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -6525,7 +6525,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -6539,7 +6539,7 @@
     "identification_method" : {
       "elementType" : "Parameter",
       "id" : null,
-      "elementType" : "element_type",
+      
       "cv_label" : "",
       "cv_accession" : "",
       "name" : "Progenesis MetaScope",
@@ -6548,7 +6548,7 @@
     "ms_level" : {
       "elementType" : "Parameter",
       "id" : null,
-      "elementType" : "element_type",
+      
       "cv_label" : "MS",
       "cv_accession" : "MS:1000511",
       "name" : "ms level",
@@ -6586,14 +6586,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 1,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj1_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -6602,7 +6602,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -6612,7 +6612,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -6626,14 +6626,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 2,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj2_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -6642,7 +6642,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -6652,7 +6652,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -6666,14 +6666,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 3,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj3_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -6682,7 +6682,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -6692,7 +6692,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -6706,7 +6706,7 @@
     "identification_method" : {
       "elementType" : "Parameter",
       "id" : null,
-      "elementType" : "element_type",
+      
       "cv_label" : "",
       "cv_accession" : "",
       "name" : "Progenesis MetaScope",
@@ -6715,7 +6715,7 @@
     "ms_level" : {
       "elementType" : "Parameter",
       "id" : null,
-      "elementType" : "element_type",
+      
       "cv_label" : "MS",
       "cv_accession" : "MS:1000511",
       "name" : "ms level",
@@ -6753,14 +6753,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 1,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj1_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -6769,7 +6769,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -6779,7 +6779,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -6793,14 +6793,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 2,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj2_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -6809,7 +6809,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -6819,7 +6819,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -6833,14 +6833,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 3,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj3_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -6849,7 +6849,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -6859,7 +6859,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -6873,14 +6873,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 4,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl1_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -6889,7 +6889,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -6899,7 +6899,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -6913,14 +6913,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 5,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl2_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -6929,7 +6929,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -6939,7 +6939,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -6953,14 +6953,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 6,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl3_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -6969,7 +6969,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -6979,7 +6979,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -6993,7 +6993,7 @@
     "identification_method" : {
       "elementType" : "Parameter",
       "id" : null,
-      "elementType" : "element_type",
+      
       "cv_label" : "",
       "cv_accession" : "",
       "name" : "Progenesis MetaScope",
@@ -7002,7 +7002,7 @@
     "ms_level" : {
       "elementType" : "Parameter",
       "id" : null,
-      "elementType" : "element_type",
+      
       "cv_label" : "MS",
       "cv_accession" : "MS:1000511",
       "name" : "ms level",
@@ -7040,14 +7040,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 3,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj3_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -7056,7 +7056,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -7066,7 +7066,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -7080,7 +7080,7 @@
     "identification_method" : {
       "elementType" : "Parameter",
       "id" : null,
-      "elementType" : "element_type",
+      
       "cv_label" : "",
       "cv_accession" : "",
       "name" : "Progenesis MetaScope",
@@ -7089,7 +7089,7 @@
     "ms_level" : {
       "elementType" : "Parameter",
       "id" : null,
-      "elementType" : "element_type",
+      
       "cv_label" : "MS",
       "cv_accession" : "MS:1000511",
       "name" : "ms level",
@@ -7127,14 +7127,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 1,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj1_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -7143,7 +7143,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -7153,7 +7153,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -7167,14 +7167,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 1,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj1_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -7183,7 +7183,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -7193,7 +7193,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -7207,14 +7207,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 1,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj1_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -7223,7 +7223,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -7233,7 +7233,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -7247,14 +7247,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 2,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj2_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -7263,7 +7263,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -7273,7 +7273,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -7287,14 +7287,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 2,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj2_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -7303,7 +7303,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -7313,7 +7313,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -7327,14 +7327,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 2,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj2_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -7343,7 +7343,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -7353,7 +7353,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -7367,14 +7367,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 3,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj3_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -7383,7 +7383,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -7393,7 +7393,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -7407,14 +7407,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 3,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj3_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -7423,7 +7423,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -7433,7 +7433,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -7447,14 +7447,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 3,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj3_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -7463,7 +7463,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -7473,7 +7473,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -7487,14 +7487,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 4,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl1_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -7503,7 +7503,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -7513,7 +7513,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -7527,14 +7527,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 4,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl1_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -7543,7 +7543,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -7553,7 +7553,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -7567,14 +7567,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 4,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl1_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -7583,7 +7583,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -7593,7 +7593,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -7607,14 +7607,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 5,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl2_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -7623,7 +7623,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -7633,7 +7633,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -7647,14 +7647,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 5,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl2_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -7663,7 +7663,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -7673,7 +7673,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -7687,14 +7687,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 5,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl2_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -7703,7 +7703,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -7713,7 +7713,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -7727,14 +7727,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 6,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl3_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -7743,7 +7743,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -7753,7 +7753,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -7767,14 +7767,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 6,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl3_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -7783,7 +7783,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -7793,7 +7793,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -7807,14 +7807,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 6,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl3_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -7823,7 +7823,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -7833,7 +7833,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -7847,7 +7847,7 @@
     "identification_method" : {
       "elementType" : "Parameter",
       "id" : null,
-      "elementType" : "element_type",
+      
       "cv_label" : "",
       "cv_accession" : "",
       "name" : "Progenesis MetaScope",
@@ -7856,7 +7856,7 @@
     "ms_level" : {
       "elementType" : "Parameter",
       "id" : null,
-      "elementType" : "element_type",
+      
       "cv_label" : "MS",
       "cv_accession" : "MS:1000511",
       "name" : "ms level",
@@ -7894,14 +7894,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 1,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj1_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -7910,7 +7910,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -7920,7 +7920,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -7934,14 +7934,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 2,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj2_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -7950,7 +7950,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -7960,7 +7960,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -7974,14 +7974,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 3,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3injections_inj3_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -7990,7 +7990,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -8000,7 +8000,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -8014,14 +8014,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 4,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl1_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -8030,7 +8030,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -8040,7 +8040,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -8054,14 +8054,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 5,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl2_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -8070,7 +8070,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -8080,7 +8080,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -8094,14 +8094,14 @@
       "ms_run" : {
         "elementType" : "MsRun",
         "id" : 6,
-        "elementType" : "element_type",
+        
         "name" : null,
         "location" : "file:///D:/Data%20Sets/Metabolomics/MTBLS263/3samples_sampl3_POS.mzML",
         "instrument_ref" : null,
         "format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000584",
           "name" : "mzML file",
@@ -8110,7 +8110,7 @@
         "id_format" : {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000768",
           "name" : "Thermo nativeID format",
@@ -8120,7 +8120,7 @@
         "scan_polarity" : [ {
           "elementType" : "Parameter",
           "id" : null,
-          "elementType" : "element_type",
+          
           "cv_label" : "MS",
           "cv_accession" : "MS:1000130",
           "name" : "positive scan",
@@ -8134,7 +8134,7 @@
     "identification_method" : {
       "elementType" : "Parameter",
       "id" : null,
-      "elementType" : "element_type",
+      
       "cv_label" : "",
       "cv_accession" : "",
       "name" : "Progenesis MetaScope",
@@ -8143,7 +8143,7 @@
     "ms_level" : {
       "elementType" : "Parameter",
       "id" : null,
-      "elementType" : "element_type",
+      
       "cv_label" : "MS",
       "cv_accession" : "MS:1000511",
       "name" : "ms level",

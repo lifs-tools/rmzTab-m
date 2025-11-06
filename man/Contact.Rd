@@ -26,19 +26,19 @@ Contact Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{Contact$new()}}
-\item \href{#method-toJSON}{\code{Contact$toJSON()}}
-\item \href{#method-fromJSON}{\code{Contact$fromJSON()}}
-\item \href{#method-toJSONString}{\code{Contact$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{Contact$fromJSONString()}}
-\item \href{#method-toDataFrame}{\code{Contact$toDataFrame()}}
-\item \href{#method-fromDataFrame}{\code{Contact$fromDataFrame()}}
-\item \href{#method-clone}{\code{Contact$clone()}}
+\item \href{#method-Contact-new}{\code{Contact$new()}}
+\item \href{#method-Contact-toJSON}{\code{Contact$toJSON()}}
+\item \href{#method-Contact-fromJSON}{\code{Contact$fromJSON()}}
+\item \href{#method-Contact-toJSONString}{\code{Contact$toJSONString()}}
+\item \href{#method-Contact-fromJSONString}{\code{Contact$fromJSONString()}}
+\item \href{#method-Contact-toDataFrame}{\code{Contact$toDataFrame()}}
+\item \href{#method-Contact-fromDataFrame}{\code{Contact$fromDataFrame()}}
+\item \href{#method-Contact-clone}{\code{Contact$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-Contact-new"></a>}}
+\if{latex}{\out{\hypertarget{method-Contact-new}{}}}
 \subsection{Method \code{new()}}{
 Create a Contact
 \subsection{Usage}{
@@ -62,8 +62,8 @@ Create a Contact
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-Contact-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-Contact-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 Serialize to list object suitable for jsonlite
 \subsection{Usage}{
@@ -72,8 +72,8 @@ Serialize to list object suitable for jsonlite
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-Contact-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-Contact-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 Deserialize from jsonlite list object
 \subsection{Usage}{
@@ -89,8 +89,8 @@ Deserialize from jsonlite list object
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-Contact-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-Contact-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 Serialize to JSON string.
 \subsection{Usage}{
@@ -99,8 +99,8 @@ Serialize to JSON string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-Contact-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-Contact-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 Deserialize from JSON string
 \subsection{Usage}{
@@ -116,8 +116,8 @@ Deserialize from JSON string
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toDataFrame"></a>}}
-\if{latex}{\out{\hypertarget{method-toDataFrame}{}}}
+\if{html}{\out{<a id="method-Contact-toDataFrame"></a>}}
+\if{latex}{\out{\hypertarget{method-Contact-toDataFrame}{}}}
 \subsection{Method \code{toDataFrame()}}{
 Serialize to data frame
 \subsection{Usage}{
@@ -126,8 +126,8 @@ Serialize to data frame
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromDataFrame"></a>}}
-\if{latex}{\out{\hypertarget{method-fromDataFrame}{}}}
+\if{html}{\out{<a id="method-Contact-fromDataFrame"></a>}}
+\if{latex}{\out{\hypertarget{method-Contact-fromDataFrame}{}}}
 \subsection{Method \code{fromDataFrame()}}{
 Deserialize from contact data frame
 \subsection{Usage}{
@@ -143,8 +143,8 @@ Deserialize from contact data frame
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-Contact-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-Contact-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

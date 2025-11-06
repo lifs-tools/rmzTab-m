@@ -34,19 +34,19 @@ Sample Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{Sample$new()}}
-\item \href{#method-toJSON}{\code{Sample$toJSON()}}
-\item \href{#method-fromJSON}{\code{Sample$fromJSON()}}
-\item \href{#method-toJSONString}{\code{Sample$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{Sample$fromJSONString()}}
-\item \href{#method-toDataFrame}{\code{Sample$toDataFrame()}}
-\item \href{#method-fromDataFrame}{\code{Sample$fromDataFrame()}}
-\item \href{#method-clone}{\code{Sample$clone()}}
+\item \href{#method-Sample-new}{\code{Sample$new()}}
+\item \href{#method-Sample-toJSON}{\code{Sample$toJSON()}}
+\item \href{#method-Sample-fromJSON}{\code{Sample$fromJSON()}}
+\item \href{#method-Sample-toJSONString}{\code{Sample$toJSONString()}}
+\item \href{#method-Sample-fromJSONString}{\code{Sample$fromJSONString()}}
+\item \href{#method-Sample-toDataFrame}{\code{Sample$toDataFrame()}}
+\item \href{#method-Sample-fromDataFrame}{\code{Sample$fromDataFrame()}}
+\item \href{#method-Sample-clone}{\code{Sample$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-Sample-new"></a>}}
+\if{latex}{\out{\hypertarget{method-Sample-new}{}}}
 \subsection{Method \code{new()}}{
 Create a Sample
 \subsection{Usage}{
@@ -88,8 +88,8 @@ Create a Sample
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-Sample-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-Sample-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 Serialize to list object suitable for jsonlite
 \subsection{Usage}{
@@ -98,8 +98,8 @@ Serialize to list object suitable for jsonlite
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-Sample-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-Sample-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 Deserialize from jsonlite list object
 \subsection{Usage}{
@@ -115,8 +115,8 @@ Deserialize from jsonlite list object
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-Sample-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-Sample-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 Serialize to JSON string.
 \subsection{Usage}{
@@ -125,8 +125,8 @@ Serialize to JSON string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-Sample-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-Sample-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 Deserialize from JSON string
 \subsection{Usage}{
@@ -142,8 +142,8 @@ Deserialize from JSON string
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toDataFrame"></a>}}
-\if{latex}{\out{\hypertarget{method-toDataFrame}{}}}
+\if{html}{\out{<a id="method-Sample-toDataFrame"></a>}}
+\if{latex}{\out{\hypertarget{method-Sample-toDataFrame}{}}}
 \subsection{Method \code{toDataFrame()}}{
 Serialize to data frame
 \subsection{Usage}{
@@ -152,8 +152,8 @@ Serialize to data frame
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromDataFrame"></a>}}
-\if{latex}{\out{\hypertarget{method-fromDataFrame}{}}}
+\if{html}{\out{<a id="method-Sample-fromDataFrame"></a>}}
+\if{latex}{\out{\hypertarget{method-Sample-fromDataFrame}{}}}
 \subsection{Method \code{fromDataFrame()}}{
 Deserialize from sample data frame
 \subsection{Usage}{
@@ -169,8 +169,8 @@ Deserialize from sample data frame
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-Sample-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-Sample-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

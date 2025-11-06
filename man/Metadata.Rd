@@ -74,19 +74,19 @@ Metadata Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{Metadata$new()}}
-\item \href{#method-toJSON}{\code{Metadata$toJSON()}}
-\item \href{#method-fromJSON}{\code{Metadata$fromJSON()}}
-\item \href{#method-toJSONString}{\code{Metadata$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{Metadata$fromJSONString()}}
-\item \href{#method-toDataFrame}{\code{Metadata$toDataFrame()}}
-\item \href{#method-fromDataFrame}{\code{Metadata$fromDataFrame()}}
-\item \href{#method-clone}{\code{Metadata$clone()}}
+\item \href{#method-Metadata-new}{\code{Metadata$new()}}
+\item \href{#method-Metadata-toJSON}{\code{Metadata$toJSON()}}
+\item \href{#method-Metadata-fromJSON}{\code{Metadata$fromJSON()}}
+\item \href{#method-Metadata-toJSONString}{\code{Metadata$toJSONString()}}
+\item \href{#method-Metadata-fromJSONString}{\code{Metadata$fromJSONString()}}
+\item \href{#method-Metadata-toDataFrame}{\code{Metadata$toDataFrame()}}
+\item \href{#method-Metadata-fromDataFrame}{\code{Metadata$fromDataFrame()}}
+\item \href{#method-Metadata-clone}{\code{Metadata$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-Metadata-new"></a>}}
+\if{latex}{\out{\hypertarget{method-Metadata-new}{}}}
 \subsection{Method \code{new()}}{
 Create Metadata
 \subsection{Usage}{
@@ -188,8 +188,8 @@ Create Metadata
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-Metadata-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-Metadata-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 Serialize to list object suitable for jsonlite
 \subsection{Usage}{
@@ -198,8 +198,8 @@ Serialize to list object suitable for jsonlite
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-Metadata-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-Metadata-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 Deserialize from jsonlite list object
 \subsection{Usage}{
@@ -215,8 +215,8 @@ Deserialize from jsonlite list object
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-Metadata-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-Metadata-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 Serialize to JSON string.
 \subsection{Usage}{
@@ -225,8 +225,8 @@ Serialize to JSON string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-Metadata-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-Metadata-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 Deserialize from JSON string
 \subsection{Usage}{
@@ -242,8 +242,8 @@ Deserialize from JSON string
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toDataFrame"></a>}}
-\if{latex}{\out{\hypertarget{method-toDataFrame}{}}}
+\if{html}{\out{<a id="method-Metadata-toDataFrame"></a>}}
+\if{latex}{\out{\hypertarget{method-Metadata-toDataFrame}{}}}
 \subsection{Method \code{toDataFrame()}}{
 Serialize to data frame
 \subsection{Usage}{
@@ -252,8 +252,8 @@ Serialize to data frame
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromDataFrame"></a>}}
-\if{latex}{\out{\hypertarget{method-fromDataFrame}{}}}
+\if{html}{\out{<a id="method-Metadata-fromDataFrame"></a>}}
+\if{latex}{\out{\hypertarget{method-Metadata-fromDataFrame}{}}}
 \subsection{Method \code{fromDataFrame()}}{
 Deserialize from metadata data frame
 \subsection{Usage}{
@@ -269,8 +269,8 @@ Deserialize from metadata data frame
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-Metadata-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-Metadata-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

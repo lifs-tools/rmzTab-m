@@ -48,19 +48,19 @@ SmallMoleculeFeature Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{SmallMoleculeFeature$new()}}
-\item \href{#method-toJSON}{\code{SmallMoleculeFeature$toJSON()}}
-\item \href{#method-fromJSON}{\code{SmallMoleculeFeature$fromJSON()}}
-\item \href{#method-toJSONString}{\code{SmallMoleculeFeature$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{SmallMoleculeFeature$fromJSONString()}}
-\item \href{#method-toDataFrame}{\code{SmallMoleculeFeature$toDataFrame()}}
-\item \href{#method-fromDataFrame}{\code{SmallMoleculeFeature$fromDataFrame()}}
-\item \href{#method-clone}{\code{SmallMoleculeFeature$clone()}}
+\item \href{#method-SmallMoleculeFeature-new}{\code{SmallMoleculeFeature$new()}}
+\item \href{#method-SmallMoleculeFeature-toJSON}{\code{SmallMoleculeFeature$toJSON()}}
+\item \href{#method-SmallMoleculeFeature-fromJSON}{\code{SmallMoleculeFeature$fromJSON()}}
+\item \href{#method-SmallMoleculeFeature-toJSONString}{\code{SmallMoleculeFeature$toJSONString()}}
+\item \href{#method-SmallMoleculeFeature-fromJSONString}{\code{SmallMoleculeFeature$fromJSONString()}}
+\item \href{#method-SmallMoleculeFeature-toDataFrame}{\code{SmallMoleculeFeature$toDataFrame()}}
+\item \href{#method-SmallMoleculeFeature-fromDataFrame}{\code{SmallMoleculeFeature$fromDataFrame()}}
+\item \href{#method-SmallMoleculeFeature-clone}{\code{SmallMoleculeFeature$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-SmallMoleculeFeature-new"></a>}}
+\if{latex}{\out{\hypertarget{method-SmallMoleculeFeature-new}{}}}
 \subsection{Method \code{new()}}{
 Create a new SmallMoleculeFeature.
 \subsection{Usage}{
@@ -123,8 +123,8 @@ Create a new SmallMoleculeFeature.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-SmallMoleculeFeature-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-SmallMoleculeFeature-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 Serialize to list object suitable for jsonlite
 \subsection{Usage}{
@@ -133,8 +133,8 @@ Serialize to list object suitable for jsonlite
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-SmallMoleculeFeature-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-SmallMoleculeFeature-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 Deserialize from jsonlite list object
 \subsection{Usage}{
@@ -150,8 +150,8 @@ Deserialize from jsonlite list object
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-SmallMoleculeFeature-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-SmallMoleculeFeature-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 Serialize to JSON string.
 \subsection{Usage}{
@@ -160,8 +160,8 @@ Serialize to JSON string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-SmallMoleculeFeature-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-SmallMoleculeFeature-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 Deserialize from JSON string
 \subsection{Usage}{
@@ -177,8 +177,8 @@ Deserialize from JSON string
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toDataFrame"></a>}}
-\if{latex}{\out{\hypertarget{method-toDataFrame}{}}}
+\if{html}{\out{<a id="method-SmallMoleculeFeature-toDataFrame"></a>}}
+\if{latex}{\out{\hypertarget{method-SmallMoleculeFeature-toDataFrame}{}}}
 \subsection{Method \code{toDataFrame()}}{
 Serialize to data frame
 \subsection{Usage}{
@@ -187,8 +187,8 @@ Serialize to data frame
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromDataFrame"></a>}}
-\if{latex}{\out{\hypertarget{method-fromDataFrame}{}}}
+\if{html}{\out{<a id="method-SmallMoleculeFeature-fromDataFrame"></a>}}
+\if{latex}{\out{\hypertarget{method-SmallMoleculeFeature-fromDataFrame}{}}}
 \subsection{Method \code{fromDataFrame()}}{
 Deserialize from feature data frame
 \subsection{Usage}{
@@ -204,8 +204,8 @@ Deserialize from feature data frame
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-SmallMoleculeFeature-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-SmallMoleculeFeature-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

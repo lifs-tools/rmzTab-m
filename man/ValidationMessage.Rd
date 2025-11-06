@@ -28,17 +28,17 @@ ValidationMessage Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ValidationMessage$new()}}
-\item \href{#method-toJSON}{\code{ValidationMessage$toJSON()}}
-\item \href{#method-fromJSON}{\code{ValidationMessage$fromJSON()}}
-\item \href{#method-toJSONString}{\code{ValidationMessage$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{ValidationMessage$fromJSONString()}}
-\item \href{#method-clone}{\code{ValidationMessage$clone()}}
+\item \href{#method-ValidationMessage-new}{\code{ValidationMessage$new()}}
+\item \href{#method-ValidationMessage-toJSON}{\code{ValidationMessage$toJSON()}}
+\item \href{#method-ValidationMessage-fromJSON}{\code{ValidationMessage$fromJSON()}}
+\item \href{#method-ValidationMessage-toJSONString}{\code{ValidationMessage$toJSONString()}}
+\item \href{#method-ValidationMessage-fromJSONString}{\code{ValidationMessage$fromJSONString()}}
+\item \href{#method-ValidationMessage-clone}{\code{ValidationMessage$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ValidationMessage-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ValidationMessage-new}{}}}
 \subsection{Method \code{new()}}{
 Create a new ValidationMessage object.
 \subsection{Usage}{
@@ -71,8 +71,8 @@ Create a new ValidationMessage object.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-ValidationMessage-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ValidationMessage-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 Serialize to list object suitable for jsonlite
 \subsection{Usage}{
@@ -81,8 +81,8 @@ Serialize to list object suitable for jsonlite
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-ValidationMessage-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ValidationMessage-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 Deserialize from jsonlite list object
 \subsection{Usage}{
@@ -98,8 +98,8 @@ Deserialize from jsonlite list object
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-ValidationMessage-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-ValidationMessage-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 Serialize to JSON string.
 \subsection{Usage}{
@@ -108,8 +108,8 @@ Serialize to JSON string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-ValidationMessage-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-ValidationMessage-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 Deserialize from JSON string
 \subsection{Usage}{
@@ -125,8 +125,8 @@ Deserialize from JSON string
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ValidationMessage-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ValidationMessage-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

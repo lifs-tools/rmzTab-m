@@ -28,19 +28,19 @@ Instrument Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{Instrument$new()}}
-\item \href{#method-toJSON}{\code{Instrument$toJSON()}}
-\item \href{#method-fromJSON}{\code{Instrument$fromJSON()}}
-\item \href{#method-toJSONString}{\code{Instrument$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{Instrument$fromJSONString()}}
-\item \href{#method-toDataFrame}{\code{Instrument$toDataFrame()}}
-\item \href{#method-fromDataFrame}{\code{Instrument$fromDataFrame()}}
-\item \href{#method-clone}{\code{Instrument$clone()}}
+\item \href{#method-Instrument-new}{\code{Instrument$new()}}
+\item \href{#method-Instrument-toJSON}{\code{Instrument$toJSON()}}
+\item \href{#method-Instrument-fromJSON}{\code{Instrument$fromJSON()}}
+\item \href{#method-Instrument-toJSONString}{\code{Instrument$toJSONString()}}
+\item \href{#method-Instrument-fromJSONString}{\code{Instrument$fromJSONString()}}
+\item \href{#method-Instrument-toDataFrame}{\code{Instrument$toDataFrame()}}
+\item \href{#method-Instrument-fromDataFrame}{\code{Instrument$fromDataFrame()}}
+\item \href{#method-Instrument-clone}{\code{Instrument$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-Instrument-new"></a>}}
+\if{latex}{\out{\hypertarget{method-Instrument-new}{}}}
 \subsection{Method \code{new()}}{
 Create an Instrument
 \subsection{Usage}{
@@ -73,8 +73,8 @@ Create an Instrument
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-Instrument-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-Instrument-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 Serialize to list object suitable for jsonlite
 \subsection{Usage}{
@@ -83,8 +83,8 @@ Serialize to list object suitable for jsonlite
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-Instrument-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-Instrument-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 Deserialize from jsonlite list object
 \subsection{Usage}{
@@ -100,8 +100,8 @@ Deserialize from jsonlite list object
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-Instrument-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-Instrument-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 Serialize to JSON string.
 \subsection{Usage}{
@@ -110,8 +110,8 @@ Serialize to JSON string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-Instrument-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-Instrument-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 Deserialize from JSON string
 \subsection{Usage}{
@@ -127,8 +127,8 @@ Deserialize from JSON string
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toDataFrame"></a>}}
-\if{latex}{\out{\hypertarget{method-toDataFrame}{}}}
+\if{html}{\out{<a id="method-Instrument-toDataFrame"></a>}}
+\if{latex}{\out{\hypertarget{method-Instrument-toDataFrame}{}}}
 \subsection{Method \code{toDataFrame()}}{
 Serialize to data frame
 \subsection{Usage}{
@@ -137,8 +137,8 @@ Serialize to data frame
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromDataFrame"></a>}}
-\if{latex}{\out{\hypertarget{method-fromDataFrame}{}}}
+\if{html}{\out{<a id="method-Instrument-fromDataFrame"></a>}}
+\if{latex}{\out{\hypertarget{method-Instrument-fromDataFrame}{}}}
 \subsection{Method \code{fromDataFrame()}}{
 Deserialize from instrument data frame
 \subsection{Usage}{
@@ -154,8 +154,8 @@ Deserialize from instrument data frame
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-Instrument-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-Instrument-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

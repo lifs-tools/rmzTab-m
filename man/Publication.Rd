@@ -22,19 +22,19 @@ Publication Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{Publication$new()}}
-\item \href{#method-toJSON}{\code{Publication$toJSON()}}
-\item \href{#method-fromJSON}{\code{Publication$fromJSON()}}
-\item \href{#method-toJSONString}{\code{Publication$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{Publication$fromJSONString()}}
-\item \href{#method-toDataFrame}{\code{Publication$toDataFrame()}}
-\item \href{#method-fromDataFrame}{\code{Publication$fromDataFrame()}}
-\item \href{#method-clone}{\code{Publication$clone()}}
+\item \href{#method-Publication-new}{\code{Publication$new()}}
+\item \href{#method-Publication-toJSON}{\code{Publication$toJSON()}}
+\item \href{#method-Publication-fromJSON}{\code{Publication$fromJSON()}}
+\item \href{#method-Publication-toJSONString}{\code{Publication$toJSONString()}}
+\item \href{#method-Publication-fromJSONString}{\code{Publication$fromJSONString()}}
+\item \href{#method-Publication-toDataFrame}{\code{Publication$toDataFrame()}}
+\item \href{#method-Publication-fromDataFrame}{\code{Publication$fromDataFrame()}}
+\item \href{#method-Publication-clone}{\code{Publication$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-Publication-new"></a>}}
+\if{latex}{\out{\hypertarget{method-Publication-new}{}}}
 \subsection{Method \code{new()}}{
 Create a Publication
 \subsection{Usage}{
@@ -54,8 +54,8 @@ Create a Publication
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-Publication-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-Publication-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 Serialize to list object suitable for jsonlite
 \subsection{Usage}{
@@ -64,8 +64,8 @@ Serialize to list object suitable for jsonlite
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-Publication-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-Publication-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 Deserialize from jsonlite list object
 \subsection{Usage}{
@@ -81,8 +81,8 @@ Deserialize from jsonlite list object
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-Publication-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-Publication-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 Serialize to JSON string.
 \subsection{Usage}{
@@ -91,8 +91,8 @@ Serialize to JSON string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-Publication-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-Publication-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 Deserialize from JSON string
 \subsection{Usage}{
@@ -108,8 +108,8 @@ Deserialize from JSON string
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toDataFrame"></a>}}
-\if{latex}{\out{\hypertarget{method-toDataFrame}{}}}
+\if{html}{\out{<a id="method-Publication-toDataFrame"></a>}}
+\if{latex}{\out{\hypertarget{method-Publication-toDataFrame}{}}}
 \subsection{Method \code{toDataFrame()}}{
 Serialize to data frame
 \subsection{Usage}{
@@ -118,8 +118,8 @@ Serialize to data frame
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromDataFrame"></a>}}
-\if{latex}{\out{\hypertarget{method-fromDataFrame}{}}}
+\if{html}{\out{<a id="method-Publication-fromDataFrame"></a>}}
+\if{latex}{\out{\hypertarget{method-Publication-fromDataFrame}{}}}
 \subsection{Method \code{fromDataFrame()}}{
 Deserialize from publication data frame
 \subsection{Usage}{
@@ -135,8 +135,8 @@ Deserialize from publication data frame
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-Publication-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-Publication-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

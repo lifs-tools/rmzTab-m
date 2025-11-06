@@ -58,19 +58,19 @@ SmallMoleculeSummary Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{SmallMoleculeSummary$new()}}
-\item \href{#method-toJSON}{\code{SmallMoleculeSummary$toJSON()}}
-\item \href{#method-fromJSON}{\code{SmallMoleculeSummary$fromJSON()}}
-\item \href{#method-toJSONString}{\code{SmallMoleculeSummary$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{SmallMoleculeSummary$fromJSONString()}}
-\item \href{#method-toDataFrame}{\code{SmallMoleculeSummary$toDataFrame()}}
-\item \href{#method-fromDataFrame}{\code{SmallMoleculeSummary$fromDataFrame()}}
-\item \href{#method-clone}{\code{SmallMoleculeSummary$clone()}}
+\item \href{#method-SmallMoleculeSummary-new}{\code{SmallMoleculeSummary$new()}}
+\item \href{#method-SmallMoleculeSummary-toJSON}{\code{SmallMoleculeSummary$toJSON()}}
+\item \href{#method-SmallMoleculeSummary-fromJSON}{\code{SmallMoleculeSummary$fromJSON()}}
+\item \href{#method-SmallMoleculeSummary-toJSONString}{\code{SmallMoleculeSummary$toJSONString()}}
+\item \href{#method-SmallMoleculeSummary-fromJSONString}{\code{SmallMoleculeSummary$fromJSONString()}}
+\item \href{#method-SmallMoleculeSummary-toDataFrame}{\code{SmallMoleculeSummary$toDataFrame()}}
+\item \href{#method-SmallMoleculeSummary-fromDataFrame}{\code{SmallMoleculeSummary$fromDataFrame()}}
+\item \href{#method-SmallMoleculeSummary-clone}{\code{SmallMoleculeSummary$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-SmallMoleculeSummary-new"></a>}}
+\if{latex}{\out{\hypertarget{method-SmallMoleculeSummary-new}{}}}
 \subsection{Method \code{new()}}{
 Create a new SmallMoleculeSummary.
 \subsection{Usage}{
@@ -148,8 +148,8 @@ Create a new SmallMoleculeSummary.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-SmallMoleculeSummary-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-SmallMoleculeSummary-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 Serialize to list object suitable for jsonlite
 \subsection{Usage}{
@@ -158,8 +158,8 @@ Serialize to list object suitable for jsonlite
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-SmallMoleculeSummary-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-SmallMoleculeSummary-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 Deserialize from jsonlite list object
 \subsection{Usage}{
@@ -175,8 +175,8 @@ Deserialize from jsonlite list object
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-SmallMoleculeSummary-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-SmallMoleculeSummary-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 Serialize to JSON string.
 \subsection{Usage}{
@@ -185,8 +185,8 @@ Serialize to JSON string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-SmallMoleculeSummary-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-SmallMoleculeSummary-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 Deserialize from JSON string
 \subsection{Usage}{
@@ -202,8 +202,8 @@ Deserialize from JSON string
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toDataFrame"></a>}}
-\if{latex}{\out{\hypertarget{method-toDataFrame}{}}}
+\if{html}{\out{<a id="method-SmallMoleculeSummary-toDataFrame"></a>}}
+\if{latex}{\out{\hypertarget{method-SmallMoleculeSummary-toDataFrame}{}}}
 \subsection{Method \code{toDataFrame()}}{
 Serialize to data frame
 \subsection{Usage}{
@@ -212,8 +212,8 @@ Serialize to data frame
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromDataFrame"></a>}}
-\if{latex}{\out{\hypertarget{method-fromDataFrame}{}}}
+\if{html}{\out{<a id="method-SmallMoleculeSummary-fromDataFrame"></a>}}
+\if{latex}{\out{\hypertarget{method-SmallMoleculeSummary-fromDataFrame}{}}}
 \subsection{Method \code{fromDataFrame()}}{
 Deserialize from summary data frame
 \subsection{Usage}{
@@ -229,8 +229,8 @@ Deserialize from summary data frame
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-SmallMoleculeSummary-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-SmallMoleculeSummary-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

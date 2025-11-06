@@ -22,17 +22,17 @@ Error Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{Error$new()}}
-\item \href{#method-toJSON}{\code{Error$toJSON()}}
-\item \href{#method-fromJSON}{\code{Error$fromJSON()}}
-\item \href{#method-toJSONString}{\code{Error$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{Error$fromJSONString()}}
-\item \href{#method-clone}{\code{Error$clone()}}
+\item \href{#method-Error-new}{\code{Error$new()}}
+\item \href{#method-Error-toJSON}{\code{Error$toJSON()}}
+\item \href{#method-Error-fromJSON}{\code{Error$fromJSON()}}
+\item \href{#method-Error-toJSONString}{\code{Error$toJSONString()}}
+\item \href{#method-Error-fromJSONString}{\code{Error$fromJSONString()}}
+\item \href{#method-Error-clone}{\code{Error$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-Error-new"></a>}}
+\if{latex}{\out{\hypertarget{method-Error-new}{}}}
 \subsection{Method \code{new()}}{
 Create an Error
 \subsection{Usage}{
@@ -52,8 +52,8 @@ Create an Error
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-Error-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-Error-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 Serialize to list object suitable for jsonlite
 \subsection{Usage}{
@@ -62,8 +62,8 @@ Serialize to list object suitable for jsonlite
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-Error-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-Error-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 Deserialize from jsonlite list object
 \subsection{Usage}{
@@ -79,8 +79,8 @@ Deserialize from jsonlite list object
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-Error-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-Error-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 Serialize to JSON string.
 \subsection{Usage}{
@@ -89,8 +89,8 @@ Serialize to JSON string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-Error-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-Error-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 Deserialize from JSON string
 \subsection{Usage}{
@@ -106,8 +106,8 @@ Deserialize from JSON string
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-Error-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-Error-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

@@ -24,19 +24,19 @@ Comment Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{Comment$new()}}
-\item \href{#method-toJSON}{\code{Comment$toJSON()}}
-\item \href{#method-fromJSON}{\code{Comment$fromJSON()}}
-\item \href{#method-toJSONString}{\code{Comment$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{Comment$fromJSONString()}}
-\item \href{#method-toDataFrame}{\code{Comment$toDataFrame()}}
-\item \href{#method-fromDataFrame}{\code{Comment$fromDataFrame()}}
-\item \href{#method-clone}{\code{Comment$clone()}}
+\item \href{#method-Comment-new}{\code{Comment$new()}}
+\item \href{#method-Comment-toJSON}{\code{Comment$toJSON()}}
+\item \href{#method-Comment-fromJSON}{\code{Comment$fromJSON()}}
+\item \href{#method-Comment-toJSONString}{\code{Comment$toJSONString()}}
+\item \href{#method-Comment-fromJSONString}{\code{Comment$fromJSONString()}}
+\item \href{#method-Comment-toDataFrame}{\code{Comment$toDataFrame()}}
+\item \href{#method-Comment-fromDataFrame}{\code{Comment$fromDataFrame()}}
+\item \href{#method-Comment-clone}{\code{Comment$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-Comment-new"></a>}}
+\if{latex}{\out{\hypertarget{method-Comment-new}{}}}
 \subsection{Method \code{new()}}{
 Create a Comment
 \subsection{Usage}{
@@ -58,8 +58,8 @@ Create a Comment
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-Comment-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-Comment-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 Serialize to list object suitable for jsonlite
 \subsection{Usage}{
@@ -68,8 +68,8 @@ Serialize to list object suitable for jsonlite
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-Comment-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-Comment-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 Deserialize from jsonlite list object
 \subsection{Usage}{
@@ -85,8 +85,8 @@ Deserialize from jsonlite list object
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-Comment-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-Comment-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 Serialize to JSON string.
 \subsection{Usage}{
@@ -95,8 +95,8 @@ Serialize to JSON string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-Comment-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-Comment-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 Deserialize from JSON string
 \subsection{Usage}{
@@ -112,8 +112,8 @@ Deserialize from JSON string
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toDataFrame"></a>}}
-\if{latex}{\out{\hypertarget{method-toDataFrame}{}}}
+\if{html}{\out{<a id="method-Comment-toDataFrame"></a>}}
+\if{latex}{\out{\hypertarget{method-Comment-toDataFrame}{}}}
 \subsection{Method \code{toDataFrame()}}{
 Serialize to data frame
 \subsection{Usage}{
@@ -122,8 +122,8 @@ Serialize to data frame
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromDataFrame"></a>}}
-\if{latex}{\out{\hypertarget{method-fromDataFrame}{}}}
+\if{html}{\out{<a id="method-Comment-fromDataFrame"></a>}}
+\if{latex}{\out{\hypertarget{method-Comment-fromDataFrame}{}}}
 \subsection{Method \code{fromDataFrame()}}{
 Deserialize from comment data frame
 \subsection{Usage}{
@@ -139,8 +139,8 @@ Deserialize from comment data frame
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-Comment-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-Comment-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

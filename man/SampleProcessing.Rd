@@ -22,19 +22,19 @@ SampleProcessing Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{SampleProcessing$new()}}
-\item \href{#method-toJSON}{\code{SampleProcessing$toJSON()}}
-\item \href{#method-fromJSON}{\code{SampleProcessing$fromJSON()}}
-\item \href{#method-toJSONString}{\code{SampleProcessing$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{SampleProcessing$fromJSONString()}}
-\item \href{#method-toDataFrame}{\code{SampleProcessing$toDataFrame()}}
-\item \href{#method-fromDataFrame}{\code{SampleProcessing$fromDataFrame()}}
-\item \href{#method-clone}{\code{SampleProcessing$clone()}}
+\item \href{#method-SampleProcessing-new}{\code{SampleProcessing$new()}}
+\item \href{#method-SampleProcessing-toJSON}{\code{SampleProcessing$toJSON()}}
+\item \href{#method-SampleProcessing-fromJSON}{\code{SampleProcessing$fromJSON()}}
+\item \href{#method-SampleProcessing-toJSONString}{\code{SampleProcessing$toJSONString()}}
+\item \href{#method-SampleProcessing-fromJSONString}{\code{SampleProcessing$fromJSONString()}}
+\item \href{#method-SampleProcessing-toDataFrame}{\code{SampleProcessing$toDataFrame()}}
+\item \href{#method-SampleProcessing-fromDataFrame}{\code{SampleProcessing$fromDataFrame()}}
+\item \href{#method-SampleProcessing-clone}{\code{SampleProcessing$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-SampleProcessing-new"></a>}}
+\if{latex}{\out{\hypertarget{method-SampleProcessing-new}{}}}
 \subsection{Method \code{new()}}{
 Create a SampleProcessing object
 \subsection{Usage}{
@@ -54,8 +54,8 @@ Create a SampleProcessing object
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-SampleProcessing-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-SampleProcessing-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 Serialize to list object suitable for jsonlite
 \subsection{Usage}{
@@ -64,8 +64,8 @@ Serialize to list object suitable for jsonlite
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-SampleProcessing-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-SampleProcessing-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 Deserialize from jsonlite list object
 \subsection{Usage}{
@@ -81,8 +81,8 @@ Deserialize from jsonlite list object
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-SampleProcessing-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-SampleProcessing-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 Serialize to JSON string.
 \subsection{Usage}{
@@ -91,8 +91,8 @@ Serialize to JSON string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-SampleProcessing-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-SampleProcessing-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 Deserialize from JSON string
 \subsection{Usage}{
@@ -108,8 +108,8 @@ Deserialize from JSON string
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toDataFrame"></a>}}
-\if{latex}{\out{\hypertarget{method-toDataFrame}{}}}
+\if{html}{\out{<a id="method-SampleProcessing-toDataFrame"></a>}}
+\if{latex}{\out{\hypertarget{method-SampleProcessing-toDataFrame}{}}}
 \subsection{Method \code{toDataFrame()}}{
 Serialize to data frame
 \subsection{Usage}{
@@ -118,8 +118,8 @@ Serialize to data frame
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromDataFrame"></a>}}
-\if{latex}{\out{\hypertarget{method-fromDataFrame}{}}}
+\if{html}{\out{<a id="method-SampleProcessing-fromDataFrame"></a>}}
+\if{latex}{\out{\hypertarget{method-SampleProcessing-fromDataFrame}{}}}
 \subsection{Method \code{fromDataFrame()}}{
 Deserialize from SampleProcessingDataFrame
 \subsection{Usage}{
@@ -135,8 +135,8 @@ Deserialize from SampleProcessingDataFrame
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-SampleProcessing-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-SampleProcessing-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

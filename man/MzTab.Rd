@@ -28,19 +28,19 @@ MzTab Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{MzTab$new()}}
-\item \href{#method-toJSON}{\code{MzTab$toJSON()}}
-\item \href{#method-fromJSON}{\code{MzTab$fromJSON()}}
-\item \href{#method-toJSONString}{\code{MzTab$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{MzTab$fromJSONString()}}
-\item \href{#method-toDataFrame}{\code{MzTab$toDataFrame()}}
-\item \href{#method-fromDataFrame}{\code{MzTab$fromDataFrame()}}
-\item \href{#method-clone}{\code{MzTab$clone()}}
+\item \href{#method-MzTab-new}{\code{MzTab$new()}}
+\item \href{#method-MzTab-toJSON}{\code{MzTab$toJSON()}}
+\item \href{#method-MzTab-fromJSON}{\code{MzTab$fromJSON()}}
+\item \href{#method-MzTab-toJSONString}{\code{MzTab$toJSONString()}}
+\item \href{#method-MzTab-fromJSONString}{\code{MzTab$fromJSONString()}}
+\item \href{#method-MzTab-toDataFrame}{\code{MzTab$toDataFrame()}}
+\item \href{#method-MzTab-fromDataFrame}{\code{MzTab$fromDataFrame()}}
+\item \href{#method-MzTab-clone}{\code{MzTab$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-MzTab-new"></a>}}
+\if{latex}{\out{\hypertarget{method-MzTab-new}{}}}
 \subsection{Method \code{new()}}{
 Create an MzTab object.
 \subsection{Usage}{
@@ -73,8 +73,8 @@ Create an MzTab object.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-MzTab-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-MzTab-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 Serialize to list object suitable for jsonlite
 \subsection{Usage}{
@@ -83,8 +83,8 @@ Serialize to list object suitable for jsonlite
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-MzTab-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-MzTab-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 Deserialize from jsonlite list object
 \subsection{Usage}{
@@ -100,8 +100,8 @@ Deserialize from jsonlite list object
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-MzTab-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-MzTab-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 Serialize to JSON string.
 \subsection{Usage}{
@@ -110,8 +110,8 @@ Serialize to JSON string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-MzTab-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-MzTab-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 Deserialize from JSON string
 \subsection{Usage}{
@@ -127,8 +127,8 @@ Deserialize from JSON string
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toDataFrame"></a>}}
-\if{latex}{\out{\hypertarget{method-toDataFrame}{}}}
+\if{html}{\out{<a id="method-MzTab-toDataFrame"></a>}}
+\if{latex}{\out{\hypertarget{method-MzTab-toDataFrame}{}}}
 \subsection{Method \code{toDataFrame()}}{
 Serialize to data frame
 \subsection{Usage}{
@@ -137,8 +137,8 @@ Serialize to data frame
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromDataFrame"></a>}}
-\if{latex}{\out{\hypertarget{method-fromDataFrame}{}}}
+\if{html}{\out{<a id="method-MzTab-fromDataFrame"></a>}}
+\if{latex}{\out{\hypertarget{method-MzTab-fromDataFrame}{}}}
 \subsection{Method \code{fromDataFrame()}}{
 Deserialize from MzTab data frame
 \subsection{Usage}{
@@ -154,8 +154,8 @@ Deserialize from MzTab data frame
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-MzTab-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-MzTab-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

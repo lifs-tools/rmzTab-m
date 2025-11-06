@@ -38,19 +38,19 @@ MsRun Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{MsRun$new()}}
-\item \href{#method-toJSON}{\code{MsRun$toJSON()}}
-\item \href{#method-fromJSON}{\code{MsRun$fromJSON()}}
-\item \href{#method-toJSONString}{\code{MsRun$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{MsRun$fromJSONString()}}
-\item \href{#method-toDataFrame}{\code{MsRun$toDataFrame()}}
-\item \href{#method-fromDataFrame}{\code{MsRun$fromDataFrame()}}
-\item \href{#method-clone}{\code{MsRun$clone()}}
+\item \href{#method-MsRun-new}{\code{MsRun$new()}}
+\item \href{#method-MsRun-toJSON}{\code{MsRun$toJSON()}}
+\item \href{#method-MsRun-fromJSON}{\code{MsRun$fromJSON()}}
+\item \href{#method-MsRun-toJSONString}{\code{MsRun$toJSONString()}}
+\item \href{#method-MsRun-fromJSONString}{\code{MsRun$fromJSONString()}}
+\item \href{#method-MsRun-toDataFrame}{\code{MsRun$toDataFrame()}}
+\item \href{#method-MsRun-fromDataFrame}{\code{MsRun$fromDataFrame()}}
+\item \href{#method-MsRun-clone}{\code{MsRun$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-MsRun-new"></a>}}
+\if{latex}{\out{\hypertarget{method-MsRun-new}{}}}
 \subsection{Method \code{new()}}{
 Create an MsRun
 \subsection{Usage}{
@@ -98,8 +98,8 @@ Create an MsRun
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-MsRun-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-MsRun-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 Serialize to list object suitable for jsonlite
 \subsection{Usage}{
@@ -108,8 +108,8 @@ Serialize to list object suitable for jsonlite
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-MsRun-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-MsRun-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 Deserialize from jsonlite list object
 \subsection{Usage}{
@@ -125,8 +125,8 @@ Deserialize from jsonlite list object
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-MsRun-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-MsRun-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 Serialize to JSON string.
 \subsection{Usage}{
@@ -135,8 +135,8 @@ Serialize to JSON string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-MsRun-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-MsRun-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 Deserialize from JSON string
 \subsection{Usage}{
@@ -152,8 +152,8 @@ Deserialize from JSON string
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toDataFrame"></a>}}
-\if{latex}{\out{\hypertarget{method-toDataFrame}{}}}
+\if{html}{\out{<a id="method-MsRun-toDataFrame"></a>}}
+\if{latex}{\out{\hypertarget{method-MsRun-toDataFrame}{}}}
 \subsection{Method \code{toDataFrame()}}{
 Serialize to data frame
 \subsection{Usage}{
@@ -162,8 +162,8 @@ Serialize to data frame
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromDataFrame"></a>}}
-\if{latex}{\out{\hypertarget{method-fromDataFrame}{}}}
+\if{html}{\out{<a id="method-MsRun-fromDataFrame"></a>}}
+\if{latex}{\out{\hypertarget{method-MsRun-fromDataFrame}{}}}
 \subsection{Method \code{fromDataFrame()}}{
 Deserialize from ms run data frame
 \subsection{Usage}{
@@ -179,8 +179,8 @@ Deserialize from ms run data frame
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-MsRun-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-MsRun-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

@@ -32,19 +32,19 @@ StudyVariable Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{StudyVariable$new()}}
-\item \href{#method-toJSON}{\code{StudyVariable$toJSON()}}
-\item \href{#method-fromJSON}{\code{StudyVariable$fromJSON()}}
-\item \href{#method-toJSONString}{\code{StudyVariable$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{StudyVariable$fromJSONString()}}
-\item \href{#method-toDataFrame}{\code{StudyVariable$toDataFrame()}}
-\item \href{#method-fromDataFrame}{\code{StudyVariable$fromDataFrame()}}
-\item \href{#method-clone}{\code{StudyVariable$clone()}}
+\item \href{#method-StudyVariable-new}{\code{StudyVariable$new()}}
+\item \href{#method-StudyVariable-toJSON}{\code{StudyVariable$toJSON()}}
+\item \href{#method-StudyVariable-fromJSON}{\code{StudyVariable$fromJSON()}}
+\item \href{#method-StudyVariable-toJSONString}{\code{StudyVariable$toJSONString()}}
+\item \href{#method-StudyVariable-fromJSONString}{\code{StudyVariable$fromJSONString()}}
+\item \href{#method-StudyVariable-toDataFrame}{\code{StudyVariable$toDataFrame()}}
+\item \href{#method-StudyVariable-fromDataFrame}{\code{StudyVariable$fromDataFrame()}}
+\item \href{#method-StudyVariable-clone}{\code{StudyVariable$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-StudyVariable-new"></a>}}
+\if{latex}{\out{\hypertarget{method-StudyVariable-new}{}}}
 \subsection{Method \code{new()}}{
 Create a StudyVariable
 \subsection{Usage}{
@@ -83,8 +83,8 @@ Create a StudyVariable
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-StudyVariable-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-StudyVariable-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 Serialize to list object suitable for jsonlite
 \subsection{Usage}{
@@ -93,8 +93,8 @@ Serialize to list object suitable for jsonlite
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-StudyVariable-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-StudyVariable-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 Deserialize from jsonlite list object
 \subsection{Usage}{
@@ -110,8 +110,8 @@ Deserialize from jsonlite list object
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-StudyVariable-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-StudyVariable-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 Serialize to JSON string.
 \subsection{Usage}{
@@ -120,8 +120,8 @@ Serialize to JSON string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-StudyVariable-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-StudyVariable-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 Deserialize from JSON string
 \subsection{Usage}{
@@ -137,8 +137,8 @@ Deserialize from JSON string
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toDataFrame"></a>}}
-\if{latex}{\out{\hypertarget{method-toDataFrame}{}}}
+\if{html}{\out{<a id="method-StudyVariable-toDataFrame"></a>}}
+\if{latex}{\out{\hypertarget{method-StudyVariable-toDataFrame}{}}}
 \subsection{Method \code{toDataFrame()}}{
 Serialize to data frame
 \subsection{Usage}{
@@ -147,8 +147,8 @@ Serialize to data frame
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromDataFrame"></a>}}
-\if{latex}{\out{\hypertarget{method-fromDataFrame}{}}}
+\if{html}{\out{<a id="method-StudyVariable-fromDataFrame"></a>}}
+\if{latex}{\out{\hypertarget{method-StudyVariable-fromDataFrame}{}}}
 \subsection{Method \code{fromDataFrame()}}{
 Deserialize from StudyVariable data frame
 \subsection{Usage}{
@@ -164,8 +164,8 @@ Deserialize from StudyVariable data frame
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-StudyVariable-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-StudyVariable-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

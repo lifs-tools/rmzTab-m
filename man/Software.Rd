@@ -24,19 +24,19 @@ Software Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{Software$new()}}
-\item \href{#method-toJSON}{\code{Software$toJSON()}}
-\item \href{#method-fromJSON}{\code{Software$fromJSON()}}
-\item \href{#method-toJSONString}{\code{Software$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{Software$fromJSONString()}}
-\item \href{#method-toDataFrame}{\code{Software$toDataFrame()}}
-\item \href{#method-fromDataFrame}{\code{Software$fromDataFrame()}}
-\item \href{#method-clone}{\code{Software$clone()}}
+\item \href{#method-Software-new}{\code{Software$new()}}
+\item \href{#method-Software-toJSON}{\code{Software$toJSON()}}
+\item \href{#method-Software-fromJSON}{\code{Software$fromJSON()}}
+\item \href{#method-Software-toJSONString}{\code{Software$toJSONString()}}
+\item \href{#method-Software-fromJSONString}{\code{Software$fromJSONString()}}
+\item \href{#method-Software-toDataFrame}{\code{Software$toDataFrame()}}
+\item \href{#method-Software-fromDataFrame}{\code{Software$fromDataFrame()}}
+\item \href{#method-Software-clone}{\code{Software$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-Software-new"></a>}}
+\if{latex}{\out{\hypertarget{method-Software-new}{}}}
 \subsection{Method \code{new()}}{
 Create a Software
 \subsection{Usage}{
@@ -58,8 +58,8 @@ Create a Software
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-Software-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-Software-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 Serialize to list object suitable for jsonlite
 \subsection{Usage}{
@@ -68,8 +68,8 @@ Serialize to list object suitable for jsonlite
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-Software-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-Software-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 Deserialize from jsonlite list object
 \subsection{Usage}{
@@ -85,8 +85,8 @@ Deserialize from jsonlite list object
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-Software-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-Software-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 Serialize to JSON string.
 \subsection{Usage}{
@@ -95,8 +95,8 @@ Serialize to JSON string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-Software-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-Software-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 Deserialize from JSON string
 \subsection{Usage}{
@@ -112,8 +112,8 @@ Deserialize from JSON string
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toDataFrame"></a>}}
-\if{latex}{\out{\hypertarget{method-toDataFrame}{}}}
+\if{html}{\out{<a id="method-Software-toDataFrame"></a>}}
+\if{latex}{\out{\hypertarget{method-Software-toDataFrame}{}}}
 \subsection{Method \code{toDataFrame()}}{
 Serialize to data frame
 \subsection{Usage}{
@@ -122,8 +122,8 @@ Serialize to data frame
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromDataFrame"></a>}}
-\if{latex}{\out{\hypertarget{method-fromDataFrame}{}}}
+\if{html}{\out{<a id="method-Software-fromDataFrame"></a>}}
+\if{latex}{\out{\hypertarget{method-Software-fromDataFrame}{}}}
 \subsection{Method \code{fromDataFrame()}}{
 Deserialize from software data frame
 \subsection{Usage}{
@@ -139,8 +139,8 @@ Deserialize from software data frame
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-Software-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-Software-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

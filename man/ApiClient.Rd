@@ -47,16 +47,16 @@ Do not edit the class manually.
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ApiClient$new()}}
-\item \href{#method-CallApi}{\code{ApiClient$CallApi()}}
-\item \href{#method-deserialize}{\code{ApiClient$deserialize()}}
-\item \href{#method-deserializeObj}{\code{ApiClient$deserializeObj()}}
-\item \href{#method-clone}{\code{ApiClient$clone()}}
+\item \href{#method-ApiClient-new}{\code{ApiClient$new()}}
+\item \href{#method-ApiClient-CallApi}{\code{ApiClient$CallApi()}}
+\item \href{#method-ApiClient-deserialize}{\code{ApiClient$deserialize()}}
+\item \href{#method-ApiClient-deserializeObj}{\code{ApiClient$deserializeObj()}}
+\item \href{#method-ApiClient-clone}{\code{ApiClient$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ApiClient-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ApiClient-new}{}}}
 \subsection{Method \code{new()}}{
 Create an ApiClient
 \subsection{Usage}{
@@ -95,8 +95,8 @@ Create an ApiClient
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CallApi"></a>}}
-\if{latex}{\out{\hypertarget{method-CallApi}{}}}
+\if{html}{\out{<a id="method-ApiClient-CallApi"></a>}}
+\if{latex}{\out{\hypertarget{method-ApiClient-CallApi}{}}}
 \subsection{Method \code{CallApi()}}{
 CallApi
 \subsection{Usage}{
@@ -132,8 +132,8 @@ CallApi
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-deserialize"></a>}}
-\if{latex}{\out{\hypertarget{method-deserialize}{}}}
+\if{html}{\out{<a id="method-ApiClient-deserialize"></a>}}
+\if{latex}{\out{\hypertarget{method-ApiClient-deserialize}{}}}
 \subsection{Method \code{deserialize()}}{
 Deserialize the content of api response to the given type.
 \subsection{Usage}{
@@ -153,8 +153,8 @@ Deserialize the content of api response to the given type.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-deserializeObj"></a>}}
-\if{latex}{\out{\hypertarget{method-deserializeObj}{}}}
+\if{html}{\out{<a id="method-ApiClient-deserializeObj"></a>}}
+\if{latex}{\out{\hypertarget{method-ApiClient-deserializeObj}{}}}
 \subsection{Method \code{deserializeObj()}}{
 Deserialize the response from jsonlite object based on the given type
 by handling complex and nested types by iterating recursively
@@ -176,8 +176,8 @@ Example returnTypes will be like "array[integer]", "map(Pet)", "array[map(Tag)]"
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ApiClient-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ApiClient-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

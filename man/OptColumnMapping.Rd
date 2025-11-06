@@ -24,19 +24,19 @@ OptColumnMapping Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{OptColumnMapping$new()}}
-\item \href{#method-toJSON}{\code{OptColumnMapping$toJSON()}}
-\item \href{#method-fromJSON}{\code{OptColumnMapping$fromJSON()}}
-\item \href{#method-toJSONString}{\code{OptColumnMapping$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{OptColumnMapping$fromJSONString()}}
-\item \href{#method-toString}{\code{OptColumnMapping$toString()}}
-\item \href{#method-fromString}{\code{OptColumnMapping$fromString()}}
-\item \href{#method-clone}{\code{OptColumnMapping$clone()}}
+\item \href{#method-OptColumnMapping-new}{\code{OptColumnMapping$new()}}
+\item \href{#method-OptColumnMapping-toJSON}{\code{OptColumnMapping$toJSON()}}
+\item \href{#method-OptColumnMapping-fromJSON}{\code{OptColumnMapping$fromJSON()}}
+\item \href{#method-OptColumnMapping-toJSONString}{\code{OptColumnMapping$toJSONString()}}
+\item \href{#method-OptColumnMapping-fromJSONString}{\code{OptColumnMapping$fromJSONString()}}
+\item \href{#method-OptColumnMapping-toString}{\code{OptColumnMapping$toString()}}
+\item \href{#method-OptColumnMapping-fromString}{\code{OptColumnMapping$fromString()}}
+\item \href{#method-OptColumnMapping-clone}{\code{OptColumnMapping$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-OptColumnMapping-new"></a>}}
+\if{latex}{\out{\hypertarget{method-OptColumnMapping-new}{}}}
 \subsection{Method \code{new()}}{
 Create an OptColumnMapping
 \subsection{Usage}{
@@ -58,8 +58,8 @@ Create an OptColumnMapping
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-OptColumnMapping-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-OptColumnMapping-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 Serialize to list object suitable for jsonlite
 \subsection{Usage}{
@@ -68,8 +68,8 @@ Serialize to list object suitable for jsonlite
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-OptColumnMapping-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-OptColumnMapping-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 Deserialize from jsonlite list object
 \subsection{Usage}{
@@ -85,8 +85,8 @@ Deserialize from jsonlite list object
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-OptColumnMapping-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-OptColumnMapping-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 Serialize to JSON string.
 \subsection{Usage}{
@@ -95,8 +95,8 @@ Serialize to JSON string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-OptColumnMapping-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-OptColumnMapping-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 Deserialize from JSON string
 \subsection{Usage}{
@@ -112,8 +112,8 @@ Deserialize from JSON string
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toString"></a>}}
-\if{latex}{\out{\hypertarget{method-toString}{}}}
+\if{html}{\out{<a id="method-OptColumnMapping-toString"></a>}}
+\if{latex}{\out{\hypertarget{method-OptColumnMapping-toString}{}}}
 \subsection{Method \code{toString()}}{
 Serialize to string
 \subsection{Usage}{
@@ -122,8 +122,8 @@ Serialize to string
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromString}{}}}
+\if{html}{\out{<a id="method-OptColumnMapping-fromString"></a>}}
+\if{latex}{\out{\hypertarget{method-OptColumnMapping-fromString}{}}}
 \subsection{Method \code{fromString()}}{
 Deserialize from string
 \subsection{Usage}{
@@ -139,8 +139,8 @@ Deserialize from string
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-OptColumnMapping-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-OptColumnMapping-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

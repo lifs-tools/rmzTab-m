@@ -2,7 +2,7 @@
 % Please edit documentation in R/MTD.R
 \name{mtd_skeleton}
 \alias{mtd_skeleton}
-\title{Create a skeleton MTD section}
+\title{Create a skeleton MTD section with general information}
 \usage{
 mtd_skeleton(
   id = character(),

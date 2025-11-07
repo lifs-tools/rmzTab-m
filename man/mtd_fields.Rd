@@ -24,7 +24,7 @@ two column `character` `matrix` with the formatted elements.
 \description{
 This function assists in creating and formatting information for the
 mzTab-M metadata section (MTD). It combines and formats the provided input
-values for a specific
+values for a specific field.
 
 See [mzTab-M documentation](https://github.com/HUPO-PSI/mzTab-M/blob/main/specification_documents/mzTab_format_specification_2_1-M.adoc#62-metadata-section)
 for more information, examples and expected format.

@@ -1,12 +1,62 @@
 ## Code related to import/export of the MTD element
 
+#' @title Defining and exporting the mzTab-M metadata table
+#'
+#' @name MTD-export
+#' 
+#' @description
+#'
+#' The metadata section/table of the mzTab-M definition is comprehensive, but
+#' also tricky to define. The *rmzTabM* package provides a variety of utility
+#' functions that help defining this information. These might be re-used for
+#' software package developers to export metabolomics results from their
+#' respective software. Importantly, the helper functions listed here only
+#' define the core elements for the MTD section, helping with re-arranging and
+#' reformatting information available e.g. in `data.frame` format into the
+#' respective fields in the MTD section. Additional (optional) fields might
+#' need to be added manually depending on availability for an experiment.
+#'
+#' See also the [specification of the MTD section](https://github.com/HUPO-PSI/mzTab-M/blob/main/specification_documents/mzTab_format_specification_2_1-M.adoc#62-metadata-section)
+#' for details and more information.
+#'
+#' Generally, MTD data can be categarized into the following parts:
+#' 
+#' - *Core information*: general information on the experiment. A minimal
+#'   set can be created using the [mtb_skeleton()] function, which might be
+#'   further expanded with additional fields.
+#'
+#' - *Sample information*:
+#' 
+#' - *MS run information*: information on the individual MS *runs*
+#'   (measurements of the samples). Each data file is one run. Use the
+#'   [mtd_ms_run()] function to define this part of the metadata section.
+#' 
+#' - *Assay information*:
+#' 
+#' - *Study variable information*:
+#'
+#'
+#' The helper function listed above can be used sequentially to create the
+#' metadata information. See the examples below for a general approach how to
+#' define the MTD section of an experiment.
+#'
+#' In addition, various helper functions are available to assist in MTD data
+#' generation:
+#'
+#' - [mtd_sort()]: to sort the MTD `matrix` into the expected order.
+#' - [mtd_fields()]: helps formatting values into the mzTab-M-specific format.
+#'
+#' @author Johannes Rainer, Philippine Louail
+NULL
+
+
 #' @title Prepare and format information for the mzTab-M metadata section
 #'
 #' @description
 #'
 #' This function assists in creating and formatting information for the
 #' mzTab-M metadata section (MTD). It combines and formats the provided input
-#' values for a specific
+#' values for a specific field.
 #'
 #' See [mzTab-M documentation](https://github.com/HUPO-PSI/mzTab-M/blob/main/specification_documents/mzTab_format_specification_2_1-M.adoc#62-metadata-section)
 #' for more information, examples and expected format.
@@ -111,7 +161,7 @@ mtd_fields <- function(..., field_prefix = "") {
                field_prefix = "database")
 }
 
-#' @title Create a skeleton MTD section
+#' @title Create a skeleton MTD section with general information
 #'
 #' @description
 #'
@@ -242,9 +292,11 @@ mtd_skeleton <- function(id = character(),
                          software = character(),
                          quantification_method = "[MS, MS:1001834, LC-MS label-free quantitation analysis, ]",
                          cv_label = c("MS", "PRIDE"),
-                         cv_full_name = c("PSI-MS controlled vocabulary", "PRIDE PRoteomics IDEntifications (PRIDE) database controlled vocabulary"),
+                         cv_full_name = c("PSI-MS controlled vocabulary",
+                                          "PRIDE PRoteomics IDEntifications (PRIDE) database controlled vocabulary"),
                          cv_version = c("4.1.138", "16:10:2023 11:38"),
-                         cv_uri = c("https://raw.githubusercontent.com/HUPO-PSI/psi-ms-CV/master/psi-ms.obo", "https://www.ebi.ac.uk/ols/ontologies/pride"),
+                         cv_uri = c("https://raw.githubusercontent.com/HUPO-PSI/psi-ms-CV/master/psi-ms.obo",
+                                    "https://www.ebi.ac.uk/ols/ontologies/pride"),
                          database = c("[,, \"no database\", null ]"),
                          database_prefix = c("null"),
                          database_version = c("Unknown"),
@@ -272,6 +324,184 @@ mtd_skeleton <- function(id = character(),
     ## Add sample and run information...
     ## Order them.
     mtd_sort(sk)
+}
+
+#' @title msTab-M *ms_run* metadata fields
+#'
+#' @description
+#'
+#' The `mtd_ms_run()` function allows to define and format the *ms_run* fields
+#' of the mzTab-M metadata. The information is build on the actual data file
+#' names along with optional additional parameters to characterize the MS
+#' run(s).
+#' 
+#' For details and expected input for the various parameter it is **strongly
+#' suggested** to consult the [mzTab-M](https://github.com/HUPO-PSI/mzTab-M/blob/main/specification_documents/mzTab_format_specification_2_1-M.adoc#62-metadata-section) documentation.
+#' 
+#' @param location `character` with the location (and file name) of the
+#'     individual runs. Each element will be one run. This parameter is
+#'     required, set to `"null"` if the location of the file(s) is not known.
+#'
+#' @param instrument_ref (optional) `integer()` with the index of the instrument
+#'     the run was measured on.
+#'
+#' @param format (optional) `character` defining the format of the external MS
+#'     data file. If specified, also `id_format` has be be provided. Can be of
+#'     length 1 or equal to `length(location)`. For data file(s) in mzML format,
+#'     `format = "[MS, MS:1000584, mzML file, ]"` can be used.
+#'
+#' @param id_format (optional) `character` defining the id format used in the
+#'     external data file. If specified, also `format` needs to be defined.
+#'     Can be of length 1 or equal to `length(location)`. For data file(s) in
+#'     mzML format, `format = "[MS, MS:1000584, mzML file, ]"` can be used.
+#'
+#' @param fragmentation_method (optional) `list` of `character` defining the
+#'     type(s) of fragmentation(s) used in a given ms run. Length must match
+#'     length of `location` if provided. If no fragmentation was used for a
+#'     specific file/run use `NULL` for that `list` element (position). As
+#'     example, if two runs are included, the first does not have any
+#'     fragmentation and for the second CID and HCD was used define
+#'     `list(NULL, c("[MS, MS:1000133, CID, ]", "[MS, MS:1000422, HCD, ]"))`.
+#'
+#' @param scan_polarity `character` defining the polarity of a run. Can be
+#'     either `"positive"` or `"negative"`. Can be of length 1 or equal to
+#'     `length(location)`.
+#'
+#' @param hash (optional) `character` with the hash value of the corresponding
+#'     external MS data file. If provided, also `hash_method` needs to be
+#'     defined. The length of `hash` has to match the length of `location`.
+#'
+#' @param hash_method (optional) `character` with the hash method used to
+#'     generate the value in `hash`. If provided, also `hash` needs to be
+#'     defined. The length of `hash_method` has to match the length of `hash`.
+#' 
+#' @note
+#'
+#' At present only a single polarity per run/file is supported.
+#'
+#' @return two column `character` `matrix` with the *ms_run* metadata fields
+#'     for a mzTab-M file.
+#'
+#' @author Johannes Rainer, Philippine Louail
+#'
+#' @export
+#' 
+#' @examples
+#'
+#' ## Build a very basic MTD ms_run section for two data files
+#' fls <- c("file:///path/to/file/a.mzML", "file:///path/to/file/b.mzML")
+#' mtd_ms_run(location = fls, scan_polarity = "positive")
+#'
+#' ## Add also instrument reference information
+#' mtd_ms_run(location = fls, scan_polarity = "positive", instrument_ref = 1)
+#'
+#' ## Finally, add a fragmentation method used for the second file - no
+#' ## fragmentation was used for the first file, thus `NULL` is specified.
+#' ## Parameter `fragmentation_method` expects a `list` as input to support
+#' ## also multiple fragmentation methods per MS run.
+#' mtd_ms_run(location = fls, scan_polarity = "positive",
+#'     fragmentation_method = list(NULL, "[MS, MS:1000133, CID, ]"))
+mtd_ms_run <- function(location = character(),
+                       instrument_ref = integer(),
+                       format = character(),
+                       id_format = character(),
+                       fragmentation_method = vector("list", length(location)),
+                       scan_polarity = character(),
+                       hash = character(),
+                       hash_method = character()) {
+    l <- length(location)
+    s <- seq_len(l)
+    if (!l)
+        stop("ms_run: parameter 'location' is required, even if it is \"null\"",
+             call. = FALSE)
+    if (!length(scan_polarity))
+        stop("ms_run: parameter 'scan_polarity' is required", call. = FALSE)
+    if ((length(format) | length(id_format)) &
+        (length(format) != length(id_format)))
+        stop("ms_run: either both 'format' and 'id_format' have to be ",
+             "defined or none of the two.", call. = FALSE)
+    if ((length(hash) | length(hash_method)) &
+        (length(hash) != length(hash_method)))
+        stop("ms_run: either both 'hash' and 'hash_method' have to be ",
+             "defined or none of the two.", call. = FALSE)
+    if (length(hash) && length(hash) != l)
+        stop("ms_run: if provided, length of parameter 'hash' has to ",
+             "match length of 'location'", call. = FALSE)
+    if (length(fragmentation_method) != l)
+        stop("ms_run: length of parameter 'fragment_method' has to match ",
+             "length of 'location'", call. = FALSE)
+    ## Build data        
+    res <- .ms_run_format(s, "location", location)
+    if (l2 <- length(instrument_ref)) {
+        if (l2 != l) instrument_ref <- rep(instrument_ref[1L], l)
+        res <- rbind(
+            res, .ms_run_format(s, "instrument_ref",
+                                paste0("instrument[", instrument_ref, "]")))
+    }
+    if (l2 <- length(format)) {
+        if (l2 != l) format <- rep(format[1L], l)
+        res <- rbind(res, .ms_run_format(s, "format", format))
+    }
+    if (l2 <- length(id_format)) {
+        if (l2 != l) id_format <- rep(id_format[1L], l)
+        res <- rbind(res, .ms_run_format(s, "id_format", id_format))
+    }
+    ## fragmentation_method
+    frag_mod <- lapply(seq_along(fragmentation_method), function(z) {
+        vals <- fragmentation_method[[z]]
+        if (lv <- length(vals)) {
+            cbind(paste0("ms_run[", rep(z, lv), "]-fragmentation_method[",
+                         seq_len(lv), "]"),
+                  fragmentation_method[[z]],
+                  order = .prefix_zero(rep(z, lv)))
+        }
+    })
+    frag_mod <- do.call(rbind, frag_mod)
+    if (length(frag_mod)) res <- rbind(res, frag_mod)
+    if (length(scan_polarity) != l) scan_polarity <- rep(scan_polarity[1L], l)
+    res <- rbind(res, .ms_run_format(s, "scan_polarity[1]",
+                                     .ms_scan_polarity(scan_polarity)))
+    if (length(hash)) res <- rbind(res, .ms_run_format(s, "hash", hash))
+    if (length(hash_method))
+        res <- rbind(res, .ms_run_format(s, "hash_method", hash_method))
+    res[order(res[, 3L]), 1:2, drop = FALSE]
+}
+
+#' @param x would be sequence from 1 to number of runs
+#'
+#' @param name the name of the field
+#'
+#' @param values the actual values
+#'
+#' @return 3 column `matrix`
+#'
+#' @noRd
+#'
+#' @examples
+#'
+#' .ms_run_format(1:3, "format", rep("[MS, MS:1000584, mzML file, ]", 3))
+.ms_run_format <- function(x, name, values) {
+    cbind(paste0("ms_run[", x, "]-", name),
+          values, order = .prefix_zero(x))
+}
+
+#' Helper to convert `"positive"` and `"negative"` polarity into the respective
+#' terms from the MS ontology.
+#'
+#' @noRd
+.ms_scan_polarity <- function(x) {
+    if (!all(x %in% c("positive", "negative")))
+        stop("'scan_polarity' has to be either \"positive\" or ",
+             "\"negative\".", call. = FALSE)
+    x[x == "positive"] <- "[MS, MS:1000130, positive scan, ]"
+    x[x == "negative"] <- "[MS, MS:1000129, negative scan, ]"
+    x
+}
+
+.mtd_assay <- function() {
+}
+
+.mtd_study_variable <- function() {
 }
 
 #' Defines the order of the elements in MTD (pattern provided). This should

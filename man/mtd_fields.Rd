@@ -62,6 +62,9 @@ mtd_fields(
 )
 
 }
+\seealso{
+[MTD-export] for other functions defining metadata information
+}
 \author{
 Johannes Rainer, Philippine Louail
 }

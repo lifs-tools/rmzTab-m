@@ -31,7 +31,8 @@ length 1 or equal to `length(location)`. For data file(s) in mzML format,
 \item{id_format}{(optional) `character` defining the id format used in the
 external data file. If specified, also `format` needs to be defined.
 Can be of length 1 or equal to `length(location)`. For data file(s) in
-mzML format, `format = "[MS, MS:1000584, mzML file, ]"` can be used.}
+mzML format, `format = "[MS, MS:1000530, mzML unique identifier, ]"`
+can be used.}
 
 \item{fragmentation_method}{(optional) `list` of `character` defining the
 type(s) of fragmentation(s) used in a given ms run. Length must match
@@ -84,6 +85,9 @@ mtd_ms_run(location = fls, scan_polarity = "positive", instrument_ref = 1)
 ## also multiple fragmentation methods per MS run.
 mtd_ms_run(location = fls, scan_polarity = "positive",
     fragmentation_method = list(NULL, "[MS, MS:1000133, CID, ]"))
+}
+\seealso{
+[MTD-export] for other functions defining metadata information
 }
 \author{
 Johannes Rainer, Philippine Louail

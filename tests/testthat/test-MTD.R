@@ -187,3 +187,272 @@ test_that("mtd_ms_run works", {
                               "[MS, MS:1000422, HCD, ]",
                               "[MS, MS:1000129, negative scan, ]"))
 })
+
+test_that(".mtd_multi_fields works", {
+    res <- .mtd_multi_fields(as.list(c("homo_sapiens", "mus_musculus")),
+                             prefix = "sample", suffix = "species")
+    expect_equal(res[, 1L], c("sample[1]-species[1]", "sample[2]-species[1]"))
+    expect_equal(res[, 2L], c("homo_sapiens", "mus_musculus"))
+
+    res <- .mtd_multi_fields(list(c("mus_musculus", "homo_sapiens"), NULL,
+                                  "rattus_norvegicus"),
+                             prefix = "sample", suffix = "species")
+    expect_equal(res[, 1L], c("sample[1]-species[1]", "sample[1]-species[2]",
+                              "sample[3]-species[1]"))
+    expect_equal(res[, 2L], c("mus_musculus", "homo_sapiens",
+                              "rattus_norvegicus"))
+    expect_equal(res[, 3L], c("1", "1", "3"))
+})
+
+test_that("mtd_sample works", {
+    res <- mtd_sample(sample = c("a", "b", "c"))
+    expect_equal(res[, 1L], c("sample[1]", "sample[2]", "sample[3]"))
+    expect_equal(res[, 2L], c("a", "b", "c"))
+
+    ## species
+    res <- mtd_sample(sample = c("a", "b", "c"), species = "b")
+    expect_equal(res[, 1L], c("sample[1]", "sample[1]-species[1]",
+                              "sample[2]", "sample[2]-species[1]",
+                              "sample[3]", "sample[3]-species[1]"))
+    expect_equal(res[, 2L], c("a", "b", "b", "b", "c", "b"))
+    res <- mtd_sample(sample = c("a", "b", "c"),
+                      species = list(c("A", "B"), NULL, 3))
+    expect_equal(res[, 1L], c("sample[1]", "sample[1]-species[1]",
+                              "sample[1]-species[2]", "sample[2]",
+                              "sample[3]", "sample[3]-species[1]"))
+    expect_equal(res[, 2L], c("a", "A", "B", "b", "c", "3"))
+    ## tissue
+    res <- mtd_sample(sample = c("a", "b", "c"), tissue = "A")
+    expect_equal(res[, 1L], c("sample[1]", "sample[1]-tissue[1]",
+                              "sample[2]", "sample[2]-tissue[1]",
+                              "sample[3]", "sample[3]-tissue[1]"))
+    res <- mtd_sample(sample = c("a", "b", "c"),
+                      tissue = list(c("B"), NULL, 3:5))
+    expect_equal(res[, 1L], c("sample[1]", "sample[1]-tissue[1]",
+                              "sample[2]", "sample[3]",
+                              "sample[3]-tissue[1]", "sample[3]-tissue[2]",
+                              "sample[3]-tissue[3]"))
+    expect_equal(res[, 2L], c("a", "B", "b", "c", "3", "4", "5"))
+    ## cell_type
+    res <- mtd_sample(sample = c("a", "b", "c"), cell_type = "A")
+    expect_equal(res[, 1L], c("sample[1]", "sample[1]-cell_type[1]",
+                              "sample[2]", "sample[2]-cell_type[1]",
+                              "sample[3]", "sample[3]-cell_type[1]"))
+    res <- mtd_sample(sample = c("a", "b", "c"),
+                      cell_type = list(c("B"), NULL, 3:5))
+    expect_equal(res[, 1L], c("sample[1]", "sample[1]-cell_type[1]",
+                              "sample[2]", "sample[3]",
+                              "sample[3]-cell_type[1]", "sample[3]-cell_type[2]",
+                              "sample[3]-cell_type[3]"))
+    expect_equal(res[, 2L], c("a", "B", "b", "c", "3", "4", "5"))
+
+    ## disease
+    res <- mtd_sample(sample = c("a", "b", "c"), disease = "A")
+    expect_equal(res[, 1L], c("sample[1]", "sample[1]-disease[1]",
+                              "sample[2]", "sample[2]-disease[1]",
+                              "sample[3]", "sample[3]-disease[1]"))
+    res <- mtd_sample(sample = c("a", "b", "c"),
+                      disease = list(c("B"), NULL, 3:5))
+    expect_equal(res[, 1L], c("sample[1]", "sample[1]-disease[1]",
+                              "sample[2]", "sample[3]",
+                              "sample[3]-disease[1]", "sample[3]-disease[2]",
+                              "sample[3]-disease[3]"))
+    expect_equal(res[, 2L], c("a", "B", "b", "c", "3", "4", "5"))
+
+    ## description
+    expect_error(mtd_sample(sample = c("a", "b", "c"), description = "A"),
+                 "length equal to")
+    res <- mtd_sample(sample = c("a", "b", "c"), description = 1:3)
+    expect_equal(res[, 1L], c("sample[1]", "sample[1]-description",
+                              "sample[2]", "sample[2]-description",
+                              "sample[3]", "sample[3]-description"))
+    expect_equal(res[, 2L], c("a", "1", "b", "2", "c", "3"))
+
+    ## ...
+    expect_error(mtd_sample(sample = c("a", "b", "c"), "A"),
+                 "length has to match")
+    res <- mtd_sample(sample = c("a", "b", "c"), description = 1:3,
+                      c("custom 1", "custom 2", "custom 3"),
+                      c("other 1", "other 2", "other 3"))
+    expect_equal(res[, 1L], c("sample[1]", "sample[1]-description",
+                              "sample[1]-custom[1]", "sample[1]-custom[2]",
+                              "sample[2]", "sample[2]-description",
+                              "sample[2]-custom[1]", "sample[2]-custom[2]",
+                              "sample[3]", "sample[3]-description",
+                              "sample[3]-custom[1]", "sample[3]-custom[2]"))
+    expect_equal(res[, 2L], c("a", "1", "custom 1", "other 1",
+                              "b", "2", "custom 2", "other 2",
+                              "c", "3", "custom 3", "other 3"))
+})
+
+test_that("mtd_assay works", {
+    res <- mtd_assay()
+    expect_true(is.matrix(res))
+    expect_true(is.character(res))
+    expect_true(nrow(res) == 0)
+
+    expect_error(mtd_assay(assay = c("first")), "is required")
+    expect_error(mtd_assay(assay = c("first", "second"),
+                           ms_run_ref = "ms_run[1]"), "have to match")
+
+    res <- mtd_assay(assay = c("a", "b", "c"),
+                     ms_run_ref = c("ms_run[1]", "ms_run[1]", "ms_run[2]"))
+    expect_equal(
+        res[, 1L],
+        c("assay[1]", "assay[1]-ms_run_ref",
+          "assay[2]", "assay[2]-ms_run_ref",
+          "assay[3]", "assay[3]-ms_run_ref"))
+    expect_equal(
+        res[, 2L],
+        c("a", "ms_run[1]",
+          "b", "ms_run[1]",
+          "c", "ms_run[2]"))
+
+    res <- mtd_assay(assay = c("a", "b", "c"),
+                     external_uri = c("B"),
+                     ms_run_ref = c("ms_run[1]", "ms_run[1]", "ms_run[2]"))
+    expect_equal(
+        res[, 1L],
+        c("assay[1]", "assay[1]-external_uri", "assay[1]-ms_run_ref",
+          "assay[2]", "assay[2]-external_uri", "assay[2]-ms_run_ref",
+          "assay[3]", "assay[3]-external_uri", "assay[3]-ms_run_ref"))
+    expect_equal(
+        res[, 2L],
+        c("a", "B", "ms_run[1]",
+          "b", "B", "ms_run[1]",
+          "c", "B", "ms_run[2]"))
+    
+    expect_error(mtd_assay(assay = c("a", "b"),
+                           sample_ref = c("sample[1]"),
+                           ms_run_ref = c("ms_run[1]", "b")),
+                 "has to match")
+    res <- mtd_assay(assay = "a", ms_run_ref = "b", sample_ref = "B")
+    expect_equal(res[, 1L],
+                 c("assay[1]", "assay[1]-sample_ref", "assay[1]-ms_run_ref"))
+    expect_equal(res[, 2L], c("a", "B", "b"))
+    
+    res <- mtd_assay(assay = c("a", "b"), ms_run_ref = c("1", "2"),
+                     a = 1:2, b = 3:4)
+    expect_equal(
+        res[, 1L],
+        c("assay[1]", "assay[1]-ms_run_ref",
+          "assay[1]-custom[1]", "assay[1]-custom[2]",
+          "assay[2]", "assay[2]-ms_run_ref",
+          "assay[2]-custom[1]", "assay[2]-custom[2]"))
+    expect_equal(
+        res[, 2L],
+        c("a", "1", "1", "3", "b", "2", "2", "4"))
+    
+    ## multi assignment assay->ms_run
+    expect_error(mtd_assay(assay = c("a", "b"), ms_run_ref = list(1:2, NULL)),
+                 "At least one")
+    res <- mtd_assay(assay = c("a", "b"), ms_run_ref = list(1:2, 3))
+    expect_equal(
+        res[, 1L],
+        c("assay[1]", "assay[1]-ms_run_ref[1]", "assay[1]-ms_run_ref[2]",
+          "assay[2]", "assay[2]-ms_run_ref[1]"))
+    expect_equal(res[, 2L], c("a", "1", "2", "b", "3"))
+})
+
+test_that(".mtd_custom_fields works", {
+    res <- .mtd_custom_fields()
+    expect_true(is.matrix(res))
+    expect_true(is.character(res))
+    expect_true(nrow(res) == 0)
+
+    expect_error(.mtd_custom_fields(1:3, c("a", "b"), expected_length = 3L),
+                 "length has to match the length")
+
+    res <- .mtd_custom_fields(1:3, c("a", "b", "c"), expected_length = 3L)
+    expect_equal(
+        res[, 1L],
+        c("sample[1]-custom[1]", "sample[2]-custom[1]", "sample[3]-custom[1]",
+          "sample[1]-custom[2]", "sample[2]-custom[2]", "sample[3]-custom[2]"))
+    expect_equal(res[, 2L], c("1", "2", "3", "a", "b", "c"))
+    expect_equal(res[, 3L], c("1", "2", "3", "1", "2", "3"))
+})
+
+test_that("mtd_study_variables works", {
+    x <- data.frame(
+        name = c("I1_0", "I2_0", "I1_6", "I2_6", "I3_0"),
+        individual = c("I1", "I2", "I1", "I2", "I3"),
+        timepoint = c("0h", "6h", "0h", "6h", "0h"),
+        T2D = c(TRUE, FALSE, TRUE, FALSE, FALSE)
+    )
+    expect_error(
+        mtd_study_variables(x, study_variable_columns = c("T2D"),factors = 1:3),
+        "currently not supported")
+    expect_error(
+        mtd_study_variables(x, study_variable_columns = c("T2D", "A")),
+        "Not all column names")
+    
+    res <- mtd_study_variables(x, average_function = "A",
+                               variation_function = "B")
+    expect_equal(res[, 1L], c("study_variable[1]",
+                              "study_variable[1]-assay_refs",
+                              "study_variable[1]-average_function",
+                              "study_variable[1]-variation_function",
+                              "study_variable[1]-description"))
+    expect_equal(res[, 2L], c("undefined",
+                              "assay[1]|assay[2]|assay[3]|assay[4]|assay[5]",
+                              "A",
+                              "B",
+                              "Undefined"))
+
+    expect_error(
+        mtd_study_variables(x, average_function = character(),
+                            variation_function = "B"), "'average_function'")
+    expect_error(
+        mtd_study_variables(x, average_function = "A",
+                            variation_function = NULL), "'variation_function'")
+    expect_error(
+        mtd_study_variables(x, study_variable_columns = c("T2D", "timepoint"),
+                            average_function = "A", variation_function = "B",
+                            description = 1:2), "'description'")
+    
+    res <- mtd_study_variables(
+        x, study_variable_columns = c("T2D", "timepoint"),
+        average_function = "A", variation_function = "B")
+    expect_equal(res[, 1L],
+                 c("study_variable[1]",
+                   "study_variable[1]-assay_refs",
+                   "study_variable[1]-average_function",
+                   "study_variable[1]-variation_function",
+                   "study_variable[1]-description",
+                   "study_variable[2]",
+                   "study_variable[2]-assay_refs",
+                   "study_variable[2]-average_function",
+                   "study_variable[2]-variation_function",
+                   "study_variable[2]-description",
+                   "study_variable[3]",
+                   "study_variable[3]-assay_refs",
+                   "study_variable[3]-average_function",
+                   "study_variable[3]-variation_function",
+                   "study_variable[3]-description",
+                   "study_variable[4]",
+                   "study_variable[4]-assay_refs",
+                   "study_variable[4]-average_function",
+                   "study_variable[4]-variation_function",
+                   "study_variable[4]-description"))
+    expect_equal(res[, 2L],
+                 c("T2D:TRUE",
+                   "assay[1]|assay[3]",
+                   "A",
+                   "B",
+                   "Column: T2D, value: TRUE",
+                   "T2D:FALSE",
+                   "assay[2]|assay[4]|assay[5]",
+                   "A",
+                   "B",
+                   "Column: T2D, value: FALSE",
+                   "timepoint:0h",
+                   "assay[1]|assay[3]|assay[5]",
+                   "A",
+                   "B",
+                   "Column: timepoint, value: 0h",
+                   "timepoint:6h",
+                   "assay[2]|assay[4]",
+                   "A",
+                   "B",
+                   "Column: timepoint, value: 6h"))
+})

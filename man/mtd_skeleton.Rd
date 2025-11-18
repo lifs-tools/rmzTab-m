@@ -31,7 +31,8 @@ mtd_skeleton(
 \item{id}{`character(1)` (**mandatory**) with the ID of the data set.}
 
 \item{software}{`character` (**mandatory**) with the software(s) used.
-Can be of length > 1 if multiple softwares were used.}
+Can be of length > 1 if multiple softwares were used. Software should
+be provided in the order in which they were used.}
 
 \item{quantification_method}{`character(1)` defining the quantification
 method used in the experiment.}
@@ -81,11 +82,15 @@ two-column `character` `matrix` that should be expanded with
     information (with the help from the `mtd_fields()` function).
 }
 \description{
-Create a `matrix` with the basic mzTab-M *MTD* section based on the provided
-data. The returned result contains only minimal information. It should be
-expanded, corrected and completed with additional fields and information
-(i.e., the *skeleton* returned by this function should be completed with
-*flesh*).
+This *core* MTD section allows to describe the general experimental setup
+and provides general information of the data set. It should contain
+references to **all** controlled vocabulary (CV) ontologies used and
+refered to in the mzTab-M file.
+The `mtd_skeleton()` function creates a two-column `matrix` with the
+basic mzTab-M *MTD* section based on the provided data. The returned
+result contains only minimal information. It should be expanded, corrected
+and completed with additional fields and information (i.e., the
+*skeleton* returned by this function should be completed with *flesh*).
 
 For details and expected input for the various parameter it is **strongly
 suggested** to consult the [mzTab-M](https://github.com/HUPO-PSI/mzTab-M/blob/main/specification_documents/mzTab_format_specification_2_1-M.adoc#62-metadata-section) documentation.
@@ -149,6 +154,9 @@ mtd <- rbind(mtd, cv2)
 ## Finally sort the metadata fields according to the expected order
 mtd <- mtd_sort(mtd)
 mtd
+}
+\seealso{
+[MTD-export] for other functions defining metadata information
 }
 \author{
 Philippine Louail, Johannes Rainer

@@ -30,19 +30,19 @@ Assay Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{Assay$new()}}
-\item \href{#method-toJSON}{\code{Assay$toJSON()}}
-\item \href{#method-fromJSON}{\code{Assay$fromJSON()}}
-\item \href{#method-toJSONString}{\code{Assay$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{Assay$fromJSONString()}}
-\item \href{#method-toDataFrame}{\code{Assay$toDataFrame()}}
-\item \href{#method-fromDataFrame}{\code{Assay$fromDataFrame()}}
-\item \href{#method-clone}{\code{Assay$clone()}}
+\item \href{#method-Assay-new}{\code{Assay$new()}}
+\item \href{#method-Assay-toJSON}{\code{Assay$toJSON()}}
+\item \href{#method-Assay-fromJSON}{\code{Assay$fromJSON()}}
+\item \href{#method-Assay-toJSONString}{\code{Assay$toJSONString()}}
+\item \href{#method-Assay-fromJSONString}{\code{Assay$fromJSONString()}}
+\item \href{#method-Assay-toDataFrame}{\code{Assay$toDataFrame()}}
+\item \href{#method-Assay-fromDataFrame}{\code{Assay$fromDataFrame()}}
+\item \href{#method-Assay-clone}{\code{Assay$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-Assay-new"></a>}}
+\if{latex}{\out{\hypertarget{method-Assay-new}{}}}
 \subsection{Method \code{new()}}{
 Create an Assay
 \subsection{Usage}{
@@ -78,8 +78,8 @@ Create an Assay
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-Assay-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-Assay-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 Serialize to list object suitable for jsonlite
 \subsection{Usage}{
@@ -88,8 +88,8 @@ Serialize to list object suitable for jsonlite
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-Assay-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-Assay-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 Deserialize from jsonlite list object
 \subsection{Usage}{
@@ -105,8 +105,8 @@ Deserialize from jsonlite list object
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-Assay-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-Assay-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 Serialize to JSON string.
 \subsection{Usage}{
@@ -115,8 +115,8 @@ Serialize to JSON string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-Assay-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-Assay-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 Deserialize from JSON string
 \subsection{Usage}{
@@ -132,8 +132,8 @@ Deserialize from JSON string
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toDataFrame"></a>}}
-\if{latex}{\out{\hypertarget{method-toDataFrame}{}}}
+\if{html}{\out{<a id="method-Assay-toDataFrame"></a>}}
+\if{latex}{\out{\hypertarget{method-Assay-toDataFrame}{}}}
 \subsection{Method \code{toDataFrame()}}{
 Serialize to data frame
 \subsection{Usage}{
@@ -142,8 +142,8 @@ Serialize to data frame
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromDataFrame"></a>}}
-\if{latex}{\out{\hypertarget{method-fromDataFrame}{}}}
+\if{html}{\out{<a id="method-Assay-fromDataFrame"></a>}}
+\if{latex}{\out{\hypertarget{method-Assay-fromDataFrame}{}}}
 \subsection{Method \code{fromDataFrame()}}{
 Deserialize from assay data frame
 \subsection{Usage}{
@@ -159,8 +159,8 @@ Deserialize from assay data frame
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-Assay-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-Assay-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

@@ -11,11 +11,24 @@ convertMzTab2MAF(mzTabfile, MAFfile)
 
 \item{MAFfile}{for an output}
 }
+\value{
+data.frame of the MAF file (invisible)
+}
 \description{
 Convert from mzTab-M to MetaboLights MAF
+
+The `convertMzTab2MAF()` function will read the mzTab-M via `readMzTab()`
+and extract the `smlTable` and the `smfTable`. Abundances are extracted 
+from the `smlTable`, while *m/z* and retention time come from the feature table.
 }
 \examples{
 \dontrun{
-example from the vignette
+mztabfile <- system.file("testdata", 
+                         c("lcmsms_dda_hydrophilic_height_mzTab.mztab"), 
+                         package="rmzTabM")
+MAFfile <- file.path(tempdir(check=TRUE), "m_MTBLS0815_v2_maf.tsv")                      
+
+maf <- convertMzTab2MAF(mzTabfile=mztabfile,
+                        MAFfile=MAFfile)
 }
 }

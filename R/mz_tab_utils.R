@@ -30,3 +30,7 @@ rbind.ragged <- function(x, y) {
   colnames(y) <- seq(1:ncol(y))
   dplyr::bind_rows(x,y)
 }
+
+.prefix_zero <- function(x) {
+    sprintf(paste0("%0", ceiling(log10(max(x) + 1)), "d"), x)
+}

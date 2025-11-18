@@ -22,13 +22,13 @@ ApiResponse Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ApiResponse$new()}}
-\item \href{#method-clone}{\code{ApiResponse$clone()}}
+\item \href{#method-ApiResponse-new}{\code{ApiResponse$new()}}
+\item \href{#method-ApiResponse-clone}{\code{ApiResponse$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ApiResponse-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ApiResponse-new}{}}}
 \subsection{Method \code{new()}}{
 Create an ApiResponse
 \subsection{Usage}{
@@ -46,8 +46,8 @@ Create an ApiResponse
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ApiResponse-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ApiResponse-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

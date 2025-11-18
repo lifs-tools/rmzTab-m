@@ -22,19 +22,19 @@ ColumnParameterMapping Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ColumnParameterMapping$new()}}
-\item \href{#method-toJSON}{\code{ColumnParameterMapping$toJSON()}}
-\item \href{#method-fromJSON}{\code{ColumnParameterMapping$fromJSON()}}
-\item \href{#method-toJSONString}{\code{ColumnParameterMapping$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{ColumnParameterMapping$fromJSONString()}}
-\item \href{#method-toDataFrame}{\code{ColumnParameterMapping$toDataFrame()}}
-\item \href{#method-fromDataFrame}{\code{ColumnParameterMapping$fromDataFrame()}}
-\item \href{#method-clone}{\code{ColumnParameterMapping$clone()}}
+\item \href{#method-ColumnParameterMapping-new}{\code{ColumnParameterMapping$new()}}
+\item \href{#method-ColumnParameterMapping-toJSON}{\code{ColumnParameterMapping$toJSON()}}
+\item \href{#method-ColumnParameterMapping-fromJSON}{\code{ColumnParameterMapping$fromJSON()}}
+\item \href{#method-ColumnParameterMapping-toJSONString}{\code{ColumnParameterMapping$toJSONString()}}
+\item \href{#method-ColumnParameterMapping-fromJSONString}{\code{ColumnParameterMapping$fromJSONString()}}
+\item \href{#method-ColumnParameterMapping-toDataFrame}{\code{ColumnParameterMapping$toDataFrame()}}
+\item \href{#method-ColumnParameterMapping-fromDataFrame}{\code{ColumnParameterMapping$fromDataFrame()}}
+\item \href{#method-ColumnParameterMapping-clone}{\code{ColumnParameterMapping$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ColumnParameterMapping-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ColumnParameterMapping-new}{}}}
 \subsection{Method \code{new()}}{
 Create ColumnParameterMapping
 \subsection{Usage}{
@@ -54,8 +54,8 @@ Create ColumnParameterMapping
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-ColumnParameterMapping-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ColumnParameterMapping-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 Serialize to list object suitable for jsonlite
 \subsection{Usage}{
@@ -64,8 +64,8 @@ Serialize to list object suitable for jsonlite
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-ColumnParameterMapping-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ColumnParameterMapping-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 Deserialize from jsonlite list object
 \subsection{Usage}{
@@ -81,8 +81,8 @@ Deserialize from jsonlite list object
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-ColumnParameterMapping-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-ColumnParameterMapping-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 Serialize to JSON string.
 \subsection{Usage}{
@@ -91,8 +91,8 @@ Serialize to JSON string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-ColumnParameterMapping-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-ColumnParameterMapping-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 Deserialize from JSON string
 \subsection{Usage}{
@@ -108,8 +108,8 @@ Deserialize from JSON string
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toDataFrame"></a>}}
-\if{latex}{\out{\hypertarget{method-toDataFrame}{}}}
+\if{html}{\out{<a id="method-ColumnParameterMapping-toDataFrame"></a>}}
+\if{latex}{\out{\hypertarget{method-ColumnParameterMapping-toDataFrame}{}}}
 \subsection{Method \code{toDataFrame()}}{
 Serialize to data frame
 \subsection{Usage}{
@@ -125,8 +125,8 @@ Serialize to data frame
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromDataFrame"></a>}}
-\if{latex}{\out{\hypertarget{method-fromDataFrame}{}}}
+\if{html}{\out{<a id="method-ColumnParameterMapping-fromDataFrame"></a>}}
+\if{latex}{\out{\hypertarget{method-ColumnParameterMapping-fromDataFrame}{}}}
 \subsection{Method \code{fromDataFrame()}}{
 Deserialize from ColumnParameterMappingDataFrame
 \subsection{Usage}{
@@ -142,8 +142,8 @@ Deserialize from ColumnParameterMappingDataFrame
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ColumnParameterMapping-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ColumnParameterMapping-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

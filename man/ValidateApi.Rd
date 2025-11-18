@@ -91,15 +91,15 @@ result <- api.instance$ValidateMzTabFile(var.mztabfile,
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ValidateApi$new()}}
-\item \href{#method-ValidateMzTabFile}{\code{ValidateApi$ValidateMzTabFile()}}
-\item \href{#method-ValidateMzTabFileWithHttpInfo}{\code{ValidateApi$ValidateMzTabFileWithHttpInfo()}}
-\item \href{#method-clone}{\code{ValidateApi$clone()}}
+\item \href{#method-ValidateApi-new}{\code{ValidateApi$new()}}
+\item \href{#method-ValidateApi-ValidateMzTabFile}{\code{ValidateApi$ValidateMzTabFile()}}
+\item \href{#method-ValidateApi-ValidateMzTabFileWithHttpInfo}{\code{ValidateApi$ValidateMzTabFileWithHttpInfo()}}
+\item \href{#method-ValidateApi-clone}{\code{ValidateApi$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ValidateApi-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ValidateApi-new}{}}}
 \subsection{Method \code{new()}}{
 Create a new ValidateApi object.
 \subsection{Usage}{
@@ -115,8 +115,8 @@ Create a new ValidateApi object.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ValidateMzTabFile"></a>}}
-\if{latex}{\out{\hypertarget{method-ValidateMzTabFile}{}}}
+\if{html}{\out{<a id="method-ValidateApi-ValidateMzTabFile"></a>}}
+\if{latex}{\out{\hypertarget{method-ValidateApi-ValidateMzTabFile}{}}}
 \subsection{Method \code{ValidateMzTabFile()}}{
 Validate an MzTab object.
 \subsection{Usage}{
@@ -146,8 +146,8 @@ Validate an MzTab object.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ValidateMzTabFileWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-ValidateMzTabFileWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-ValidateApi-ValidateMzTabFileWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-ValidateApi-ValidateMzTabFileWithHttpInfo}{}}}
 \subsection{Method \code{ValidateMzTabFileWithHttpInfo()}}{
 Validate an MzTab file but include HTTP response info.
 \subsection{Usage}{
@@ -177,8 +177,8 @@ Validate an MzTab file but include HTTP response info.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ValidateApi-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ValidateApi-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

@@ -89,15 +89,15 @@ result <- api.instance$ValidatePlainMzTabFile(var.mztabfile, level=var.level,
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ValidatePlainApi$new()}}
-\item \href{#method-ValidatePlainMzTabFile}{\code{ValidatePlainApi$ValidatePlainMzTabFile()}}
-\item \href{#method-ValidatePlainMzTabFileWithHttpInfo}{\code{ValidatePlainApi$ValidatePlainMzTabFileWithHttpInfo()}}
-\item \href{#method-clone}{\code{ValidatePlainApi$clone()}}
+\item \href{#method-ValidatePlainApi-new}{\code{ValidatePlainApi$new()}}
+\item \href{#method-ValidatePlainApi-ValidatePlainMzTabFile}{\code{ValidatePlainApi$ValidatePlainMzTabFile()}}
+\item \href{#method-ValidatePlainApi-ValidatePlainMzTabFileWithHttpInfo}{\code{ValidatePlainApi$ValidatePlainMzTabFileWithHttpInfo()}}
+\item \href{#method-ValidatePlainApi-clone}{\code{ValidatePlainApi$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ValidatePlainApi-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ValidatePlainApi-new}{}}}
 \subsection{Method \code{new()}}{
 Create a new ValidatePlainApi object.
 \subsection{Usage}{
@@ -113,8 +113,8 @@ Create a new ValidatePlainApi object.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ValidatePlainMzTabFile"></a>}}
-\if{latex}{\out{\hypertarget{method-ValidatePlainMzTabFile}{}}}
+\if{html}{\out{<a id="method-ValidatePlainApi-ValidatePlainMzTabFile"></a>}}
+\if{latex}{\out{\hypertarget{method-ValidatePlainApi-ValidatePlainMzTabFile}{}}}
 \subsection{Method \code{ValidatePlainMzTabFile()}}{
 Validate a plaintext MzTab file.
 \subsection{Usage}{
@@ -144,8 +144,8 @@ Validate a plaintext MzTab file.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ValidatePlainMzTabFileWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-ValidatePlainMzTabFileWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-ValidatePlainApi-ValidatePlainMzTabFileWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-ValidatePlainApi-ValidatePlainMzTabFileWithHttpInfo}{}}}
 \subsection{Method \code{ValidatePlainMzTabFileWithHttpInfo()}}{
 Validate an plaintext MzTab file but include HTTP response info.
 \subsection{Usage}{
@@ -175,8 +175,8 @@ Validate an plaintext MzTab file but include HTTP response info.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ValidatePlainApi-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ValidatePlainApi-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

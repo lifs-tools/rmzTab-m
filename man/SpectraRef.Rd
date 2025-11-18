@@ -22,19 +22,19 @@ SpectraRef Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{SpectraRef$new()}}
-\item \href{#method-toJSON}{\code{SpectraRef$toJSON()}}
-\item \href{#method-fromJSON}{\code{SpectraRef$fromJSON()}}
-\item \href{#method-toJSONString}{\code{SpectraRef$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{SpectraRef$fromJSONString()}}
-\item \href{#method-toString}{\code{SpectraRef$toString()}}
-\item \href{#method-fromString}{\code{SpectraRef$fromString()}}
-\item \href{#method-clone}{\code{SpectraRef$clone()}}
+\item \href{#method-SpectraRef-new}{\code{SpectraRef$new()}}
+\item \href{#method-SpectraRef-toJSON}{\code{SpectraRef$toJSON()}}
+\item \href{#method-SpectraRef-fromJSON}{\code{SpectraRef$fromJSON()}}
+\item \href{#method-SpectraRef-toJSONString}{\code{SpectraRef$toJSONString()}}
+\item \href{#method-SpectraRef-fromJSONString}{\code{SpectraRef$fromJSONString()}}
+\item \href{#method-SpectraRef-toString}{\code{SpectraRef$toString()}}
+\item \href{#method-SpectraRef-fromString}{\code{SpectraRef$fromString()}}
+\item \href{#method-SpectraRef-clone}{\code{SpectraRef$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-SpectraRef-new"></a>}}
+\if{latex}{\out{\hypertarget{method-SpectraRef-new}{}}}
 \subsection{Method \code{new()}}{
 Create a SpectraRef
 \subsection{Usage}{
@@ -54,8 +54,8 @@ Create a SpectraRef
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-SpectraRef-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-SpectraRef-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 Serialize to list object suitable for jsonlite
 \subsection{Usage}{
@@ -64,8 +64,8 @@ Serialize to list object suitable for jsonlite
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-SpectraRef-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-SpectraRef-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 Deserialize from jsonlite list object
 \subsection{Usage}{
@@ -81,8 +81,8 @@ Deserialize from jsonlite list object
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-SpectraRef-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-SpectraRef-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 Serialize to JSON string.
 \subsection{Usage}{
@@ -91,8 +91,8 @@ Serialize to JSON string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-SpectraRef-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-SpectraRef-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 Deserialize from JSON string
 \subsection{Usage}{
@@ -108,8 +108,8 @@ Deserialize from JSON string
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toString"></a>}}
-\if{latex}{\out{\hypertarget{method-toString}{}}}
+\if{html}{\out{<a id="method-SpectraRef-toString"></a>}}
+\if{latex}{\out{\hypertarget{method-SpectraRef-toString}{}}}
 \subsection{Method \code{toString()}}{
 Serialize to string
 \subsection{Usage}{
@@ -118,8 +118,8 @@ Serialize to string
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromString}{}}}
+\if{html}{\out{<a id="method-SpectraRef-fromString"></a>}}
+\if{latex}{\out{\hypertarget{method-SpectraRef-fromString}{}}}
 \subsection{Method \code{fromString()}}{
 Deerialize from string
 \subsection{Usage}{
@@ -135,8 +135,8 @@ Deerialize from string
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-SpectraRef-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-SpectraRef-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

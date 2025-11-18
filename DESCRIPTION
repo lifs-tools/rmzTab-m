@@ -1,13 +1,29 @@
 Package: rmzTabM
 Title: R Package Client for mzTab-M Reference Implementation and Validation API
-Version: 1.0.5.9007
+Version: 1.1.0
 Authors@R: c(
-    person("Nils", "Hoffmann", email = "nils.hoffmann@cebitec.uni-bielefeld.de", role=c("aut","cre"), comment = c(ORCID = "0000-0002-6540-6875")),
-    person("Steffen", "Neumann", email = "sneumann@ipb-halle.de", role=c("aut"), comment = c(ORCID = "0000-0002-7899-7192")))
-Author: Nils Hoffmann [aut, cre],
-  Steffen Neumann [aut]
-Maintainer: Nils Hoffmann <nils.hoffmann@cebitec.uni-bielefeld.de>
-Description: This is the mzTab-M reference implementation reader and writer for R.
+    person(given = "Nils",
+           family = "Hoffmann",
+	   email = "nils.hoffmann@cebitec.uni-bielefeld.de",
+	   role = c("aut","cre"),
+	   comment = c(ORCID = "0000-0002-6540-6875")),
+    person(given = "Steffen",
+           family = "Neumann",
+	   email = "sneumann@ipb-halle.de",
+	   role = c("aut"),
+	   comment = c(ORCID = "0000-0002-7899-7192")),
+    person(given = "Johannes", family = "Rainer",
+           email = "Johannes.Rainer@eurac.edu",
+           role = c("aut"),
+           comment = c(ORCID = "0000-0002-6977-7147")),
+    person(given = "Philippine", family = "Louail",
+           email = "philippine.louail@eurac.edu",
+           role = c("aut"),
+           comment = c(ORCID = "0009-0007-5429-6846")))
+Description:
+    The rmzTabM package provides functions to read and write files in mzTab-M
+    format. This package represents the reference implementation for mzTab-M
+    import/export for R
 Depends: R (>= 4.0)
 Encoding: UTF-8
 License: MIT + file LICENSE
@@ -21,8 +37,15 @@ Suggests:
     rmarkdown,
     kableExtra,
     stringi
-Imports: jsonlite, httr, R6, caTools, dplyr, tidyr, metabolighteR
+Imports:
+    jsonlite,
+    httr,
+    R6,
+    caTools,
+    dplyr,
+    tidyr,
+    metabolighteR
 Remotes:
     github::sneumann/metabolighteR@devel
-RoxygenNote: 7.2.0
+RoxygenNote: 7.3.3
 VignetteBuilder: knitr

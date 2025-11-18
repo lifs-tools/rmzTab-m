@@ -28,19 +28,19 @@ Parameter Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{Parameter$new()}}
-\item \href{#method-toJSON}{\code{Parameter$toJSON()}}
-\item \href{#method-fromJSON}{\code{Parameter$fromJSON()}}
-\item \href{#method-toJSONString}{\code{Parameter$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{Parameter$fromJSONString()}}
-\item \href{#method-toString}{\code{Parameter$toString()}}
-\item \href{#method-fromString}{\code{Parameter$fromString()}}
-\item \href{#method-clone}{\code{Parameter$clone()}}
+\item \href{#method-Parameter-new}{\code{Parameter$new()}}
+\item \href{#method-Parameter-toJSON}{\code{Parameter$toJSON()}}
+\item \href{#method-Parameter-fromJSON}{\code{Parameter$fromJSON()}}
+\item \href{#method-Parameter-toJSONString}{\code{Parameter$toJSONString()}}
+\item \href{#method-Parameter-fromJSONString}{\code{Parameter$fromJSONString()}}
+\item \href{#method-Parameter-toString}{\code{Parameter$toString()}}
+\item \href{#method-Parameter-fromString}{\code{Parameter$fromString()}}
+\item \href{#method-Parameter-clone}{\code{Parameter$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-Parameter-new"></a>}}
+\if{latex}{\out{\hypertarget{method-Parameter-new}{}}}
 \subsection{Method \code{new()}}{
 Create a Parameter
 \subsection{Usage}{
@@ -66,8 +66,8 @@ Create a Parameter
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-Parameter-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-Parameter-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 Serialize to list object suitable for jsonlite
 \subsection{Usage}{
@@ -76,8 +76,8 @@ Serialize to list object suitable for jsonlite
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-Parameter-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-Parameter-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 Deserialize from jsonlite list object
 \subsection{Usage}{
@@ -93,8 +93,8 @@ Deserialize from jsonlite list object
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-Parameter-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-Parameter-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 Serialize to JSON string.
 \subsection{Usage}{
@@ -103,8 +103,8 @@ Serialize to JSON string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-Parameter-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-Parameter-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 Deserialize from JSON string
 \subsection{Usage}{
@@ -120,8 +120,8 @@ Deserialize from JSON string
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toString"></a>}}
-\if{latex}{\out{\hypertarget{method-toString}{}}}
+\if{html}{\out{<a id="method-Parameter-toString"></a>}}
+\if{latex}{\out{\hypertarget{method-Parameter-toString}{}}}
 \subsection{Method \code{toString()}}{
 Serialize to string
 \subsection{Usage}{
@@ -130,8 +130,8 @@ Serialize to string
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromString}{}}}
+\if{html}{\out{<a id="method-Parameter-fromString"></a>}}
+\if{latex}{\out{\hypertarget{method-Parameter-fromString}{}}}
 \subsection{Method \code{fromString()}}{
 Deserialize from string
 \subsection{Usage}{
@@ -149,8 +149,8 @@ Deserialize from string
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-Parameter-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-Parameter-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

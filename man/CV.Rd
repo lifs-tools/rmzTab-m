@@ -28,19 +28,19 @@ CV Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{CV$new()}}
-\item \href{#method-toJSON}{\code{CV$toJSON()}}
-\item \href{#method-fromJSON}{\code{CV$fromJSON()}}
-\item \href{#method-toJSONString}{\code{CV$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{CV$fromJSONString()}}
-\item \href{#method-toDataFrame}{\code{CV$toDataFrame()}}
-\item \href{#method-fromDataFrame}{\code{CV$fromDataFrame()}}
-\item \href{#method-clone}{\code{CV$clone()}}
+\item \href{#method-CV-new}{\code{CV$new()}}
+\item \href{#method-CV-toJSON}{\code{CV$toJSON()}}
+\item \href{#method-CV-fromJSON}{\code{CV$fromJSON()}}
+\item \href{#method-CV-toJSONString}{\code{CV$toJSONString()}}
+\item \href{#method-CV-fromJSONString}{\code{CV$fromJSONString()}}
+\item \href{#method-CV-toDataFrame}{\code{CV$toDataFrame()}}
+\item \href{#method-CV-fromDataFrame}{\code{CV$fromDataFrame()}}
+\item \href{#method-CV-clone}{\code{CV$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-CV-new"></a>}}
+\if{latex}{\out{\hypertarget{method-CV-new}{}}}
 \subsection{Method \code{new()}}{
 Create a CV
 \subsection{Usage}{
@@ -66,8 +66,8 @@ Create a CV
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-CV-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-CV-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 Serialize to list object suitable for jsonlite
 \subsection{Usage}{
@@ -76,8 +76,8 @@ Serialize to list object suitable for jsonlite
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-CV-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-CV-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 Deserialize from jsonlite list object
 \subsection{Usage}{
@@ -93,8 +93,8 @@ Deserialize from jsonlite list object
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-CV-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-CV-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 Serialize to JSON string.
 \subsection{Usage}{
@@ -103,8 +103,8 @@ Serialize to JSON string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-CV-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-CV-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 Deserialize from JSON string
 \subsection{Usage}{
@@ -120,8 +120,8 @@ Deserialize from JSON string
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toDataFrame"></a>}}
-\if{latex}{\out{\hypertarget{method-toDataFrame}{}}}
+\if{html}{\out{<a id="method-CV-toDataFrame"></a>}}
+\if{latex}{\out{\hypertarget{method-CV-toDataFrame}{}}}
 \subsection{Method \code{toDataFrame()}}{
 Serialize to data frame
 \subsection{Usage}{
@@ -130,8 +130,8 @@ Serialize to data frame
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromDataFrame"></a>}}
-\if{latex}{\out{\hypertarget{method-fromDataFrame}{}}}
+\if{html}{\out{<a id="method-CV-fromDataFrame"></a>}}
+\if{latex}{\out{\hypertarget{method-CV-fromDataFrame}{}}}
 \subsection{Method \code{fromDataFrame()}}{
 Deserialize from CV data frame
 \subsection{Usage}{
@@ -147,8 +147,8 @@ Deserialize from CV data frame
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-CV-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-CV-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

@@ -22,19 +22,19 @@ Uri Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{Uri$new()}}
-\item \href{#method-toJSON}{\code{Uri$toJSON()}}
-\item \href{#method-fromJSON}{\code{Uri$fromJSON()}}
-\item \href{#method-toJSONString}{\code{Uri$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{Uri$fromJSONString()}}
-\item \href{#method-toDataFrame}{\code{Uri$toDataFrame()}}
-\item \href{#method-fromDataFrame}{\code{Uri$fromDataFrame()}}
-\item \href{#method-clone}{\code{Uri$clone()}}
+\item \href{#method-Uri-new}{\code{Uri$new()}}
+\item \href{#method-Uri-toJSON}{\code{Uri$toJSON()}}
+\item \href{#method-Uri-fromJSON}{\code{Uri$fromJSON()}}
+\item \href{#method-Uri-toJSONString}{\code{Uri$toJSONString()}}
+\item \href{#method-Uri-fromJSONString}{\code{Uri$fromJSONString()}}
+\item \href{#method-Uri-toDataFrame}{\code{Uri$toDataFrame()}}
+\item \href{#method-Uri-fromDataFrame}{\code{Uri$fromDataFrame()}}
+\item \href{#method-Uri-clone}{\code{Uri$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-Uri-new"></a>}}
+\if{latex}{\out{\hypertarget{method-Uri-new}{}}}
 \subsection{Method \code{new()}}{
 Create a URI
 \subsection{Usage}{
@@ -54,8 +54,8 @@ Create a URI
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-Uri-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-Uri-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 Serialize to list object suitable for jsonlite
 \subsection{Usage}{
@@ -64,8 +64,8 @@ Serialize to list object suitable for jsonlite
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-Uri-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-Uri-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 Deserialize from jsonlite list object
 \subsection{Usage}{
@@ -81,8 +81,8 @@ Deserialize from jsonlite list object
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-Uri-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-Uri-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 Serialize to JSON string.
 \subsection{Usage}{
@@ -91,8 +91,8 @@ Serialize to JSON string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-Uri-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-Uri-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 Deserialize from JSON string
 \subsection{Usage}{
@@ -108,8 +108,8 @@ Deserialize from JSON string
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toDataFrame"></a>}}
-\if{latex}{\out{\hypertarget{method-toDataFrame}{}}}
+\if{html}{\out{<a id="method-Uri-toDataFrame"></a>}}
+\if{latex}{\out{\hypertarget{method-Uri-toDataFrame}{}}}
 \subsection{Method \code{toDataFrame()}}{
 Serialize to data frame
 \subsection{Usage}{
@@ -125,8 +125,8 @@ Serialize to data frame
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromDataFrame"></a>}}
-\if{latex}{\out{\hypertarget{method-fromDataFrame}{}}}
+\if{html}{\out{<a id="method-Uri-fromDataFrame"></a>}}
+\if{latex}{\out{\hypertarget{method-Uri-fromDataFrame}{}}}
 \subsection{Method \code{fromDataFrame()}}{
 Deserialize from assay data frame
 \subsection{Usage}{
@@ -142,8 +142,8 @@ Deserialize from assay data frame
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-Uri-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-Uri-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

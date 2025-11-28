@@ -64,6 +64,12 @@ extractIds <- function(mtd.sub.table, column, regexp=idRegexp) {
   })
 }
 
+idElementsReshape <- function(x) {
+  tx <- t(x[[-1]])
+  colnames(tx) <- x[, 1]
+  data.frame(tx, check.names = FALSE)
+}
+
 extractId <- function(idElement, regexp=idRegexp) {
   as.numeric(gsub(idElementRegexp, "\\1", as.character(idElement)))
 }
@@ -94,7 +100,7 @@ extractIdElements <- function(mtd.sub.table, typePrefix, mapEmptyKeyTo="name") {
       warning(paste("Unsupported mapEmptyKeyTo property:", mapEmptyKeyTo, "Supported are 'name', 'param' and 'parameter'"))
     }
     # pivot table from long to wide format (which is the one JSONLITE expects)
-    subsetWide <- tidyr::pivot_wider(subset, names_from="V2", values_from="V3")
+    subsetWide <- idElementsReshape(subset)
     # add id as column
     subsetWide$id <- as.numeric(x)
     subsetWide

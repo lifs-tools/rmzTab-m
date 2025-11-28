@@ -21,7 +21,7 @@ Suggests:
     rmarkdown,
     kableExtra,
     stringi
-Imports: jsonlite, httr, R6, caTools, dplyr, tidyr, metabolighteR
+Imports: jsonlite, httr, R6, caTools, dplyr, metabolighteR
 Remotes:
     github::sneumann/metabolighteR@devel
 RoxygenNote: 7.2.0
